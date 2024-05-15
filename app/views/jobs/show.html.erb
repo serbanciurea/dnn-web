@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @job %>
+
+<div>
+  <%= link_to "Edit this project port", edit_job_path(@job) %> |
+  <%= link_to "Back to project ports", jobs_path %>
+
+  <%= button_to "Destroy this project port", @job, method: :delete %>
+</div>

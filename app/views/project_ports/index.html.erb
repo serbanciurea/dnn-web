@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Project ports</h1>
+
+<div id="project_ports">
+  <% @project_ports.each do |project_port| %>
+    <%= render project_port %>
+    <p>
+      <%= link_to "Show this project port", project_port %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New project port", new_project_port_path %>
