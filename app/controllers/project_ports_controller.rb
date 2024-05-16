@@ -65,6 +65,6 @@ class ProjectPortsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_port_params
-      params.require(:project_port).permit(:name, :description, :collaborations)
+      params.require(:project_port).permit(:name, :description, :collaborations, photos: [])
     end
 end
