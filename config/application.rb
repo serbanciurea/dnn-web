@@ -38,5 +38,7 @@ module DnnWeb
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    # the code below is requiring manually the active storage
+    require "active_storage/engine"
   end
 end
