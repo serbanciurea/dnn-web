@@ -1,0 +1,40 @@
+<!-- app/views/shared/_navbar.html.erb -->
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-left">
+      <%= link_to 'Home', root_path %>
+    </div>
+    <div class="navbar-right">
+      <div class="dropdown">
+        <button class="dropbtn">Services</button>
+        <div class="dropdown-content">
+          <%= link_to 'Service 1', '#' %>
+          <%= link_to 'Service 2', '#' %>
+          <%= link_to 'Service 3', '#' %>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Careers</button>
+        <div class="dropdown-content">
+          <%= link_to 'Career 1', '#' %>
+          <%= link_to 'Career 2', '#' %>
+          <%= link_to 'Career 3', '#' %>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Projects</button>
+        <div class="dropdown-content">
+          <%= link_to 'Project 1', '#' %>
+          <%= link_to 'Project 2', '#' %>
+          <%= link_to 'Project 3', '#' %>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">About Us</button>
+        <div class="dropdown-content">
+          <%= link_to 'About Us', '#' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
