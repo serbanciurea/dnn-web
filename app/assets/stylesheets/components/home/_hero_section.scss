@@ -15,13 +15,46 @@
   display: grid;
 }
 
-// .hero-section::before {
-//   content: "";
-//   position: absolute;
-//   top: 0; left: 0;
-//   width: 100%; height: 100%;
-// }
+.hero-content {
+  height: 60vh;
+  width: 80vw;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+}
 
 .hero-section h1 {
-  z-index: 1000;
+  font-size: 64px;
+}
+
+.h-subtitle {
+  font-size: 32px;
+  font-family: "Switzer-Regular";
+  margin-top: -200px;
+}
+
+.h-links {
+  width: 80vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-around;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:link {
+  color: white;
+}
+
+a:hover {
+  color: rgba(228, 78, 50, 0.5);
+}
+
+a:active {
+  color: white;
 }
