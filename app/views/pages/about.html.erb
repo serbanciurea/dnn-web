@@ -1,7 +1,16 @@
 <!-- app/views/pages/about.html.erb -->
 <div class="section section-1">
-  <h1>About Our Company</h1>
-  <p>We are a leading railway company committed to providing the best service...</p>
+  <h1>DNNovation</h1>
+
+  <!-- Full-width image section -->
+<div class="full-width-image">
+  <%= cl_image_tag("your_image_public_id", height: "30vh", width: "100%", crop: "fill") %>
+</div>
+
+  <p>At Dnnovation, we are a distinguished railway and civil
+    company committed to delivering excellence in manpower provision for project execution. With a focus on precision and professionalism, we contribute significantly to the enhancement
+    and development of railway infrastructure and civil engineering projects.
+  </p>
 </div>
 
 <div class="section section-2">
@@ -10,9 +19,36 @@
 </div>
 
 <div class="section section-3">
-  <h2>Our Mission</h2>
-  <p>Our mission is to deliver safe, reliable, and efficient transportation services...</p>
+  <h2>Our Specializations</h2>
+  <div class="industry-grid">
+    <div class="industry">
+      <%= image_tag("railway.png", alt: "Railway Civils Icon") %>
+      <p>Railway Civils</p>
+    </div>
+    <div class="industry">
+      <%= image_tag("electrical.png", alt: "Electrical Icon") %>
+      <p>Electrical</p>
+    </div>
+    <div class="industry">
+      <%= image_tag("logistics.png", alt: "Highway Icon") %>
+      <p>Highway</p>
+    </div>
+    <div class="industry">
+      <%= image_tag("maintanance.png", alt: "Maintenance Icon") %>
+      <p>Maintenance</p>
+    </div>
+    <div class="industry">
+      <%= image_tag("logistics.png", alt: "Logistics Icon") %>
+      <p>Logistics</p>
+    </div>
+    <div class="industry">
+      <%= image_tag("construction.png", alt: "Construction Icon") %>
+      <p>Construction</p>
+    </div>
+  </div>
 </div>
+
+
 
 <div class="section section-4">
   <h2>Contact Us</h2>

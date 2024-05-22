@@ -6,17 +6,49 @@
 }
 
 .section-1 {
-  background-color: #004080; /* Navy blue */
+  background-color: rgb(51, 51, 51) /* Navy blue */
 }
 
 .section-2 {
-  background-color: #0073e6; /* Bright blue */
+  background-color: white; /* Bright blue */
 }
 
 .section-3 {
-  background-color: #66b3ff; /* Light blue */
+  background-color: white; /* Light blue */
 }
 
 .section-4 {
-  background-color: #cce6ff; /* Very light blue */
+  background-color: white; /* Very light blue */
+}
+
+/* app/assets/stylesheets/abuts.scss */
+
+/* Styles for industry grid */
+.industry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+/* Styles for each industry item */
+.industry {
+  text-align: center;
+}
+
+.industry img {
+  width: 80px; /* Adjust size as needed */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 14px;
+  color: rgb(51, 51, 51); /* Navy blue */
+}
+
+
+.full-width-image {
+  width: 100%;
+  height: 30vh;
+  overflow: hidden;
 }
