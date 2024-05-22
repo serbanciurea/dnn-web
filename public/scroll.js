@@ -12,3 +12,19 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll(".hidden");
 hiddenElements.forEach((el) => observer.observe(el));
+
+// blob animation
+
+const blob = document.getElementById("blob");
+
+document.body.onpointermove = event => {
+  const { clientX, clientY } = event;
+
+  // blob.style.left = `${clientX}px`;
+  // blob.style.top = `${clientY}px`;
+  blob.animate ({
+    left: `${clientX}px`,
+      top: `${clientY + window.scrollY}px`
+  }, { duration: 1000, fill: "forwards" });
+
+}
