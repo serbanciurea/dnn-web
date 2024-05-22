@@ -18,4 +18,13 @@
 
 @import "components/index";
 @import "components/home/index";
+@import "components/fonts/WEB/css/switzer";
+
+body {
+  font-family: 'Switzer-Regular', sans-serif;
+}
+
+.bold-text {
+  font-family: 'Switzer-Black', sans-serif;
+}
 @import "components/home/aboutus";
