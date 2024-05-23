@@ -1,0 +1,11 @@
+.about-content {
+  background-color: pink;
+  height: 20vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding: 20px;
+}
