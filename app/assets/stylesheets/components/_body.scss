@@ -1,4 +1,40 @@
 body {
   background-color: black;
-  color: white;
+  color: #FEFCFF;
+}
+
+// BLOB FROM POINTER CURSOUR
+
+@keyframes rotate {
+  from {
+    rotate: 0eg;
+  }
+
+  to {
+    rotate: 360deg;
+  }
+}
+
+
+#blob {
+  background-color: red;
+  height: 400px;
+  aspect-ratio: 1;
+  position: absolute;
+  // left: 50%;
+  // top: 50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+
+  background: linear-gradient(
+  to right,
+    red,
+    orange
+  );
+
+  animation: rotate 20s infinite;
+  filter: blur(200px);
+
+  pointer-events: none;
+  z-index: -1;
 }
