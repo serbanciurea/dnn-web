@@ -35,7 +35,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0.5; /* Adjust the opacity as needed */
-  z-index: 1; /* Ensure the pseudo-element is behind the content */
+  z-index: 2; /* Ensure the pseudo-element is behind the content */
 }
 
 // -----------------------------
@@ -47,7 +47,7 @@
   align-items: center;
   justify-content: center;
   // -----------------
-  z-index: 2;
+  z-index: 3;
 }
 
 
@@ -71,11 +71,11 @@
 
 a {
   text-decoration: none;
-  color: white;
+  color: #FEFCFF;
 }
 
 a:link {
-  color: white;
+  color: #FEFCFF;
 }
 
 a:hover {
@@ -83,5 +83,5 @@ a:hover {
 }
 
 a:active {
-  color: white;
+  color: #FEFCFF;
 }

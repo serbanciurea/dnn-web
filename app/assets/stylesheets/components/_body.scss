@@ -1,9 +1,9 @@
 body {
   background-color: black;
-  color: white;
+  color: #FEFCFF;
 }
 
-// the blob animation
+// BLOB FROM POINTER CURSOUR
 
 @keyframes rotate {
   from {
@@ -14,6 +14,7 @@ body {
     rotate: 360deg;
   }
 }
+
 
 #blob {
   background-color: red;
@@ -27,8 +28,8 @@ body {
 
   background: linear-gradient(
   to right,
-    rgb(2130, 27, 8),
-    rgb(39, 95, 214)
+    red,
+    orange
   );
 
   animation: rotate 20s infinite;

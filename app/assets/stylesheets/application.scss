@@ -32,7 +32,7 @@ body {
   background-color: transparent; /* No background initially */
   border: 2px solid rgba(228, 78, 50, 0.5); /* Orange border */
   // color: rgba(228, 78, 50, 0.5); /* Orange text */
-  color: white;
+  color: #FEFCFF;
   padding: 10px 20px; /* Padding for the button */
   font-size: 16px; /* Font size */
   cursor: pointer; /* Pointer cursor on hover */
@@ -41,6 +41,6 @@ body {
 
 .gradient-button:hover {
   background: linear-gradient(45deg, #FFA500, rgba(228, 78, 50, 0.5)); /* Gradient background on hover */
-  color: white; /* Change text color to white on hover */
+  color: #FEFCFF; /* Change text color to white on hover */
   border: 2px solid transparent; /* Remove border on hover */
 }
