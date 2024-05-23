@@ -34,7 +34,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(rgba(228, 78, 50, 0.5), rgba(0, 0, 0, 0.1)), url("https://images.unsplash.com/photo-1588127727253-e5f2faf4f541?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cmFpbHdheXxlbnwwfHwwfHx8MA%3D%3D");
+  background-image: rgba(234, 93, 48, 0.5), url("https://images.unsplash.com/photo-1588127727253-e5f2faf4f541?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cmFpbHdheXxlbnwwfHwwfHx8MA%3D%3D");
+  // linear-gradient(rgba(228, 78, 50, 0.5), rgba(0, 0, 0, 0.1))
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -78,11 +79,11 @@
 
 a {
   text-decoration: none;
-  color: #FEFCFF;
+  color: #1D2327;
 }
 
 a:link {
-  color: #FEFCFF;
+  color: #1D2327;
 }
 
 a:hover {
@@ -90,5 +91,5 @@ a:hover {
 }
 
 a:active {
-  color: #FEFCFF;
+  color: #1D2327;
 }
