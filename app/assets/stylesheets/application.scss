@@ -22,6 +22,7 @@
 
 body {
   font-family: 'Switzer-Regular', sans-serif;
+  // background-color: #1D2327;
 }
 
 .bold-text {
@@ -30,17 +31,18 @@ body {
 
 .gradient-button {
   background-color: transparent; /* No background initially */
-  border: 2px solid rgba(228, 78, 50, 0.5); /* Orange border */
+  border: 2px solid #EA5D30;
   // color: rgba(228, 78, 50, 0.5); /* Orange text */
   color: #FEFCFF;
   padding: 10px 20px; /* Padding for the button */
   font-size: 16px; /* Font size */
   cursor: pointer; /* Pointer cursor on hover */
-  transition: background 0.5s ease, color 0.5s ease; /* Smooth transition */
+  transition: background 0.5s ease, color 0.5s ease, border 0.5s ease; /* Smooth transition */
 }
 
 .gradient-button:hover {
-  background: linear-gradient(45deg, #FFA500, rgba(228, 78, 50, 0.5)); /* Gradient background on hover */
+  background: linear-gradient(45deg, #EA5D30, #1D2327);
+  border: transparent;
   color: #FEFCFF; /* Change text color to white on hover */
-  border: 2px solid transparent; /* Remove border on hover */
+  // border: 2px solid transparent; /* Remove border on hover */
 }
