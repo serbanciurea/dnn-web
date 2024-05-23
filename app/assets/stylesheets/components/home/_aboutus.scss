@@ -1,54 +1,90 @@
 /* app/assets/stylesheets/pages.css */
+/* app/assets/stylesheets/abuts.scss or app/assets/stylesheets/application.scss */
+
+/* Define the color variables */
+:root {
+  --milky-white: #FEFCFF;
+  --orange: #EA5D30;
+  --grey: #1D2327;
+}
+
+body {
+  background-color: var(--milky-white);
+  color: var(--grey);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 .section {
   padding: 20px;
-  color: #FEFCFF;
-  text-align: center;
 }
 
 .section-1 {
-  background-color: #1D2327
+  background-color: var(--milky-white);
+  color: var(--grey);
 }
 
 .section-2 {
-  background-color: #FEFCFF;
+  background-color: var(--orange);
+  color: var(--milky-white);
 }
 
 .section-3 {
-  background-color: #FEFCFF;
+  background-color: var(--grey);
+  color: var(--milky-white);
 }
 
 .section-4 {
-  background-color: #FEFCFF;
+  background-color: var(--milky-white);
+  color: var(--grey);
 }
-
-/* app/assets/stylesheets/abuts.scss */
-
-/* Styles for industry grid */
-.industry-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 20px;
-}
-
-/* Styles for each industry item */
-.industry {
-  text-align: center;
-}
-
-.industry img {
-  width: 80px; /* Adjust size as needed */
-  height: auto;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 14px;
-  color: #1D2327;
-}
-
 
 .full-width-image {
   width: 100%;
   height: 30vh;
   overflow: hidden;
+}
+
+.full-width-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.industry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+.industry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  background-color: var(--milky-white);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.industry img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.industry p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: var(--grey);
+}
+
+.logo img {
+  height: 50px; /* Adjust as needed */
+  width: auto;
 }
