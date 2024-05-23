@@ -21,7 +21,7 @@
   font-size: 16px;
   border: none;
   outline: none;
-  color: #FEFCFF;
+  color: #1D2327;
   background-color: inherit;
   margin: 0;
   padding: 14px 16px;
@@ -48,7 +48,7 @@
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #f9f9f9;
 }
 
 .dropdown:hover .dropdown-content {
@@ -56,5 +56,5 @@
 }
 
 .dropdown:hover .dropbtn {
-  background-color: #555;
+  background-color: #f9f9f9;
 }
