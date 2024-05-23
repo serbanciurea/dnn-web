@@ -1,16 +1,18 @@
 <!-- app/views/pages/about.html.erb -->
-<div class="section section-1">
-  <h1>DNNovation</h1>
-
-  <!-- Full-width image section -->
-<div class="full-width-image">
-  <%= image_tag("trainline.jpg", alt: "Full Width Image", style: "width: 100%; height: 30vh; object-fit: cover;") %>
+<div class="header">
+  <div class="logo">
+    <%= image_tag("logo.png", alt: "Company Logo") %>
+  </div>
 </div>
 
-  <p>At Dnnovation, we are a distinguished railway and civil
-    company committed to delivering excellence in manpower provision for project execution. With a focus on precision and professionalism, we contribute significantly to the enhancement
-    and development of railway infrastructure and civil engineering projects.
-  </p>
+<div class="section section-1">
+  <!-- Full-width image section -->
+  <div class="full-width-image">
+    <%= image_tag("llt.png", alt: "Full Width Image", style: "width: 100%; height: 30vh; object-fit: cover;") %>
+  </div>
+
+  <h1>DNNovation</h1>
+  <p>At Dnnovation, we are a distinguished railway and civil company committed to delivering excellence in manpower provision for project execution. With a focus on precision and professionalism, we contribute significantly to the enhancement and development of railway infrastructure and civil engineering projects.</p>
 </div>
 
 <div class="section section-2">
@@ -34,7 +36,7 @@
       <p>Highway</p>
     </div>
     <div class="industry">
-      <%= image_tag("maintanance.png", alt: "Maintenance Icon") %>
+      <%= image_tag("maintenance.png", alt: "Maintenance Icon") %>
       <p>Maintenance</p>
     </div>
     <div class="industry">
@@ -47,8 +49,6 @@
     </div>
   </div>
 </div>
-
-
 
 <div class="section section-4">
   <h2>Contact Us</h2>
