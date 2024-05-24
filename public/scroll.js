@@ -28,3 +28,5 @@ document.body.onpointermove = event => {
   }, { duration: 1000, fill: "forwards" });
 
 }
+
+// 3D image gallery from portofolio, home page
