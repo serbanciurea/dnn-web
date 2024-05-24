@@ -28,3 +28,21 @@ document.body.onpointermove = event => {
   }, { duration: 1000, fill: "forwards" });
 
 }
+
+// 3D image gallery from portofolio, home page
+
+let prev = document.querySelector(".btn-prev");
+let next = document.querySelector(".btn-next");
+let box = document.querySelector(".box");
+
+let degrees = 0;
+
+prev.addEventListener('click', function() {
+  degrees += 45;
+  box.style = `transform: perspective(1000px) rotateY(${degrees}deg);`;
+})
+
+next.addEventListener('click', function() {
+  degrees -= 45;
+  box.style = `transform: perspective(1000px) rotateY(${degrees}deg);`;
+})
