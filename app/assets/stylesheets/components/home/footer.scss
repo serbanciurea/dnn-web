@@ -1,0 +1,77 @@
+.footer {
+  background-color: #1D2327;
+  color: white;
+  padding: 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 10px;
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-section ul {
+  margin-top: 10px;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-link {
+  color: #EA5D30;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-icon {
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.footer-icon:hover {
+  color: #EA5D30;
+}
+
+.footer-bottom {
+  background-color: #1D2327;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+.footer-menu {
+  background-color: #1D2327;
+  color: white;
+  text-decoration: none;
+}
+.footer-menu a {
+  /* Add specific styles for the links within this menu */
+  color: white;
+}
