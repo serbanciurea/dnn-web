@@ -1,53 +1,61 @@
-<!-- app/views/pages/about.html.erb -->
-<!-- app/views/pages/about.html.erb -->
+
 <div class="section section-1">
-  <!-- Full-width image section -->
   <div class="full-width-image">
-    <%= image_tag("llt.jpg", alt: "Full Width Image", style: "width: 100%; height: 30vh; object-fit: cover;") %>
-    <div class="image-overlay"></div>
+    <%= image_tag("llt.jpg", alt: "Full Width Image", class: "bg-image") %>
+    <div class="about-us-overlay">
+      <h1>About Us</h1>
+    </div>
   </div>
-  <div class="about-us-overlay">
-    <h2>About Us</h2>
-  </div>
-
-  <h1>DNNovation</h1>
-  <p>
-    At DNNovation, we redefine excellence in recruitment services, prioritizing unparalleled quality and a fresh, innovative approach.
-As a dynamic and youthful agency, we pride ourselves on our ability to deliver top-tier permanent, contract, and temporary recruitment solutions both in the UK and overseas. <br> <br>
-
-
-Unlike traditional agencies, at DNNovation, we place a premium on fostering meaningful relationships, not just with our clients and suppliers, but also within our own team.
-We believe that strong bonds between staff leaders are the cornerstone of our success, driving collaboration, creativity, and ultimately, superior outcomes for our clients.<br> <br>
-
-
-Our reputation speaks volumes.
-Despite our youthfulness, we've quickly become a trusted partner in the industry, known for our unwavering professionalism and integrity.<br> <br>
-We set new standards, challenging the status quo and exceeding expectations at every turn.
-
-
-What sets us apart is our relentless dedication to finding the perfect match.
-We invest time to truly understand the unique requirements of our clients, leveraging our extensive industry knowledge and cutting-edge technology to identify candidates who not only meet the job specifications but also align with your company culture and values.<br> <br>
-
-
-Rest assured, every candidate we recommend undergoes rigorous vetting processes to ensure compliance with the highest standards.
-Quality is non-negotiable, and we never compromise on safety, prioritizing the well-being of our candidates and clients above all else.<br> <br>
-
-
-At DNNovation, we're not just in the business of filling roles; we're in the business of building long-term partnerships based on trust, honesty, and mutual respect.
-Join us on our journey, and let's redefine the future of recruitment together.<br> <br>
-
-      </p>
+</div>
 </div>
 
+<div class="description">
+  <div class="description-image">
+    <%= image_tag("wmanager.jpg", alt: "About Us Image") %>
+  </div>
+  <div class="description-text">
+    <h1>Our Values</h1>
+    <p>
+      <span class="short-text">
+        At DNNovation, we redefine excellence in recruitment services, prioritizing unparalleled quality and a fresh, innovative approach. As a dynamic and youthful agency, we pride ourselves on our ability to deliver top-tier permanent, contract, and temporary recruitment solutions both in the UK and overseas.
+      </span>
+      <span class="full-text" style="display: none;">
+        At DNNovation, we redefine excellence in recruitment services, prioritizing unparalleled quality and a fresh, innovative approach. As a dynamic and youthful agency, we pride ourselves on our ability to deliver top-tier permanent, contract, and temporary recruitment solutions both in the UK and overseas. <br> <br>
+        Unlike traditional agencies, at DNNovation, we place a premium on fostering meaningful relationships, not just with our clients and suppliers, but also within our own team. We believe that strong bonds between staff leaders are the cornerstone of our success, driving collaboration, creativity, and ultimately, superior outcomes for our clients.<br> <br>
+        Our reputation speaks volumes. Despite our youthfulness, we've quickly become a trusted partner in the industry, known for our unwavering professionalism and integrity.<br> <br>
+        We set new standards, challenging the status quo and exceeding expectations at every turn.
+        What sets us apart is our relentless dedication to finding the perfect match. We invest time to truly understand the unique requirements of our clients, leveraging our extensive industry knowledge and cutting-edge technology to identify candidates who not only meet the job specifications but also align with your company culture and values.<br> <br>
+        Rest assured, every candidate we recommend undergoes rigorous vetting processes to ensure compliance with the highest standards. Quality is non-negotiable, and we never compromise on safety, prioritizing the well-being of our candidates and clients above all else.<br> <br>
+        At DNNovation, we're not just in the business of filling roles; we're in the business of building long-term partnerships based on trust, honesty, and mutual respect. Join us on our journey, and let's redefine the future of recruitment together.<br> <br>
+      </span>
+      <a href="#" class="read-more-link">Read more</a>
+    </p>
+  </div>
+</div>
+
+
 <div class="section section-2">
-  <h2>Our History</h2>
-  <p>After collaborating for six years across various projects in the UK, Dorin, Nicolae, and Nabil recognized a significant gap in the resourcing and construction industry. They observed a lack of meaningful relationships between operatives and agencies, leading to inefficiencies and subpar project outcomes.<br> <br>
+  <div class="section-content">
+    <div class="text-content">
+      <h2>Our History</h2>
+      <p>
+        <span class="short-text">
+          After collaborating for six years across various projects in the UK, Dorin, Nicolae, and Nabil recognized a significant gap in the resourcing and construction industry. They observed a lack of meaningful relationships between operatives and agencies, leading to inefficiencies and subpar project outcomes.<br> <br>
+        </span>
+        <span class="full-text" style="display: none;">
+          Driven by their shared vision and work ethic, they founded DNNovation, pooling together 36 years of collective industry expertise. Their mission? To revolutionize the industry by prioritizing quality and fostering genuine connections with operatives.<br> <br>
 
-Driven by their shared vision and work ethic, they founded DNNovation, pooling together 36 years of collective industry expertise. Their mission? To revolutionize the industry by prioritizing quality and fostering genuine connections with operatives.<br> <br>
+          DNNovation implemented a unique program focused on developing tight-knit operative teams. By investing in comprehensive briefings, proper equipment, and individual rapport, they cultivated a community of trust and excellence on every project.<br> <br>
 
-DNNovation implemented a unique program focused on developing tight-knit operative teams. By investing in comprehensive briefings, proper equipment, and individual rapport, they cultivated a community of trust and excellence on every project.<br> <br>
-
-The results spoke for themselves. Small, dedicated operative teams consistently outperformed larger, less cohesive groups. Exceptional client feedback reinforced their approach, cementing DNNovation as a premier resourcing solution synonymous with smooth, safe, and high-quality project delivery.<br> <br> </p>
+          The results spoke for themselves. Small, dedicated operative teams consistently outperformed larger, less cohesive groups. Exceptional client feedback reinforced their approach, cementing DNNovation as a premier resourcing solution synonymous with smooth, safe, and high-quality project delivery.<br> <br>
+        </span>
+        <a href="#" class="read-more-link">Read more</a>
+      </p>
+    </div>
+    <div class="image-container">
+      <%= image_tag("plan.jpg", alt: "Section 2 Image") %>
+    </div>
+  </div>
 </div>
 
 <div class="section section-3">
