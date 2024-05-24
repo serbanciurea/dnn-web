@@ -10,7 +10,7 @@
   flex-wrap: wrap;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0px;
 }
 
 .footer-section {
@@ -70,8 +70,13 @@
   background-color: #1D2327;
   color: white;
   text-decoration: none;
+  text-align: center;
 }
 .footer-menu a {
   /* Add specific styles for the links within this menu */
   color: white;
+}
+.footer-menu a:hover {
+  /* Add specific styles for the links within this menu when hovered */
+  color: #EA5D30;
 }
