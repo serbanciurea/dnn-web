@@ -1,6 +1,17 @@
+:root {
+  --milky-white: #FEFCFF;
+  --orange: #EA5D30;
+  --grey: #1D2327;
+}
+
 body {
-  background-color: black;
-  color: #FEFCFF;
+  background-color: var(--milky-white);
+  color: var(--grey);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+
 }
 
 // BLOB FROM POINTER CURSOUR
