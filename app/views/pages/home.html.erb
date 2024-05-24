@@ -39,7 +39,20 @@
   </div>
 </section>
 
-<section class="hidden about-section"></section>
+<%# se poate sa lasam about section fara sa vina din stanga? %>
+<section class="about-section">
+  <div class="about-content">
+    <h3 style="font-family: 'Switzer-Bold';">INNOVATIVE SOLUTIONS FOR SMOOTH, SAFE AND HIGH-QUALITY PROJECT DELIVERY</h3>
+    <div class="abt-txt">
+      <p>At DNNovation, our vision is to revolutionize the resourcing industry by providing bespoke solutions that ensure smooth project delivery, prioritize safety, and maintain high-quality standards.</p>
+      <div class="about-links">
+        <%= link_to about_path do %>
+          <button class="gradient-button">read more <i class="fa-solid fa-arrow-right" style="color: #e44e32;"></i></button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="hidden portofolio-section"></section>
 

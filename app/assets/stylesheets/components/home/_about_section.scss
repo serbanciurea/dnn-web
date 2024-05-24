@@ -1,0 +1,16 @@
+.about-content {
+  background-color: #1D2327;
+  color: #f9f9f9;
+  height: 20vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding: 20px;
+
+  button {
+    color: #f9f9f9;
+  }
+}
