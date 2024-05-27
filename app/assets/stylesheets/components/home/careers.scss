@@ -1,0 +1,188 @@
+.head {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute; /* Position the overlay relative to the .image-wrapper */
+  top: 50%; /* Position from the top */
+  left: 30px; /* Adjust left positioning as needed */
+  transform: translateY(-50%); /* Center the overlay vertically */
+  color: white; /* Text color */
+}
+
+.image-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, black, grey);
+  opacity: 0.6; /* Adjust the opacity as needed */
+}
+
+
+
+// First div
+
+.north,
+.emr {
+  display: flex;
+  align-items: center;
+  height: 400px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.north-text, .emr-text {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.north-image, .emr-image {
+  flex: 1;
+  overflow: hidden;
+}
+
+
+
+// crazy stuff happening
+.container {
+  display: flex; /* Use flexbox to arrange items */
+}
+
+.services {
+  flex: 0 0 200px; /* Set fixed width for the services bar */
+  padding: 20px; /* Add padding for spacing */
+}
+
+
+
+.content-right{
+  flex: 1; /* Allow the content on the right to fill available space */
+  display: flex; /* Use flexbox to arrange content on the right */
+  justify-content: space-between; /* Space out the content evenly */
+  flex-direction: column;
+}
+
+.north,
+.emr {
+  flex: 0 0 calc(50% - 20px); /* Set width for each div on the right (50% - spacing) */
+  display: flex; /* Use flexbox to arrange text and image vertically */
+  margin-left: 20px; /* Add margin between the divs */
+}
+
+.north-image,
+.emr-image {
+  flex: 1; /* Allow the image to fill available space */
+  overflow: hidden; /* Hide overflow to prevent distortion */
+  height: 70%;
+}
+
+.north-image img,
+.emr-image img {
+  width: 100%; /* Ensure the image fills its container */
+  height: 100%; /* Ensure the image fills its container */
+}
+
+.north-text,
+.emr-text {
+  flex: 1; /* Allow text to fill available space */
+  padding: 20px; /* Add padding for spacing */
+}
+// end of dodgy code w my slave chatgbt
+
+
+.services {
+  width: 200px; /* Set a fixed width for the services bar */
+  background-color: #f8f8f8; /* Light background color */
+  padding: 20px; /* Add padding for spacing */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.services h1 {
+  font-size: 1.5em; /* Increase font size */
+  margin-top: 0; /* Remove default margin */
+  margin-bottom: 10px; /* Add margin below heading */
+  color: #333; /* Darker text color */
+  text-align: center; /* Center the heading text */
+  text-transform: uppercase; /* Capitalize the heading text */
+}
+
+.services ul {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.services li {
+  margin-bottom: 10px; /* Add space between list items */
+}
+
+.services a {
+  text-decoration: none; /* Remove underline from links */
+  color: black; /* Link color */
+  font-size: 1em; /* Font size for links */
+  display: block; /* Make links block elements */
+  padding: 10px; /* Add padding for spacing */
+  border-radius: 4px; /* Rounded corners for links */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  text-align: left; /* Ensure text is left-aligned */
+  text-transform: uppercase; /* Capitalize the link text */
+}
+
+.services a:hover {
+  background-color: #e0e0e0; /* Change background color on hover */
+}
+
+
+//search bar set up:
+.search-bar {
+  display: flex; /* Use flexbox for the search bar layout */
+  justify-content: center; /* Center the search bar */
+  margin-bottom: 20px; /* Add space below the search bar */
+}
+
+.search-bar input[type="text"] {
+  padding: 8px; /* Adjust padding inside the search input */
+  font-size: 14px; /* Adjust font size */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 5px 0 0 5px; /* Rounded corners for the left side */
+  width: 60%; /* Set a smaller width for the input */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.search-bar button[type="submit"] {
+  padding: 8px 16px; /* Adjust padding inside the button */
+  font-size: 10px; /* Adjust font size */
+  border: 1px solid #ccc; /* Add a border */
+  border-left: none; /* Remove the left border */
+  background-color: #1D2327 ; /* Set background color */
+  color: white; /* Set text color */
+  border-radius: 0 5px 5px 0; /* Rounded corners for the right side */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.search-bar button[type="submit"]:hover {
+  background-color: #EA5D30 ; /* Change background color on hover */
+}
