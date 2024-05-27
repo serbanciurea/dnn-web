@@ -9,7 +9,7 @@
   <!-- Right Section of Navbar -->
   <div class="navbar-right">
     <div class="dropdown">
-      <button class="dropbtn">Services</button>
+      <button class="dropbtn"><%= link_to 'Services', services_path %></button>
       <div class="dropdown-content">
         <%= link_to 'Construction', '#' %>
         <%= link_to 'Rail', '#' %>
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="dropdown">
-      <button class="dropbtn">Careers</button>
+      <button class="dropbtn"><%= link_to 'Careers', careers_path %></button>
       <div class="dropdown-content">
         <%= link_to 'Career 1', '#' %>
         <%= link_to 'Career 2', '#' %>

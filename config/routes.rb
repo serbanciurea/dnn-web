@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
   get 'services', to: 'pages#services'
   get 'projects', to: 'pages#projects'
+  get 'careers', to: 'pages#careers'
   get 'projects/northumberland_details', to: 'projects#northumberland_details', as: 'northumberland_details'
   get 'projects/emr_details', to: 'projects#emr_details', as: 'emr_details'
 end
