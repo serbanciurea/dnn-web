@@ -184,5 +184,73 @@
 }
 
 .search-bar button[type="submit"]:hover {
-  background-color: #EA5D30 ; /* Change background color on hover */
+  background-color: #cc4e28 ; /* Change background color on hover */
+}
+
+
+.content-right {
+  padding: 20px; /* Add padding around the content-right section */
+}
+
+.job-grid {
+  display: grid; /* Use CSS Grid for layout */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+  gap: 20px; /* Space between grid items */
+}
+
+.job-card {
+  background-color: #f9f9f9; /* Background color for cards */
+  padding: 20px; /* Padding inside the card */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.job-card h3 {
+  color: #333; /* Dark grey color for the heading */
+  font-size: 18px; /* Font size for the heading */
+  margin-bottom: 10px; /* Margin below the heading */
+  font-family: 'Arial', sans-serif; /* Font family for the heading */
+}
+
+.job-card p {
+  color: #555; /* Medium grey color for the paragraph */
+  font-size: 14px; /* Font size for the paragraph */
+  line-height: 1.6; /* Line height for better readability */
+  font-family: 'Arial', sans-serif; /* Font family for the paragraph */
+  margin-bottom: 20px; /* Margin below the paragraph */
+}
+
+.read-more-button {
+  padding: 10px 20px; /* Padding for the button */
+  background-color: #EA5D30 ; /* Background color */
+  color: #1D2327; /* Text color */
+  text-decoration: none; /* Remove underline */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.read-more-button:hover {
+  background-color: #cc4e28;
+  color: #1D2327;
+}
+
+.location {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center align the items */
+  margin-bottom: 10px; /* Add space below the location */
+}
+
+.location i {
+  color: #EA5D30 ; /* Color for the location icon */
+  margin-right: 5px; /* Space between the icon and text */
+}
+
+.location span {
+  font-size: 14px; /* Font size for the location text */
+  color: #555; /* Color for the location text */
+  font-family: 'Arial', sans-serif; /* Font family for the location text */
 }
