@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'pages#home'
+  devise_for :users
   resources :project_ports
   resources :jobs
   get 'contacts/new', to: 'contacts#new', as: 'new_contact'
@@ -11,7 +13,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  root 'pages#home'
 
   resources :employees
   resources :contracts
