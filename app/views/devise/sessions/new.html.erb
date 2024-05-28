@@ -1,3 +1,44 @@
+<style>
+.login {
+  display: flex;
+  height: 50vh;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 20%;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .field input {
+
+    &::placeholder {
+      color: var(--grey);
+      opacity: 1;
+      text-align: center;
+      font-size: 100%;
+    }
+  }
+
+  .login-btn {
+    text-decoration: none;
+  }
+}
+
+.field input, .login-btn {
+    border: transparent;
+    box-shadow: inset 0px 14px 16px 0px rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    padding: 15px;
+    border-radius: 10%;
+}
+</style>
+
 <div class="login">
 
   <h2>Log in</h2>
@@ -20,11 +61,9 @@
     <% end %>
 
     <div class="actions">
-      <%= f.submit "Log in" %>
+      <%= f.submit "Log in", class: "gradient-button" %>
     </div>
   <% end %>
 
   <%= render "devise/shared/links" %>
 </div>
-
-<div class="alo">hei</div>
