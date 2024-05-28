@@ -46,3 +46,17 @@ next.addEventListener('click', function() {
   degrees -= 45;
   box.style = `transform: perspective(1000px) rotateY(${degrees}deg);`;
 })
+
+// logout button from navbar is the biggest mistery
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  const logoutButton = document.querySelector('.logout');
+  if (logoutButton) {
+    logoutButton.addEventListener('mouseover', () => {
+      logoutButton.style.color = 'var(--orange)';
+    });
+    logoutButton.addEventListener('mouseout', () => {
+      logoutButton.style.color = 'var(--grey)';
+    });
+  }
+});

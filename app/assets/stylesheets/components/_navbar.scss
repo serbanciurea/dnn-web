@@ -76,3 +76,15 @@
   height: 30px; /* Adjust the height of the logo */
   width: auto;
 }
+
+.logout {
+  background: transparent;
+  border: transparent;
+  text-decoration: none;
+  font-size: 16px;
+  color: var(--grey);
+}
+
+.logout:hover {
+  background-color: var(--milky-white);
+}
