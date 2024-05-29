@@ -1,40 +1,80 @@
-<h2>Sign up</h2>
+<style>
+.login {
+  display: flex;
+  height: 50vh;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 20%;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .field input {
+
+    &::placeholder {
+      color: var(--grey);
+      opacity: 1;
+      text-align: center;
+      font-size: 100%;
+    }
+  }
+
+  .login-btn {
+    text-decoration: none;
+  }
+}
+
+.field input, .login-btn {
+    border: transparent;
+    box-shadow: inset 0px 14px 16px 0px rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    padding: 15px;
+    border-radius: 10%;
+}
+</style>
+
+<div class="login">
+
+  <h2>Sign up</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: 'first name' %>
+    </div>
 
     <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
-  </div>
+      <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: 'last name' %>
+    </div>
 
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'email' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: 'new password' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'password confirmation' %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="actions">
+      <%= f.submit "Sign up", class: 'gradient-button' %>
+    </div>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+
+</div>
