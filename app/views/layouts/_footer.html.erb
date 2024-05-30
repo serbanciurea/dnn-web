@@ -1,38 +1,45 @@
-<style>
-footer {
-  background-color: pink;
-}
-</style>
+<div class="footer">
 
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-section">
-      <h2>About us </h2>
-      <p>My lil sister how much longer do i have to teach you ?</p>
-      <%= link_to 'Learn More', about_path, class: 'footer-link' %>
+  <div class="f-section" style="border-bottom: 1px solid var(--milky-white);">
+    <div class="f-sec">
+      <div class="f" style="font-family: Switzer-Bold; font-size: 150%;">
+        <%= link_to root_path do %>
+          DNNovation
+        <% end %>
+      </div>
     </div>
-    <div class="footer-section">
-      <h2>Services</h2>
-      <ul class="footer-menu">
-        <li><i class="fa fa-wrench footer-icon"></i><%= link_to 'Construction', '#' %></li>
-        <li><i class="fa fa-bolt footer-icon"></i><%= link_to '        Electrical', '#' %></li>
-        <li><i class="fa fa-train footer-icon"></i><%= link_to '                 Rail', '#' %></li>
-      </ul>
+
+    <div class="f-sec">
+      <%= link_to "Services", services_path %>
+      <%= link_to "Careers", careers_path %>
+      <%= link_to "Projects", projects_path %>
+      <%= link_to "About Us", about_path %>
     </div>
-    <div class="footer-section">
-      <h2>Contact Us</h2>
-      <p>Email: info@DNNovationconstruction.co.uk</p>
-      <p>Phone: (123) 456-7890</p>
-      <%= link_to 'Contact Form', contact_path, class: 'footer-link' %>
+
+    <div class="f-sec" style="font-size: 150%;">
+      <%= link_to 'https://www.linkedin.com/company/dnnovation-construction-ltd/posts/?feedView=all' do %>
+      <i class="fa-brands fa-linkedin"></i>
+      <% end %>
+      <i class="fa-brands fa-facebook"></i>
+      <i class="fa-solid fa-envelope"></i>
     </div>
-    <div class="footer-section">
-      <h2>Follow Us</h2>
-      <a href="#" class="footer-icon"><i class="fa fa-facebook"></i></a>
-      <a href="#" class="footer-icon"><i class="fa fa-twitter"></i></a>
-      <a href="#" class="footer-icon"><i class="fa fa-linkedin"></i></a>
-    </div>
-  <div class="footer-bottom">
-    <p>&copy; <%= Time.now.year %> DNNovation. All rights reserved.</p>
+
   </div>
+
+  <div class="f-section">
+
+    <div class="f-sec">
+      <p>&copy; <%= Time.now.year %> DNNovation. All rights reserved.</p>
+    </div>
+
+    <div class="f-sec">
+      <p>paragraf cu vrajeales paragraf cu vrajeales paragraf cu vrajeales paragraf cu vrajeales paragraf cu vrajeales</p>
+    </div>
+
+    <div class="f-sec">
+      settings and security stuff
+    </div>
+
   </div>
-</footer>
+
+</div>
