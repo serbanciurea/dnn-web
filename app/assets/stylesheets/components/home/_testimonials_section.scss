@@ -1,0 +1,166 @@
+.slider-wrapper {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.slides-container {
+  height: calc(40vh - 2rem);
+  width: 100%;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+.slide {
+  width: 100%;
+  height: 40vh;
+  flex: 1 0 (100% / 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.t-sec-one {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 20px;
+  button {
+    text-decoration: none;
+    background: transparent;
+    border: transparent;
+    border-radius: 20%;
+    font-size: 1.5rem;
+  }
+
+  button:hover {
+    cursor: pointer;
+    color: var(--orange);
+  }
+
+}
+
+.company-photo img {
+  border-radius: 50%;
+  width: 70px;
+  aspect-ratio: 1;
+}
+
+.testimonial {
+  padding: 20px;
+  text-align: center;
+  width: 70%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #EA5D30;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+  position: absolute;
+  width: 100%;
+  i {
+    // position: absolute;
+    font-size: 10vw; /* Adjust size of the icon */
+    color: var(--orange); /* Color the icon */
+    filter: blur(10px); /* Add blur effect */
+    z-index: -1; /* Ensure it stays behind any other content */
+  }
+}
+
+.icon-container.hidden::before {
+  // font-weight: 900; /* Make sure to use the correct font weight */
+  font-size: 10vw; /* Adjust the size of the icon */
+  color: var(--orange); /* Color the icon */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the icon */
+  filter: blur(5px); /* Apply blur effect */
+}
+
+
+// <i class="fa-solid fa-helmet-safety"></i>
+// <i class="fa-solid fa-hammer"></i>
+// <i class="fa-solid fa-screwdriver-wrench"></i>
+
+// <i class="fa-solid fa-train-subway"></i>
+// <i class="fa-solid fa-road"></i>
+// <i class="fa-solid fa-road-barrier"></i>
+
+// <i class="fa-solid fa-traffic-light"></i>
+// <i class="fa-solid fa-gears"></i>
+// <i class="fa-solid fa-truck-moving"></i>
+//
+
+// .testimonial-section {
+//   height: 50vh;
+//   overflow: hidden;
+//   display: grid;
+//   grid-template-rows: 1fr 3fr;
+//   align-items: center;
+//   justify-content: center;
+//   width: 100%;
+//   padding: 20px;
+
+//   button {
+//     text-decoration: none;
+//     background: transparent;
+//     border: transparent;
+//     // box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+//     background-color: rgba(0, 0, 0, 0.1);
+//     border-radius: 20%;
+//   }
+
+//   button:hover {
+//     cursor: pointer;
+//     color: var(--orange);
+//   }
+// }
+
+
+// .testimonials-container {
+//   overflow: hidden;
+//   // display: flex;
+//   // justify-content: center;
+//   // width: 100vw;
+//   position: relative;
+//   width: 100%;
+// }
+
+// .train {
+//   display: flex;
+//   transition: transform 0.5s ease-in-out;
+
+//   width: 100%;
+// }
+
+// .wagon {
+//   width: 100%;
+//   height: 30vh;
+//   background-color: white;
+//   border: 2px solid #ccc;
+//   border-radius: 10px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+// }
+
+// .testimonial {
+//   padding: 20px;
+//   text-align: center;
+
+// }
+
+/* .testimonial {
+  padding: 20px;
+  text-align: center;
+} */
