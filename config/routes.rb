@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
   root 'pages#home'
   devise_for :users
+
+  # authenticate :user, ->(user) { user.admin? } do
+  #   namespace :admin do
+  #     resources :jobs
+  #     # resources :dashboard, only: [:index]
+  #     # other admin routes
+  #   end
+  # end
+
   resources :project_ports
   resources :jobs
   get 'contacts/new', to: 'contacts#new', as: 'new_contact'

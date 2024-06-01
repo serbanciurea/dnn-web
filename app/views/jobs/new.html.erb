@@ -23,10 +23,10 @@
     <%= form.text_area :description %>
   </div>
 
-  <div class="field">
+  <%# <div class="field">
     <%= form.label :user_id, "Assigned User" %>
-    <%= form.collection_select :user_id, @users, :id, :name, prompt: "Select a User" %>
-  </div>
+    <%# <%= form.collection_select :user_id, @users, :id, :name, prompt: "Select a User" %>
+  <%# </div> %>
 
   <div class="field">
     <%= form.label :department_id, "Department" %>
