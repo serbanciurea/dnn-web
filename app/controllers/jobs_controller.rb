@@ -1,16 +1,24 @@
 class JobsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_job, only: %i[ show edit update destroy ]
+  before_action :authorize_job, except: [:index, :show]
+  after_action :verify_policy_scoped, only: :index
+
   def index
-    @jobs = Job.all
+    # @jobs = Job.all
+    @jobs = policy_scope(Job)
+    authorize Job
   end
 
   def new
+    @departments = Department.all
     @job = Job.new
+    authorize @job
   end
 
   def create
     @job = Job.new(job_params)
-
+    authorize @job
     respond_to do |format|
       if @job.save
         format.html { redirect_to job_url(@job), notice: "Job was successfully created." }
@@ -23,6 +31,7 @@ class JobsController < ApplicationController
   end
 
   def update
+    authorize @job
     respond_to do |format|
       if @job.update(job_params)
         format.html { redirect_to job_url(@job), notice: "Job was successfully updated." }
@@ -35,9 +44,11 @@ class JobsController < ApplicationController
   end
 
   def show
+    authorize @job
   end
 
   def edit
+    authorize @job
   end
 
   def destroy
@@ -58,6 +69,10 @@ class JobsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def job_params
     params.require(:job).permit(:title, :description, :location, :salary, :user_id)
+  end
+
+  def authorize_job
+    authorize Job
   end
 
 end
