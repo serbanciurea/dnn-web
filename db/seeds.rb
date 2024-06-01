@@ -7,12 +7,14 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-require 'bcrypt'
+# require 'bcrypt'
 
-admin = User.create!(
-  email: 'admin@dnnovation.com',
-  password_digest: BCrypt::Password.create('Dnnovation1234!'),
-  first_name: 'Admin',
-  last_name: 'Dnnovation',
-  admin: true
-)
+# admin = User.create!(
+#   email: 'admin@dnnovation.com',
+#   password_digest: BCrypt::Password.create('Dnnovation1234!'),
+#   first_name: 'Admin',
+#   last_name: 'Dnnovation',
+#   admin: true
+# )
+
+User.create!(email: 'admin@example.com', password: '123456', password_confirmation: '123456', admin: true, first_name: 'Admin', last_name: 'Ad')

@@ -6,4 +6,10 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
 
+  after_initialize :set_default_admin, if: :new_record?
+
+  def set_default_admin
+    self.admin ||= false
+  end
+
 end
