@@ -17,36 +17,28 @@ body {
   padding: 0;
 }
 
-
 .section-1 {
   position: relative;
   width: 100%;
   height: 300px; /* Adjust the height as needed */
 }
 
-
-  //   background-image: linear-gradient(to right, rgba(0, 0, 0, .85), rgba(0, 0, 0, .35));
-  // filter: grayscale(30%); /* Apply grayscale filter to the image */
-
-
 .about-us-overlay {
-  position: absolute; //position the div relative to the parent element
-  top: 50%; //centres the div vertically
-  color: white; //text color
+  position: absolute; /* position the div relative to the parent element */
+  top: 50%; /* centres the div vertically */
+  left: 50%; /* centres the div horizontally */
+  transform: translate(-50%, -50%);
+  color: white; /* text color */
   border-radius: 5px;
-  transform: translateY(-50%);
   padding-left: 20px;
   font-size: 24px;
-  font-display: Montserrat;
-  font-family: sans-serif;
+  font-family: Montserrat, sans-serif;
 }
-.full-width-image img { //control the first image
+
+.full-width-image img { /* control the first image */
   filter: grayscale(100%);
-  background-image: linear-gradient(to right, rgba(0, 0, 0, .85), rgba(0, 0, 0, .35));
-
-
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.35));
 }
-
 
 .description {
   display: flex;
@@ -55,7 +47,6 @@ body {
   align-items: center;
   background-color: var(--orange);
   height: 400px;
-
 }
 
 .description-image {
@@ -68,7 +59,7 @@ body {
 .description-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; //makes the object fill it's container. The object will be "clipped" to fit
+  object-fit: cover; /* makes the object fill its container. The object will be "clipped" to fit */
 }
 
 .description-text {
@@ -97,20 +88,8 @@ body {
 .description-text .read-more-link {
   display: block;
   margin-top: 10px;
-  color: var(--orange);
-  text-decoration: none;
-}
-
-
-
-.section-3 {
-  background-color: var(--grey);
-  color: var(--milky-white);
-}
-
-.section-4 {
-  background-color: var(--milky-white);
   color: var(--grey);
+  text-decoration: none;
 }
 
 .full-width-image {
@@ -162,12 +141,6 @@ body {
   width: auto;
 }
 
-.full-width-image {
-  width: 100%;
-  height: 30vh;
-  position: relative; /* Required for absolute positioning of overlay */
-}
-
 .image-overlay {
   position: absolute;
   top: 0;
@@ -176,9 +149,6 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent grey */
 }
-
-
-
 
 .front {
   position: relative;
@@ -189,4 +159,44 @@ body {
   background-color: var(--milky-white);
   color: var(--grey);
   padding-bottom: 40px;
+}
+
+.space {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 30%;
+  width: 100%;
+}
+
+/* Team Section */
+.team-section {
+  text-align: center;
+}
+.team-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.team-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+  width: 250px;
+}
+.team-card img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.team-card h3 {
+  margin: 15px 0 5px;
+  font-size: 20px;
+  color: var(--grey);
+}
+
+.team-card p {
+  margin: 0;
+  font-size: 16px;
+  color: var(--grey);
 }
