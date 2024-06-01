@@ -17,4 +17,4 @@
 #   admin: true
 # )
 
-User.create!(email: 'admin@example.com', password: '123456', password_confirmation: '123456', admin: true, first_name: 'Admin', last_name: 'Ad')
+# User.create!(email: 'admin@example.com', password: '123456', password_confirmation: '123456', admin: true, first_name: 'Admin', last_name: 'Ad')
