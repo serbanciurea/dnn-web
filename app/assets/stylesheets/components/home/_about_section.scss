@@ -1,20 +1,23 @@
+.about-section {
+  height: 20vh;
+  box-sizing: border-box;
+}
+
 .about-content {
   background-color: var(--grey);
   color: var(--milky-white);
-  height: 20vh;
-  // width: 100vw;
   display: grid;
   grid-template-columns: 1fr 2fr;
   align-items: center;
   justify-content: space-between;
   column-gap: 20px;
   flex-direction: column;
-  padding: 40px;
-  font-size: large;
-  // direction: ltr;
+  padding: 20px;
+  font-size: 1rem;
 
   button {
     color: var(--milky-white);
+    font-size: 1rem;
   }
 
   .abt-txt {
