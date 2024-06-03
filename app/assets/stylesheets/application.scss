@@ -40,9 +40,13 @@ body {
   // color: rgba(228, 78, 50, 0.5); /* Orange text */
   color: #1D2327;
   padding: 10px 20px; /* Padding for the button */
-  font-size: 16px; /* Font size */
+  // font-size: 16px;
   cursor: pointer; /* Pointer cursor on hover */
   transition: background 0.5s ease, color 0.5s ease, border 0.5s ease; /* Smooth transition */
+  font-size: 1rem;
+  font-family: 'Switzer-Semibold';
+  text-transform: uppercase;
+  border-radius: 5px;
 }
 
 .gradient-button:hover {
