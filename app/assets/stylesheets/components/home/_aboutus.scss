@@ -21,15 +21,14 @@
 }
 
 .full-width-image {
-  background-image: url(llt.jpg);
+  background-image: url('llt.jpg');
   position: absolute;
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  background-size: 100%;
+  background-size: cover;
 }
-
 
 .about-us-overlay {
   position: absolute;
@@ -40,6 +39,7 @@
   font-size: 1.5rem;
   font-family: 'Switzer-Semibold';
   z-index: 5;
+  text-align: left;
 }
 
 .gradient-overlay {
@@ -49,6 +49,33 @@
   background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(128, 128, 128, 0.5));
   z-index: 1;
 }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .a-hero {
+    height: 40vh; /* Adjust height for smaller screens */
+  }
+
+  .about-us-overlay {
+    font-size: 1.2rem; /* Adjust font size for readability */
+    left: 50%;
+    top: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .a-hero {
+    height: 50vh; /* Adjust height for smaller screens */
+  }
+
+  .about-us-overlay {
+    font-size: 1rem; /* Further adjust font size for readability */
+    left: 50%;
+    top: 70%;
+  }
+}
+
+// specialization section
 
 .a-specializations {
   padding: 40px;
@@ -105,24 +132,42 @@
   transition-delay: 900ms;
 }
 
+@media (max-width: 1029px) {
+  .industry-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust for medium screens */
+  }
+}
+
+@media (max-width: 1024px) {
+  .industry-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust for medium screens */
+  }
+}
+
 @media (max-width: 768px) {
   .industry-grid {
-    grid-template-columns: 2fr 2fr 2fr;
-  }
-  .a-specializations {
-    text-align: center;
+    grid-template-columns: 1fr 1fr; /* 2 columns on smaller screens */
+    gap: 40px; /* Adjust gap if necessary */
   }
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 480px) {
   .industry-grid {
-    height: 20vh; /* Set height to 20vh for laptop screens and larger */
+    grid-template-columns: 1fr 1fr; /* 2 columns on phones */
+    gap: 20px; /* Adjust gap for smaller screens */
   }
-}
 
-@media screen and (min-width: 768px) {
   .industry {
-    max-width: 200px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .industry img {
+    max-width: 60px; /* Reduce image size further for phones */
+  }
+
+  .industry p {
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
   }
 }
 
@@ -180,7 +225,8 @@
 }
 
 .aboutus-text {
-  height: 40vh;
+  // height: 40vh;
+  visibility: hidden;
   font-size: 1rem;
   display: grid;
   grid-template-columns: 5fr 1fr;
@@ -263,20 +309,79 @@
   display: grid;
   place-items: center;
   align-items: center;
-  border-top: 1px solid var(--grey);
-  grid-template-rows: 2fr 3fr 2fr;
+  // border-top: 1px solid var(--grey);
+  grid-template-rows: 2fr 2fr 2fr;
   padding: 40px;
 }
 
-.text-content {
+.history .th {
   display: flex;
   flex-direction: column;
+  font-size: 1.5rem;
+  font-family: 'Switzer-Bold';
+  padding: 40px;
+
+  .t {
+    text-align: start;
+  }
+
+  .and {
+    text-align: center;
+  }
+
+  .his {
+    text-align: end;
+  }
+}
+
+.text-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
   align-items: center;
   text-align: start;
+  padding: 40px;
+}
+
+.text-content:nth-child(1) {
+  border-bottom: 1px solid var(--grey);
+  border-top: 1px solid var(--grey);
+}
+
+.tall-img {
+  box-sizing: border-box;
+  width: 100%;
+  // height: 100%;
+  height: 90%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.text-content img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .text-content p {
   text-align: start;
+  padding-left: 10px;
+  // border-left: 1px solid var(--grey);
+}
+
+.team {
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+}
+
+.special {
+  font-family: 'Switzer-Black';
+  color: var(--orange);
+  font-size: 1.5rem;
 }
 
 .team-section {
@@ -303,7 +408,7 @@
   width: 250px;
 }
 .team-card img {
-  width: 100%;
+  width: 70%;
   border-radius: 50%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   position: relative;
@@ -331,4 +436,80 @@
 
 .team-card:nth-child(3) {
   transition-delay: 200ms;
+}
+
+@media (max-width: 1024px) {
+  .text-content {
+    grid-template-columns: 1fr; /* Single column layout for smaller screens */
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr; /* Single column layout for team grid */
+    gap: 20px; /* Adjust gap for smaller screens */
+  }
+
+  .team-card {
+    width: 100%; /* Full width for team cards */
+    max-width: none; /* Remove max-width */
+  }
+
+  .tall-img {
+    height: 200px; /* Adjust height for smaller screens */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .text-content {
+    grid-template-columns: 1fr 1fr; /* Two columns for medium screens */
+    padding: 20px; /* Adjust padding for medium screens */
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr 1fr 1fr; /* Two columns for medium screens */
+    gap: 20px; /* Adjust gap for medium screens */
+  }
+
+  .team-card {
+    width: 80%; /* Adjust width for team cards on medium screens */
+  }
+
+  .team-card img {
+    width: 60%; /* Adjust image size for medium screens */
+  }
+}
+
+
+
+
+
+
+@media (max-width: 767px) {
+  .text-content {
+    grid-template-columns: 1fr; /* Single column layout for small screens */
+    padding: 10px; /* Adjust padding for small screens */
+  }
+
+  .text-content .tall-img {
+    height: auto; /* Adjust height for small screens */
+    order: 2; /* Ensure the image is second */
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr; /* Single column layout for team grid on small screens */
+    gap: 10px; /* Adjust gap for small screens */
+  }
+
+  .team-card {
+    width: 100%; /* Full width for team cards on small screens */
+    max-width: none; /* Remove max-width */
+  }
+
+  .tall-img {
+    height: 150px; /* Adjust height for small screens */
+  }
+
+  .special {
+    font-size: 1.2rem; /* Adjust font size for small screens */
+  }
 }
