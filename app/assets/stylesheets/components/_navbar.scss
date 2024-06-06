@@ -1,6 +1,6 @@
 .navbar {
   background-color: var(--milkey-white);
-  overflow: hidden;
+  // overflow: hidden;
   display: flex; /* Use flexbox for the navbar */
   justify-content: space-between; /* Space between left and right sections */
   align-items: center; /* Center align items vertically */
@@ -87,4 +87,28 @@
 
 .logout:hover {
   background-color: var(--milky-white);
+}
+
+.house {
+  visibility: hidden;
+}
+
+@media (max-width: 767px) {
+  .logo {
+    visibility: hidden;
+    width: 0;
+  }
+
+  .house {
+    visibility: visible;
+  }
+  .navbar-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+  }
+
+  .navbar .dropdown a, .logout {
+    font-size: 0.7rem !important;
+  }
 }

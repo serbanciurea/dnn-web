@@ -5,7 +5,7 @@
   grid-template-rows: 1fr 2fr;
   padding: 20px;
   width: 100vw;
-  height: 30vh;
+  height: auto;
   background-color: var(--grey);
   color: var(--milky-white);
   a {
@@ -30,4 +30,30 @@
   align-items: center;
   gap: 20px;
   padding: 5px;
+}
+
+@media (max-width: 767px) {
+  .footer {
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+  }
+
+  .f-section:nth-child(1) {
+    padding: 10px;
+    gap: 10px;
+    .f-sec:nth-child(2), .f-sec:nth-child(3) {
+      display: grid;
+      flex-direction: column; /* Stack items vertically within each section */
+      gap: 10px; /* Add some spacing between items */
+    }
+  }
+
+  .two {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    // justify-content: left;
+    align-items: center;
+  }
 }
