@@ -1,6 +1,6 @@
 .navbar {
   background-color: var(--milkey-white);
-  overflow: hidden;
+  // overflow: hidden;
   display: flex; /* Use flexbox for the navbar */
   justify-content: space-between; /* Space between left and right sections */
   align-items: center; /* Center align items vertically */
@@ -87,4 +87,69 @@
 
 .logout:hover {
   background-color: var(--milky-white);
+}
+
+@media (max-width: 767px) {
+  .navbar-left {
+    visibility: hidden;
+    width: 0;
+  }
+  .navbar-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+  }
+
+  .navbar .dropdown a, .logout {
+    font-size: 0.7rem !important;
+  }
+
+  // .navbar-left {
+  //   width: 100%;
+  //   display: flex;
+  //   justify-content: space-between;
+  // }
+
+  // .navbar-right {
+  //   display: none;
+  //   flex-direction: column;
+  //   width: 100%;
+  // }
+
+  // .navbar-toggler {
+  //   display: block;
+  // }
+
+  // .navbar-right.show {
+  //   display: flex;
+  //   flex-direction: column;
+  // }
+
+  // .dropdown {
+  //   width: 100%;
+  // }
+
+  // .dropdown-content {
+  //   position: relative;
+  //   width: 100%;
+  //   box-shadow: none;
+  // }
+
+  // .dropdown .dropbtn {
+  //   width: 100%;
+  //   text-align: left;
+  // }
+
+  // .dropdown-content a {
+  //   width: 100%;
+  //   padding: 10px;
+  //   box-sizing: border-box;
+  // }
+
+  // .navbar-right a {
+  //   padding: 10px 20px;
+  //   text-align: left;
+  //   width: 100%;
+  //   box-sizing: border-box;
+  // }
 }
