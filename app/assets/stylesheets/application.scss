@@ -27,10 +27,20 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   // background-color: #1D2327;
   // #1D2327 - grey
   // #EA5D30 - orange
   // #f9f9f9 - white
+}
+
+main {
+  flex: 1;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .bold-text {
