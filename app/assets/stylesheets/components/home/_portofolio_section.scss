@@ -2,8 +2,8 @@
   display: grid;
   grid-template-columns: 1fr 4fr 1fr; /* Create 3 rows with heights 1/4, 2/4, 1/4 of 100vh */
   column-gap: 5%;
-  // height: 80vh;
-  height: auto;
+  height: 80vh;
+  // height: auto;
   width: 100vw;
   box-sizing: border-box;
   padding: 20px;
@@ -92,15 +92,15 @@
   background-color: var(--grey);
 }
 
-@media only screen and (max-width: 1024px) {
-  .portofolio-section {
-    grid-template-columns: 1fr 2fr 1fr; /* Adjust grid layout for medium screens */
-  }
+// @media only screen and (max-width: 1024px) {
+//   .portofolio-section {
+//     grid-template-columns: 1fr 2fr 1fr; /* Adjust grid layout for medium screens */
+//   }
 
-  .port-desc {
-    font-size: 100%; /* Adjust font size for smaller screens */
-  }
-}
+//   .port-desc {
+//     font-size: 100%; /* Adjust font size for smaller screens */
+//   }
+// }
 
 // @media only screen and (max-width: 768px) {
 
