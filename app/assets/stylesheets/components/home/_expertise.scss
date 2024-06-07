@@ -1,6 +1,6 @@
 .expertise-section {
   display: grid;
-  height: 70vh;
+  // height: 70vh;
   grid-template-rows: 1fr 3fr;
   gap: 20px;
   padding: 20px;
@@ -90,4 +90,67 @@
 
 .card:nth_child(3) {
   transition-delay: 400ms;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .text {
+    font-size: 1.2rem;
+  }
+
+  .cards {
+    gap: 15px;
+  }
+
+  .card {
+    font-size: 0.9rem;
+    padding: 15px;
+  }
+
+  .card h4 {
+    font-size: 1rem;
+  }
+
+  .card p {
+    font-size: 0.85rem;
+  }
+
+  .card::before {
+    font-size: 15vw;
+    line-height: 45vw;
+  }
+}
+
+
+
+@media (max-width: 767px) {
+  .expertise-section {
+    display: block;
+    height: auto;
+    padding: 10px;
+  }
+
+  .text {
+    padding-bottom: 20px;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    overflow: visible;
+  }
+
+  .card {
+    width: 90%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .card::before {
+    font-size: 20vw;
+    line-height: 60vw;
+  }
 }

@@ -4,18 +4,21 @@
   overflow: hidden;
 }
 .slides-container {
-  height: calc(40vh - 2rem);
+  // height: calc(40vh - 2rem);
+  height: auto;
   width: 100%;
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
   overflow: scroll;
+  overflow-x: auto;
   scroll-behavior: smooth;
 }
 .slide {
   width: 100%;
-  height: 40vh;
+  // height: 40vh;
+  height: auto;
   flex: 1 0 (100% / 3);
   display: flex;
   justify-content: center;
@@ -52,7 +55,8 @@
   padding: 20px;
   text-align: center;
   width: 70%;
-  height: 30vh;
+  // height: 30vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -86,81 +90,23 @@
   filter: blur(5px); /* Apply blur effect */
 }
 
+@media (max-width: 768px) {
+  .slide {
+      flex: 0 0 50%; /* Two cards visible */
+  }
 
-// <i class="fa-solid fa-helmet-safety"></i>
-// <i class="fa-solid fa-hammer"></i>
-// <i class="fa-solid fa-screwdriver-wrench"></i>
+  .icon-container {
+    visibility: hidden;
+  }
+}
 
-// <i class="fa-solid fa-train-subway"></i>
-// <i class="fa-solid fa-road"></i>
-// <i class="fa-solid fa-road-barrier"></i>
+/* Small screens (mobile) */
+@media (max-width: 480px) {
+  .slide {
+      flex: 0 0 100%; /* One card visible */
+  }
 
-// <i class="fa-solid fa-traffic-light"></i>
-// <i class="fa-solid fa-gears"></i>
-// <i class="fa-solid fa-truck-moving"></i>
-//
-
-// .testimonial-section {
-//   height: 50vh;
-//   overflow: hidden;
-//   display: grid;
-//   grid-template-rows: 1fr 3fr;
-//   align-items: center;
-//   justify-content: center;
-//   width: 100%;
-//   padding: 20px;
-
-//   button {
-//     text-decoration: none;
-//     background: transparent;
-//     border: transparent;
-//     // box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-//     background-color: rgba(0, 0, 0, 0.1);
-//     border-radius: 20%;
-//   }
-
-//   button:hover {
-//     cursor: pointer;
-//     color: var(--orange);
-//   }
-// }
-
-
-// .testimonials-container {
-//   overflow: hidden;
-//   // display: flex;
-//   // justify-content: center;
-//   // width: 100vw;
-//   position: relative;
-//   width: 100%;
-// }
-
-// .train {
-//   display: flex;
-//   transition: transform 0.5s ease-in-out;
-
-//   width: 100%;
-// }
-
-// .wagon {
-//   width: 100%;
-//   height: 30vh;
-//   background-color: white;
-//   border: 2px solid #ccc;
-//   border-radius: 10px;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-// }
-
-// .testimonial {
-//   padding: 20px;
-//   text-align: center;
-
-// }
-
-/* .testimonial {
-  padding: 20px;
-  text-align: center;
-} */
+  .icon-container {
+    visibility: hidden;
+  }
+}

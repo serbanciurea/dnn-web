@@ -1,28 +1,13 @@
 .portofolio-section {
-  // background-color: brown;
   display: grid;
   grid-template-columns: 1fr 4fr 1fr; /* Create 3 rows with heights 1/4, 2/4, 1/4 of 100vh */
   column-gap: 5%;
-  height: 80vh; /* Set container height to 80vh */
+  height: 80vh;
+  // height: auto;
   width: 100vw;
   box-sizing: border-box;
   padding: 20px;
 }
-
-// .box-container {
-//     // background-color: pink;
-//     // display: flex;
-//     // align-items: center;
-//     display: grid;
-//     justify-content: center;
-//     align-items: center;
-//     grid-template-rows: 3fr 1fr;
-//     // row-gap: 5%;
-//     height: 100%;
-//     transform-style: preserve-3d;
-//     box-sizing: border-box;
-//     flex-direction: row;
-// }
 
 .box-container {
   display: flex;
@@ -50,19 +35,6 @@
   font-size: 120%;
   font-family: 'Switzer-Semibold';
 }
-
-// .box {
-//   // background-color: yellow;
-//   // manarit level 99999
-//   // top: -100px;
-//   position: relative;
-//   width: 100%;
-//   height: 100%;
-//   transform-style: preserve-3d;
-//   transition: 1.5s;
-//   transform: perspective(1000px) rotateY(0deg);
-//   box-sizing: border-box;
-// }
 
 .box {
   position: relative;
@@ -101,18 +73,6 @@
   box-sizing: border-box;
 }
 
-// .btns {
-//   background-color: red;
-//   z-index: 1000;
-//   // position: absolute;
-//   display: flex;
-//   gap: 30px;
-//   width: 100%;
-//   height: 100%;
-//   // manarit level 999999
-//   // bottom: -150px;
-// }
-
 .btns {
   display: flex;
   justify-content: center;
@@ -131,3 +91,65 @@
 .btn-prev:hover, .btn-next:hover {
   background-color: var(--grey);
 }
+
+// @media only screen and (max-width: 1024px) {
+//   .portofolio-section {
+//     grid-template-columns: 1fr 2fr 1fr; /* Adjust grid layout for medium screens */
+//   }
+
+//   .port-desc {
+//     font-size: 100%; /* Adjust font size for smaller screens */
+//   }
+// }
+
+// @media only screen and (max-width: 768px) {
+
+//   .portfolio-section {
+//     width: 100%;
+//     padding: 20px;
+//     box-sizing: border-box;
+//   }
+
+//   .carousel {
+//     display: flex;
+//     overflow-x: auto; /* Enable horizontal scrolling */
+//     scroll-snap-type: x mandatory; /* Snap to each image */
+//     -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+//   }
+
+//   // .carousel img {
+//   //   flex: 0 0 auto; /* Do not grow, shrink, or basis */
+//   //   width: 100%; /* Occupy full width */
+//   //   scroll-snap-align: start; /* Snap alignment */
+//   // }
+
+//   .house {
+//     visibility: visible;
+//   }
+
+//   .portofolio-section {
+//     grid-template-columns: 1fr; /* Single column layout for small screens */
+//     height: auto; /* Set height to auto for smaller screens */
+//   }
+
+//   .port-text, .port-desc {
+//     text-align: center; /* Center align text for small screens */
+//   }
+
+//   .box-container {
+//     width: 90%; /* Adjust width for smaller screens */
+//     margin: 0 auto; /* Center box-container */
+//   }
+
+//   .box {
+//     height: calc(100% - 200px); /* Adjust height for smaller screens */
+//   }
+
+//   .btns {
+//     margin-top: 10px; /* Adjust margin for smaller screens */
+//   }
+
+//   .btn-prev, .btn-next {
+//     padding: 8px 16px; /* Adjust button padding for smaller screens */
+//   }
+// }
