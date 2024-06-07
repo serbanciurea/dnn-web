@@ -22,6 +22,11 @@
   </div>
 
   <div>
+    <%= form.label :department_id, "Department", style: "display: block" %>
+    <%= form.collection_select :department_id, @departments, :id, :name, prompt: "Select a department" %>
+  </div>
+
+  <div>
     <%= form.label :collaborations, style: "display: block" %>
     <%= form.text_field :collaborations %>
   </div>

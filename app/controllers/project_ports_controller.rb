@@ -7,30 +7,28 @@ class ProjectPortsController < ApplicationController
   after_action :verify_authorized, except: [:index, :show]
   after_action :verify_policy_scoped, only: :index
 
-  # GET /project_ports or /project_ports.json
   def index
     # @project_ports = ProjectPort.all
     @project_ports = policy_scope(ProjectPort)
     # authorize @project_ports
   end
 
-  # GET /project_ports/1 or /project_ports/1.json
   def show
     authorize @project_port
   end
 
-  # GET /project_ports/new
   def new
     @project_port = ProjectPort.new
+    @departments = Department.where(name: ['constructions', 'rail', 'electricity'])
     authorize @project_port
   end
 
-  # GET /project_ports/1/edit
   def edit
     authorize @project_port
+    @project_port = ProjectPort.find(params[:id])
+    @departments = Department.where(name: ['constructions', 'rail', 'electricity'])
   end
 
-  # POST /project_ports or /project_ports.json
   def create
     @project_port = ProjectPort.new(project_port_params)
     authorize @project_port
@@ -77,7 +75,7 @@ class ProjectPortsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_port_params
-      params.require(:project_port).permit(:name, :description, :collaborations, photos: [])
+      params.require(:project_port).permit(:name, :description, :collaborations, :department_id, photos: [])
     end
 
     def authorize_project_port
