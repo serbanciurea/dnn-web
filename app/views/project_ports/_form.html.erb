@@ -1,37 +1,52 @@
-<%= form_with(model: project_port) do |form| %>
-  <% if project_port.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(project_port.errors.count, "error") %> prohibited this project_port from being saved:</h2>
+<div class="login">
 
-      <ul>
-        <% project_port.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <%= form_with(model: project_port) do |form| %>
+    <% if project_port.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(project_port.errors.count, "error") %> prohibited this project_port from being saved:</h2>
+
+        <ul>
+          <% project_port.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field" >
+      <%#= form.label :name, style: "display: block" %>
+      <%= form.text_field :name, placeholder: 'NAME OF PROJECT' %>
+    </div>
+
+    <div class="field">
+      <%#= form.label :description, style: "display: block" %>
+      <%= form.text_area :description, placeholder: 'DESCRIPTION' %>
+    </div>
+
+    <div class="field">
+      <%#= form.label :department_id, "Department", style: "display: block" %>
+      <%= form.collection_select :department_id, @departments, :id, :name, prompt: "SELECT A DEPARTMENT", id: 'choose-from' %>
+    </div>
+
+    <div class="field">
+      <%#= form.label :collaborations, style: "display: block" %>
+      <%= form.text_field :collaborations, placeholder: 'COLLABORATIONS' %>
+    </div>
+
+    <%# <div class="field">
+      <%#= form.label :photos, style: "display: block" %>
+      <%#= form.file_field :photos, multiple: true, id: 'alege-fisier' %>
+    <%# </div> %>
+
+    <div class="field">
+  <%= form.label :photos, "UPLOAD PHOTOS", class: 'custom-file-label', for: 'alege-fisier' %>
+  <%= form.file_field :photos, multiple: true, id: 'alege-fisier', class: 'file-input' %>
+</div>
+
+    <div class='form-actions-project'>
+      <%= form.submit 'save', class: 'gradient-button' %>
+      <%= link_to "Back to projects", project_ports_path, class: 'gradient-button' %>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.label :collaborations, style: "display: block" %>
-    <%= form.text_field :collaborations %>
-  </div>
-
-  <div>
-    <%= form.label :photos, style: "display: block" %>
-    <%= form.file_field :photos, multiple: true %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

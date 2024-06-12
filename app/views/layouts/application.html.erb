@@ -31,7 +31,9 @@
     <%= yield %>
   </main>
 
-  <%= render 'layouts/footer' %>
+  <% if @show_footer != false %>
+    <%= render 'layouts/footer' %>
+  <% end %>
 </body>
 
 </html>
