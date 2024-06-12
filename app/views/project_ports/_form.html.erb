@@ -25,7 +25,7 @@
 
     <div class="field">
       <%#= form.label :department_id, "Department", style: "display: block" %>
-      <%= form.collection_select :department_id, @departments, :id, :name, prompt: "SELECT A DEPARTMENT", class: 'choose-from' %>
+      <%= form.collection_select :department_id, @departments, :id, :name, prompt: "SELECT A DEPARTMENT", id: 'choose-from' %>
     </div>
 
     <div class="field">

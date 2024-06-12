@@ -33,6 +33,7 @@ select, input#file-upload-button {
   border: 1px solid #DDDDDD;
   box-shadow: inset 0px 14px 16px 0px rgba(0, 0, 0, 0.2);
   width: 100%;
+  font-family: 'Switzer-Regular', sans-serif;
 }
 
 // .custom-file-label:hover {
@@ -75,4 +76,9 @@ select, input#file-upload-button {
 
 .form-actions-project {
   width: max-content;;
+}
+
+#choose-from::placeholder {
+  font-family: 'Switzer-Regular', sans-serif;
+  color: var(--grey);
 }
