@@ -3,9 +3,11 @@ class ProjectPortsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :authorize_project_port, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_show_footer, only: [:new, :edit]
 
   after_action :verify_authorized, except: [:index, :show]
   after_action :verify_policy_scoped, only: :index
+
 
   def index
     # @project_ports = ProjectPort.all
@@ -80,6 +82,10 @@ class ProjectPortsController < ApplicationController
 
     def authorize_project_port
       authorize @project_port || ProjectPort
+    end
+
+    def set_show_footer
+      @show_footer = false
     end
 
 end

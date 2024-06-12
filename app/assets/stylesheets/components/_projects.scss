@@ -1,0 +1,78 @@
+select, input#file-upload-button {
+  background: transparent;
+  font-size: 1rem;
+}
+
+.new-project form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+  margin: 0 auto;
+  width: 100vw;
+
+/* Hide the default file input */
+.file-input {
+  display: none;
+}
+
+/* Style the custom label to look like a button */
+.custom-file-label {
+  display: inline-block;
+  background-color: transparent; /* Customize the background color */
+  color: var(--grey);
+  // padding: 10px 20px;
+  // border-radius: 4px;
+  cursor: pointer;
+  // font-size: 16px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #DDDDDD;
+  box-shadow: inset 0px 14px 16px 0px rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+// .custom-file-label:hover {
+//   background-color: var(--orange); /* Change color on hover */
+// }
+
+// .custom-file-label:active {
+//   background-color: var(--orange); /* Change color on click */
+// }
+
+}
+
+.texture {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.texture::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://images.unsplash.com/photo-1498631906572-66c58d46ecf7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG9yYW5nZSUyMGNvbnN0cnVjdGlvbnxlbnwwfHwwfHx8MA%3D%3D);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(3px); /* Apply blur effect */
+  z-index: -1; /* Ensure the background is behind the content */
+}
+
+.texture > * {
+  position: relative;
+  z-index: 1;
+}
+
+// @media (max-width: 767px)
+
+.form-actions-project {
+  width: max-content;;
+}
