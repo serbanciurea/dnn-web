@@ -5,13 +5,25 @@ class ProjectPortsController < ApplicationController
   before_action :authorize_project_port, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_show_footer, only: [:new, :edit]
 
-  after_action :verify_authorized, except: [:index, :show]
+  after_action :verify_authorized, except: [:index, :show, :filter_by_department]
   after_action :verify_policy_scoped, only: :index
+
+  def filter_by_department
+    if params[:department] == 'all' || params[:department].blank?
+      @projects = ProjectPort.all
+    else
+      @projects = ProjectPort.where(department_id: Department.where(name: params[:department]))
+    end
+    respond_to do |format|
+      format.html { render partial: 'projects_list', locals: { projects: @projects } }
+      format.json { render json: @projects }
+    end
+  end
 
 
   def index
     # @project_ports = ProjectPort.all
-    @project_ports = policy_scope(ProjectPort)
+    @projects = policy_scope(ProjectPort)
     # authorize @project_ports
   end
 

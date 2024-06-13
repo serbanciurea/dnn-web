@@ -1,11 +1,3 @@
-@keyframes about-image {
-  from {
-    background-position: 0% 50%;
-  }
-  to {
-    background-position: 100% 50%;
-  }
-}
 /* Define the color variables */
 :root {
   --milky-white: #FEFCFF;
@@ -569,5 +561,14 @@
 
   .a-btn {
     width: 100%; /* Full width for the button */
+  }
+}
+
+@keyframes about-image {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
   }
 }

@@ -9,17 +9,50 @@
     </div>
   </div>
 
-
 <div class="container">
- <div class="services">
-  <h1>Services</h1>
+  <div class="services">
+    <h1>Services</h1>
     <ul>
-      <li><a href="">All</a></li>
-      <li><a href="">Construction</a></li>
-      <li><a href="">Rail</a></li>
-      <li><a href="">Electricity</a></li>
+      <li><a href="#" data-department="all">All</a></li>
+      <li><a href="#" data-department="constructions">Construction</a></li>
+      <li><a href="#" data-department="rail">Rail</a></li>
+      <li><a href="#" data-department="electricity">Electricity</a></li>
     </ul>
   </div>
+
+  <div id="projects-container">
+    <%= render partial: 'projects_list', locals: { projects: @projects } %>
+  </div>
+</div>
+
+<div class="" data-controller='projects'>hei</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const links = document.querySelectorAll('.services ul li a');
+
+  links.forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      const department = event.target.dataset.department;
+      console.log(department);
+      fetch(`/project_ports/filter_by_department?department=${department}`, {
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      })
+      .then(response => response.text())
+      .then(html => {
+        console.log(html);
+        document.getElementById('projects-container').innerHTML = html;
+      })
+      .catch(error => console.error('Error fetching projects:', error));
+    });
+  });
+});
+</script>
 
 
   <div class="content-right">

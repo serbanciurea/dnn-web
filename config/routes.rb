@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   #   end
   # end
 
+  resources :project_ports, only: [:index] do
+    collection do
+      get 'filter_by_department'
+    end
+  end
   resources :project_ports
   resources :jobs
   get 'contacts/new', to: 'contacts#new', as: 'new_contact'
