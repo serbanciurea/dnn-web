@@ -1,14 +1,59 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Project ports</h1>
 
-<div id="project_ports">
-  <% @project_ports.each do |project_port| %>
-    <%= render project_port %>
-    <p>
-      <%= link_to "Show this project port", project_port %>
-    </p>
-  <% end %>
+  <div class="head">
+    <div class="image-wrapper">
+      <img src="https://images.unsplash.com/photo-1639040933793-d0c4dc51a933?q=80&w=3024&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="train photo">
+      <div class="overlay">
+        <h1>Our projects</h1>
+      </div>
+    </div>
+  </div>
+
+
+<div class="container">
+ <div class="services">
+  <h1>Services</h1>
+    <ul>
+      <li><a href="">All</a></li>
+      <li><a href="">Construction</a></li>
+      <li><a href="">Rail</a></li>
+      <li><a href="">Electricity</a></li>
+    </ul>
+  </div>
+
+
+  <div class="content-right">
+
+    <div class="north">
+      <div class="north-text">
+        <h2>Northumbland - Level crossings renewals.</h2>
+        <p>We have subcontracted by Siemens to provide
+          essential resources and expertise in carrying out a level crossing renewal project. Troughout
+          the project we had to provide teams of 4 operatives, company vans to accomodate the team and tools
+          to carry out the works.
+          </p>
+          <%= link_to "Read More", northumberland_details_path, class: "read-more-button" %>
+      </div>
+      <div class="north-image">
+        <img src="https://images.unsplash.com/photo-1659337599008-bc2aaf0e1643?q=80&w=3178&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      </div>
+
+    </div>
+
+
+    <div class="emr">
+      <div class="emr-text">
+        <h2>Tilbury - Industrial scales installation.</h2>
+        <p>Working for Emr client to carry out industrial scales construction works. Throughout the project we provided
+          100% of the work force requiered, from ground workers to egineers, tools and equipment and management. </p>
+          <%= link_to "Read More", emr_details_path, class: "read-more-button" %>
+      </div>
+
+      <div class="emr-image">
+        <img src="https://images.unsplash.com/photo-1536895058696-a69b1c7ba34f?q=80&w=3024&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      </div>
+    </div>
+  </div>
+
 </div>
-
 <%= link_to "New project port", new_project_port_path %>
