@@ -1,10 +1,183 @@
-<%# raise %>
 <div class="projects-list">
-  <% projects.each do |project| %>
-    <div class="project">
-      <h2><%= project.name %></h2>
-      <p><%= project.description %></p>
-      <p><%= Department.find_by(id: project.department_id).name %></p>
+  <% projects.each_with_index do |project, project_index| %>
+    <div class="project-container">
+      <div class="slider" id="slider-<%= project_index %>">
+        <div class="slide-row" id="slide-row-<%= project_index %>">
+          <% project.photos.each do |photo| %>
+            <div class="slide-col">
+              <%= cl_image_tag photo.key, class: "project-image" %>
+            </div>
+          <% end %>
+        </div>
+        <div class="indicator">
+          <% project.photos.each_with_index do |photo, photo_index| %>
+            <span class="btn <%= 'active' if photo_index == 0 %>" data-project-index="<%= project_index %>" data-photo-index="<%= photo_index %>"></span>
+          <% end %>
+        </div>
+      </div>
+      <div class="project-details glassmorphism">
+        <div class="project-port" id="project-port-<%= project_index %>">
+          <h2><%= project.name %></h2>
+          <p><%= project.description %></p>
+          <p>Collaborated with: <%= project.collaborations %></p>
+        </div>
+      </div>
     </div>
+
+    <div>
+  <%= link_to "Edit this project port", edit_project_port_path(project) %> |
+  <%= link_to "Back to project ports", project_ports_path %>
+
+</div>
   <% end %>
 </div>
+
+
+
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const projectContainers = document.querySelectorAll('.slider');
+
+    projectContainers.forEach(container => {
+      const slideRow = container.querySelector('.slide-row');
+      const btns = container.querySelectorAll('.btn');
+      const slideInterval = 4000; // 4 seconds interval for auto sliding
+
+      let currentIndex = 0;
+      let autoSlideTimer;
+
+      function updateSlide() {
+        const slideWidth = container.clientWidth;
+        const translateValue = currentIndex * -slideWidth;
+        slideRow.style.transform = `translateX(${translateValue}px)`;
+
+        btns.forEach((btn, index) => {
+          btn.classList.toggle("active", index === currentIndex);
+        });
+      }
+
+      function autoSlide() {
+        currentIndex = (currentIndex + 1) % btns.length;
+        updateSlide();
+      }
+
+      function startAutoSlide() {
+        autoSlideTimer = setInterval(autoSlide, slideInterval);
+      }
+
+      function stopAutoSlide() {
+        clearInterval(autoSlideTimer);
+      }
+
+      btns.forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+          currentIndex = index;
+          updateSlide();
+          stopAutoSlide(); // Stop auto sliding when manually clicked
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        updateSlide();
+        checkOverflow();
+      });
+
+      // Initial slide update
+      updateSlide();
+
+      // Start auto sliding
+      startAutoSlide();
+
+      // Check for overflow
+  const projectDetails = document.querySelectorAll('.project-details');
+
+    projectDetails.forEach(details => {
+      const container = details.querySelector('.project-port');
+
+      // Check if .project-details overflows
+      if (details.scrollHeight > details.clientHeight) {
+        container.classList.add('overflow');
+      } else {
+        container.classList.remove('overflow');
+      }
+    });
+  });
+  });
+
+
+</script>
+
+<%# <script>
+//   document.addEventListener('DOMContentLoaded', () => {
+//     const projectContainers = document.querySelectorAll('.slider');
+
+//     projectContainers.forEach(container => {
+//       const slideRow = container.querySelector('.slide-row');
+//       const btns = container.querySelectorAll('.btn');
+//       const slideInterval = 4000; // 4 seconds interval for auto sliding
+
+//       let currentIndex = 0;
+//       let autoSlideTimer;
+
+//       function updateSlide() {
+//         const slideWidth = slideRow.offsetWidth;
+//         const translateValue = currentIndex * -slideWidth;
+//         slideRow.style.transform = `translateX(${translateValue}px)`;
+
+//         btns.forEach((btn, index) => {
+//           btn.classList.toggle("active", index === currentIndex);
+//         });
+//       }
+
+//       function autoSlide() {
+//         currentIndex = (currentIndex + 1) % btns.length;
+//         updateSlide();
+//       }
+
+//       function startAutoSlide() {
+//         autoSlideTimer = setInterval(autoSlide, slideInterval);
+//       }
+
+//       function stopAutoSlide() {
+//         clearInterval(autoSlideTimer);
+//       }
+
+//       btns.forEach((btn, index) => {
+//         btn.addEventListener("click", () => {
+//           currentIndex = index;
+//           updateSlide();
+//           stopAutoSlide(); // Stop auto sliding when manually clicked
+//         });
+//       });
+
+//       window.addEventListener("resize", () => {
+//         updateSlide();
+//       });
+
+//       // Initial slide update
+//       updateSlide();
+
+//       // Start auto sliding
+//       startAutoSlide();
+
+//           // Check for overflow
+//     function checkOverflow() {
+//       const projectPorts = document.querySelectorAll('.project-port');
+//       projectPorts.forEach(port => {
+//         if (port.scrollHeight > port.clientHeight) {
+//           port.classList.add('overflow');
+//         } else {
+//           port.classList.remove('overflow');
+//         }
+//       });
+//     }
+
+//     checkOverflow(); // Initial check
+//   });
+//     });
+
+
+
+// </script> %>
