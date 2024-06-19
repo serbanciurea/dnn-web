@@ -1,6 +1,6 @@
 .portofolio-section {
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr; /* Create 3 rows with heights 1/4, 2/4, 1/4 of 100vh */
+  grid-template-columns: 1fr 4fr 1fr;
   column-gap: 5%;
   height: 80vh;
   // height: auto;
@@ -21,7 +21,7 @@
 }
 
 .box-container, .box-container::before, .box-container::after {
-  box-sizing: inherit; /* Inherit box-sizing from the document */
+  box-sizing: inherit;
 }
 
 .port-text {
@@ -78,7 +78,7 @@
   justify-content: center;
   gap: 30px;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 60px;
 }
 
 .btn-prev, .btn-next {
@@ -92,64 +92,123 @@
   background-color: var(--grey);
 }
 
-// @media only screen and (max-width: 1024px) {
-//   .portofolio-section {
-//     grid-template-columns: 1fr 2fr 1fr; /* Adjust grid layout for medium screens */
-//   }
+//////////////////////////////////
 
-//   .port-desc {
-//     font-size: 100%; /* Adjust font size for smaller screens */
-//   }
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 2D Slider CSS */
+.image-slider {
+  position: relative;
+  width: 90vw;
+  max-width: 1500px;
+  height: 400px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.slide-row {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-col {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.indicator {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.indicator .btn {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn.active {
+  width: 30px;
+  background: var(--orange);
+}
+
+/* Responsive adjustments */
+@media (min-width: 971px) {
+  .box-container {
+    display: flex;
+    justify-content: center; /* Center the slider horizontally */
+    align-items: center; /* Center the slider vertically */
+  }
+  .image-slider {
+    display: none;
+  }
+}
+
+
+@media (max-width: 971px) {
+  .box-container {
+    display: none;
+  }
+  .image-slider {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .portofolio-section {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+  }
+  .port-text, .port-desc {
+    font-size: 90%; /* Adjust font size for better readability on small screens */
+  }
+  .image-slider {
+    width: 100%;
+  }
+}
+// .port-text, .port-desc {
+//   text-align: center;
+//   font-size: 100%;
 // }
-
-// @media only screen and (max-width: 768px) {
-
-//   .portfolio-section {
-//     width: 100%;
-//     padding: 20px;
-//     box-sizing: border-box;
-//   }
-
-//   .carousel {
-//     display: flex;
-//     overflow-x: auto; /* Enable horizontal scrolling */
-//     scroll-snap-type: x mandatory; /* Snap to each image */
-//     -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
-//   }
-
-//   // .carousel img {
-//   //   flex: 0 0 auto; /* Do not grow, shrink, or basis */
-//   //   width: 100%; /* Occupy full width */
-//   //   scroll-snap-align: start; /* Snap alignment */
-//   // }
-
-//   .house {
-//     visibility: visible;
-//   }
-
-//   .portofolio-section {
-//     grid-template-columns: 1fr; /* Single column layout for small screens */
-//     height: auto; /* Set height to auto for smaller screens */
-//   }
-
-//   .port-text, .port-desc {
-//     text-align: center; /* Center align text for small screens */
-//   }
-
-//   .box-container {
-//     width: 90%; /* Adjust width for smaller screens */
-//     margin: 0 auto; /* Center box-container */
-//   }
-
-//   .box {
-//     height: calc(100% - 200px); /* Adjust height for smaller screens */
-//   }
-
-//   .btns {
-//     margin-top: 10px; /* Adjust margin for smaller screens */
-//   }
-
-//   .btn-prev, .btn-next {
-//     padding: 8px 16px; /* Adjust button padding for smaller screens */
-//   }
+// .slider-container {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
+// .image-slider {
+//   width: 100%;
 // }
