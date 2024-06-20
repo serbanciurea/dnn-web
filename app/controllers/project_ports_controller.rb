@@ -12,8 +12,10 @@ class ProjectPortsController < ApplicationController
     if params[:department] == 'all' || params[:department].blank?
       @projects = ProjectPort.all
     else
-      @projects = ProjectPort.where(department_id: Department.where(name: params[:department]))
+      # Assuming params[:department] is a string representing the enum key
+      @projects = ProjectPort.where(department: params[:department])
     end
+
     respond_to do |format|
       format.html { render partial: 'projects_list', locals: { projects: @projects } }
       format.json { render json: @projects }
@@ -33,19 +35,21 @@ class ProjectPortsController < ApplicationController
 
   def new
     @project_port = ProjectPort.new
-    @departments = Department.where(name: ['constructions', 'rail', 'electricity'])
+    # @departments = Department.where(name: ['constructions', 'rail', 'electricity'])
     authorize @project_port
   end
 
   def edit
     authorize @project_port
     @project_port = ProjectPort.find(params[:id])
-    @departments = Department.where(name: ['constructions', 'rail', 'electricity'])
+    # @departments = Department.where(name: ['constructions', 'rail', 'electricity'])
   end
 
   def create
     @project_port = ProjectPort.new(project_port_params)
+      logger.debug "ProjectPort params: #{project_port_params.inspect}"
     authorize @project_port
+    # raise
     respond_to do |format|
       if @project_port.save
         format.html { redirect_to project_port_url(@project_port), notice: "Project port was successfully created." }
@@ -89,7 +93,7 @@ class ProjectPortsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_port_params
-      params.require(:project_port).permit(:name, :description, :collaborations, :department_id, photos: [])
+      params.require(:project_port).permit(:name, :description, :collaborations, :department, :client, :sector, :delivery_method, :completion_date, :location, :market, photos: [])
     end
 
     def authorize_project_port
