@@ -54,9 +54,102 @@
   align-items: baseline;
   justify-content: center;
   padding: 20px 60px 20px 0px;
+  text-align: start;
 }
 
 .detail {
   padding: 10px 0px 0px 0px;
   font-family: 'Switzer-Bold';
+  text-align: start;
+}
+
+strong {
+  font-family: 'Switzer-Bold';
+}
+
+.project-desc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px 40px 20px 40px;
+  gap: 40px;
+}
+
+.project-description {
+  text-align: start;
+  z-index: 1;
+}
+
+#project-photo {
+  // width: 100%;
+  // height: auto;
+  // position: relative;
+  // top: 0;
+  // margin-top: 0;
+  // padding: 40px;
+
+  position: sticky;
+  top: 0; /* Stick the image to the top of its container */
+  width: 100%;
+  height: auto;
+  padding: 40px;
+  z-index: 2;
+}
+
+.photos {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+// responsivness
+
+@media (max-width: 600px) {
+
+  .project-detail {
+    &:before,
+    &:after {
+      width: 20%;
+    }
+  }
+
+  .project-desc {
+    grid-template-columns: 1fr;
+  }
+
+  .project-description {
+    grid-column: 1 / 2;
+  }
+
+  .project-photo {
+    grid-column: 1 / 2;
+  }
+
+  #project-photo {
+    padding: 0px;
+  }
+}
+
+@media (max-width: 771px) {
+  .project-detail {
+    &:before,
+    &:after {
+      width: 30%;
+    }
+  }
+
+  .details {
+    width: 80%;
+  }
+}
+
+@media  (max-width: 450px) {
+  .details {
+    width: 90%;
+  }
+}
+
+@media  (max-width: 417px) {
+  .details {
+    width: 80%;
+  }
 }
