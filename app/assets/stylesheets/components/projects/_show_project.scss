@@ -59,4 +59,17 @@
 .detail {
   padding: 10px 0px 0px 0px;
   font-family: 'Switzer-Bold';
+  text-align: start;
+}
+
+strong {
+  font-family: 'Switzer-Bold';
+}
+
+.project-desc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: start;
+  padding: 20px 40px 20px 40px;
+  gap: 40px;
 }

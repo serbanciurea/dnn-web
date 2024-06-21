@@ -43,9 +43,21 @@
 
       <div class="group">
         COMPLETION DAY
-        <div class="detail"><%= project_port.completion_date.strftime("%B %d, %Y") %></div>
+        <div class="detail"><%= project_port.completion_date.strftime("%B %d, %Y").upcase %></div>
       </div>
 
+    </div>
+  </section>
+
+  <section class="project-desc">
+    <div class="project-description">
+      <%= format_description(project_port.description) %>
+    </div>
+
+    <div class="photos">
+      <% project_port.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
     </div>
   </section>
 

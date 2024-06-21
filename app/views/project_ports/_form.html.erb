@@ -35,7 +35,6 @@
 
     <div class="field">
       <%= form.select :market, options_for_select(ProjectPort::MARKETS, project_port.market), { include_blank: 'Select market' }, { class: 'select-with-placeholder' } %>
-      <%#= form.text_field :market, placeholder: 'Or type your own', class: 'input-with-placeholder' %>
     </div>
 
     <div class="field">
@@ -46,9 +45,90 @@
       <%= form.text_field :location, placeholder: 'LOCATION', class: 'input-with-placeholder' %>
     </div>
 
-    <div class="field">
-      <%= form.text_area :description, placeholder: 'DESCRIPTION', class: 'input-with-placeholder' %>
+    <%# <div class="field"> %>
+      <%#= form.text_area :description, placeholder: 'DESCRIPTION', class: 'input-with-placeholder' %>
+    <%# </div> %>
+
+<!-- Hidden textarea to store Quill content -->
+    <div class="field" style="display: none;">
+      <%= form.text_area :description, id: 'description', placeholder: 'Enter description' %>
     </div>
+
+    <!-- Visible Quill editor -->
+    <div class="field">
+      <div id="quill-editor" style="height: 300px;"></div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var editor = new Quill('#quill-editor', {
+          theme: 'snow',
+          placeholder: 'Enter description',
+          modules: {
+            toolbar: [
+              [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
+              [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+              ['bold', 'italic', 'underline'],
+              ['link']
+            ]
+          }
+        });
+
+        var description = document.querySelector('#description');
+        console.log(description.value);
+        // Populate existing content into Quill editor if editing existing record
+        if (description.value) {
+          editor.clipboard.dangerouslyPasteHTML(description.value);
+        }
+
+        // Update hidden textarea on form submit
+        var form = document.querySelectorAll('form');
+        form = form[1];
+        console.log(form);
+        if (form) {
+          form.onsubmit = function() {
+            description.value = editor.root.innerHTML;
+            console.log('Form submitted. Updated textarea value:', description.value);
+          };
+        }
+      });
+    </script>
+
+    <%# <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+      var editor = new Quill('#quill-editor', {
+        theme: 'snow', // 'snow' is Quill's built-in theme for a clean interface
+        placeholder: 'Enter description', // Placeholder text
+        modules: {
+          toolbar: [
+            [{ 'header': '1' }, { 'header': '2' }, { 'font': ['sans-serif'] }],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            ['bold', 'italic', 'underline'],
+            ['link']
+          ]
+        }
+      });
+
+      // Populate existing content into Quill editor if editing existing record
+      var description = document.querySelector('#description');
+      if (description && description.value) {
+        editor.clipboard.dangerouslyPasteHTML(description.value);
+      }
+
+      // Update hidden text area on form submit
+      var form = document.querySelector('form');
+      if (form) {
+        form.onsubmit = function() {
+          // var html = editor.root.innerHTML;
+          // description.value = html;
+          const description = document.querySelector('input[name="project[description]"]');
+          description.value = editor.root.innerHTML;
+        };
+      }
+      console.log(description);
+      });
+    </script> %>
 
     <div class="field">
       <%= form.text_field :collaborations, placeholder: 'COLLABORATIONS', class: 'input-with-placeholder' %>
