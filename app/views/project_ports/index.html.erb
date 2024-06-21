@@ -11,23 +11,22 @@
 
 <section class="categories">
   <div class="category-name">
-    <ul>
-      <li><a href="#" data-department="all">All</a></li>
-      <li><a href="#" data-department="constructions">Construction</a></li>
-      <li><a href="#" data-department="rail">Rail</a></li>
-      <li><a href="#" data-department="electricity">Electricity</a></li>
-    </ul>
-    </div>
+    <a href="#" data-department="all">All</a>
+    <a href="#" data-department="Construction">Construction</a>
+    <a href="#" data-department="Rail">Rail</a>
+    <a href="#" data-department="Electricity">Electricity</a>
   </div>
+</div>
 
 </section>
-  <div id="projects-container">
+
+<div id="projects-container">
     <%= render partial: 'projects_list', locals: { projects: @projects } %>
-  </div>
+</div>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('.category-name ul li a');
+    const links = document.querySelectorAll('.category-name a');
 
     links.forEach(link => {
       link.addEventListener('click', (event) => {
