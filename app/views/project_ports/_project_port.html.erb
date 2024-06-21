@@ -55,9 +55,10 @@
     </div>
 
     <div class="photos">
-      <% project_port.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-      <% end %>
+      <%# project_port.photos.each do |photo| %>
+        <%#= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <%# end %>
+      <%= cl_image_tag project_port.photos[1].key, id: 'project-photo' %>
     </div>
   </section>
 
