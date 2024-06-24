@@ -1,37 +1,35 @@
 <div class="projects-list">
-  <% @projects.each_with_index do |project, project_index| %>
-   <%= link_to project_port_path(project), class: "project-container card-link" do %>
-    <div class="project-container">
-      <div class="slider" id="slider-<%= project_index %>">
-        <div class="slide-row" id="slide-row-<%= project_index %>">
-          <% project.photos.each do |photo| %>
-            <div class="slide-col">
-              <%= cl_image_tag photo.key, class: "project-image" %>
-            </div>
-          <% end %>
+  <% if @projects.size == 0 %>
+    <p>No projects found</p>
+    <% else %>
+    <% @projects.each_with_index do |project, project_index| %>
+    <%= link_to project_port_path(project), class: "project-container card-link" do %>
+      <div class="project-container">
+        <div class="slider" id="slider-<%= project_index %>">
+          <div class="slide-row" id="slide-row-<%= project_index %>">
+            <% project.photos.each do |photo| %>
+              <div class="slide-col">
+                <%= cl_image_tag photo.key, class: "project-image" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="indicator">
+            <% project.photos.each_with_index do |photo, photo_index| %>
+              <span class="btn <%= 'active' if photo_index == 0 %>" data-project-index="<%= project_index %>" data-photo-index="<%= photo_index %>"></span>
+            <% end %>
+          </div>
         </div>
-        <div class="indicator">
-          <% project.photos.each_with_index do |photo, photo_index| %>
-            <span class="btn <%= 'active' if photo_index == 0 %>" data-project-index="<%= project_index %>" data-photo-index="<%= photo_index %>"></span>
-          <% end %>
+        <div class="project-details">
+          <div class="project-port" id="project-port-<%= project_index %>">
+            <h2><%= project.name %></h2>
+            <p>Location <strong style='font-family: "Switzer-Bold"'><%= project.location %></strong></p>
+          </div>
         </div>
       </div>
-      <div class="project-details">
-        <div class="project-port" id="project-port-<%= project_index %>">
-          <h2><%= project.name %></h2>
-          <p>Location <strong style='font-family: "Switzer-Bold"'><%= project.location %></strong></p>
-        </div>
-      </div>
-    </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>
-
-
-  <%#= link_to "Edit this project port", edit_project_port_path(project) %> |
-  <%#= link_to "Back to project ports", project_ports_path %>
-
-
 
 <script>
 

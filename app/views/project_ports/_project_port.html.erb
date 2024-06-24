@@ -37,12 +37,12 @@
       </div>
 
       <div class="group">
-        DELIVERY METHOD
+        <div class="longer-names">DELIVERY METHOD</div>
         <div class="detail"><%= project_port.delivery_method.upcase %></div>
       </div>
 
       <div class="group">
-        COMPLETION DAY
+        <div class="longer-names">COMPLETION DAY</div>
         <div class="detail"><%= project_port.completion_date.strftime("%B %d, %Y").upcase %></div>
       </div>
 
@@ -62,22 +62,15 @@
     </div>
   </section>
 
-  <%# <p>
-    <strong>Name:</strong>
-    <%= project_port.name %>
-  <%# </p>
+  <section class="admin-actions">
+    <h3>ADMIN ACTIONS</h3>
+    <div class="admin-actions-buttons">
+      <%= link_to 'EDIT THIS PROJECT', edit_project_port_path(project_port), class: 'gradient-button' %>
+      <%= button_to "DELETE THIS PROJECT", project_port, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: 'gradient-button' %>
+    </div>
+  </section>
 
-  <p>
-    <strong>Description:</strong>
-    <%= project_port.description %>
-  <%# </p>
-
-  <p>
-    <strong>Collaborations:</strong>
-    <%= project_port.collaborations %>
-  <%# </p>
-
-  <% project_port.photos.each do |photo| %>
+  <%# project_port.photos.each do |photo| %>
   <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <%# <% end %>
 
