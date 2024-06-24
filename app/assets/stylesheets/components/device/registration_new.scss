@@ -29,6 +29,10 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 20px;
+
+    padding: 20px; /* Ensure padding inside the form */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    max-width: 500px;
   }
 
   .field input {
@@ -62,6 +66,9 @@ textarea {
   box-shadow: inset 0px 14px 16px 0px rgba(0, 0, 0, 0.2);
   background-color: transparent;
   width: 100%;
+
+  max-height: 150px; /* Set a max height for the textarea */
+  overflow: auto;
 
   &::placeholder {
     color: var(--grey);

@@ -1,11 +1,25 @@
-<h1>Editing project port</h1>
+<%# <h1>Editing project port</h1> %>
 
-<%= render "form", project_port: @project_port %>
+<%#= render "form", project_port: @project_port %>
 
-<br>
+<%# <br> %>
 
-<div>
-  <%#= link_to "Show this project port", @project_port %> |
-  <%= link_to "Back to project ports", project_ports_path %>
-  <%= button_to "Destroy this project port", @project_port, method: :delete %>
+<%# <div> %>
+  <%#= link_to "Show this project port", @project_port %>
+  <%#= link_to "Back to project ports", project_ports_path %>
+  <%#= button_to "Destroy this project port", @project_port, method: :delete %>
+<%# </div> %>
+
+
+<div class="texture">
+
+  <div class='new-project'>
+
+    <div class="">
+      <h1 style="color: var(--orange); font-family: 'Switzer-Black';">EDIT PROJECT</h1>
+      <%= render "form", project_port: @project_port %>
+    </div>
+
+  </div>
+
 </div>

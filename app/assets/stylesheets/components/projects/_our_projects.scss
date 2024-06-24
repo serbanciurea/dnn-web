@@ -223,3 +223,57 @@
 .project-container:hover .project-details {
   height: 100%; /* Expand to fill the slider */
 }
+
+
+// .project-details {
+//   padding: 0px;
+//   margin: 0px;
+// }
+
+@media (max-width: 768px) {
+  .projects-list {
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .project-details {
+    height: auto; /* Make height auto to fit content */
+    position: relative;
+    padding: 10px;
+  }
+
+  .project-details .project-port {
+    text-align: start;
+    align-items: start;
+    font-size: 1rem;
+  }
+
+  .project-details:hover .project-port {
+    text-align: start;
+    align-items: start;
+    font-size: 1rem;
+  }
+
+  .indicator {
+    visibility: collapse;
+  }
+}
+
+.usual-admin-actions {
+  h3 {
+    font-family: 'Switzer-Bold';
+    color: var(--orange);
+    font-size: 1.3rem;
+  }
+
+  // a {
+  //   transition: color 0.3s ease;
+  //   padding: 10px;
+  //   box-shadow: 0px 14px 16px 0px rgba(0, 0, 0, 0.2);
+  //   border-radius: 10px;
+  // }
+
+  // a:hover {
+  //   color: var(--orange);
+  // }
+}
