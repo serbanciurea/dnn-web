@@ -30,7 +30,7 @@ class ProjectPortsController < ApplicationController
   end
 
   def show
-    authorize @project_port
+    @project_port
   end
 
   def new
