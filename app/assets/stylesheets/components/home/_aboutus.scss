@@ -26,8 +26,8 @@ body {
 .about-us-overlay {
   position: absolute; /* position the div relative to the parent element */
   top: 50%; /* centres the div vertically */
-  left: 50%; /* centres the div horizontally */
-  transform: translate(-50%, -50%);
+  left: 0; /* centres the div horizontally */
+  transform: translateY( -50%);
   color: white; /* text color */
   border-radius: 5px;
   padding-left: 20px;
@@ -45,15 +45,20 @@ body {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  background-color: var(--orange);
+  background-color: transparent;
   height: 400px;
+  margin-top: 50px;
+  filter: grayscale(60%);
 }
+
+
 
 .description-image {
   flex: 1;
   margin-right: 0px; /* Space between image and text */
   height: 100%;
   width: 50%;
+  margin-left: 30px;
 }
 
 .description-image img {
@@ -79,6 +84,7 @@ body {
 
 .description-text .short-text {
   display: block;
+  padding: 30px;
 }
 
 .description-text .full-text {
@@ -172,31 +178,41 @@ body {
 .team-section {
   text-align: center;
 }
+
 .team-grid {
   display: flex;
-  justify-content: center;
+  justify-content: space-around; /* or space-between */
   gap: 20px;
   flex-wrap: wrap;
 }
+
 .team-card {
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 15px; /* Increased padding */
   border-radius: 10px;
-  width: 250px;
+  width: 300px; /* Increased width */
 }
+
 .team-card img {
-  width: 100%;
-  border-radius: 50%;
+  width: 100%; /* Ensure the image takes full width of its container */
+  height: 250px; /* Increased height */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+  border-radius: 10px 10px 0 0; /* Optional: match border radius of card */
 }
 
 .team-card h3 {
   margin: 15px 0 5px;
-  font-size: 20px;
+  font-size: 22px; /* Slightly increased font size */
   color: var(--grey);
 }
 
 .team-card p {
   margin: 0;
-  font-size: 16px;
+  font-size: 18px; /* Slightly increased font size */
   color: var(--grey);
+}
+
+.section-4{
+  margin-top: 150px;
+  margin-bottom: 50px;
 }

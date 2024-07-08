@@ -39,9 +39,22 @@ class EmployeesController < ApplicationController
     redirect_to employees_path
   end
 
+  # thi is for map
+  # def map
+  #   @users = User.all
+  # end
+
+  private
+
   private
 
   def employee_params
     params.require(:employee).permit(:name, :position, :email, :phone)
   end
+
+  # map
+  # def user_params
+  #   params.require(:user).permit(:name, :address, competencies_attributes: [:id, :name, :expiry_date, :_destroy])
+  # end
+
 end
