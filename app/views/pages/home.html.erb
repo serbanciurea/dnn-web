@@ -1,22 +1,22 @@
 <section class="hero-section">
-<div class="screen-image"></div>
-  <div class="hero-content">
-    <h1 class="h-title bold-text">DNNovation</h1>
-    <h4 class="h-subtitle">THE SOLUTION FOR YOUR PROJECT IDEA</h4>
-    <div class="h-links">
-      <%= link_to project_ports_path do %>
-        <button class="gradient-button">contact us <i class="fa-solid fa-arrow-right" style="color: #e44e32;"></i></button>
-      <% end %>
-      <%= link_to jobs_path do %>
-        <button class="gradient-button">join us <i class="fa-solid fa-arrow-right" style="color: #e44e32;"></i></button>
-      <% end %>
+  <div class="screen-image"></div>
+    <div class="hero-content">
+      <h1 class="h-title bold-text">DNNovation</h1>
+      <h4 class="h-subtitle">THE SOLUTION FOR YOUR PROJECT IDEA</h4>
+      <div class="h-links">
+        <%= link_to project_ports_path do %>
+          <button class="gradient-button">contact us</button>
+        <% end %>
+        <%= link_to jobs_path do %>
+          <button class="gradient-button">join us</button>
+        <% end %>
+      </div>
     </div>
-  </div>
 </section>
 
 <section class="hidden expertise-section">
   <div class="text">
-    <h3>OUR EXPERTISE</h3>
+    <h3 class="center-title">OUR EXPERTISE</h3>
     <%# <p>and here goes multa vrajeala, vrajeala, vreajeala, we the best, vrajeala</p> %>
   </div>
   <div class="cards">
@@ -50,7 +50,7 @@
 <%# se poate sa lasam about section fara sa vina din stanga? %>
 <%# se pooooate  %>
 <section class="about-section">
-  <div class="about-content hidden">
+  <div class="about-content">
     <h3 style="font-family: 'Switzer-Bold'; text-align: left;">INNOVATIVE SOLUTIONS FOR SMOOTH,
     SAFE AND HIGH-QUALITY PROJECT DELIVERY</h3>
     <div class="abt-txt">
@@ -68,9 +68,13 @@
 <%# se poate sa lasam about section fara sa vina din stanga? %>
 <section class="portofolio-section">
   <div class="port-text">Delivering Success Through Quality and Satisfaction</div>
+
+<div class="slider-container">
+
   <div class="box-container">
     <div class="box">
       <%# <span style="--i;1;"><%= image_tag("llt.jpg", alt: "image", style: "position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;")%>
+
       <span style="--i: 1;"><%= image_tag("llt.jpg", alt: "image")%></span>
       <span style="--i: 2;"><%= image_tag("pro.jpg", alt: "image")%></span>
       <span style="--i: 3;"><%= image_tag("llt.jpg", alt: "image")%></span>
@@ -87,10 +91,87 @@
       <div class="btn-next"><i class="fa-solid fa-chevron-right" style="color: var(--orange);"></i></div>
     </div>
   </div>
+
+      <div class="image-slider">
+      <div class="slide-row">
+        <div class="slide-col">
+          <%= image_tag("railway.png", alt: "Railway Civils Icon") %>
+        </div>
+        <div class="slide-col">
+          <%= image_tag("railway.png", alt: "Railway Civils Icon") %>
+        </div>
+        <div class="slide-col">
+          <%= image_tag("railway.png", alt: "Railway Civils Icon") %>
+        </div>
+      </div>
+      <div class="indicator">
+        <span class="btn active" data-photo-index="0"></span>
+        <span class="btn" data-photo-index="1"></span>
+        <span class="btn" data-photo-index="2"></span>
+      </div>
+    </div>
+  </div>
+
   <div class="port-desc">
-  At DNNovation, we take pride in our track record of successful projects and satisfied clients. Our resourcing solution ensures smooth and high-quality project delivery, making us the top choice in the industry.
+    At DNNovation, we take pride in our track record of successful projects and satisfied clients. Our resourcing solution ensures smooth and high-quality project delivery, making us the top choice in the industry.
   </div>
 </section>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+  const slideRow = document.querySelector('.image-slider .slide-row');
+  const btns = document.querySelectorAll('.image-slider .btn');
+  const slideInterval = 4000; // 4 seconds interval for auto sliding
+
+  let currentIndex = 0;
+  let autoSlideTimer;
+
+  function updateSlide() {
+    const slideWidth = document.querySelector('.image-slider').clientWidth;
+    const translateValue = currentIndex * -slideWidth;
+    slideRow.style.transform = `translateX(${translateValue}px)`;
+
+    btns.forEach((btn, index) => {
+      btn.classList.toggle("active", index === currentIndex);
+    });
+  }
+
+  function autoSlide() {
+    currentIndex = (currentIndex + 1) % btns.length;
+    updateSlide();
+  }
+
+  function startAutoSlide() {
+    autoSlideTimer = setInterval(autoSlide, slideInterval);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideTimer);
+  }
+
+  btns.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlide();
+      stopAutoSlide(); // Stop auto sliding when manually clicked
+    });
+  });
+
+  window.addEventListener("resize", updateSlide);
+
+  // Initial slide update
+  updateSlide();
+
+  // Start auto sliding
+  startAutoSlide();
+  });
+</script>
+
+
+
+</div>
+
 
 
 <section class="cta-section">

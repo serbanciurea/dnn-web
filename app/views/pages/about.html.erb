@@ -1,112 +1,163 @@
 
-<div class="section section-1">
-  <div class="full-width-image">
-    <%= image_tag("manager.jpg", alt: "Full Width Image", class: "bg-image") %>
+<section class="a-hero">
+    <div class="full-width-image"></div>
+  <div class="gradient-overlay"></div>
+
     <div class="about-us-overlay">
       <h1>About Us</h1>
     </div>
-  </div>
-</div>
+</section>
 
 
-<div class="description">
-  <div class="description-image">
-    <img src="https://images.unsplash.com/photo-1629807473015-41699c4471b5?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
-  </div>
-  <div class="description-text">
-    <h1>Our Values</h1>
-    <p>
-      <span class="short-text">
-        At DNNovation, we redefine excellence in recruitment services, prioritizing unparalleled quality and a fresh, innovative approach. As a dynamic and youthful agency, we pride ourselves on our ability to deliver top-tier permanent, contract, and temporary recruitment solutions both in the UK and overseas.
-      </span>
-      <span class="full-text" style="display: none;">
-        At DNNovation, we redefine excellence in recruitment services, prioritizing unparalleled quality and a fresh, innovative approach. As a dynamic and youthful agency, we pride ourselves on our ability to deliver top-tier permanent, contract, and temporary recruitment solutions both in the UK and overseas. <br> <br>
-        Unlike traditional agencies, at DNNovation, we place a premium on fostering meaningful relationships, not just with our clients and suppliers, but also within our own team. We believe that strong bonds between staff leaders are the cornerstone of our success, driving collaboration, creativity, and ultimately, superior outcomes for our clients.<br> <br>
-        Our reputation speaks volumes. Despite our youthfulness, we've quickly become a trusted partner in the industry, known for our unwavering professionalism and integrity.<br> <br>
-        We set new standards, challenging the status quo and exceeding expectations at every turn.
-        What sets us apart is our relentless dedication to finding the perfect match. We invest time to truly understand the unique requirements of our clients, leveraging our extensive industry knowledge and cutting-edge technology to identify candidates who not only meet the job specifications but also align with your company culture and values.<br> <br>
-        Rest assured, every candidate we recommend undergoes rigorous vetting processes to ensure compliance with the highest standards. Quality is non-negotiable, and we never compromise on safety, prioritizing the well-being of our candidates and clients above all else.<br> <br>
-        At DNNovation, we're not just in the business of filling roles; we're in the business of building long-term partnerships based on trust, honesty, and mutual respect. Join us on our journey, and let's redefine the future of recruitment together.<br> <br>
-      </span>
-      <a href="#" class="read-more-link">Read more</a>
-    </p>
-  </div>
-</div>
+<section class="a-specializations">
+  <h2 class="center-title">OUR SPECIALIZATIONS</h2>
 
-<div class="space">
-  <h1>space</h1>
-</div>
-
-
-<div class="description1">
-  <div class="description1-image">
-     <img src="/assets/emr2.jpeg" alt="Construction Icon">
-  <div class="description-text">
-    <h1>Our History</h1>
-    <p>
-      <span class="short-text">
-        At DNNovation, we redefine excellence in recruitment services, prioritizing unparalleled quality and a fresh, innovative approach. As a dynamic and youthful agency, we pride ourselves on our ability to deliver top-tier permanent, contract, and temporary recruitment solutions both in the UK and overseas.
-      </span>
-      <span class="full-text" style="display: none;">
-        Driven by their shared vision and work ethic, they founded DNNovation, pooling together 36 years of collective industry expertise. Their mission? To revolutionize the industry by prioritizing quality and fostering genuine connections with operatives.<br> <br>
-
-          DNNovation implemented a unique program focused on developing tight-knit operative teams. By investing in comprehensive briefings, proper equipment, and individual rapport, they cultivated a community of trust and excellence on every project.<br> <br>
-
-          The results spoke for themselves. Small, dedicated operative teams consistently outperformed larger, less cohesive groups. Exceptional client feedback reinforced their approach, cementing DNNovation as a premier resourcing solution synonymous with smooth, safe, and high-quality project delivery.<br> <br>
-      </span>
-      <a href="#" class="read-more-link">Read more</a>
-    </p>
-  </div>
-</div>
-
-
-
-
-<div class="section section-3">
-  <h2>Our Specializations</h2>
   <div class="industry-grid">
-    <div class="industry">
+    <div class="industry hidden">
       <%= image_tag("railway.png", alt: "Railway Civils Icon") %>
       <p>Railway Civils</p>
     </div>
-    <div class="industry">
+    <div class="industry hidden">
       <%= image_tag("electrical.png", alt: "Electrical Icon") %>
       <p>Electrical</p>
     </div>
-    <div class="industry">
+
+    <div class="industry hidden">
+      <%= image_tag("logistics.png", alt: "Highway Icon") %>
+      <p>Highway</p>
+    </div>
+    <div class="industry hidden">
       <%= image_tag("maintenance.png", alt: "Maintenance Icon") %>
       <p>Maintenance</p>
     </div>
-    <div class="industry">
+    <div class="industry hidden">
+      <%= image_tag("logistics.png", alt: "Logistics Icon") %>
+      <p>Logistics</p>
+    </div>
+    <div class="industry hidden">
+
       <%= image_tag("construction.png", alt: "Construction Icon") %>
       <p>Construction</p>
     </div>
   </div>
-</div>
 
-<div class="section section-4 team-section">
-  <h2>Meet Our Team</h2>
-  <div class="team-grid">
-    <div class="team-card">
-      <%= image_tag("bida.png", alt: "Construction Icon") %>
-      <h3>Nicolae Soare</h3>
-      <p>Operational manager</p>
+</section>
+
+<section class="history">
+
+  <div class="text-content" style="border-bottom: 1px solid var(--grey);border-top: 1px solid var(--grey);">
+    <%# <h2>Team & History</h2> %>
+    <div class="th">
+      <%# <div class="t">HISTORY</div>
+      <div class="and">&</div>
+      <div class="his">TEAM</div> %>
+      ABOUT <div class="special">DNNOVATION</div>
     </div>
-    <div class="team-card">
-      <%= image_tag("dorin.png", alt: "Construction Icon") %>
-      <h3>Dorin Tudureanu</h3>
-      <p>Resourceing Manager</p>
-    </div>
-    <div class="team-card">
-      <%= image_tag("nabil.png", alt: "Construction Icon") %>
-      <h3>Nabil Weidi</h3>
-      <p>Director</p>
-    </div>
+    <p>
+      <span class="short-text">
+        After collaborating for six years across various projects in the UK, Dorin, Nicolae, and Nabil recognized a significant gap in the resourcing and construction industry, and they observed a lack of meaningful relationships between operatives and agencies, leading to inefficiencies and subpar project outcomes.<br> <br>
+      </span>
+      <span class="full-text">
+        Driven by their shared vision and work ethic, they founded DNNovation, pooling together 36 years of collective industry expertise.
+      </span>
+    </p>
   </div>
-</div>
+  </section>
+
+<section class="team">
+    <p style="font-size: 1.5rem; font-family: 'Switzer-Bold';">MEET THE <span class="special">TEAM</span></p>
+
+    <div class="team-grid">
+
+      <div class="team-card hidden">
+        <%= image_tag("bida.png", alt: "Construction Icon") %>
+        <h3>Nicolae Soare</h3>
+        <p>Operation Manager</p>
+      </div>
+
+      <div class="team-card hidden">
+        <%= image_tag("dorin2.png", alt: "Construction Icon") %>
+        <h3>Dorin Tudureanu</h3>
+        <p>Recruiting Manager</p>
+      </div>
+
+      <div class="team-card hidden">
+        <%= image_tag("nabil.png", alt: "Construction Icon") %>
+        <h3>Nabil Weidi</h3>
+        <p>Director</p>
+      </div>
+
+    </div>
+</section>
+
+<section class="mission">
+    <div class="text-content">
+    <div class="tall-img">
+      <%# <img src="https://plus.unsplash.com/premium_photo-1677522805495-20700faf5802?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29uc3RydWN0aW9ufGVufDB8fDB8fHww" alt="construction image"> %>
+      <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29uc3RydWN0aW9ufGVufDB8fDB8fHww" alt="">
+
+    </div>
+
+    <p><span class="full-text">
+    <span class="special">MISSION?</span> <br><br>
+      To revolutionize the industry by prioritizing quality and fostering genuine connections with operatives.<br> <br>
+
+        DNNovation implemented a unique program focused on developing tight-knit operative teams. By investing in comprehensive briefings, proper equipment, and individual rapport, they cultivated a community of trust and excellence on every project.<br> <br>
+
+        The results spoke for themselves. Small, dedicated operative teams consistently outperformed larger, less cohesive groups. <br> <br> Exceptional client feedback reinforced their approach, cementing DNNovation as a <strong>premier resourcing solution</strong> synonymous with smooth, safe, and high-quality project delivery.<br> <br> <br> <br>
+      </span>
+    </p>
+  </div>
+</section>
+
+<section class="aboutus-text">
+      <div class="text">
+        <h3>About our values</h3>
+        <p class="full-text">
+          At DNNovation, we redefine excellence in <strong class="imp-text">recruitment services</strong>, prioritizing
+          <strong class="imp-text">unparalleled</strong> quality and a fresh, <strong class="imp-text">innovative approach
+          </strong>. <br> As a <strong class="imp-text">dynamic</strong> and <strong class="imp-text">youthful</strong>
+          agency, we pride ourselves on our ability to deliver top-tier <strong class="imp-text">permanent, contract, and temporary
+          recruitment</strong> solutions both in the UK and overseas. <br> <br>
+          Unlike traditional agencies, at DNNovation, we place a premium on fostering <strong class="imp-text">meaningful
+          relationships</strong>, not just with our clients and suppliers, but also within our own team. We believe
+          that strong bonds between staff leaders are the cornerstone of our success, driving collaboration, creativity, and
+          ultimately, superior outcomes for our clients.<br> <br>
+          Our reputation speaks volumes. Despite our youthfulness, we've quickly become a trusted partner in the industry,
+          known for our unwavering professionalism and integrity.<br> <br>
+        </p>
+      </div>
+      <div class="a-btn">
+        <a href="#" class="read-more-link gradient-button">Read more</a>
+      </div>
+</section>
+
+<section class="description">
+
+  <div class="description-text-2">
+  <strong class="imp-text">We set new standards</strong>, challenging the status quo and exceeding expectations at every turn.
+        What sets us apart is our relentless dedication to finding the perfect match. We invest time to truly understand the unique requirements of our clients, leveraging our extensive industry knowledge and cutting-edge technology to identify candidates who not only meet the job specifications but also align with your company culture and values.<br> <br>
+        Rest assured, every candidate we recommend undergoes rigorous vetting processes to ensure compliance with the highest standards.
+        <br> <br> <strong class="imp-text">Quality is non-negotiable</strong>, and we <strong class="imp-text">never compromise</strong> on safety, prioritizing the well-being of our candidates and clients above all else.<br> <br>
+        At DNNovation, we're not just in the business of filling roles; we're in the business of building long-term partnerships based on trust, honesty, and mutual respect. <br><br>Join us on our journey, and let's redefine the future of recruitment together.<br> <br>
+  </div>
+
+  <div class="description-image">
+    <%# <img src="https://images.unsplash.com/photo-1629807473015-41699c4471b5?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""> %>
+    <img src="https://images.unsplash.com/photo-1630288213265-64e4673b6f49?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGV4Y2F2YXRvcnxlbnwwfHwwfHx8MA%3D%3D" alt="excavator image">
+  </div>
+</section>
 
 
-<div class="section section-4">
+
+<%# <div class="space">
+  <h1>space</h1>
+</div> %>
+
+
+
+<%# <div class="section section-4">
+  <h2>Contact Us</h2>
 
   <p>For more information, please contact us at info@DNNovationconstruction.co.uk</p>
-</div>
+</div> %>

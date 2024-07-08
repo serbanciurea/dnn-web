@@ -1,14 +1,60 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Project ports</h1>
 
-<div id="project_ports">
-  <% @project_ports.each do |project_port| %>
-    <%= render project_port %>
-    <p>
-      <%= link_to "Show this project port", project_port %>
-    </p>
-  <% end %>
+<div class="head">
+  <div class="image-wrapper">
+    <img src="https://images.unsplash.com/photo-1639040933793-d0c4dc51a933?q=80&w=3024&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="train photo">
+    <div class="overlay">
+      <h1>Our projects</h1>
+    </div>
+  </div>
 </div>
 
-<%= link_to "New project port", new_project_port_path %>
+<% if current_user.admin? %>
+  <section class="usual-admin-actions">
+    <h3>ADMIN ACTIONS</h3>
+    <div class="admin-actions-buttons">
+      <%= link_to "ADD PROJECT", new_project_port_path, class: 'gradient-button' %>
+    </div>
+  </section>
+<% end %>
+
+<section class="categories">
+  <div class="category-name">
+    <a href="#" data-department="all">All</a>
+    <a href="#" data-department="Construction">Construction</a>
+    <a href="#" data-department="Rail">Rail</a>
+    <a href="#" data-department="Electricity">Electricity</a>
+  </div>
+</div>
+
+</section>
+
+<div id="projects-container">
+    <%= render partial: 'projects_list', locals: { projects: @projects } %>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('.category-name a');
+
+    links.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const department = event.target.dataset.department;
+        console.log(department);
+        fetch(`/project_ports/filter_by_department?department=${department}`, {
+          headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+          }
+        })
+        .then(response => response.text())
+        .then(html => {
+          console.log(html);
+          document.getElementById('projects-container').innerHTML = html;
+        })
+        .catch(error => console.error('Error fetching projects:', error));
+      });
+    });
+  });
+</script>

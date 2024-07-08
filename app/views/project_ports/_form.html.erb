@@ -1,37 +1,162 @@
-<%= form_with(model: project_port) do |form| %>
-  <% if project_port.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(project_port.errors.count, "error") %> prohibited this project_port from being saved:</h2>
+<div class="login">
+  <%= form_with(model: project_port) do |form| %>
+    <% if project_port.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(project_port.errors.count, "error") %> prohibited this project_port from being saved:</h2>
 
-      <ul>
-        <% project_port.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% project_port.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.text_field :name, placeholder: 'NAME OF PROJECT', class: 'input-with-placeholder' %>
+    </div>
+
+    <div class="field">
+      <%= form.select :department, options_for_select(ProjectPort::DEPARTMENTS, project_port.department), { include_blank: 'Select department' }, { class: 'select-with-placeholder' } %>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :client, placeholder: 'CLIENT', class: 'input-with-placeholder' %>
+    </div>
+
+    <div class="field">
+      <%= form.select :sector, options_for_select(ProjectPort::SECTORS, project_port.sector), { include_blank: 'Select sector' }, { class: 'select-with-placeholder' } %>
+      <%#= form.text_field :sector, placeholder: 'Or type your own', class: 'input-with-placeholder' %>
+    </div>
+
+    <div class="field">
+      <%= form.select :delivery_method, options_for_select(ProjectPort::DELIVERY_METHODS, project_port.delivery_method), { include_blank: 'Select delivery method' }, { class: 'select-with-placeholder' } %>
+    </div>
+
+    <div class="field">
+      <%= form.select :market, options_for_select(ProjectPort::MARKETS, project_port.market), { include_blank: 'Select market' }, { class: 'select-with-placeholder' } %>
+    </div>
+
+    <div class="field">
+      <%= form.date_select :completion_date, class: 'input-with-placeholder' %>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :location, placeholder: 'LOCATION', class: 'input-with-placeholder' %>
+    </div>
+
+    <%# <div class="field"> %>
+      <%#= form.text_area :description, placeholder: 'DESCRIPTION', class: 'input-with-placeholder' %>
+    <%# </div> %>
+
+<!-- Hidden textarea to store Quill content -->
+    <div class="field" style="display: none;">
+      <%= form.text_area :description, id: 'description', placeholder: 'Enter description' %>
+    </div>
+
+    <!-- Visible Quill editor -->
+    <div class="field">
+      <div id="quill-editor" style="height: 300px;"></div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var editor = new Quill('#quill-editor', {
+          theme: 'snow',
+          placeholder: 'Enter description',
+          modules: {
+            toolbar: [
+              [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
+              [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+              ['bold', 'italic', 'underline'],
+              ['link']
+            ]
+          }
+        });
+
+        var description = document.querySelector('#description');
+        console.log(description.value);
+        // Populate existing content into Quill editor if editing existing record
+        if (description.value) {
+          editor.clipboard.dangerouslyPasteHTML(description.value);
+        }
+
+        // Update hidden textarea on form submit
+        var form = document.querySelectorAll('form');
+        form = form[1];
+        console.log(form);
+        if (form) {
+          form.onsubmit = function() {
+            description.value = editor.root.innerHTML;
+            console.log('Form submitted. Updated textarea value:', description.value);
+          };
+        }
+      });
+    </script>
+
+    <%# <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+      var editor = new Quill('#quill-editor', {
+        theme: 'snow', // 'snow' is Quill's built-in theme for a clean interface
+        placeholder: 'Enter description', // Placeholder text
+        modules: {
+          toolbar: [
+            [{ 'header': '1' }, { 'header': '2' }, { 'font': ['sans-serif'] }],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            ['bold', 'italic', 'underline'],
+            ['link']
+          ]
+        }
+      });
+
+      // Populate existing content into Quill editor if editing existing record
+      var description = document.querySelector('#description');
+      if (description && description.value) {
+        editor.clipboard.dangerouslyPasteHTML(description.value);
+      }
+
+      // Update hidden text area on form submit
+      var form = document.querySelector('form');
+      if (form) {
+        form.onsubmit = function() {
+          // var html = editor.root.innerHTML;
+          // description.value = html;
+          const description = document.querySelector('input[name="project[description]"]');
+          description.value = editor.root.innerHTML;
+        };
+      }
+      console.log(description);
+      });
+    </script> %>
+
+    <div class="field">
+      <%= form.text_field :collaborations, placeholder: 'COLLABORATIONS', class: 'input-with-placeholder' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :photos, "UPLOAD PHOTOS", class: 'custom-file-label', for: 'alege-fisier' %>
+      <%= form.file_field :photos, multiple: true, id: 'alege-fisier', class: 'file-input' %>
+    </div>
+
+    <div class='form-actions-project'>
+      <%= form.submit 'Save', class: 'gradient-button' %>
+      <%= link_to "Back to projects", project_ports_path, class: 'gradient-button' %>
     </div>
   <% end %>
+</div>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.label :collaborations, style: "display: block" %>
-    <%= form.text_field :collaborations %>
-  </div>
-
-  <div>
-    <%= form.label :photos, style: "display: block" %>
-    <%= form.file_field :photos, multiple: true %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<%# .new-project form .custom-file-label {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--grey);
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #DDDDDD;
+    box-shadow: inset 0px 14px 16px 0px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    font-family: 'Switzer-Regular', sans-serif;
+} %>

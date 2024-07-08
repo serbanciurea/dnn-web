@@ -74,7 +74,7 @@
 
 
 
-@import url(https://fonts.googleapis.com/css?family=Poppins:400,300,500);
+// @import url(https://fonts.googleapis.com/css?family=Poppins:400,300,500);
 html {
   box-sizing: border-box;
 }
@@ -83,14 +83,14 @@ html {
 *:after {
   box-sizing: inherit;
 }
-body {
-  margin: 0;
-  padding: 96px;
-  font-size: 21px;
-  background: #fff;
-  color: #000;
-  font-family: "Poppins", sans-serif;
-}
+// body {
+//   margin: 0;
+//   padding: 96px;
+//   font-size: 21px;
+//   background: #fff;
+//   color: #000;
+//   font-family: "Poppins", sans-serif;
+// }
 section.card {
   background: #000046;
   background: -webkit-linear-gradient(to right, #1CB5E0, #000046);
@@ -153,9 +153,7 @@ article {
   min-width:calc(640px + 248px);
 }
 @media all and (max-width: 1100px) {
-  body {
-    padding: 96px 48px 24px;
-  }
+
   article {
     width: 100%;
     min-width: 100%;
@@ -167,10 +165,9 @@ article {
     width: 100%;
   }
 }
+
 @media all and (max-width: 720px) {
-  body {
-    padding: 48px 24px 0;
-  }
+
   section.card {
     margin: 64px 0;
     padding: 88px 36px 36px;

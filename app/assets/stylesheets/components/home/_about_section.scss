@@ -39,8 +39,8 @@
   }
 }
 
-@media (min-width: 1024px) {
-  .about-section {
-    height: 20vh; /* Set height to 20vh for laptop screens and larger */
-  }
+.center-title {
+  letter-spacing: 2px;
+  font-family: 'Switzer-Bold';
+  color: var(--orange);
 }

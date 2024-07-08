@@ -3,3 +3,4 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "stylesheets/components/home/aboutus"
 import "./read_more.js"
+// = require quill.global

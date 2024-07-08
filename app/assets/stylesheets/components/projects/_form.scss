@@ -1,0 +1,49 @@
+.input-with-placeholder,
+.select-with-placeholder {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.select-with-placeholder {
+  height: 40px; /* Adjust height for select dropdowns */
+}
+
+.field input, .login-btn {
+  border: transparent;
+  box-shadow: inset 0px 14px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  padding: 15px;
+  border-radius: 10%;
+}
+
+textarea {
+padding: 10px;
+border-radius: 5px;
+border: 1px solid #DDDDDD;
+color: var(--milky-white);
+box-shadow: inset 0px 14px 16px 0px rgba(0, 0, 0, 0.2);
+background-color: transparent;
+width: 100%;
+}
+
+.file-input {
+display: none;
+}
+
+.custom-file-label {
+display: inline-block;
+background-color: transparent;
+color: var(--grey);
+cursor: pointer;
+padding: 10px;
+border-radius: 5px;
+border: 1px solid #DDDDDD;
+box-shadow: inset 0px 14px 16px 0px rgba(0, 0, 0, 0.2);
+width: 100%;
+text-align: center;
+}

@@ -1,0 +1,279 @@
+.categories {
+  display: flex;
+  align-items: normal;
+  padding: 40px;
+  width: 50%;
+}
+
+.head {
+  position: relative;
+  margin-bottom: 0px;
+}
+
+.category-name {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.1rem;
+  font-family: 'Switzer-Bold';
+  list-style-type: none;
+  padding: 10px;
+  margin: 0px;
+
+  li {
+    font-size: 1.17em;
+    font-family: 'Switzer-SemiBold';
+  }
+
+  a {
+    border-bottom: 1px solid transparent; /* Initial border is transparent */
+    transition: border-bottom 0.3s ease-in-out; /* Apply transition to border-bottom */
+  }
+
+  a:hover {
+    border-bottom: 1px solid var(--orange); /* Change border color on hover */
+  }
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 40px;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-radius: 20px;
+
+}
+
+.card-link {
+  // display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none; /* Ensure links don't have underline */
+  // color: inherit; /* Inherit text color */
+}
+
+.project-container {
+  width: 100%;
+  max-width: 600px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+  border-radius: 20px;
+}
+
+.project-details {
+
+  position: absolute;
+  margin: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%; /* Initial small height */
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.3); /* Background color for details */
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  z-index: 2;
+  overflow: hidden;
+  transition: height 0.5s ease-in-out; /* Smooth transition for height */
+  border-bottom-left-radius: 20px; /* Add border radius to bottom-left corner */
+  border-bottom-right-radius: 20px;
+
+  /* Ensure project-details respects parent's border-radius */
+  // border-radius: inherit;
+
+  .project-port {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    height: 100%;
+    text-align: start;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+  }
+}
+
+
+.project-details:hover .project-port {
+  align-items: center;
+  text-align: center;
+  font-size: 1.2rem;
+  color: black;
+}
+
+.slider {
+  position: relative;
+  flex: 2; /* Take up 2/3 of the container */
+  height: 400px; /* Ensure slider takes full height of project container */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Hide overflow to ensure only one image is visible */
+}
+
+.slide-row {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  height: 100%; /* Ensure slide-row takes full height of slider */
+}
+
+.slide-col {
+  flex-shrink: 0;
+  width: 100%; /* Each slide should take full width of slider */
+  height: 100%; /* Each slide should take full height of slider */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 100%;
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%; /* Ensure image takes full width of container */
+  height: 400px; /* Maintain a fixed height for all images */
+  object-fit: cover; /* Ensure image covers the entire slide */
+  // border-radius: 20px;
+}
+
+.indicator {
+  position: absolute;
+  bottom: 10px; /* Adjust position of indicators */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.indicator .btn {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  margin: 4px;
+  border-radius: 15px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn.active {
+  width: 30px;
+  background: var(--orange);
+}
+
+
+.project-details::-webkit-scrollbar {
+  display: none;
+}
+
+.project-details.overflow {
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+  padding: 20px; /* Add padding for better layout */
+}
+
+.project-port {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  line-height: 0;
+  text-align: start;
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .project-container {
+    flex-direction: column;
+  }
+
+  .project-port.overflow {
+    flex-direction: column;
+  }
+
+  .project-container {
+    height: auto;
+  }
+}
+
+
+@media (max-width: 650px) {
+
+  .project-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-container {
+    height: auto;
+  }
+
+  .categories {
+    width: 100%;
+  }
+}
+
+.project-container:hover .project-details {
+  height: 100%; /* Expand to fill the slider */
+}
+
+
+// .project-details {
+//   padding: 0px;
+//   margin: 0px;
+// }
+
+@media (max-width: 768px) {
+  .projects-list {
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .project-details {
+    height: auto; /* Make height auto to fit content */
+    position: relative;
+    padding: 10px;
+  }
+
+  .project-details .project-port {
+    text-align: start;
+    align-items: start;
+    font-size: 1rem;
+  }
+
+  .project-details:hover .project-port {
+    text-align: start;
+    align-items: start;
+    font-size: 1rem;
+  }
+
+  .indicator {
+    visibility: collapse;
+  }
+}
+
+.usual-admin-actions {
+  h3 {
+    font-family: 'Switzer-Bold';
+    color: var(--orange);
+    font-size: 1.3rem;
+  }
+
+  // a {
+  //   transition: color 0.3s ease;
+  //   padding: 10px;
+  //   box-shadow: 0px 14px 16px 0px rgba(0, 0, 0, 0.2);
+  //   border-radius: 10px;
+  // }
+
+  // a:hover {
+  //   color: var(--orange);
+  // }
+}

@@ -3,37 +3,53 @@ class ProjectPortsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :authorize_project_port, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_show_footer, only: [:new, :edit]
 
-  after_action :verify_authorized, except: [:index, :show]
+  after_action :verify_authorized, except: [:index, :show, :filter_by_department]
   after_action :verify_policy_scoped, only: :index
 
-  # GET /project_ports or /project_ports.json
+  def filter_by_department
+    if params[:department] == 'all' || params[:department].blank?
+      @projects = ProjectPort.all
+    else
+      # Assuming params[:department] is a string representing the enum key
+      @projects = ProjectPort.where(department: params[:department])
+    end
+
+    respond_to do |format|
+      format.html { render partial: 'projects_list', locals: { projects: @projects } }
+      format.json { render json: @projects }
+    end
+  end
+
+
   def index
     # @project_ports = ProjectPort.all
-    @project_ports = policy_scope(ProjectPort)
+    @projects = policy_scope(ProjectPort)
     # authorize @project_ports
   end
 
-  # GET /project_ports/1 or /project_ports/1.json
   def show
-    authorize @project_port
+    @project_port
   end
 
-  # GET /project_ports/new
   def new
     @project_port = ProjectPort.new
+    # @departments = Department.where(name: ['constructions', 'rail', 'electricity'])
     authorize @project_port
   end
 
-  # GET /project_ports/1/edit
   def edit
     authorize @project_port
+    @project_port = ProjectPort.find(params[:id])
+    # @departments = Department.where(name: ['constructions', 'rail', 'electricity'])
   end
 
-  # POST /project_ports or /project_ports.json
   def create
     @project_port = ProjectPort.new(project_port_params)
+      logger.debug "ProjectPort params: #{project_port_params.inspect}"
     authorize @project_port
+    # raise
     respond_to do |format|
       if @project_port.save
         format.html { redirect_to project_port_url(@project_port), notice: "Project port was successfully created." }
@@ -77,11 +93,15 @@ class ProjectPortsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_port_params
-      params.require(:project_port).permit(:name, :description, :collaborations, photos: [])
+      params.require(:project_port).permit(:name, :description, :collaborations, :department, :client, :sector, :delivery_method, :completion_date, :location, :market, photos: [])
     end
 
     def authorize_project_port
       authorize @project_port || ProjectPort
+    end
+
+    def set_show_footer
+      @show_footer = false
     end
 
 end
