@@ -8,6 +8,9 @@ class User < ApplicationRecord
 
   after_initialize :set_default_admin, if: :new_record?
 
+  # geocoded_by :address, params: { countrycodes: 'gb' }
+  # after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
+
   def set_default_admin
     self.admin ||= false
   end

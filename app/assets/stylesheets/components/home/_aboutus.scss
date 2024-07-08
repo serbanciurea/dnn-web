@@ -23,6 +23,7 @@
 }
 
 .about-us-overlay {
+
   position: absolute;
   top: 50%;
   left: 10%;
@@ -55,6 +56,7 @@
   }
 }
 
+
 @media (max-width: 480px) {
   .a-hero {
     height: 50vh; /* Adjust height for smaller screens */
@@ -71,6 +73,7 @@
 
 .a-specializations {
   padding: 40px;
+
 }
 
 .industry-grid {
@@ -108,8 +111,10 @@
   transition-delay: 100ms;
 }
 
+
 .industry:nth-child(3) {
   transition-delay: 300ms;
+
 }
 
 .industry:nth-child(4) {
@@ -379,6 +384,7 @@
 
 
 /* Team Section */
+
 .team-grid {
   width: 100%;
   height: 100%;
@@ -387,12 +393,15 @@
   align-items: center;
   justify-items: center;
 }
+
 .team-card {
-  padding: 10px;
+
   border-radius: 10px;
-  width: 250px;
+  width: 300px; /* Increased width */
 }
+
 .team-card img {
+
   width: 70%;
   border-radius: 50%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
@@ -401,19 +410,21 @@
 
 .team-card img:hover {
   transform: scale(1.1); /* Example scale effect on hover */
+
 }
 
 .team-card h3 {
   margin: 15px 0 5px;
-  font-size: 20px;
+  font-size: 22px; /* Slightly increased font size */
   color: var(--grey);
 }
 
 .team-card p {
   margin: 0;
-  font-size: 16px;
+  font-size: 18px; /* Slightly increased font size */
   color: var(--grey);
 }
+
 
 .team-card:nth-child(2) {
   transition-delay: 100ms;
@@ -571,4 +582,5 @@
   to {
     background-position: 100% 50%;
   }
+
 }

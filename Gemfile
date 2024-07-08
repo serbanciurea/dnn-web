@@ -4,6 +4,7 @@ ruby "3.1.2"
 
 gem "cloudinary"
 
+
 gem 'sassc-rails'
 
 gem "dotenv-rails"
@@ -22,6 +23,8 @@ gem "puma", ">= 5.0"
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.8'
 gem "pundit"
+gem 'geocoder'
+gem 'mapbox-sdk'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
