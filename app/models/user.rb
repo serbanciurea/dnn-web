@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :first_name, :last_name, presence: true
+  validates :first_name, :last_name, :adress, presence: true
 
   after_initialize :set_default_admin, if: :new_record?
 
@@ -14,5 +14,8 @@ class User < ApplicationRecord
   def set_default_admin
     self.admin ||= false
   end
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
 end

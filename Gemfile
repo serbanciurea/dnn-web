@@ -26,6 +26,7 @@ gem "pundit"
 gem 'geocoder'
 gem 'mapbox-sdk'
 
+
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 

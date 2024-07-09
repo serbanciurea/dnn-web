@@ -4,17 +4,10 @@
   mapboxgl.accessToken = '<%= Rails.application.credentials.dig(:mapbox, :api_key) %>';
   var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
+    style: 'mapbox://styles/mapbox/outdoors-v11', // Replace with your preferred Mapbox style
     center: [-0.1276, 51.5074], // Initial center set to London
     zoom: 5
   });
 
-  var user = <%= @user.to_json(only: [:latitude, :longitude, :name, :address]) %>;
-
-  user.forEach(function(user) {
-    new mapboxgl.Marker()
-      .setLngLat([user.longitude, user.latitude])
-      .setPopup(new mapboxgl.Popup().setHTML(`<h3>${user.name}</h3><p>${user.address}</p>`))
-      .addTo(map);
-  });
+  // Add markers or other Mapbox functionality here...
 </script>
