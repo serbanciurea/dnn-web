@@ -19,13 +19,12 @@
     </div>
 
   <div class="field">
-    <%= f.label :competencies, "Competencies" %><br />
     <div id="competencies">
       <%= f.fields_for :competencies do |cf| %>
         <%= render 'competency_fields', f: cf %>
       <% end %>
     </div>
-    <button type="button" id="add-competency" class="btn btn-primary">Add Competency</button>
+    <button type="button" id="add-competency" class="btn btn-primary">add competency</button>
   </div>
 
 <script>
@@ -58,34 +57,35 @@
 </script>
 
   <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
+    <%#= f.label :address %>
+    <%= f.text_field :address, placeholder: 'address' %>
   </div>
 
   <div class="field">
-    <%= f.label :sponsor %><br />
-    <%= f.select :sponsor, ['primary', 'secondary'] %>
+    <%#= f.label :sponsor %>
+    <%= f.select :sponsor, ['primary', 'secondary'], { include_blank: 'select sponsor' } %>
   </div>
 
   <div class="field">
-    <%= f.label :driver %><br />
+    <%= f.label :driver, 'driver? (check if yes)' %>
     <%= f.check_box :driver %>
   </div>
 
   <div class="field">
-    <%= f.label :pts_number %><br />
-    <%= f.text_field :pts_number, maxlength: 7 %>
+    <%= f.text_field :pts_number, maxlength: 7, placeholder: 'PTS no.' %>
   </div>
 
   <div class="field">
-    <%= f.label :photos %><br />
+    <%= f.label :photos, '* photos of competencies' %><br />
     <%= f.file_field :photos, multiple: true %>
   </div>
 
+
     <div class="field">
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+        (<%= @minimum_password_length %> characters minimum)
       <% end %>
+      <br>
       <%= f.password_field :password, autocomplete: "new-password", placeholder: 'new password' %>
     </div>
 
