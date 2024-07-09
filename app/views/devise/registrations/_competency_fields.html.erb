@@ -1,0 +1,7 @@
+<div class="competency-fields">
+  <%= f.label :name, "Competency" %>
+  <%= f.select :name, ['coss', 'supervisor', '360 operator', 'ground worker', 'telehandler driver', 'Engineer', 'steel fixer', 'carpenter', 'electrician'], { include_blank: true } %>
+  <%= f.label :expiration_date, "Expiration Date" %>
+  <%= f.date_field :expiration_date %>
+  <button type="button" class="remove-competency btn btn-danger">Remove</button>
+</div>
