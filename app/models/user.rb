@@ -40,4 +40,6 @@ class User < ApplicationRecord
     'coss', 'supervisor', '360 operator', 'ground worker', 'telehandler driver', 'Engeneer', 'steel fixer', 'carpenter', 'electrician'
   ]
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
