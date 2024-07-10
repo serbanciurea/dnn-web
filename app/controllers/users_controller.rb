@@ -9,4 +9,14 @@ class UsersController < ApplicationController
       }
     end
   end
+
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(flat_params)
+    @user.save
+    redirect_to flat_path(@user)
+  end
 end

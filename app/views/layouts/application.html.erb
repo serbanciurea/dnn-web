@@ -20,7 +20,6 @@
     <script defer src="/scroll.js"></script>
 
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
 
   </head>
 
@@ -37,6 +36,7 @@
 
     <%= yield %>
   </main>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
 
   <% if @show_footer != false %>
     <%= render 'layouts/footer' %>
