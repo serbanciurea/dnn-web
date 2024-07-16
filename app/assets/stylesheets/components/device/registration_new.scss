@@ -61,8 +61,8 @@
 textarea {
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #DDDDDD;
-  color: var(--milky-white);
+  border: 1px solid white;
+  color: black;
   box-shadow: inset 0px 14px 16px 0px rgba(0, 0, 0, 0.2);
   background-color: transparent;
   width: 100%;
@@ -78,3 +78,66 @@ textarea {
     font-family: 'Switzer-Regular', sans-serif;
   }
 }
+
+.jobs-form{
+
+  textarea {
+    height: 100px;
+  }
+
+  h1 {
+    text-align: center;
+    color: orangered;
+    background-color: transparent;
+    margin-bottom: 40px;
+  }
+
+  .field label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .field imput {
+  width: 100%;
+  padding: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #333;
+  }
+
+
+  .actions {
+    margin: 30px;
+  }
+
+  .field {
+    margin-bottom: 30px;
+  }
+
+  #job-description {
+    height: 300px;
+  }
+
+}
+
+#back-link {
+  padding-bottom: 30px
+  // height: 18px;
+  // // width: 40px;
+  // color: black; /* Blue link color */
+  // background-color: orangered;
+  // text-decoration: none; /* Remove underline */
+  // padding: 8px 16px; /* Padding around text */
+  // border-radius: 4px; /* Rounded corners */
+  // background-color: transparent; /* Transparent background */
+  // transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition effects */
+}
+
+// #back-link:hover {
+//   background-color: orange; /* Background color on hover */
+//   color: #fff; /* Text color on hover */
+// }

@@ -11,7 +11,6 @@ class JobsController < ApplicationController
   end
 
   def new
-    @departments = Department.all
     @job = Job.new
     authorize @job
   end
@@ -68,7 +67,7 @@ class JobsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def job_params
-    params.require(:job).permit(:title, :description, :location, :salary, :user_id)
+    params.require(:job).permit(:title, :description, :location, :salary)
   end
 
   def authorize_job

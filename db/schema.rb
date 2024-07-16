@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_09_161542) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_16_124809) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -62,12 +62,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_161542) do
     t.text "description"
     t.string "location"
     t.decimal "salary"
-    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "department_id", null: false
-    t.index ["department_id"], name: "index_jobs_on_department_id"
-    t.index ["user_id"], name: "index_jobs_on_user_id"
+    t.integer "competency_id"
+    t.index ["competency_id"], name: "index_jobs_on_competency_id"
   end
 
   create_table "project_ports", force: :cascade do |t|
@@ -111,6 +109,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_161542) do
   add_foreign_key "competencies", "users"
   add_foreign_key "job_applications", "jobs"
   add_foreign_key "job_applications", "users"
-  add_foreign_key "jobs", "departments"
-  add_foreign_key "jobs", "users"
+  add_foreign_key "jobs", "competencies"
 end

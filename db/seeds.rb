@@ -18,3 +18,4 @@
 # )
 
 # User.create!(email: 'admin@example.com', password: '123456', password_confirmation: '123456', admin: true, first_name: 'Admin', last_name: 'Ad')
+# User.create(admin: true, first_name: "a", last_name: "b", pts_number:"1269430", email: "serban@yahoo.com", address: "267 Burnt Oak Broadway", sponsor: "primary", password: "123456")
