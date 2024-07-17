@@ -1,3 +1,8 @@
-<h1>New Competency</h1>
-<%= render 'form', user: @user, competency: @competency %>
-<%= link_to 'Back', user_path(@user) %>
+<div class="competente-noi" >
+  <div class="title-new">
+  <h1>New Competency</h1>
+  </div>
+    <%= render 'form', user: @user, competency: @competency %>
+    <%= link_to 'Back', user_path(@user), class: 'gradient-button' %>
+
+</div>
