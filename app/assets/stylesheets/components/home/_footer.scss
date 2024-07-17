@@ -4,7 +4,8 @@
   display: grid;
   grid-template-rows: 1fr 2fr;
   padding: 20px;
-  width: 100vw;
+  // width: 100%;
+  width: auto;
   height: auto;
   background-color: var(--grey);
   color: var(--milky-white);

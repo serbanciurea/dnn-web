@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  # get 'competencies/new'
-  # get 'competencies/create'
-  # get 'competencies/edit'
-  # get 'competencies/update'
-  # get 'competencies/destroy'
   root 'pages#home'
   devise_for :users
 
@@ -21,6 +16,7 @@ Rails.application.routes.draw do
     end
   end
   resources :project_ports
+  resources :jobs
   get 'contacts/new', to: 'contacts#new', as: 'new_contact'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -35,7 +31,6 @@ Rails.application.routes.draw do
   resources :employees
   resources :contracts
   resources :users
-  resources :jobs
 
   resources :users do
     resources :competencies, only: [:new, :create, :edit, :update, :destroy]
