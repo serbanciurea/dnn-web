@@ -10,15 +10,16 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :competencies, allow_destroy: true
 
   validates :pts_number, length: { is: 7 }
+  validates :phone, length: { is: 11 }
 
   validates :sponsor, inclusion: { in: %w[primary secondary] }
 
   validates :driver, inclusion: { in: [true, false] }
 
-  has_many_attached :photos
+  # has_one_attached :photo
 
 
-  validates :first_name, :last_name, :address, :sponsor, :pts_number, presence: true
+  validates :first_name, :last_name, :address, :sponsor, :pts_number, :phone, presence: true
 
   after_initialize :set_default_admin, if: :new_record?
 

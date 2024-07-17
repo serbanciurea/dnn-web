@@ -10,5 +10,5 @@ cloudinary:
   service: Cloudinary
   folder: <%= Rails.env %>
 
-  mapbox:
-  api_key: pk.eyJ1Ijoic2VyYml4NyIsImEiOiJjbHlkMnB4djgwMXNtMmxzY25sbnZrenVvIn0.VaSwmmI4jxIVCmJyQMnxoA
+  # mapbox:
+  # api_key: pk.eyJ1Ijoic2VyYml4NyIsImEiOiJjbHlkMnB4djgwMXNtMmxzY25sbnZrenVvIn0.VaSwmmI4jxIVCmJyQMnxoA

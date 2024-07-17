@@ -46,6 +46,8 @@
         <div class="dropdown">
             <%= button_to 'Log out', destroy_user_session_path, method: :delete, style: 'background: transparent; border: none; text-decoration: none; color: var(--grey); cursor: pointer;', class: 'logout'  %>
         </div>
+
+        <%= link_to "profile", user_path(current_user) %>
       <% end %>
 
     </div>

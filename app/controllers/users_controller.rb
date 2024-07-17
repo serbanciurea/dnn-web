@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+  after_action :verify_authorized, except: [:show]
   def index
     @users = User.all
     # The `geocoded` scope filters only users with coordinates
@@ -18,5 +20,9 @@ class UsersController < ApplicationController
     @user = User.new(flat_params)
     @user.save
     redirect_to flat_path(@user)
+  end
+
+  def show
+    @user = current_user
   end
 end
