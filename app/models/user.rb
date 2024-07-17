@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
          after_initialize :set_default_driver, if: :new_record?
 
+         after_initialize :set_default_approved, if: :new_record?
+
   has_many :competencies, inverse_of: :user, dependent: :destroy
   accepts_nested_attributes_for :competencies, allow_destroy: true
 
@@ -30,10 +32,19 @@ class User < ApplicationRecord
     self.admin ||= false
   end
 
+  def admin?
+    # Assuming you have an `admin` boolean column in the users table
+    self.admin
+  end
+
   private
 
   def set_default_driver
     self.driver = false if self.driver.nil?
+  end
+
+  def set_default_approved
+    self.approved = false if self.approved.nil?
   end
 
   # <%= form.select :market, options_for_select(ProjectPort::MARKETS, project_port.market), { include_blank: 'Select market' }, { class: 'select-with-placeholder' } %>
@@ -41,6 +52,6 @@ class User < ApplicationRecord
     'coss', 'supervisor', '360 operator', 'ground worker', 'telehandler driver', 'Engeneer', 'steel fixer', 'carpenter', 'electrician'
   ]
 
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  # geocoded_by :address
+  # after_validation :geocode, if: :will_save_change_to_address?
 end
