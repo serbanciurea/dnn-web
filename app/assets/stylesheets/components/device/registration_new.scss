@@ -141,3 +141,74 @@ textarea {
 //   background-color: orange; /* Background color on hover */
 //   color: #fff; /* Text color on hover */
 // }
+.competente-noi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  // width: 90%;
+  // width: 30%;
+
+  .div{
+    width: 50%;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+
+  .field {
+    margin-bottom: 15px; /* Adjust spacing between fields */
+    display: flex;
+    align-items: center;
+  }
+
+  .field label {
+    width: 150px; /* Adjust as per your design */
+    padding-right: 10px; /* Add space between label and input */
+    text-align: right; /* Align label text to the right */
+  }
+
+  .field input[type="text"],
+  .field textarea {
+    width: 100%; /* Fill remaining width */
+    padding: 8px; /* Adjust padding as needed */
+    font-size: 14px; /* Adjust font size as needed */
+    border: 1px solid #ccc; /* Example border styling */
+    border-radius: 4px; /* Example border radius */
+  }
+
+  .actions {
+    margin-top: 15px; /* Adjust spacing above actions */
+    margin: 30px;
+  }
+
+  .field {
+    margin-bottom: 50px;
+  }
+
+  .title-new{
+    margin-bottom: 80px;
+  }
+
+  @media (max-width: 1085px) {
+    .competente-noi {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 670px) {
+    .competente-noi {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .black {
+    color: black;
+    background-color: turquoise;
+  }
+
+
+}
