@@ -1,0 +1,19 @@
+<h2>Competencies</h2>
+<% @user.competencies.each do |competency| %>
+  <p>
+    <strong>Name:</strong>
+    <%= competency.name %>
+  </p>
+  <p>
+    <strong>Expiration Date:</strong>
+    <%= competency.expiration_date %>
+  </p>
+  <p>
+    <%= image_tag competency.photo.variant(resize: "100x100") if competency.photo.attached? %>
+  </p>
+  <%= link_to 'Edit', edit_user_competency_path(@user, competency) %> |
+  <%= link_to 'Destroy', user_competency_path(@user, competency), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<%= link_to 'New Competency', new_user_competency_path(@user) %> |
+<%= link_to 'Back', users_path %>

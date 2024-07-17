@@ -1,7 +1,17 @@
 <div class="competency-fields">
-  <%= f.label :name, "Competency" %>
-  <%= f.select :name, ['coss', 'supervisor', '360 operator', 'ground worker', 'telehandler driver', 'Engineer', 'steel fixer', 'carpenter', 'electrician'], { include_blank: true } %>
-  <%= f.label :expiration_date, "Expiration Date" %>
+  <%= f.label :name %>
+  <%= f.select :name, options_for_select(['coss', 'supervisor', '360 operator', 'ground worker', 'telehandler driver', 'Engineer', 'steel fixer', 'carpenter', 'electrician'], f.object.name), prompt: 'Please select' %>
+
+  <%= f.label :expiration_date %>
   <%= f.date_field :expiration_date %>
-  <button type="button" class="remove-competency btn btn-danger">Remove</button>
+
+  <%= f.label :photo %>
+  <%= f.file_field :photo, as: :file %>
+
+  <%#= f.input_field :photos, as: :file %>
+
+  <%= link_to 'Remove', '#', class: 'remove-competency btn btn-danger' %>
 </div>
+
+
+  <%#= f.select :name, ['coss', 'supervisor', '360 operator', 'ground worker', 'telehandler driver', 'Engineer', 'steel fixer', 'carpenter', 'electrician'], { include_blank: true } %>

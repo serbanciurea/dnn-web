@@ -18,6 +18,10 @@
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'email' %>
     </div>
 
+    <div class="field">
+      <%= f.text_field :phone, autofocus: true, autocomplete: "phone", placeholder: 'UK phone number' %>
+    </div>
+
   <div class="field">
     <div id="competencies">
       <%= f.fields_for :competencies do |cf| %>
@@ -57,12 +61,10 @@
 </script>
 
   <div class="field">
-    <%#= f.label :address %>
     <%= f.text_field :address, placeholder: 'address' %>
   </div>
 
   <div class="field">
-    <%#= f.label :sponsor %>
     <%= f.select :sponsor, ['primary', 'secondary'], { include_blank: 'select sponsor' } %>
   </div>
 
@@ -75,10 +77,10 @@
     <%= f.text_field :pts_number, maxlength: 7, placeholder: 'PTS no.' %>
   </div>
 
-  <div class="field">
-    <%= f.label :photos, '* photos of competencies' %><br />
-    <%= f.file_field :photos, multiple: true %>
-  </div>
+  <%# <div class="field"> %>
+    <%#= f.label :photos, '* photos of competencies' %><br />
+    <%#= f.file_field :photos, multiple: true %>
+  <%# </div> %>
 
 
     <div class="field">
@@ -119,6 +121,9 @@
     </select>
     <label for="user_competencies_attributes_new_competencies_expiration_date">Expiration Date</label>
     <input type="date" name="user[competencies_attributes][new_competencies][expiration_date]" id="user_competencies_attributes_new_competencies_expiration_date">
+      <label for="user_competencies_attributes_new_competencies_photo">Photo</label>
+      <input type="file" name="user[competencies_attributes][new_competencies][photo]" id="user_competencies_attributes_new_competencies_photo">
+
     <button type="button" class="remove-competency btn btn-danger">Remove</button>
   </div>
 </div>

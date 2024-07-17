@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  # get 'competencies/new'
+  # get 'competencies/create'
+  # get 'competencies/edit'
+  # get 'competencies/update'
+  # get 'competencies/destroy'
   root 'pages#home'
   devise_for :users
 
@@ -31,6 +36,10 @@ Rails.application.routes.draw do
   resources :contracts
   resources :users
   resources :jobs
+
+  resources :users do
+    resources :competencies, only: [:new, :create, :edit, :update, :destroy]
+  end
 
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
