@@ -26,171 +26,112 @@
   color: white; /* Text color */
 }
 
-.image-wrapper::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, black, grey);
-  opacity: 0.6; /* Adjust the opacity as needed */
-}
 
 
 
 /* styles.css */
 
 .box {
-  padding: 20px;            /* Padding inside the box */
+  // padding: 20px;            /* Padding inside the box */
   margin: 20px 0;           /* Margin above and below the box */
-  border-radius: 8px;       /* Rounded corners */
-  padding-bottom: 100px;
+  padding-bottom: 40px;
+
 }
 
-.box h2 {
-  color: #333;              /* Dark grey color for the heading */
-  font-size: 24px;          /* Font size for the heading */
-  margin-bottom: 10px;      /* Margin below the heading */
-  font-family: 'Arial', sans-serif; /* Font family for the heading */
+.highlight {
+  font-weight: bold;
 }
 
 .box p {
   color: #555;              /* Medium grey color for the paragraph */
-  font-size: 16px;          /* Font size for the paragraph */
+  font-size: 1rem;          /* Font size for the paragraph */
   line-height: 1.6;         /* Line height for better readability */
-  font-family: 'Arial', sans-serif; /* Font family for the paragraph */
+}
+
+.center-title {
+  letter-spacing: 2px;
+  font-family: 'Switzer-Bold';
+  color: var(--orange);
+  padding-bottom: 30px;
 }
 
 
 
+// The grid boxes
 
-// list
-
-
-/* styles.css */
-
-
-
-
-
-// @import url(https://fonts.googleapis.com/css?family=Poppins:400,300,500);
-html {
-  box-sizing: border-box;
+.cards1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding-bottom: 40px;
+  margin: 0px 20px;
 }
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-// body {
-//   margin: 0;
-//   padding: 96px;
-//   font-size: 21px;
-//   background: #fff;
-//   color: #000;
-//   font-family: "Poppins", sans-serif;
-// }
-section.card {
-  background: #000046;
-  background: -webkit-linear-gradient(to right, #1CB5E0, #000046);
-  background: linear-gradient(to right, #1CB5E0, #000046);
-  border-radius: 24px 24px 24px 48px;
-  padding: 48px 48px 48px 308px;
-  margin: 84px 0;
-  min-width: 640px;
+
+.card-category1 {
+  background-size: cover;
+  background-position: center;
+  object-fit: contain;
+  height: 320px;
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  align-self: flex-start;
-  position: relative;
-  box-shadow: 5px 0 0 0 rgba(204,204,204,0.3), -5px 0 0 0 rgba(204,204,204,0.3), 0 5px 0 0 rgba(204,204,204,0.3);
-}
-section.card .text-content {
-  display: flex;
-  flex-direction: column;
-  width:calc(60vw - 192px);
-}
-section.card .text-content h3 {
-  margin: 0;
-  font-size: 1.5em;
-  max-width: 20ch;
-  color: #fff;
-}
-section.card .text-content p {
-  margin: 25px 0 24px;
-  color: #fff;
-}
-section.card .text-content a {
-  border: 3px solid #f2f2f2;
-  color: #ffffff;
-  align-self: flex-start;
-  text-decoration: none;
-  padding: 16px 32px;
-  border-radius: 12px;
-  transition: 400ms all;
-}
-section.card .text-content a:hover {
-  background: #051c5e;
+  justify-content: center;
+  align-items: center;
   color: white;
-}
-section.card .visual {
-  width: 240px;
-  height: 100%;
-  position: absolute;
-  top: -24px;
-  left: 24px;
-  overflow: hidden;
-  border-radius: 24px;
-}
-section.card .visual img {
-  height: 110%;
-}
-article {
-  margin: auto;
-  display: block;
-  width:calc(60vw + 248px);
-  max-width:calc(920px + 248px);
-  min-width:calc(640px + 248px);
-}
-@media all and (max-width: 1100px) {
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  object-fit: contain;
+  transition: transform 0.5s ease; /* Adjust transition speed and timing function */
 
-  article {
-    width: 100%;
-    min-width: 100%;
-  }
-  section.card {
-    min-width: 100%;
-  }
-  section.card .text-content {
-    width: 100%;
+}
+
+.title {
+  text-transform: uppercase;
+  letter-spacing: 1.5px; /* Adjust the spacing between letters */
+}
+
+
+
+
+
+.card-category1:hover {
+  transform: scale(1.05); /* Slightly scales the div */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards1 {
+    grid-template-columns: 1fr;
   }
 }
 
-@media all and (max-width: 720px) {
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards1 {
+    grid-template-columns: 1fr;
+  }
+}
 
-  section.card {
-    margin: 64px 0;
-    padding: 88px 36px 36px;
-    flex-direction: column;
-    border-radius: 24px;
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards1 {
+    grid-template-columns: 1fr 1fr;
   }
-  section.card .text-content h3 {
-    max-width:calc(100% - 150px);
-    font-size: 1em;
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards1 {
+    grid-template-columns: 1fr 1fr 1fr;
   }
-  section.card .text-content p,
-  section.card .text-content a {
-    font-size: 0.8em;
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
   }
-  section.card .visual {
-    width: 150px;
-    height: 150px;
-    right: 16px;
-    left: auto;
-    border-radius: 50%;
-  }
-  section.card .visual img{
-    width: 100%;
-    height: auto;
-    }
 }

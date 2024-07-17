@@ -1,41 +1,5 @@
-<h1>New Job</h1>
+<%= render 'form', job: @job %>
 
-<%= form_with(model: @job, local: true) do |form| %>
-  <% if @job.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
-
-      <ul>
-        <% @job.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <%# <div class="field">
-    <%= form.label :user_id, "Assigned User" %>
-    <%# <%= form.collection_select :user_id, @users, :id, :name, prompt: "Select a User" %>
-  <%# </div> %>
-
-  <div class="field">
-    <%= form.label :department, "Department" %>
-    <%= form.collection_select :department, @departments, :id, :name, prompt: "Select a Department" %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<%= link_to 'Back', jobs_path %>
+<div style="margin-bottom: 50px;">
+<%= link_to 'Back', jobs_path, class: 'gradient-button' %>
+</div>
