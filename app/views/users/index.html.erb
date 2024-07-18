@@ -14,8 +14,10 @@
     <td><%= user.first_name %> <%= user.last_name %></td>
     <td><%= user.approved? ? 'Yes' : 'No' %></td>
     <td>
-      <%= link_to 'Show', user_path(user) %>
-      <%= button_tag 'Approve', id: "approve-button-#{user.id}", data: { user_id: user.id } %>
+      <%= link_to user_path(user) do %>
+        <button class="gradient-button">PROFILE</button>
+      <% end %>
+      <%= button_tag 'Approve', id: "approve-button-#{user.id}", data: { user_id: user.id }, class: 'gradient-button' %>
 
       <script>
         document.addEventListener('DOMContentLoaded', () => {

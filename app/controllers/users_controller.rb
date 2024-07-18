@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def index
     authorize User
-    @unapproved_users = policy_scope(User)
+    @unapproved_users = policy_scope(User.where(approved: false))
   end
 
   def update
