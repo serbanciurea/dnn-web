@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-<% @unapproved_users.each do |user| %>
+  <% @unapproved_users.each do |user| %>
   <tr>
     <td><%= user.first_name %> <%= user.last_name %></td>
     <td><%= user.approved? ? 'Yes' : 'No' %></td>
@@ -58,7 +58,7 @@
       </script>
     </td>
   </tr>
-<% end %>
+  <% end %>
 
   </tbody>
 </table>
