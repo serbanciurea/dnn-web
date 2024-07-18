@@ -34,6 +34,9 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :competencies, only: [:new, :create, :edit, :update, :destroy]
+    member do
+      patch :approve
+    end
   end
 
   get 'about', to: 'pages#about'
