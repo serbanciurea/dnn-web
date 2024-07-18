@@ -1,0 +1,13 @@
+
+
+
+
+<% unapproved_users.each do |user| %>
+  <%= link_to user_path(user) do %>
+    <%= user.email %>
+  <% end %>
+  <%#= link_to 'Approve', approve_user_path(user) %>
+<% end %>
+<%= link_to "8", user_path(3) %>
+
+<div class="" style="height: 100vh;"></div>
