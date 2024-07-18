@@ -48,6 +48,12 @@
         </div>
 
         <%= link_to "profile", user_path(current_user) %>
+
+        <% if current_user.admin %>
+        <br>
+          <%= link_to "admin", users_path %>
+        <% end %>
+
       <% end %>
 
     </div>
