@@ -7,6 +7,10 @@ class UserPolicy < ApplicationPolicy
     user.admin?
   end
 
+  def approve?
+    user.admin?
+  end
+
   class Scope < ApplicationPolicy::Scope
     def resolve
 

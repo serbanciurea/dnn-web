@@ -30,9 +30,10 @@ Rails.application.routes.draw do
 
   resources :employees
   resources :contracts
-  resources :users
+  # resources :users
 
   resources :users do
+    patch :approve, on: :member
     resources :competencies, only: [:new, :create, :edit, :update, :destroy]
   end
 

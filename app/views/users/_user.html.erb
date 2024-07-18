@@ -2,7 +2,7 @@
   <div class="user-container">
 
     <div class="user-info">
-      <h1>Hi, <%= current_user.first_name %> <%= current_user.last_name %></h1>
+      <h1>Hi, <%= @user.first_name %> <%= @user.last_name %></h1>
       <p><strong>EMAIL:</strong><%= @user.email %></p>
       <p><strong>PHONE: </strong><%= @user.phone %></p>
       <p><strong>ADDRESS: </strong><%= @user.address %></p>
