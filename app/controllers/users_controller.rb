@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  after_action :verify_authorized, only: [:show]
+  after_action :verify_authorized, only: [:show, :index]
   before_action :set_user, only: [:show]
 
   # def index
@@ -14,6 +14,11 @@ class UsersController < ApplicationController
 
   def show
     authorize @user # This ensures the policy is applied for the show action
+  end
+
+  def index
+    authorize User
+    @users = policy_scope(User)
   end
 
   private

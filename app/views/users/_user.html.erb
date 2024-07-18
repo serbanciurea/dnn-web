@@ -1,0 +1,62 @@
+<section class="user">
+  <div class="user-container">
+
+    <div class="user-info">
+      <h1>Hi, <%= current_user.first_name %> <%= current_user.last_name %></h1>
+      <p><strong>EMAIL:</strong><%= @user.email %></p>
+      <p><strong>PHONE: </strong><%= @user.phone %></p>
+      <p><strong>ADDRESS: </strong><%= @user.address %></p>
+      <p><strong>SPONSOR TYPE: </strong><%= @user.sponsor %></p>
+      <p><strong>PTS NUMBER: </strong><%= @user.pts_number %></p>
+      <p><strong>DRIVER? </strong><%= @user.driver %></p>
+
+      <div class="user-links">
+        <%= link_to edit_user_registration_path, class: "edit" do %>
+          <button class="gradient-button">EDIT</button>
+        <% end %>
+        <%= link_to user_registration_path, method: :delete, data: { confirm: "Are you sure?" }, class: "delete" do %>
+          <button class="gradient-button">DELETE</button>
+        <% end %>
+        <%= link_to new_user_competency_path(@user) do %>
+          <button class="gradient-button">NEW COMPETENCY</button>
+        <% end %>
+    </div>
+
+    </div>
+
+      <%# <h2>Competencies</h2> %>
+      <div class="competency">
+      <% @user.competencies.each do |competency| %>
+        <div class="comp">
+          <p>
+            <strong>Licence for: </strong>
+            <%= competency.name %>
+          </p>
+          <p>
+            <strong>Expiery Date:</strong>
+            <%= competency.expiration_date.strftime("%B %d, %Y").upcase %>
+          </p>
+          <p>
+            <%= cl_image_tag competency.photo.key, class: "cloud" %>
+          </p>
+          <div class="competency-links">
+
+            <%= link_to edit_user_competency_path(@user, competency) do %>
+              <button class="gradient-button">EDIT</button>
+            <% end %>
+
+            <br><br>
+
+            <%= button_to 'Delete This Competency', user_competency_path(@user, competency),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?', turbo_confirm: 'Are you sure?' },
+                  class: 'gradient-button' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+
+  </div>
+
+</section>
