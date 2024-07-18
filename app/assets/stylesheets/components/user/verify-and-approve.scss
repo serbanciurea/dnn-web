@@ -1,0 +1,49 @@
+.title-index{
+  padding-top: 30px;
+  padding-bottom: 80px
+}
+
+
+.verify-and-approve{
+  height: 100vh;
+
+    /* Styling the table */
+  .verify-and-approve {
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Space between title and table */
+  }
+
+  thead {
+    background-color: grey; /* Header background color */
+    color: white; /* Header text color */
+  }
+
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Separator between rows */
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternate row background color */
+  }
+
+  tbody tr:hover {
+    background-color: #eaf2f8; /* Hover row background color */
+  }
+
+
+
+}
