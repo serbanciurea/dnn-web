@@ -5,6 +5,7 @@
 
 
 
+
 .image-wrapper {
   position: relative;
   width: 100%;
@@ -253,4 +254,69 @@
   font-size: 14px; /* Font size for the location text */
   color: #555; /* Color for the location text */
   font-family: 'Arial', sans-serif; /* Font family for the location text */
+}
+
+.content-right{
+.message {
+  margin: 40px;
+  text-align: center;
+
+  }
+  .whatsapp-join {
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    max-width: 500px;
+    background-color: #f9f9f9;
+  }
+
+  .qr-code-wrapper {
+    height: 100%;
+    width: 100%;
+    margin-top:20px;
+  }
+
+  .qr-code {
+   width: 500px;
+    height: auto;
+  }
+
+  .registration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 50px;
+  }
+
+  .title{
+    h1{
+
+
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    }
+  }
+  .content-divider {
+    position: relative;
+    width: 100%;
+    max-width: 900px; /* Adjust as per your layout */
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .divider-line {
+    position: relative;
+    margin-top: 10px;
+    width: 90%;
+    max-width: 100%;
+    border-top: 1px solid #ccc; /* Adjust color as needed */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
 }
