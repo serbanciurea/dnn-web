@@ -101,7 +101,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_18_131603) do
     t.boolean "driver", default: false
     t.string "pts_number"
     t.string "phone"
-    t.boolean "approved"
+    # t.boolean "approved"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
