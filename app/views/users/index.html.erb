@@ -1,30 +1,62 @@
 <h3>People that need to be verified and approved:</h3>
 
-<% unapproved_users.each do |user| %>
-  <%= link_to user_path(user) do %>
-    <%= user.email %>
-  <% end %>
-<% end %>
-
 <table>
   <thead>
     <tr>
-      <th>Email</th>
+      <th>Users</th>
       <th>Approved</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <% unapproved_users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td><%= user.approved? ? 'Yes' : 'No' %></td>
-        <td>
-          <%= link_to 'Show', user_path(user) %>
-          <%= link_to 'Toggle Approval', approve_user_path(user), method: :patch, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
-    <% end %>
+<% @unapproved_users.each do |user| %>
+  <tr>
+    <td><%= user.first_name %> <%= user.last_name %></td>
+    <td><%= user.approved? ? 'Yes' : 'No' %></td>
+    <td>
+      <%= link_to 'Show', user_path(user) %>
+      <%= button_tag 'Approve', id: "approve-button-#{user.id}", data: { user_id: user.id } %>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const approveButton<%= user.id %> = document.getElementById('approve-button-<%= user.id %>');
+          console.log(approveButton<%= user.id %>);
+          if (approveButton<%= user.id %>) {
+            approveButton<%= user.id %>.addEventListener('click', () => {
+              const userId = approveButton<%= user.id %>.dataset.userId;
+
+              fetch(`/users/${userId}/approve`, {
+                method: 'PATCH',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+                },
+                body: JSON.stringify({ /* Optional: Any additional data you want to send */ })
+              })
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error('Network response was not ok');
+                }
+                return response.json();
+              })
+              .then(data => {
+                // Handle success response
+                console.log('User approval successful:', data);
+                // Optionally update UI or show a success message
+                approveButton<%= user.id %>.remove();
+              })
+              .catch(error => {
+                // Handle error
+                console.error('Error approving user:', error);
+                // Optionally show an error message to the user
+              });
+            });
+          }
+        });
+      </script>
+    </td>
+  </tr>
+<% end %>
+
   </tbody>
 </table>
-  <%#= link_to 'Approve', approve_user_path(user) %>
