@@ -94,6 +94,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_19_072937) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin"
+    t.float "latitude"
+    t.float "longitude"
     t.string "address"
     t.string "sponsor"
     t.boolean "driver", default: false
