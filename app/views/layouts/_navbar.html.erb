@@ -10,51 +10,68 @@
   <!-- Right Section of Navbar -->
   <div class="navbar-right">
 
+      <div class="dropdown">
+        <button class="dropbtn"><%= link_to 'About Us', about_path %></button>
+      </div>
+
+    <div class="dropdown">
+    <button class="dropbtn"><%= link_to 'Projects',project_ports_path %></button>
+      <%# <%= link_to 'Projects', project_ports_path, class: 'dropbtn' %>
+      <div class="dropdown-content">
+
+      </div>
+    </div>
+
     <div class="dropdown">
       <button class="dropbtn"><%= link_to 'Services', services_path %></button>
       <div class="dropdown-content">
-        <%#= link_to 'Construction', '#' %>
-        <%#= link_to 'Rail', '#' %>
-        <%#= link_to 'Electrical', '#' %>
       </div>
     </div>
 
     <div class="dropdown">
       <button class="dropbtn"><%= link_to 'Careers', careers_path %></button>
       <div class="dropdown-content">
-        <%#= link_to 'Career 1', '#' %>
-        <%#= link_to 'Career 2', '#' %>
-        <%#= link_to 'Career 3', '#' %>
       </div>
     </div>
 
-    <div class="dropdown">
-      <%= link_to 'Projects', project_ports_path, class: 'dropbtn' %>
-      <div class="dropdown-content">
-        <%#= link_to 'Project 1', '#' %>
-        <%#= link_to 'Project 2', '#' %>
-        <%#= link_to 'Project 3', '#' %>
-      </div>
-    </div>
-
+    <div class="extra">
+    <% if current_user %>
       <div class="dropdown">
-        <button class="dropbtn"><%= link_to 'About Us', about_path %></button>
+          <button class="dropbtn">Profile</button>
+        <div class="dropdown-content">
+
+          <%= link_to 'Profile', user_path(current_user), class: 'dropdown-item', role: 'menuitem' %>
+
+          <% if current_user.admin %>
+        <%= link_to 'Admin', users_path, class: 'dropdown-item', role: 'menuitem' %>
+          <% end %>
+      <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'dropdown-item logout', role: 'menuitem', form: { class: 'dropdown-item-form' } %>
+        </div>
       </div>
+    <% end %>
 
 
+    <!--
       <% if current_user %>
         <div class="dropdown">
-            <%= button_to 'Log out', destroy_user_session_path, method: :delete, style: 'background: transparent; border: none; text-decoration: none; color: var(--grey); cursor: pointer;', class: 'logout'  %>
+
+          <button class="dropbtn">
+            Profile
+          </button>
+
+
+          <div class="dropdown-content" role="menu">
+            <%= link_to 'Profile', user_path(current_user), class: "dropdown-item", role: "menuitem" %>
+
+            <% if current_user.admin %>
+              <%= link_to 'Admin', users_path, class: "dropdown-item", role: "menuitem" %>
+            <% end %>
+
+            <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'dropdown-item logout', role: "menuitem" %>
+          </div>
         </div>
-
-        <%= link_to "profile", user_path(current_user) %>
-
-        <% if current_user.admin %>
-        <br>
-          <%= link_to "admin", users_path %>
-        <% end %>
-
       <% end %>
+    -->
 
     </div>
   </div>

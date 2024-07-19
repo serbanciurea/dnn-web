@@ -10,22 +10,28 @@
 .navbar-left {
   display: flex;
   align-items: center; /* Align items vertically */
-  flex-shrink: 0; /* Prevents the left section from shrinking */
+  flex-shrink: 1; /* Prevents the left section from shrinking */
+
 }
 
 .navbar-left a {
   display: flex;
   align-items: center; /* Ensures the image is centered vertically */
+  flex-shrink: 1; /* Allow the left section to shrink */
+
 }
 
 .navbar-right {
   display: flex;
   align-items: center; /* Align items vertically */
+  flex-grow: 1; /* Allow the right section to take up remaining space */
+  justify-content: flex-end; /* Align items to the right */
 }
+
 
 .dropdown {
   position: relative; /* Needed for dropdown positioning */
-  display: inline-block; /* Inline-block to maintain layout */
+  display: inline-flex; /* Inline-block to maintain layout */
 }
 
 .dropdown .dropbtn {
@@ -77,13 +83,13 @@
   width: auto;
 }
 
-.logout {
-  background: transparent;
-  border: transparent;
-  text-decoration: none;
-  font-size: 16px;
-  color: var(--grey);
-}
+// .logout {
+//   background: transparent;
+//   border: transparent;
+//   text-decoration: none;
+//   font-size: 16px;
+//   color: var(--grey);
+// }
 
 .logout:hover {
   background-color: var(--milky-white);
@@ -104,11 +110,103 @@
   }
   .navbar-right {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     align-items: center;
   }
 
   .navbar .dropdown a, .logout {
     font-size: 0.7rem !important;
+  }
+}
+
+
+
+.extra{
+ /* Style The Dropdown Button */
+  .dropbtn {
+    float: none;
+    color: black; /* Change text color to white */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative; z-index: 10;
+    display: inline-block;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: inherit;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1}
+
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    background-color: white;
+  }
+
+
+
+
+
+  // dropdown item
+
+  dropdown-item {
+    font-size: 16px;
+  border: none;
+  outline: none;
+
+  color: #1D2327;
+
+  background-color: inherit;
+  margin: 0;
+  padding: 14px 16px;
+  font-family: inherit;
+  cursor: pointer;
+  }
+
+  /* Style for button_to to look like a link */
+  .dropdown-item-form {
+    display: inline; /* Keep the form inline */
+  }
+
+  .dropdown-item-form button {
+    background: none; /* Remove default button background */
+    border: none; /* Remove default button border */
+    color: inherit; /* Inherit text color from parent */
+    padding: 0; /* Remove default button padding */
+    font: inherit; /* Inherit font styles */
+    text-align: left; /* Align text to the left */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-decoration: none; /* Remove underline */
+  }
+
+  /* Hover effect to match link hover styling */
+  .dropdown-item-form button:hover {
+    background-color: #f1f1f1; /* Background color on hover */
   }
 }
