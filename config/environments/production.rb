@@ -93,5 +93,18 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
   config.active_storage.service = :cloudinary
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address: 'admin@example.com',
+    port: 587,
+    domain: 'example.com',
+    user_name: 'Admin',
+    password: '123456',
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+  config.action_mailer.default_url_options = { host: 'yourdomain.com' }
+
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

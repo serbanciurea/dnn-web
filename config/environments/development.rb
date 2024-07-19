@@ -73,5 +73,19 @@ Rails.application.configure do
 
   config.active_storage.service = :cloudinary
 
+  config.action_mailer.delivery_method = :smtp
+
+  config.active_job.queue_adapter = :async
+
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'gmail.com',
+    user_name: 'miriamciurea@gmail.com',
+    password: '123456',
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

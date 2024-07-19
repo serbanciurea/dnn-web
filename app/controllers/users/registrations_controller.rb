@@ -12,8 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super do |resource|
-      p alooo
-      UserRegistrationService.call(resource)
+      UserRegistrationService.call(resource) if resource.persisted?
     end
   end
 
