@@ -10,9 +10,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
+  # def create
+  #   p "alooo mamaieee"
+  #   super do |resource|
+  #     UserRegistrationService.call(resource) if resource.persisted?
+  #   end
+  # end
+
   def create
-    p "alooo mamaieee"
+    Rails.logger.debug "Entered Users::RegistrationsController#create"
     super do |resource|
+      Rails.logger.debug "Resource persisted: #{resource.persisted?}"
       UserRegistrationService.call(resource) if resource.persisted?
     end
   end

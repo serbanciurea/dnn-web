@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
   root 'pages#home'
-  devise_for :users, controllers: {
-    sessions: 'users/sessions'
-  }
+  # devise_for :users, controllers: {
+  #   sessions: 'users/sessions'
+  # }
+
+  # config/routes.rb
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+
 
   # authenticate :user, ->(user) { user.admin? } do
   #   namespace :admin do
