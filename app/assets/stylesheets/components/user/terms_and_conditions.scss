@@ -1,0 +1,126 @@
+.terms_and_conditions{
+    // Variables
+  text-decoration: none;
+  $primary-color: #333;
+  $secondary-color: #555;
+  $link-color: #007BFF;
+  $link-hover-color: darken($link-color, 10%);
+  $background-color: #f9f9f9;
+  $border-color: #ddd;
+
+  // Base styles
+  body {
+    font-family: font-family;
+    color: $primary-color;
+    background-color: $background-color;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding-left: 30px; // Add padding to the left
+    padding-right: 30px; // Add padding to the right
+  }
+
+  // Headings
+  h2, h3 {
+    color: $primary-color;
+    margin-top: 1.5em;
+    margin-bottom: 1em; // Increase margin-bottom for more space
+
+  }
+
+  h2 {
+    font-size: 1.75em;
+    border-bottom: 2px solid $border-color;
+    padding-bottom: 0.5em;
+  }
+
+  h3 {
+    font-size: 1.5em;
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 0.3em;
+  }
+
+  // Paragraphs
+  p {
+    margin-bottom: 1em;
+    color: $secondary-color;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  // Lists
+  ul {
+    padding-left: 1.5em;
+    margin-bottom: 1em;
+  }
+
+  li {
+    margin-bottom: 0.5em;
+    color: $secondary-color;
+  }
+
+  li p {
+    margin-bottom: 0;
+  }
+
+  // Links
+  a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $link-hover-color;
+      text-decoration: underline;
+    }
+  }
+
+  // Highlight and special sections
+  strong {
+    color: $primary-color;
+    font-weight: bold;
+  }
+
+  code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 3px;
+    border: 1px solid $border-color;
+  }
+
+  // Containers for different sections
+  .section {
+    margin-bottom: 2em;
+
+    &.acknowledgment {
+      background-color: #eef;
+      padding: 15px;
+      border-left: 4px solid $link-color;
+    }
+
+    &.termination {
+      background-color: #fee;
+      padding: 15px;
+      border-left: 4px solid #e74c3c;
+    }
+
+    &.contact {
+      background-color: #eff;
+      padding: 15px;
+      border-left: 4px solid #3498db;
+    }
+  }
+
+}
