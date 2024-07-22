@@ -11,6 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    p "alooo mamaieee"
     super do |resource|
       UserRegistrationService.call(resource) if resource.persisted?
     end
