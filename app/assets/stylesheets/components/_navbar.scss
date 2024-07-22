@@ -175,7 +175,7 @@
 
   // dropdown item
 
-  dropdown-item {
+  .dropdown-item {
     font-size: 16px;
   border: none;
   outline: none;
@@ -197,16 +197,18 @@
   .dropdown-item-form button {
     background: none; /* Remove default button background */
     border: none; /* Remove default button border */
-    color: inherit; /* Inherit text color from parent */
+    color: black; /* Inherit text color from parent */
     padding: 0; /* Remove default button padding */
     font: inherit; /* Inherit font styles */
     text-align: left; /* Align text to the left */
     cursor: pointer; /* Pointer cursor on hover */
     text-decoration: none; /* Remove underline */
+
   }
 
   /* Hover effect to match link hover styling */
   .dropdown-item-form button:hover {
     background-color: #f1f1f1; /* Background color on hover */
+    color: black;
   }
 }
