@@ -10,5 +10,10 @@ class PagesController < ApplicationController
     # Any logic needed for the privacy policy can go here
   end
 
+  def terms_and_conditions
+    # Any logic needed for the privacy policy can go here
+  end
+
+
 
 end
