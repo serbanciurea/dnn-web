@@ -34,45 +34,34 @@
       </div>
     </div>
 
+
     <div class="extra">
-    <% if current_user %>
-      <div class="dropdown">
-          <button class="dropbtn">Profile</button>
-        <div class="dropdown-content">
-
-          <%= link_to 'Profile', user_path(current_user), class: 'dropdown-item', role: 'menuitem' %>
-
-          <% if current_user.admin %>
-        <%= link_to 'Admin', users_path, class: 'dropdown-item', role: 'menuitem' %>
-          <% end %>
-      <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'dropdown-item logout', role: 'menuitem', form: { class: 'dropdown-item-form' } %>
-        </div>
-      </div>
-    <% end %>
-
-
-    <!--
       <% if current_user %>
         <div class="dropdown">
-
-          <button class="dropbtn">
-            Profile
-          </button>
-
-
+          <button class="dropbtn">Profile</button>
           <div class="dropdown-content" role="menu">
-            <%= link_to 'Profile', user_path(current_user), class: "dropdown-item", role: "menuitem" %>
-
+            <%= link_to 'Profile', user_path(current_user), class: 'dropdown-item', role: 'menuitem' %>
             <% if current_user.admin %>
-              <%= link_to 'Admin', users_path, class: "dropdown-item", role: "menuitem" %>
+              <%= link_to 'Admin', users_path, class: 'dropdown-item', role: 'menuitem' %>
             <% end %>
-
-            <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'dropdown-item logout', role: "menuitem" %>
+            <%= link_to 'Log out', '#', id: 'logout-link', class: 'dropdown-item logout', role: 'menuitem' %>
+            <%= form_with url: destroy_user_session_path, method: :delete, id: 'logout-form', style: 'display: none;' do %>
+            <% end %>
           </div>
         </div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            function handleLogout(event) {
+              event.preventDefault();
+              document.getElementById('logout-form').submit();
+            }
+            var logoutLink = document.getElementById('logout-link');
+            if (logoutLink) {
+              logoutLink.addEventListener('click', handleLogout);
+            }
+          });
+        </script>
       <% end %>
-    -->
-
     </div>
   </div>
 </nav>
