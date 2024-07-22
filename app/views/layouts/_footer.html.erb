@@ -20,9 +20,13 @@
       <%= link_to 'https://www.linkedin.com/company/dnnovation-construction-ltd/posts/?feedView=all' do %>
       <i class="fa-brands fa-linkedin"></i>
       <% end %>
+      <%= link_to '#' do %>
       <i class="fa-brands fa-facebook"></i>
-      <i class="fa-solid fa-envelope"></i>
-    </div>
+        <% end %>
+      <%= link_to 'mailto:example@example.com' do %>
+          <i class="fa-solid fa-envelope"></i>
+        <% end %>
+       </div>
 
   </div>
 
@@ -33,11 +37,12 @@
     </div>
 
     <div class="f-sec">
-      <p>paragraf cu vrajeales paragraf cu vrajeales paragraf cu vrajeales paragraf cu vrajeales paragraf cu vrajeales</p>
+      <a href="<%= privacy_policy_path %>">Privacy Policy</a>
     </div>
 
     <div class="f-sec">
-      settings and security stuff
+      <a href="#">Data protection</a>
+
     </div>
 
   </div>
