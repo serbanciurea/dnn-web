@@ -6,7 +6,7 @@ gem "cloudinary"
 
 gem 'sassc-rails'
 
-gem "dotenv-rails"
+gem 'dotenv-rails'
 
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

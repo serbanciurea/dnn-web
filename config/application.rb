@@ -44,3 +44,6 @@ module DnnWeb
     require "active_storage/engine"
   end
 end
+
+
+Dotenv::Railtie.load
