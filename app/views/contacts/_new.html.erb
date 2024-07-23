@@ -1,36 +1,33 @@
-<div class="contact-container">
-  <div class="contact-left">
-    <h2>Contact Us</h2>
-    <p style="text-align: left;">feel free to contact us and we will get back to you as soon as we can.</p>
-    <%= form_with(model: @contact, local: true) do |form| %>
-    <div class="pair">
-      <%= form.text_field :name, placeholder: "name"  %>
+<% if @contact.present? %>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+      <ul>
+        <% @contact.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
-    <div class="pair">
-      <%= form.email_field :email, placeholder: "address" %>
-    </div>
-    <div class="pair">
-      <%= form.text_area :message, placeholder: "tell us about it", class: "custom-input" %>
-    </div>
-    <div class="pair">
-      <%= form.submit 'Send', class: "gradient-button" %>
-    </div>
-    <% end %>
+  <% end %>
+<% end %>
+
+<%= form_with(model: contact, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
   </div>
-  <div class="contact-right">
-  <div class="oh">
-    <h3>Opening Hours</h3>
-    <p>Monday – Friday</p>
-    <p style="margin-top: 0px;">9:00 am – 5:00 pm</p>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email %>
   </div>
-  <div class="oh">
-    <h3>Address</h3>
-    <p style="text-align: left;">Barnacres Rd, Hemel Hempstead, Hemel Hempstead HP3 8JS, GB</p>
+
+  <div class="field">
+    <%= form.label :message %>
+    <%= form.text_area :message %>
   </div>
-  <div class="oh">
-    <h3>Support</h3>
-    <p>info@DNNovationconstruction.co.uk</p>
-    <p style="margin-top: 0px;">(123) 456-7890</p>
-    </div>
+
+  <div class="actions">
+    <%= form.submit 'Send' %>
   </div>
-</div>
+<% end %>

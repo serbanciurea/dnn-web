@@ -6,7 +6,8 @@ gem "cloudinary"
 
 gem 'sassc-rails'
 
-gem 'dotenv-rails'
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+
 
 gem 'whenever', require: false
 

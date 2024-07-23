@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   end
 
   def home
+    @contact = Contact.new
   end
 
   def privacy_policy
