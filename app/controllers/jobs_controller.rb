@@ -1,5 +1,7 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user!
+
+  # before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: :index
   before_action :set_job, only: %i[ show edit update destroy ]
   before_action :authorize_job, except: [:index, :show]
   after_action :verify_policy_scoped, only: :index

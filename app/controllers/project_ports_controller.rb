@@ -1,7 +1,10 @@
 class ProjectPortsController < ApplicationController
+
+  skip_before_action :authenticate_user!, only: [:index, :show, :filter_by_department]
+
   before_action :set_project_port, only: %i[ show edit update destroy ]
 
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :authorize_project_port, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_show_footer, only: [:new, :edit]
 
