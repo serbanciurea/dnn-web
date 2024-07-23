@@ -4,8 +4,8 @@
       <h1 class="h-title bold-text">DNNovation</h1>
       <h4 class="h-subtitle">THE SOLUTION FOR YOUR PROJECT IDEA</h4>
       <div class="h-links">
-        <%= link_to project_ports_path do %>
-          <button class="gradient-button">contact us</button>
+        <%= link_to '#contact-form' do %>
+         <button class="gradient-button">contact us</button>
         <% end %>
         <%= link_to jobs_path do %>
           <button class="gradient-button">join us</button>
@@ -175,7 +175,7 @@
 
 
 
-<section class="cta-section">
+<section id="contact-form" class="cta-section">
 <%= render 'contacts/new', contact: @contact %>
 </section>
 

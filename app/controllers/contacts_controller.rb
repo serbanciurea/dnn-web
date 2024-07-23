@@ -12,7 +12,7 @@ class ContactsController < ApplicationController
       redirect_to root_path, notice: 'Your message has been sent successfully.'
     else
       # Handle validation errors
-      render :new
+      redirect_to root_path, alert: 'Your message could not be sent.'
     end
   end
 
