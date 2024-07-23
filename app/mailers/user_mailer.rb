@@ -6,4 +6,10 @@ class UserMailer < ApplicationMailer
     @user = user
     mail(to: admin_email, subject: 'New User Created')
   end
+
+  def competency_expiration_email(user, competency)
+    @user = user
+    @competency = competency
+    mail(to: @user.email, subject: "#{competency.name.capitalize} Competency Expiration Notice")
+  end
 end

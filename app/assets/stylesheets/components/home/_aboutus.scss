@@ -145,19 +145,23 @@
   .industry-grid {
     grid-template-columns: 1fr 1fr; /* 2 columns on smaller screens */
     gap: 40px; /* Adjust gap if necessary */
+    .industry {
+      width: 70%;
+      height: 100%;
+    }
   }
 }
 
 @media (max-width: 480px) {
   .industry-grid {
     grid-template-columns: 1fr 1fr; /* 2 columns on phones */
-    gap: 20px; /* Adjust gap for smaller screens */
+    gap: 40px; /* Adjust gap for smaller screens */
+    .industry {
+      width: 100%;
+      height: 100%;
+    }
   }
 
-  .industry {
-    width: 100%;
-    height: 100%;
-  }
 
   .industry img {
     max-width: 60px; /* Reduce image size further for phones */
@@ -167,6 +171,7 @@
     font-size: 0.9rem; /* Adjust font size for smaller screens */
   }
 }
+
 
 .industry p {
   margin-top: 10px;
