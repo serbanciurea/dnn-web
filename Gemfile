@@ -6,7 +6,7 @@ gem "cloudinary"
 
 gem 'sassc-rails'
 
-gem "dotenv-rails"
+gem 'dotenv-rails'
 
 gem 'whenever', require: false
 
