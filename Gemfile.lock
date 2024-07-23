@@ -102,10 +102,10 @@ GEM
       responders
       warden (~> 1.2.3)
     domain_name (0.6.20240107)
-    dotenv (3.1.2)
-    dotenv-rails (3.1.2)
-      dotenv (= 3.1.2)
-      railties (>= 6.1)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     drb (2.2.1)
     error_highlight (0.6.0)
     erubi (1.13.0)
@@ -123,7 +123,7 @@ GEM
     ffi (1.17.0-arm64-darwin)
     ffi (1.17.0-x86-linux-gnu)
     ffi (1.17.0-x86_64-darwin)
-    ffi (1.17.0-x86_64-linux)
+    ffi (1.17.0-x86_64-linux-gnu)
     geocoder (1.8.3)
       base64 (>= 0.1.0)
       csv (>= 3.0.0)
@@ -311,7 +311,7 @@ DEPENDENCIES
   cloudinary
   debug
   devise (~> 4.8)
-  dotenv-rails
+  dotenv-rails (~> 2.7, >= 2.7.6)
   error_highlight (>= 0.4.0)
   geocoder
   importmap-rails (~> 1.2.3)

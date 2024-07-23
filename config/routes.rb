@@ -2,11 +2,14 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   # devise_for :users, controllers: {
-  #   sessions: 'users/sessions'
-  # }
+    #   sessions: 'users/sessions'
+    # }
 
-  # config/routes.rb
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+    # config/routes.rb
+    devise_for :users, controllers: { registrations: 'users/registrations' }
+
+    resources :contacts, only: [:new, :create]
+
 
 
   # authenticate :user, ->(user) { user.admin? } do
@@ -24,7 +27,6 @@ Rails.application.routes.draw do
   end
   resources :project_ports
   resources :jobs
-  get 'contacts/new', to: 'contacts#new', as: 'new_contact'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -44,8 +46,10 @@ Rails.application.routes.draw do
     resources :competencies, only: [:new, :create, :edit, :update, :destroy]
   end
 
+
+
   get 'about', to: 'pages#about'
-  get 'contact', to: 'pages#contact'
+  get 'contact_us', to: 'pages#contact'
   get 'services', to: 'pages#services'
   get 'projects', to: 'pages#projects'
   get 'careers', to: 'pages#careers'
