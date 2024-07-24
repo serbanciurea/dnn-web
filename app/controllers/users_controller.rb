@@ -20,7 +20,49 @@ class UsersController < ApplicationController
   def index
     authorize User
     @unapproved_users = policy_scope(User.where(approved: false))
+    @users = User.all
+    # Handle name and postcode search
+  if params[:query].present?
+    query = params[:query]
+    @users = @users.where("last_name LIKE :query OR first_name LIKE :query", query: "%#{query}%")
   end
+
+  # Handle postcode search
+  if params[:postcode].present?
+    postcode = params[:postcode]
+    @users = @users.joins(:address).where("addresses.postcode LIKE ?", "%#{postcode}%")
+  end
+
+  # Handle competencies search
+  if params[:competencies].present?
+    competencies = params[:competencies].split(',').map(&:strip)
+    @users = @users.joins(:competencies).where(competencies: { name: competencies }).distinct
+  end
+
+  # Handle driver status filter
+  if params[:driver].present?
+    @users = @users.where(driver: ActiveRecord::Type::Boolean.new.cast(params[:driver]))
+  end
+
+  # Handle sponsor filter
+  if params[:sponsor].present?
+    @users = @users.where(sponsor: params[:sponsor])
+  end
+
+  # Handle location and distance filter
+  if params[:location].present? && params[:distance].present?
+    location = params[:location]
+    distance = params[:distance].to_f
+    geocoded_location = Geocoder.search(location).first
+
+    if geocoded_location
+      @users = @users.near([geocoded_location.latitude, geocoded_location.longitude], distance)
+    else
+      flash.now[:alert] = "Location could not be found."
+      @users = User.none # No users to display if location is invalid
+    end
+  end
+end
 
   def update
     if @user.update(user_params)

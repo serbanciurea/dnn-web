@@ -64,3 +64,30 @@
     </tbody>
   </table>
 </div>
+
+
+
+<div class="search-bar">
+  <div class="row justify-content-center">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: users_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Type a name or postcode" %>
+        <%= text_field_tag :postcode, params[:postcode], class: "form-control mx-2", placeholder: "Type a postcode" %>
+        <%= text_field_tag :competencies, params[:competencies], class: "form-control mx-2", placeholder: "Competencies (comma-separated)" %>
+        <%= select_tag :driver, options_for_select([['Driver', ''], ['Yes', true], ['No', false]], params[:driver]), class: "form-control mx-2" %>
+        <%= select_tag :sponsor, options_for_select([['Sponsor', ''], ['Primary', 'primary'], ['Secondary', 'secondary']], params[:sponsor]), class: "form-control mx-2" %>
+        <%= text_field_tag :location, params[:location], class: "form-control mx-2", placeholder: "Type a location" %>
+        <%= text_field_tag :distance, params[:distance], class: "form-control mx-2", placeholder: "Distance (km)" %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="users">
+  <% @users.each do |user| %>
+    <%= user.last_name %> <%= user.first_name %>
+    <br>
+  <% end %>
+</div>
