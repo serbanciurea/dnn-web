@@ -17,18 +17,62 @@
 
     <div class="field">
       <%= form.label :title %>
-      <%= form.text_field :title %>
+      <%= form.text_field :title, placeholder: 'job title (coss)' %>
     </div>
 
     <div class="field">
       <%= form.label :location %>
-      <%= form.text_field :location %>
+      <%= form.text_field :location, placeholder: 'POSTCODE' %>
     </div>
 
     <div class="field">
-      <%= form.label :description %>
-      <%= form.text_area :description %>
+      <%= form.label :salary %>
+      <%= form.text_field :salary, placeholder: 'salary' %>
     </div>
+
+    <div class="field" style="display: none;">
+      <%= form.text_area :description, id: 'description-2', placeholder: 'Enter description' %>
+    </div>
+
+    <!-- Visible Quill editor -->
+    <div class="field">
+      <div id="quill-editor-2" style="height: 300px;"></div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var editor = new Quill('#quill-editor-2', {
+          theme: 'snow',
+          placeholder: 'Enter description',
+          modules: {
+            toolbar: [
+              [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
+              [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+              ['bold', 'italic', 'underline'],
+              ['link']
+            ]
+          }
+        });
+
+        var description = document.querySelector('#description-2');
+        console.log(description.value);
+        // Populate existing content into Quill editor if editing existing record
+        if (description.value) {
+          editor.clipboard.dangerouslyPasteHTML(description.value);
+        }
+
+        // Update hidden textarea on form submit
+        var form = document.querySelectorAll('form');
+        form = form[1];
+        console.log(form);
+        if (form) {
+          form.onsubmit = function() {
+            description.value = editor.root.innerHTML;
+            console.log('Form submitted. Updated textarea value:', description.value);
+          };
+        }
+      });
+    </script>
 
     <div class="actions ">
       <%= form.submit 'Save', class: "gradient-button" %>
