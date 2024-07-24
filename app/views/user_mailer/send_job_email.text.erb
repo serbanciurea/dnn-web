@@ -4,7 +4,7 @@ Hello <%= @user.first_name %>,
 We have a new job opportunity that we think you might be interested in:
 Job Title: <%= @job.title %>
 
-<%= @job.description %>
+<%= format_description(@job.description) %>
 
 Best regards,
 DNNovation team

@@ -2,5 +2,5 @@
 <p>Hello <%= @user.first_name %>,</p>
 <p>We have a new job opportunity that we think you might be interested in:</p>
 <p><strong>Job Title:</strong> <%= @job.title %></p>
-<p><%= @job.description %></p>
+<p><%= format_description(@job.description) %></p>
 <p>Best regards,<br>DNNovation team</p>
