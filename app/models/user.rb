@@ -18,8 +18,8 @@ class User < ApplicationRecord
 
   validates :driver, inclusion: { in: [true, false] }
 
-  # has_one_attached :photo
-
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   validates :first_name, :last_name, :address, :sponsor, :pts_number, :phone, presence: true
 
@@ -51,7 +51,4 @@ class User < ApplicationRecord
   COMPETENCIES = [
     'coss', 'supervisor', '360 operator', 'ground worker', 'telehandler driver', 'Engeneer', 'steel fixer', 'carpenter', 'electrician'
   ]
-
-  # geocoded_by :address
-  # after_validation :geocode, if: :will_save_change_to_address?
 end
