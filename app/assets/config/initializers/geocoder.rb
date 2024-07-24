@@ -7,5 +7,6 @@ Geocoder.configure(
   use_https: true,            # use HTTPS for lookup requests? (if supported)
   units: :mi,                 # :km for kilometers or :mi for miles
   distances: :linear,
-  logger: Rails.logger
+  logger: Rails.logger,
+  http_headers: { 'User-Agent' => 'DNN/1.0 (contact@myapp.com)' }
 )
