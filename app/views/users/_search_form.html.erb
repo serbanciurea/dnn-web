@@ -1,24 +1,7 @@
-<p style="color: green"><%= notice %></p>
-
-  <div class="">
-    <h2><%= @job.title %></h2>
-    <p><%= @job.location %></p>
-    <p><%= @job.salary %></p>
-    <p><%= format_description(@job.description) %></p>
-    <p><%#= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-  </div>
-
-<div>
-  <%= link_to "Edit this project port", edit_job_path(@job) %> |
-  <%= link_to "Back to project ports", jobs_path %>
-
-  <%= button_to "Destroy this project port", @job, method: :delete %>
-</div>
-
 <div class="search-bar">
   <div class="row">
     <div class="col-sm-8">
-      <%= form_with url: job_path(@job), method: :get, class: "d-flex" do %>
+      <%= form_with url: users_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Type a name or postcode" %>
         <%= text_field_tag :postcode, params[:postcode], class: "form-control", placeholder: "Type a postcode" %>
         <%= text_field_tag :competencies, params[:competencies], class: "form-control", placeholder: "Competencies (comma-separated)" %>
@@ -45,14 +28,13 @@
 
 <!-- Button to send email to all users -->
 <div class="send-email-all">
-  <button id="send-email-all-button" class="gradient-button">Send Email Message to All Users</button>
+  <button id="gradient-button" class="gradient-button">Send Email Message to All Users</button>
 </div>
 
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Handle single user email button
-    document.querySelectorAll('.gradient-button').forEach(button => {
+    document.querySelectorAll('.send-email-button').forEach(button => {
       button.addEventListener('click', (event) => {
         const btn = event.target;
         const userId = btn.getAttribute('data-user-id');
@@ -69,39 +51,44 @@
         .then(response => response.json())
         .then(data => {
           btn.textContent = 'Email Sent';
-          btn.style.backgroundColor = 'transparent'; // Optional styling
+          btn.style.backgroundColor = 'transparent'; // Green color
           btn.disabled = true; // Optionally disable the button
         })
         .catch(error => console.error('Error:', error));
       });
     });
 
-    // Handle "Send Email Message to All Users" button
     document.getElementById('send-email-all-button')?.addEventListener('click', () => {
-      const userIds = Array.from(document.querySelectorAll('.user-item'))
-                            .map(userItem => userItem.querySelector('.gradient-button')?.getAttribute('data-user-id'));
-
-      if (userIds.length === 0) {
-        alert('No users selected.');
-        return;
-      }
-
-      const jobId = document.querySelector('.gradient-button')?.getAttribute('data-job-id');
-
-      fetch(`/jobs/${jobId}/send_email_to_all`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-        },
-        body: JSON.stringify({ user_ids: userIds, job_id: jobId })
-      })
-      .then(response => response.json())
-      .then(data => {
-        alert('Email message sent to all selected users');
-        // Optionally update UI or handle post-send actions
-      })
-      .catch(error => console.error('Error:', error));
+      // Implement logic to send email to all users if needed
+      alert('Email message sent to all selected users');
     });
   });
+
 </script>
+
+
+
+<%# javascript to show 'sent email' after the button 'send email' has been clicked  %>
+<%# <script>
+    // app/javascript/packs/application.js (or wherever you handle JavaScript)
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Handle single user email button
+    document.querySelectorAll('.gradient-button').forEach(button => {
+      button.addEventListener('click', (event) => {
+        const btn = event.target;
+        btn.textContent = 'Email Sent';
+        btn.style.backgroundColor = 'transparent'; // Green color
+        btn.disabled = true; // Optionally disable the button
+      });
+    });
+
+    // Handle "Send Email Message to All Users" button
+    document.getElementById('gradient-button')?.addEventListener('click', () => {
+      // Implement sending email to all users logic here
+      alert('Email message sent to all selected users');
+      // Alternatively, you could make an AJAX request here to handle this server-side
+    });
+  });
+
+</script> %>

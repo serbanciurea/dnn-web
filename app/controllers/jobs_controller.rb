@@ -12,6 +12,42 @@ class JobsController < ApplicationController
     authorize Job
   end
 
+  def show
+    authorize @job
+    authorize User
+    @job = Job.find(params[:id])
+    @users = User.all || []
+    p @users
+
+    if params[:query].present?
+      @users = @users.where('first_name ILIKE ? OR last_name ILIKE ?', "%#{params[:query]}%", "%#{params[:query]}%")
+    end
+
+    if params[:postcode].present?
+      @users = @users.where(address: params[:postcode])
+    end
+
+    if params[:competencies].present?
+      competencies = params[:competencies].split(',').map(&:strip)
+      @users = @users.joins(:competencies).where(competencies: { name: competencies })
+    end
+
+    if params[:driver].present?
+      @users = @users.where(driver: params[:driver])
+    end
+
+    if params[:sponsor].present?
+      @users = @users.where(sponsor: params[:sponsor])
+    end
+
+    if params[:location].present? && params[:distance].present?
+      location = Geocoder.search(params[:location]).first
+      if location
+        @users = @users.near([location.latitude, location.longitude], params[:distance].to_i)
+      end
+    end
+  end
+
   def new
     @job = Job.new
     authorize @job
@@ -44,8 +80,47 @@ class JobsController < ApplicationController
     end
   end
 
-  def show
-    authorize @job
+  # def send_email_to_user
+  #   authorize @job, :send_email_to_user?
+  #   user = User.find(params[:user_id])
+  #   job = Job.find(params[:job_id])
+
+  #   # Assuming you have a Mailer set up
+  #   UserMailer.with(user: user, job: job).send_job_email.deliver_now
+
+  #   render json: { message: 'Email sent' }
+  # end
+
+  def send_email_to_user
+    puts "Job ID: #{params[:job_id]}"  # Check if the correct job ID is being passed
+    @job = Job.find(params[:job_id])  # Ensure @job is set
+
+    authorize @job, :send_email_to_user?  # This should be valid if @job is correctly set
+
+    user = User.find(params[:user_id])
+    job = Job.find(params[:job_id])
+
+    UserMailer.send_job_email(user, job).deliver_now
+
+    render json: { message: 'Email sent' }
+  end
+
+  def send_email_to_all
+    @job = Job.find(params[:job_id])
+
+    authorize @job, :send_email_to_user?
+
+    user_ids = params[:user_ids]
+    job = Job.find(params[:job_id])
+    users = User.where(id: user_ids)
+
+    # Send an email to each user
+    users.each do |user|
+      UserMailer.send_job_email(user, job).deliver_now
+    end
+
+    # Respond with a JSON message indicating success
+    render json: { message: 'Email sent to all selected users' }
   end
 
   def edit
