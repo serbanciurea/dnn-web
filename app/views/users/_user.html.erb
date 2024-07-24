@@ -14,8 +14,8 @@
         <%= link_to edit_user_registration_path, class: "edit" do %>
           <button class="gradient-button">EDIT</button>
         <% end %>
-        <%= link_to user_registration_path, method: :delete, data: { confirm: "Are you sure?" }, class: "delete" do %>
-          <button class="gradient-button">DELETE</button>
+        <%= link_to user_registration_path, method: :delete, data: { confirm: "Are you sure?" }, class: "gradient-button" do %>
+          DELETE
         <% end %>
         <%= link_to new_user_competency_path(@user) do %>
           <button class="gradient-button">NEW COMPETENCY</button>
