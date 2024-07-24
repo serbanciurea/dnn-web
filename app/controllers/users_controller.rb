@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  after_action :verify_authorized, only: [:show, :index, :approve]
-  before_action :set_user, only: [:show, :approve]
-  before_action :authorize_admin, only: [:index, :approve, :update]
+  after_action :verify_authorized, only: [:show, :index, :approve, :destroy]
+  before_action :set_user, only: [:show, :approve, :destroy]
+  before_action :authorize_admin, only: [:index, :approve, :update, :destroy]
+
 
   # def index
   #   @users = policy_scope(User) # This applies the policy scope
@@ -15,6 +16,12 @@ class UsersController < ApplicationController
 
   def show
     authorize @user # This ensures the policy is applied for the show action
+  end
+
+  def destroy
+    authorize @user # Ensure the policy is applied for the destroy action
+    @user.destroy
+    redirect_to users_url, notice: 'User was successfully deleted.'
   end
 
   def index
