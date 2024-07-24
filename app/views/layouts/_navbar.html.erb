@@ -10,33 +10,32 @@
   <!-- Right Section of Navbar -->
   <div class="navbar-right">
 
-      <div class="dropdown">
-        <button class="dropbtn"><%= link_to 'About Us', about_path %></button>
-      </div>
-
     <div class="dropdown">
-    <button class="dropbtn"><%= link_to 'Projects',project_ports_path %></button>
-      <%# <%= link_to 'Projects', project_ports_path, class: 'dropbtn' %>
-      <div class="dropdown-content">
+      <%= link_to about_path, class: 'dropbtn' do %>
+          About Us
+      <% end %>
+    </div>
 
-      </div>
+<div class="dropdown">
+      <%= link_to project_ports_path, class: 'dropbtn' do %>
+        Projects
+      <% end %>
     </div>
 
     <div class="dropdown">
-      <button class="dropbtn"><%= link_to 'Services', services_path %></button>
-      <div class="dropdown-content">
-      </div>
+      <%= link_to services_path, class: 'dropbtn' do %>
+        Services
+      <% end %>
     </div>
 
     <div class="dropdown">
-      <button class="dropbtn"><%= link_to 'Careers', careers_path %></button>
-      <div class="dropdown-content">
-      </div>
+      <%= link_to careers_path, class: 'dropbtn' do %>
+        Careers
+      <% end %>
     </div>
-
 
     <div class="extra">
-      <% if current_user %>
+      <% if user_signed_in? %>
         <div class="dropdown">
           <button class="dropbtn">Profile</button>
           <div class="dropdown-content" role="menu">
@@ -61,6 +60,13 @@
             }
           });
         </script>
+      <% else %>
+        <div class="dropdown">
+          <%= link_to 'Log In', new_user_session_path, class: 'dropbtn' %>
+        </div>
+        <div class="dropdown">
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'dropbtn' %>
+        </div>
       <% end %>
     </div>
   </div>
