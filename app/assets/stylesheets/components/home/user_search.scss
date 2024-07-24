@@ -1,0 +1,77 @@
+// app/assets/stylesheets/search_and_users.scss
+
+// Styling for the user list
+.users {
+  margin-top: 2rem;
+  font-size: 1.125rem;
+
+  .user-item {
+    padding: 0.75rem;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .user-info {
+      flex: 1;
+
+      .user-link {
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color:  #3e3636;
+        }
+      }
+    }
+
+    .btn-send-email {
+      background-color: #007bff;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.375rem;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+
+      &.sent {
+        background-color: transparent; // Green color for "Email Sent"
+        color: white;
+        cursor: default; // Disable pointer cursor
+      }
+    }
+  }
+}
+
+// Styling for the "Send Email Message to All Users" button
+.send-email-all {
+  margin-top: 2rem;
+  margin-bottom: 2%;
+
+  #send-email-all {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
