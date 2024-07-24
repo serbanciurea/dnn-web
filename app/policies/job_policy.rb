@@ -32,5 +32,13 @@ class JobPolicy < ApplicationPolicy
     user.admin?
   end
 
+  def send_email_to_user?
+    user.admin?
+  end
+
+  def send_email_to_all?
+    user.admin?
+  end
+
 
 end

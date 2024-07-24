@@ -4,16 +4,6 @@ class UsersController < ApplicationController
   before_action :authorize_admin, only: [:index, :approve, :update, :destroy]
 
 
-  # def index
-  #   @users = policy_scope(User) # This applies the policy scope
-  #   @markers = @users.geocoded.map do |user|
-  #     {
-  #       lat: user.latitude,
-  #       lng: user.longitude
-  #     }
-  #   end
-  # end
-
   def show
     authorize @user # This ensures the policy is applied for the show action
   end
@@ -78,11 +68,6 @@ class UsersController < ApplicationController
       render :index
     end
   end
-
-  # def approve
-  #   @user.update(approved: !@user.approved)
-  #   redirect_to users_path, notice: "User's approval status has been updated."
-  # end
 
   def approve
     authorize @user
