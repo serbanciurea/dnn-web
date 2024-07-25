@@ -47,3 +47,19 @@ box-shadow: inset 0px 14px 16px 0px rgba(0, 0, 0, 0.2);
 width: 100%;
 text-align: center;
 }
+
+.field {
+  width: 100%;
+  input {
+    width: 25%;
+  }
+}
+
+@media (max-width: 450px) {
+  .field {
+    width: 100%;
+    input {
+      width: 70%;
+    }
+  }
+}
