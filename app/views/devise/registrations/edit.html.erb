@@ -1,6 +1,6 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'login', style: "gap: 40px;" }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
@@ -16,6 +16,30 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone, autofocus: true, autocomplete: "phone", placeholder: 'UK phone number' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address, autofocus: true, autocomplete: "POSTCODE" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :driver, 'driver? (check if yes)' %>
+    <%= f.check_box :driver %>
+  </div>
+
+  <div class="field">
+    <%= f.select :sponsor, ['primary', 'secondary'], { include_blank: 'select sponsor' } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pts_number %><br />
+    <%= f.text_field :pts_number, maxlength: 7, placeholder: 'PTS no.' %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -41,102 +65,16 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
-<%# <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById('add-competency').addEventListener('click', function(e) {
-      e.preventDefault();
-      var template = document.getElementById('new-competency-template').innerHTML;
-      var container = document.getElementById('competencies');
-      var newId = new Date().getTime();
-      template = template.replace(/new_competencies/g, newId);
-      container.insertAdjacentHTML('beforeend', template);
-      attachRemoveEvent();
-    });
-
-    function attachRemoveEvent() {
-      var removeButtons = document.querySelectorAll('.remove-competency');
-      removeButtons.forEach(function(button) {
-        button.removeEventListener('click', removeCompetency);
-        button.addEventListener('click', removeCompetency);
-      });
-  }
-
-    function removeCompetency(e) {
-      e.preventDefault();
-      this.closest('.competency-fields').remove();
-    }
-
-    attachRemoveEvent();
-  });
-</script> %>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<div style="display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;">
+  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "gradient-button" %>
 
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
-
-
-<%# <div id="new-competency-template" style="display: none;">
-  <div class="competency-fields">
-    <label for="user_competencies_attributes_new_competencies_name">Competency</label>
-    <select name="user[competencies_attributes][new_competencies][name]" id="user_competencies_attributes_new_competencies_name">
-      <option value="">Please select</option>
-      <option value="coss">coss</option>
-      <option value="supervisor">supervisor</option>
-      <option value="360 operator">360 operator</option>
-      <option value="ground worker">ground worker</option>
-      <option value="telehandler driver">telehandler driver</option>
-      <option value="Engineer">Engineer</option>
-      <option value="steel fixer">steel fixer</option>
-      <option value="carpenter">carpenter</option>
-      <option value="electrician">electrician</option>
-    </select>
-    <label for="user_competencies_attributes_new_competencies_expiration_date">Expiration Date</label>
-    <input type="date" name="user[competencies_attributes][new_competencies][expiration_date]" id="user_competencies_attributes_new_competencies_expiration_date">
-      <label for="user_competencies_attributes_new_competencies_photo">Photo</label>
-      <input type="file" name="user[competencies_attributes][new_competencies][photo]" id="user_competencies_attributes_new_competencies_photo">
-      <button type="button" class="remove-competency btn btn-danger">Remove</button>
-    </div>
-  </div>
-</div> %>
-
-<%# <script>
-  document.addEventListener("DOMContentLoaded", function() {
-  var competencyContainer = document.getElementById('competencies-container');
-  var template = document.getElementById('new-competency-template');
-  var index = 0;
-
-  // Function to add a new competency field
-  function addCompetency() {
-    index++;
-    var newField = template.cloneNode(true); // Clone the template
-    newField.style.display = 'block'; // Make it visible
-    newField.classList.remove('hidden'); // Ensure it doesn't have the hidden class
-    newField.querySelector('select').name = `user[competencies_attributes][${index}][name]`;
-    newField.querySelector('input[type="date"]').name = `user[competencies_attributes][${index}][expiration_date]`;
-    newField.querySelector('input[type="file"]').name = `user[competencies_attributes][${index}][photo]`;
-    newField.querySelector('.remove-competency').setAttribute('data-index', index); // Set a unique index
-
-    // Append the new field to the container
-    competencyContainer.insertBefore(newField, document.getElementById('add-competency'));
-  }
-
-  // Event listener for adding new competencies
-  document.getElementById('add-competency').addEventListener('click', addCompetency);
-
-  // Event delegation for removing competency fields
-  competencyContainer.addEventListener('click', function(event) {
-    if (event.target && event.target.matches('.remove-competency')) {
-      var field = event.target.closest('.competency-fields');
-      field.parentNode.removeChild(field); // Remove the field from the DOM
-    }
-  });
-  });
-
-</script> %>
+  <%= link_to :back do %>
+    <button class="gradient-button">Back</button>
+  <% end %>
+</div>
