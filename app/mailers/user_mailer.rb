@@ -19,4 +19,15 @@ class UserMailer < ApplicationMailer
     @job = job
     mail(to: @user.email, subject: "Job Opportunity: #{@job.title}")
   end
+
+  def approval_email(user)
+    @user = user
+    mail(to: @user.email, subject: 'Your account has been approved')
+  end
+
+  def rejection_email(user)
+    @user = user
+    mail(to: @user.email, subject: 'Your account has been rejected')
+  end
+
 end

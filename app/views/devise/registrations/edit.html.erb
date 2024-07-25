@@ -1,4 +1,5 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%# <% user = User.find(params[:format]) %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'login', style: "gap: 40px;" }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -65,14 +66,19 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+  <div class="actions">
+    <%= f.submit do %>
+      <button class="gradient-button">Update</button>
+    <% end %>
   </div>
+
 <% end %>
 
 <div style="display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 10px;">
-  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "gradient-button" %>
+  <%= button_to "Cancel this account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "gradient-button" %>
 
   <%= link_to :back do %>
     <button class="gradient-button">Back</button>

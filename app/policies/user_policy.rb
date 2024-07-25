@@ -11,6 +11,10 @@ class UserPolicy < ApplicationPolicy
     user.admin?
   end
 
+  def reject?
+    user.admin?
+  end
+
   class Scope < ApplicationPolicy::Scope
     def resolve
 

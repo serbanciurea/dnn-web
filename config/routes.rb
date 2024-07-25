@@ -45,6 +45,7 @@ Rails.application.routes.draw do
 
   resources :users do
     patch :approve, on: :member
+    patch :reject, on: :member
     resources :competencies, only: [:new, :create, :edit, :update, :destroy]
   end
 
