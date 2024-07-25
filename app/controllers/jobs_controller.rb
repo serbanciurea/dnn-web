@@ -27,8 +27,12 @@ class JobsController < ApplicationController
       @users = @users.where(address: params[:postcode])
     end
 
+    # if params[:competencies].present?
+    #   competencies = params[:competencies].split(',').map(&:strip)
+    #   @users = @users.joins(:competencies).where(competencies: { name: competencies })
+    # end
     if params[:competencies].present?
-      competencies = params[:competencies].split(',').map(&:strip)
+      competencies = params[:competencies].map(&:strip)
       @users = @users.joins(:competencies).where(competencies: { name: competencies })
     end
 

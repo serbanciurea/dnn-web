@@ -48,18 +48,18 @@ width: 100%;
 text-align: center;
 }
 
-.field {
-  width: 100%;
-  input {
-    width: 25%;
-  }
-}
+// .field {
+//   width: 100%;
+//   input {
+//     width: 55%;
+//   }
+// }
 
-@media (max-width: 450px) {
-  .field {
-    width: 100%;
-    input {
-      width: 70%;
-    }
-  }
-}
+// @media (min-width: 450px) {
+//   .field {
+//     width: 100%;
+//     input {
+//       width: 70%;
+//     }
+//   }
+// }
