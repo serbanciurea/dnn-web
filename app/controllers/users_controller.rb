@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   after_action :verify_authorized, only: [:show, :index, :approve, :destroy]
-  before_action :set_user, only: [:show, :approve, :destroy]
+  before_action :set_user, only: [:show, :approve, :destroy, :reject]
   before_action :authorize_admin, only: [:index, :approve, :update, :destroy]
 
 
@@ -71,15 +71,20 @@ class UsersController < ApplicationController
 
   def approve
     authorize @user
-    puts "Attempting to approve user ID: #{@user.id}"
-    puts "Current user ID: #{current_user.id}"
-    puts "Current user admin status: #{current_user.admin?}"
+    UserMailer.approval_email(@user).deliver_now
 
     if @user.update(approved: true)  # Or toggle the approved status as per your logic
       render json: { message: "User's approval status has been updated." }, status: :ok
     else
       render json: { error: "Failed to update user's approval status." }, status: :unprocessable_entity
     end
+  end
+
+  def reject
+    authorize @user
+    UserMailer.rejection_email(@user).deliver_now
+
+    render json: { message: "Rejection email has been sent." }, status: :ok
   end
 
   private

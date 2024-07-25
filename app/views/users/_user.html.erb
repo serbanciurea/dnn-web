@@ -2,7 +2,11 @@
   <div class="user-container">
 
     <div class="user-info">
-      <h1>Hi, <%= @user.first_name %> <%= @user.last_name %></h1>
+      <% if @user == current_user %>
+        <h1>Hi, <%= @user.first_name %> <%= @user.last_name %></h1>
+        <% else %>
+          <h1><%= @user.first_name %> <%= @user.last_name %>'s account</h1>
+      <% end %>
       <p><strong>EMAIL:</strong><%= @user.email %></p>
       <p><strong>PHONE: </strong><%= @user.phone %></p>
       <p><strong>ADDRESS: </strong><%= @user.address %></p>
@@ -10,17 +14,16 @@
       <p><strong>PTS NUMBER: </strong><%= @user.pts_number %></p>
       <p><strong>DRIVER? </strong><%= @user.driver %></p>
 
-      <div class="user-links">
-        <%= link_to edit_user_registration_path, class: "edit" do %>
-          <button class="gradient-button">EDIT</button>
-        <% end %>
-        <%= link_to user_registration_path, method: :delete, data: { confirm: "Are you sure?" }, class: "gradient-button" do %>
-          DELETE
-        <% end %>
-        <%= link_to new_user_competency_path(@user) do %>
-          <button class="gradient-button">NEW COMPETENCY</button>
-        <% end %>
-    </div>
+      <% if current_user == @user %>
+        <div class="user-links">
+          <%= link_to edit_user_registration_path(@user), class: "edit" do %>
+            <button class="gradient-button">EDIT</button>
+          <% end %>
+          <%= link_to new_user_competency_path(@user) do %>
+            <button class="gradient-button">NEW COMPETENCY</button>
+          <% end %>
+        </div>
+      <% end %>
 
 
     <div class="title-for-competencies">

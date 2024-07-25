@@ -21,7 +21,6 @@
     <thead>
       <tr>
         <th>Users</th>
-        <th>Approved</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -29,12 +28,12 @@
   <% @unapproved_users.each do |user| %>
     <tr>
       <td><%= user.first_name %> <%= user.last_name %></td>
-      <td><%= user.approved? ? 'Yes' : 'No' %></td>
       <td>
         <%= link_to user_path(user) do %>
           <button class="gradient-button">PROFILE</button>
         <% end %>
         <%= button_tag 'Approve', id: "approve-button-#{user.id}", data: { user_id: user.id }, class: 'gradient-button' %>
+        <%= button_tag 'Reject', id: "reject-button-#{user.id}", data: { user_id: user.id }, class: 'gradient-button' %>
 
         <script>
           document.addEventListener('DOMContentLoaded', () => {
@@ -71,6 +70,41 @@
                 });
               });
             }
+
+            const rejectButton<%= user.id %> = document.getElementById('reject-button-<%= user.id %>');
+            console.log(rejectButton<%= user.id %>);
+            if (rejectButton<%= user.id %>) {
+              rejectButton<%= user.id %>.addEventListener('click', () => {
+                const userId = rejectButton<%= user.id %>.dataset.userId;
+
+                fetch(`/users/${userId}/reject`, {
+                  method: 'PATCH',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+                  },
+                  body: JSON.stringify({ /* Optional: Any additional data you want to send */ })
+                })
+                .then(response => {
+                  if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                  }
+                  return response.json();
+                })
+                .then(data => {
+                  // Handle success response
+                  console.log('User approval successful:', data);
+                  // Optionally update UI or show a success message
+                  rejectButton<%= user.id %>.remove();
+                })
+                .catch(error => {
+                  // Handle error
+                  console.error('Error approving user:', error);
+                  // Optionally show an error message to the user
+                });
+              });
+            }
+
           });
         </script>
       </td>
