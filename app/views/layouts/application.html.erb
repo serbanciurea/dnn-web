@@ -36,11 +36,13 @@
 
     <%= yield %>
   </main>
-    <%# <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script> %>
 
-  <% if @show_footer != false %>
-    <%= render 'layouts/footer' %>
-  <% end %>
+    <%# <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script> %>
+      <% if @show_footer != false %>
+        <footer>
+            <%= render 'layouts/footer' %>
+        </footer>
+      <% end %>
 
   </body>
 

@@ -9,6 +9,8 @@
   height: auto;
   background-color: var(--grey);
   color: var(--milky-white);
+  margin-top: auto; /* Push footer to bottom */
+
   a {
     color: var(--milky-white);
     text-decoration: none;
