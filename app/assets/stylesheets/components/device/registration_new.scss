@@ -212,3 +212,15 @@ textarea {
 
 
 }
+
+
+.admin-buttons{
+
+  .admin-actions-buttons-row {
+    display: flex;
+    gap: 10px; /* Adjust spacing between buttons */
+  }
+  padding-bottom: 4%;
+
+
+}

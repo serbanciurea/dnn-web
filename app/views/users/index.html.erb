@@ -1,3 +1,19 @@
+<div class="admin-buttons">
+  <% if !current_user.nil? && current_user.admin? %>
+    <section class="usual-admin-actions">
+      <h3>ADMIN ACTIONS</h3>
+
+      <div class="admin-actions-buttons-row">
+        <%= link_to "Add a project", new_project_port_path, class: 'gradient-button' %>
+        <%= link_to "Add a job", new_job_path, class: 'gradient-button' %>
+      </div>
+
+    </section>
+  <% end %>
+</div>
+
+
+
 <h2 class="title-index">New users - Verify and approve!</h2>
 <div class="verify-and-approve">
 
