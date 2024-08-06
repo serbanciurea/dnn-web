@@ -158,7 +158,7 @@ Rails.application.configure do
   config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info")
 
   # Use a real queuing backend for Active Job.
-  config.active_job.queue_adapter = :sidekiq  # or :resque, :delayed_job, etc.
+  config.active_job.queue_adapter = :inline  # or :resque, :delayed_job, etc.
 
   # Use a different cache store in production if needed.
   config.cache_store = :mem_cache_store

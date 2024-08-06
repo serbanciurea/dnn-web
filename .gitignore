@@ -35,3 +35,9 @@
 /config/master.key
 .env*
 .env*
+*.bak
+/config/master.key
+		
+
+
+/config/credentials/production.key
