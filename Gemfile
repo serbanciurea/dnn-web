@@ -16,6 +16,8 @@ gem 'pg'
 
 gem 'whenever', require: false
 
+gem 'dalli'
+
 
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
