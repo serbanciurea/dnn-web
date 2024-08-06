@@ -1,4 +1,4 @@
-class AddFieldsToProjectPort < ActiveRecord::Migration[7.1]
+class AddFieldsToProjectPorts < ActiveRecord::Migration[7.1]
   def change
     add_column :project_ports, :client, :string
     add_column :project_ports, :sector, :text
