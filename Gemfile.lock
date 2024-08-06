@@ -118,12 +118,7 @@ GEM
       multipart-post (~> 2)
     faraday-net_http (3.1.1)
       net-http
-    ffi (1.17.0-aarch64-linux-gnu)
-    ffi (1.17.0-arm-linux-gnu)
-    ffi (1.17.0-arm64-darwin)
-    ffi (1.17.0-x86-linux-gnu)
-    ffi (1.17.0-x86_64-darwin)
-    ffi (1.17.0-x86_64-linux-gnu)
+    ffi (1.16.3)
     geocoder (1.8.3)
       base64 (>= 0.1.0)
       csv (>= 3.0.0)
@@ -314,6 +309,7 @@ DEPENDENCIES
   devise (~> 4.8)
   dotenv-rails (~> 2.7, >= 2.7.6)
   error_highlight (>= 0.4.0)
+  ffi (< 1.17.0)
   geocoder
   importmap-rails (~> 1.2.3)
   jbuilder
