@@ -42,8 +42,19 @@ test:
   <<: *default
   database: storage/test.sqlite3
 
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: 5
+#   url: <%= ENV['DATABASE_URL'] %>
+
+
 production:
   adapter: postgresql
   encoding: unicode
+  database: dnn_database
   pool: 5
   url: <%= ENV['DATABASE_URL'] %>
+  username: miriam
+  password: dnnTheBestDnn
+  host: localhost
