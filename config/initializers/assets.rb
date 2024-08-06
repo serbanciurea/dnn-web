@@ -13,4 +13,4 @@ Rails.application.config.assets.version = "1.0"
 
 # Be sure to restart your server when you modify this file.
 Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-Rails.application.config.assets.precompile += %w( .svg .eot .woff .ttf .woff2 )
+Rails.application.config.assets.precompile += %w( .svg .eot .woff .ttf .woff2 scroll.js )
