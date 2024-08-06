@@ -8,6 +8,9 @@ gem 'sassc-rails'
 
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 
+gem 'rubygems-update', '>= 3.3.22'
+
+
 
 gem 'whenever', require: false
 
