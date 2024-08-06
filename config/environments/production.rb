@@ -140,6 +140,10 @@ Rails.application.configure do
 
   config.assets.version = '1.0'
 
+  config.assets.enabled = true
+
+  config.assets.precompile += %w( *.css *.js *.scss)
+
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server (optional).
   # config.asset_host = "http://assets.example.com"
