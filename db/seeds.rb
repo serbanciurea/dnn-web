@@ -19,3 +19,48 @@
 
 # User.create!(email: 'admin@example.com', password: '123456', password_confirmation: '123456', admin: true, first_name: 'Admin', last_name: 'Ad')
 # User.create(admin: true, first_name: "a", last_name: "b", pts_number:"1269430", email: "serban@yahoo.com", address: "267 Burnt Oak Broadway", sponsor: "primary", password: "123456")
+
+puts "Cleaning the database..."
+puts "Destroy all competencies..."
+Competency.destroy_all
+puts "Destroy all users..."
+User.destroy_all
+puts "Destroy all jobs..."
+Job.destroy_all
+puts "Destroy all projects..."
+ProjectPort.destroy_all
+
+
+User.create(first_name: "Serban",
+  last_name: "Ciurea",
+  email: "ciureaserban777@icloud.com",
+  password: "123456",
+  address: "HA8 5ED",
+  driver: "true",
+  phone: "12345678909",
+  pts_number: "1234567",
+  sponsor: "primary",
+  admin: true,
+  approved: true
+)
+
+User.create(
+  first_name: "Adrian",
+  last_name: "Nica",
+  email: "miriamciurea777@icloud.com",
+  password: "123456",
+  address: "HA8 5EF",
+  phone: "12345673421",
+  pts_number: "1234568",
+  sponsor: "primary"
+)
+
+User.create(first_name: "Stefan",
+  last_name: "Stancu",
+  email: "miriamciurea@gmail.com",
+  password: "123456",
+  address: "HB8 5ED",
+  phone: "12341233421",
+  pts_number: "3434568",
+  sponsor: "secondary"
+)
