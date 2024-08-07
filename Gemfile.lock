@@ -297,11 +297,19 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  aarch64-linux-gnu
+  aarch64-linux-musl
   arm-linux
-  arm64-darwin
+  arm-linux-gnu
+  arm-linux-musl
+  arm64-darwin-22
   x86-linux
+  x86-linux-gnu
+  x86-linux-musl
   x86_64-darwin
   x86_64-linux
+  x86_64-linux-gnu
+  x86_64-linux-musl
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
@@ -335,4 +343,6 @@ RUBY VERSION
    ruby 3.1.2p20
 
 BUNDLED WITH
+
    2.5.17
+
