@@ -107,7 +107,7 @@
 .sidebar {
   height: 100%; /* Full-height */
   width: 0; /* Initially collapsed */
-  position: fixed; /* Fixed Sidebar (stay in place) */
+  position: absolute; /* Fixed Sidebar (stay in place) */
   z-index: 1000; /* Sit on top */
   top: 0;
   right: 0;
@@ -153,6 +153,12 @@
   .house {
     visibility: visible;
   }
+
+  @media (max-width: 650px) {
+    .categories {
+        width: auto;
+    }
+}
 
   /* html {
     overflow-y: hidden;
