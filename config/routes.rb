@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get 'filter_by_department'
     end
   end
+  resources :project_ports, except: [:index]
 
   resources :jobs do
     post 'send_email_to_user', on: :member
