@@ -122,6 +122,7 @@
 
 .user-container p {
   margin: 20px 0;
+  text-align: left;
 }
 
 .user-container button {
@@ -151,6 +152,7 @@
 @media (max-width: 670px) {
   .competency {
     grid-template-columns: 1fr;
+    padding: 0px;
   }
 
   .title-for-competencies h2 {
