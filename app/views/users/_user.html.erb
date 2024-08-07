@@ -44,7 +44,7 @@
           </p>
           <p>
             <strong>Expiery Date:</strong>
-            <%= competency.expiration_date.strftime("%B %d, %Y").upcase %>
+            <%= competency.expiration_date.strftime("%B %d, %Y") %>
           </p>
           <p>
             <%= cl_image_tag competency.photo.key, class: "cloud" %>

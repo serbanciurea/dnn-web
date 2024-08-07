@@ -7,6 +7,9 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application",  media: 'all', "data-turbo-track": "reload" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
     <%= javascript_importmap_tags %>
     <%#= javascript_include_tag 'application','data-turbolinks-track': 'reload', type: 'module' %>
 
@@ -17,13 +20,14 @@
 
     <script src="https://kit.fontawesome.com/ae7884d89d.js" crossorigin="anonymous"></script>
 
-    <script defer src="/scroll.js"></script>
+
 
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
 
   </head>
 
  <body>
+    <script defer src="/scroll.js"></script>
   <header>
     <%= render 'layouts/navbar' %>
     <%# <p class="notice"><%= notice %>

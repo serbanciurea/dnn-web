@@ -11,8 +11,14 @@ gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 gem 'rubygems-update', '>= 3.3.22'
 
 
+gem "ffi", "< 1.17.0"
+
+gem 'pg'
+
 
 gem 'whenever', require: false
+
+gem 'dalli'
 
 
 

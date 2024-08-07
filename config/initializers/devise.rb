@@ -314,5 +314,5 @@ Devise.setup do |config|
 end
 
 Devise.setup do |config|
-  config.secret_key = Rails.application.credentials[:secret_key_base] || ENV['DEVISE_SECRET_KEY']
+  config.secret_key = Rails.application.credentials[:secret_key_base] || ENV['DEVISE_SECRET_KEY'] if ENV['DEVISE_SECRET_KEY']
 end
