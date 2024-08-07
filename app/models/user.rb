@@ -21,6 +21,7 @@ class User < ApplicationRecord
   geocoded_by :address
   before_save :geocode, if: :will_save_change_to_address?
   after_validation :geocode, if: :will_save_change_to_address?
+  after_save :geocode_address, if: :address_changed?
 
   validates :first_name, :last_name, :address, :sponsor, :pts_number, :phone, presence: true
 
@@ -46,6 +47,19 @@ class User < ApplicationRecord
 
   def set_default_approved
     self.approved = false if self.approved.nil?
+  end
+
+  def geocode_address
+    return if address.blank?
+
+    results = Geocoder.search(address)
+    if results.present?
+      self.update(latitude: results.first.latitude, longitude: results.first.longitude)
+    else
+      Rails.logger.error "Geocoding failed for address #{address}"
+    end
+  rescue StandardError => e
+    Rails.logger.error "Geocoding error: #{e.message}"
   end
 
   # <%= form.select :market, options_for_select(ProjectPort::MARKETS, project_port.market), { include_blank: 'Select market' }, { class: 'select-with-placeholder' } %>
