@@ -26,4 +26,5 @@ class PagesController < ApplicationController
     # Any logic needed for the privacy policy can go here
   end
 
+
 end
