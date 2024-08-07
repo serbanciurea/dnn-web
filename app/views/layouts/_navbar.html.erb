@@ -55,6 +55,7 @@
     <% if current_user.admin %>
       <%= link_to 'Admin', users_path %>
     <% end %>
+
     <%= link_to 'Log out', '#', id: 'logout-link', class: 'dropdown-item logout', role: 'menuitem' %>
     <%= form_with url: destroy_user_session_path, method: :delete, id: 'logout-form', style: 'display: none;' do %>
     <% end %>
@@ -70,6 +71,7 @@
             }
           });
     </script>
+
   <% else %>
     <%= link_to 'Log In', new_user_session_path %>
     <%= link_to 'Sign Up', new_user_registration_path %>
