@@ -9,29 +9,16 @@
 
   <!-- Right Section of Navbar -->
   <div class="navbar-right">
-
-    <div class="dropdown">
-      <%= link_to about_path, class: 'dropbtn' do %>
-          About Us
-      <% end %>
+    <!-- Add a Hamburger Icon for Mobile -->
+    <div class="hamburger-menu">
+      <i class="fa fa-bars"></i>
     </div>
 
-<div class="dropdown">
-      <%= link_to project_ports_path, class: 'dropbtn' do %>
-        Projects
-      <% end %>
-    </div>
-
-    <div class="dropdown">
-      <%= link_to services_path, class: 'dropbtn' do %>
-        Services
-      <% end %>
-    </div>
-
-    <div class="dropdown">
-      <%= link_to careers_path, class: 'dropbtn' do %>
-        Careers
-      <% end %>
+    <div class="navbar-links">
+      <div class="dropdown"><%= link_to about_path, class: 'dropbtn' do %>About Us<% end %></div>
+      <div class="dropdown"><%= link_to project_ports_path, class: 'dropbtn' do %>Projects<% end %></div>
+      <div class="dropdown"><%= link_to services_path, class: 'dropbtn' do %>Services<% end %></div>
+      <div class="dropdown"><%= link_to careers_path, class: 'dropbtn' do %>Careers<% end %></div>
     </div>
 
     <div class="extra">
@@ -48,26 +35,128 @@
             <% end %>
           </div>
         </div>
-        <script>
-          document.addEventListener("DOMContentLoaded", function() {
-            function handleLogout(event) {
-              event.preventDefault();
-              document.getElementById('logout-form').submit();
-            }
-            var logoutLink = document.getElementById('logout-link');
-            if (logoutLink) {
-              logoutLink.addEventListener('click', handleLogout);
-            }
-          });
-        </script>
       <% else %>
-        <div class="dropdown">
-          <%= link_to 'Log In', new_user_session_path, class: 'dropbtn' %>
-        </div>
-        <div class="dropdown">
-          <%= link_to 'Sign Up', new_user_registration_path, class: 'dropbtn' %>
-        </div>
+        <div class="dropdown"><%= link_to 'Log In', new_user_session_path, class: 'dropbtn' %></div>
+        <div class="dropdown"><%= link_to 'Sign Up', new_user_registration_path, class: 'dropbtn' %></div>
       <% end %>
     </div>
   </div>
 </nav>
+
+<!-- Sidebar Menu -->
+<div id="sidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn">&times;</a>
+  <%= link_to about_path do %>About Us<% end %>
+  <%= link_to project_ports_path do %>Projects<% end %>
+  <%= link_to services_path do %>Services<% end %>
+  <%= link_to careers_path do %>Careers<% end %>
+  <% if user_signed_in? %>
+    <%= link_to 'Profile', user_path(current_user) %>
+    <% if current_user.admin %>
+      <%= link_to 'Admin', users_path %>
+    <% end %>
+    <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to 'Log In', new_user_session_path %>
+    <%= link_to 'Sign Up', new_user_registration_path %>
+  <% end %>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  var sidebar = document.getElementById("sidebar");
+  var hamburger = document.querySelector(".hamburger-menu i");
+  var closeBtn = document.querySelector(".sidebar .closebtn");
+
+  hamburger.addEventListener("click", function() {
+    sidebar.style.width = "250px";
+  });
+
+  closeBtn.addEventListener("click", function() {
+    sidebar.style.width = "0";
+  });
+});
+
+</script>
+
+<style>
+  /* General Navbar Styling */
+.navbar {
+  background-color: var(--milkey-white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger-menu i {
+  font-size: 24px;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  height: 100%; /* Full-height */
+  width: 0; /* Initially collapsed */
+  position: fixed; /* Fixed Sidebar (stay in place) */
+  z-index: 1000; /* Sit on top */
+  top: 0;
+  right: 0;
+  background-color: #333; /* Dark background color */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* Transition effect */
+  padding-top: 60px; /* Place content 60px from the top */
+}
+
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #575757;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  font-size: 36px;
+}
+
+@media screen and (max-width: 767px) {
+  .navbar .navbar-links {
+    display: none; /* Hide navbar links on mobile */
+  }
+
+  .navbar .extra {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: block; /* Show hamburger menu on mobile */
+  }
+
+  .house {
+    visibility: visible;
+  }
+
+  /* html {
+    overflow-y: hidden;
+  } */
+}
+
+</style>
