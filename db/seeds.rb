@@ -44,6 +44,8 @@ User.create(first_name: "Serban",
   approved: true
 )
 
+puts "Create Admin: Serban"
+
 User.create(
   first_name: "Adrian",
   last_name: "Nica",
@@ -55,6 +57,8 @@ User.create(
   sponsor: "primary"
 )
 
+puts "Create User: Adrian"
+
 User.create(first_name: "Stefan",
   last_name: "Stancu",
   email: "miriamciurea@gmail.com",
@@ -64,3 +68,5 @@ User.create(first_name: "Stefan",
   pts_number: "3434568",
   sponsor: "secondary"
 )
+
+puts "Create User: Stefan"
