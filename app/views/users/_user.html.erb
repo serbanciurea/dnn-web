@@ -7,12 +7,12 @@
         <% else %>
           <h1><%= @user.first_name %> <%= @user.last_name %>'s account</h1>
       <% end %>
-      <p><strong>EMAIL:</strong><%= @user.email %></p>
-      <p><strong>PHONE: </strong><%= @user.phone %></p>
-      <p><strong>ADDRESS: </strong><%= @user.address %></p>
-      <p><strong>SPONSOR TYPE: </strong><%= @user.sponsor %></p>
-      <p><strong>PTS NUMBER: </strong><%= @user.pts_number %></p>
-      <p><strong>DRIVER? </strong><%= @user.driver %></p>
+      <p><strong>EMAIL:  </strong><%= @user.email %></p>
+      <p><strong>PHONE:  </strong><%= @user.phone %></p>
+      <p><strong>ADDRESS:  </strong><%= @user.address %></p>
+      <p><strong>SPONSOR TYPE:  </strong><%= @user.sponsor %></p>
+      <p><strong>PTS NUMBER:  </strong><%= @user.pts_number %></p>
+      <p><strong>DRIVER?  </strong><%= @user.driver %></p>
 
       <% if current_user == @user %>
         <div class="user-links">
