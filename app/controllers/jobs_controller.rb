@@ -33,7 +33,12 @@ class JobsController < ApplicationController
     # end
     if params[:competencies].present?
       competencies = params[:competencies].map(&:strip)
-      @users = @users.joins(:competencies).where(competencies: { name: competencies })
+
+      # Use a join and group by the user ID to find users with all selected competencies
+      @users = @users.joins(:competencies)
+                     .where(competencies: { name: competencies })
+                     .group('users.id')
+                     .having('COUNT(DISTINCT competencies.id) = ?', competencies.length)
     end
 
     if params[:driver].present?
