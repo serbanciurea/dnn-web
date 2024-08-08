@@ -30,6 +30,12 @@
       <%= form.text_field :salary, placeholder: 'salary' %>
     </div>
 
+    <!-- Quill CSS -->
+    <link href="https://cdn.quilljs.com/2.0.0/quill.snow.css" rel="stylesheet">
+
+    <!-- Quill JS -->
+    <script src="https://cdn.quilljs.com/2.0.0/quill.js"></script>
+
     <div class="field" style="display: none;">
       <%= form.text_area :description, id: 'description-2', placeholder: 'Enter description' %>
     </div>
@@ -41,41 +47,65 @@
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        var editor = new Quill('#quill-editor-2', {
-          theme: 'snow',
-          placeholder: 'Enter description',
-          modules: {
-            toolbar: [
-              [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
-              [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-              ['bold', 'italic', 'underline'],
-              ['link']
-            ]
-          }
-        });
+      console.log("DOM content loaded.");
 
-        var description = document.querySelector('#description-2');
-        console.log(description.value);
-        // Populate existing content into Quill editor if editing existing record
-        if (description.value) {
-          editor.clipboard.dangerouslyPasteHTML(description.value);
-        }
-
-        // Update hidden textarea on form submit
-        var form = document.querySelectorAll('form');
-        form = form[1];
-        console.log(form);
-        if (form) {
-          form.onsubmit = function() {
-            description.value = editor.root.innerHTML;
-            console.log('Form submitted. Updated textarea value:', description.value);
-          };
+      // Initialize Quill editor
+      var editor = new Quill('#quill-editor-2', {
+        theme: 'snow',
+        placeholder: 'Enter description',
+        modules: {
+          toolbar: [
+            [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            ['bold', 'italic', 'underline'],
+            ['link']
+          ]
         }
       });
+
+      console.log("Quill editor initialized.");
+
+      // Select the hidden textarea
+      var description = document.querySelector('#description-2');
+      if (!description) {
+        console.error("Textarea not found!");
+        return;
+      }
+      console.log("Description textarea element:", description);
+
+      // Update hidden textarea on form submit
+      var form = document.querySelector('form');
+      if (!form) {
+        console.error("Form not found!");
+        return;
+      }
+
+      form.addEventListener('submit', function(event) {
+        console.log("Form submit detected.");
+
+        // Populate the hidden textarea with the content from Quill editor
+        var editorContent = editor.root.innerHTML.trim();
+        console.log("Editor content at submit:", editorContent);
+
+        description.value = editorContent;
+        console.log('Textarea updated with editor content:', description.value);
+
+        // Ensure the form submits
+        return true;
+      });
+
+      // Test setting description manually
+      document.querySelector('#submit-button').addEventListener('click', function() {
+        console.log('Submit button clicked.');
+        description.value = editor.root.innerHTML.trim();
+        console.log('Description set manually before form submission:', description.value);
+      });
+    });
+
     </script>
 
     <div class="actions ">
-      <%= form.submit 'Save', class: "gradient-button" %>
+      <%= form.submit 'Save', id: 'submit-button', class: "gradient-button" %>
     </div>
   <% end %>
 
