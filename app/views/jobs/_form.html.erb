@@ -1,7 +1,6 @@
 <!-- app/views/jobs/_form.html.erb -->
 
 <div class="jobs-form">
-  <h1>Add a new job!</h1>
   <%= form_with(model: job, local: true) do |form| %>
     <% if job.errors.any? %>
       <div id="error_explanation">
