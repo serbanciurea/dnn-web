@@ -66,6 +66,9 @@
 
       // Select the hidden textarea
       var description = document.querySelector('#description-2');
+      if (description && description.value) {
+        editor.root.innerHTML = description.value;
+      }
       if (!description) {
         console.error("Textarea not found!");
         return;
