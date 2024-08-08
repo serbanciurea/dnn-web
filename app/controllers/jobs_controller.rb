@@ -16,7 +16,7 @@ class JobsController < ApplicationController
     authorize @job
     authorize User
     @job = Job.find(params[:id])
-    @users = User.all || []
+    @users = User.where(approved: true) || []
     p @users
 
     if params[:query].present?
