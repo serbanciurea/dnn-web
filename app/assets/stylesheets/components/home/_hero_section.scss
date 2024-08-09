@@ -117,3 +117,9 @@ a:hover {
 a:active {
   color: #1D2327;
 }
+
+@media (max-width: 450px) {
+  .hero-section img {
+    width: 300px;
+  }
+}
