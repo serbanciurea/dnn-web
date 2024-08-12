@@ -103,20 +103,20 @@
 
 a {
   text-decoration: none;
-  color: #1D2327;
+  // color: #1D2327;
 }
 
-a:link {
-  color: #1D2327;
-}
+// a:link {
+//   color: #1D2327;
+// }
 
 a:hover {
   color: rgba(228, 78, 50, 0.5);
 }
 
-a:active {
-  color: #1D2327;
-}
+// a:active {
+//   color: #1D2327;
+// }
 
 @media (max-width: 450px) {
   .hero-section img {
