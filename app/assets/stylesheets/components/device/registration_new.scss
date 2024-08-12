@@ -2,6 +2,14 @@
 // orange in rgb
 
 .login {
+
+  a {
+    color: black;
+
+    &:hover {
+      color: var(--orange);
+    }
+  }
   display: flex;
   // height: 70vh;
   height: auto;
