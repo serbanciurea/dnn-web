@@ -12,7 +12,7 @@
     <div class="f-sec">
       <%= link_to "Services", services_path %>
       <%= link_to "Careers", careers_path %>
-      <%= link_to "Projects", projects_path %>
+      <%= link_to "Projects", projects_path, class: "wth" %>
       <%= link_to "About Us", about_path %>
     </div>
 
@@ -24,7 +24,7 @@
       <i class="fa-brands fa-facebook"></i>
         <% end %>
       <%= link_to 'mailto:example@example.com' do %>
-          <i class="fa-solid fa-envelope"></i>
+          <i class="fa-solid fa-envelope wth"></i>
         <% end %>
        </div>
 
@@ -40,7 +40,7 @@
       <a href="<%= privacy_policy_path %>">Privacy Policy | Data Protection</a>
     </div>
 
-    <div class="f-sec">
+    <div class="f-sec wth">
       <a href="<%= terms_and_conditions_path %>">Terms&Conditions</a>
 
     </div>
@@ -48,3 +48,13 @@
   </div>
 
 </div>
+
+<style>
+  .wth, .wth a {
+    color: white;
+
+    &:hover {
+      color: var(--orange);
+    }
+  }
+</style>
