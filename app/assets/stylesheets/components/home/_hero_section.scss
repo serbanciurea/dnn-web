@@ -47,7 +47,7 @@
   filter: blur(4px);
   opacity: 0.6;
   z-index: 1;
-  animation: pan-image 15s linear infinite;
+  animation: pan-image 30s linear infinite;
 }
 
 @keyframes pan-overlay {
@@ -93,33 +93,63 @@
 
 .h-links {
   width: 80vw;
-  // display: grid;
-  // grid-template-columns: 1fr 1fr;
-  // // justify-content: space-around;
-  // align-items: center;
+
   display: flex;
   justify-content: space-around;
 }
 
 a {
   text-decoration: none;
+  color: rgb(18, 9, 9);
   // color: #1D2327;
 }
 
-// a:link {
-//   color: #1D2327;
-// }
+
 
 a:hover {
   color: rgba(228, 78, 50, 0.5);
 }
 
-// a:active {
-//   color: #1D2327;
-// }
+
 
 @media (max-width: 450px) {
   .hero-section img {
     width: 300px;
   }
+}
+
+images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center the images horizontally */
+  gap: 20px;
+  /* Adjust the gap between images as needed */
+}
+
+.images img {
+
+  text-align: center;
+  width: 100%;
+  height: auto;
+  align-items: center;
+}
+
+/* Specific styles for individual images */
+.images img:first-child {
+  max-width: 300px;
+  align-items: center;
+  /* Smaller size for the first image */
+}
+
+.images img:last-child {
+  aligh-items: center;
+  max-width: 600px;
+  /* Larger size for the second image */
+}
+.images {
+    display: flex;
+      flex-direction: column;
+  align-items: center;
+    padding-bottom: 100px;
 }

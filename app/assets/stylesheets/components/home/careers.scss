@@ -232,7 +232,7 @@
   padding: 10px 20px; /* Padding for the button */
   background-color: #EA5D30 ; /* Background color */
   color: #1D2327; /* Text color */
-  text-decoration: none; /* Remove underline */
+  // text-decoration: none; /* Remove underline */
   border-radius: 5px; /* Rounded corners */
   transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
@@ -263,7 +263,16 @@
 .message {
   margin: 40px;
   text-align: center;
+   .h3{
+    color: red;
+    background-color: black;
+   }
 
+  }
+
+  .a{
+    color: black;
+    background-color: black;
   }
   .whatsapp-join {
     text-align: center;
@@ -293,6 +302,7 @@
     align-items: center;
     margin-top: 20px;
     padding-bottom: 50px;
+    color: black;
   }
 
   .title{

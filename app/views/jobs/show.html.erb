@@ -37,7 +37,9 @@
         <div class="ordine">
           <div class="form-group", style="display: flex; flex-direction: column; align-items: start;">
             <%= label_tag :competencies, "Select Competencies" %>
-            <% ['coss', 'supervisor', '360 operator', 'ground worker', 'telehandler driver', 'Engineer', 'steel fixer', 'carpenter', 'electrician'].each do |competency| %>
+            <% [  'Coss', 'Supervisor', '360 excavator driver', 'Ground worker', 'Telehandler driver', 'Engeneer', 'Steel Fixer', 'Carpenter', 'Electrician', 'Alo coordinator', 'banksman',
+                 'Concrete finisher', 'ETE jointer', 'ETE mate', 'Handback Engineer', 'Site Warden', 'LXA', 'Pasma', 'Slinger', 'Trackman', 'Site manager', 'Yardman / pick-up Driver',
+                 'Cable puller', 'Setting out Engineer', 'Carpenter', ].each do |competency| %>
               <div class="form-check">
                 <%= check_box_tag "competencies[]", competency, params[:competencies]&.include?(competency), class: "form-check-input" %>
                 <%= label_tag "competencies_#{competency}", competency, class: "form-check-label" %>

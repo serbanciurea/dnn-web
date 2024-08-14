@@ -1,6 +1,8 @@
 <div class="competency-fields">
   <%= f.label :name %>
-  <%= f.select :name, options_for_select(['coss', 'supervisor', '360 operator', 'ground worker', 'telehandler driver', 'Engineer', 'steel fixer', 'carpenter', 'electrician'], f.object.name), prompt: 'Please select' %>
+  <%= f.select :name, options_for_select([  'Coss', 'Supervisor', '360 excavator driver', 'Ground worker', 'Telehandler driver', 'Engeneer', 'Steel Fixer', 'Carpenter', 'Electrician', 'Alo coordinator', 'banksman',
+    'Concrete finisher', 'ETE jointer', 'ETE mate', 'Handback Engineer', 'Site Warden', 'LXA', 'Pasma', 'Slinger', 'Trackman', 'Site manager', 'Yardman / pick-up Driver',
+    'Cable puller', 'Setting out Engineer', 'Carpenter', ], f.object.name), prompt: 'Please select' %>
 
   <%= f.label :expiration_date %>
   <%= f.date_field :expiration_date %>

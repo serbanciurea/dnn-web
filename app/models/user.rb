@@ -64,6 +64,8 @@ class User < ApplicationRecord
 
   # <%= form.select :market, options_for_select(ProjectPort::MARKETS, project_port.market), { include_blank: 'Select market' }, { class: 'select-with-placeholder' } %>
   COMPETENCIES = [
-    'coss', 'supervisor', '360 operator', 'ground worker', 'telehandler driver', 'Engeneer', 'steel fixer', 'carpenter', 'electrician'
+    'Coss', 'Supervisor', '360 excavator driver', 'Ground worker', 'Telehandler driver', 'Engeneer', 'Steel Fixer', 'Carpenter', 'Electrician', 'Alo coordinator', 'banksman',
+    'Concrete finisher', 'ETE jointer', 'ETE mate', 'Handback Engineer', 'Site Warden', 'LXA', 'Pasma', 'Slinger', 'Trackman', 'Site manager', 'Yardman / pick-up Driver',
+    'Cable puller', 'Setting out Engineer', 'Carpenter',
   ]
 end
