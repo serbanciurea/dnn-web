@@ -1,9 +1,10 @@
 <section class="hero-section">
   <div class="screen-image"></div>
     <div class="hero-content">
-      <%# <h1 class="h-title bold-text">DNNovation</h1>
-      <h4 class="h-subtitle">THE SOLUTION FOR YOUR PROJECT IDEA</h4> %>
-      <%= image_tag 'newlogo.png' %>
+      <div class="images">
+        <%= image_tag 'image2.png' %>
+        <%= image_tag 'image1.png' %>
+      </div>
       <div class="h-links">
         <%= link_to '#contact-form' do %>
          <button class="gradient-button">contact us</button>
@@ -77,13 +78,13 @@
       <span style="--i: 1;"><%= image_tag("civ1.jpeg", alt: "image")%></span>
       <span style="--i: 2;"><%= image_tag("emr1.jpeg", alt: "image")%></span>
       <span style="--i: 3;"><%= image_tag("e1.jpeg", alt: "image")%></span>
-      <span style="--i: 10;"><%= image_tag("train.webp", alt: "image")%></span>
-      <span style="--i: 5;"><%= image_tag("https://images.unsplash.com/photo-1681812508281-7589b75b2e46?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "image 1")%></span>
+      <span style="--i: 10;"><%= image_tag("1.jpeg", alt: "image")%></span>
+      <span style="--i: 5;"><%= image_tag("4.jpeg", alt: "image 1")%></span>
       <span style="--i: 6;"><%= image_tag("emr2.jpeg", alt: "image")%></span>
-      <span style="--i: 7;"><%= image_tag("https://images.unsplash.com/photo-1515588562968-3d1a385e4e4f?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "image 1")%></span>
+      <span style="--i: 7;"><%= image_tag("5.jpeg", alt: "image 1")%></span>
       <span style="--i: 4;"><%= image_tag("manager.jpeg", alt: "image")%></span>
-      <span style="--i: 9;"><%= image_tag("https://images.unsplash.com/photo-1564182842519-8a3b2af3e228?q=80&w=3165&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "image 1")%></span>
-      <span style="--i: 8;"><%= image_tag("https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "image")%></span>
+      <span style="--i: 9;"><%= image_tag("2.jpeg", alt: "image 1")%></span>
+      <span style="--i: 8;"><%= image_tag("3.jpeg", alt: "image")%></span>
 
 
 
@@ -128,7 +129,7 @@
   document.addEventListener('DOMContentLoaded', () => {
   const slideRow = document.querySelector('.image-slider .slide-row');
   const btns = document.querySelectorAll('.image-slider .btn');
-  const slideInterval = 4000; // 4 seconds interval for auto sliding
+  const slideInterval = 9000; // 4 seconds interval for auto sliding
 
   let currentIndex = 0;
   let autoSlideTimer;
@@ -211,7 +212,7 @@
         </div>
 
         <div class="t-name">
-          <p><strong>Ellie Mardell</strong> Project Administrator, AM1 projects</p>
+          <p><strong>Ellie </strong> Project Administrator, AM1 projects</p>
         </div>
 
       </div>
@@ -226,7 +227,7 @@
         </div>
 
         <div class="t-name">
-          <p><strong>Tim Fox</strong> Works package manager, Siemens</p>
+          <p><strong>Tim</strong> Works package manager, Siemens</p>
         </div>
     </li>
     <li class="slide">
@@ -238,7 +239,7 @@
         </div>
 
         <div class="t-name">
-          <p><strong>Spencer James</strong> Project Manager, Scorpion</p>
+          <p><strong>Spencer</strong> Project Manager, Scorpion</p>
         </div>
     </li>
   </ul>
