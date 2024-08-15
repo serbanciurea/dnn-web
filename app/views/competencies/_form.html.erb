@@ -13,7 +13,9 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.select :name, options_for_select(['coss', 'supervisor', '360 operator', 'ground worker', 'telehandler driver', 'Engineer', 'steel fixer', 'carpenter', 'electrician'], @competency.name), prompt: 'Please select' %>
+    <%= form.select :name, options_for_select([ 'Coss', 'Supervisor', '360 excavator driver', 'Ground worker', 'Telehandler driver', 'Engeneer', 'Steel Fixer', 'Carpenter', 'Electrician', 'Alo coordinator', 'banksman',
+    'Concrete finisher', 'ETE jointer', 'ETE mate', 'Handback Engineer', 'Site Warden', 'LXA', 'Pasma', 'Slinger', 'Trackman', 'Site manager', 'Yardman / pick-up Driver',
+    'Cable puller', 'Setting out Engineer', 'Carpenter'], @competency.name), prompt: 'Please select' %>
   </div>
 
   <div class="field">
