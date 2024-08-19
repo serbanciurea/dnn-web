@@ -2,15 +2,13 @@
   <!-- Left Section of Navbar -->
   <div class="navbar-left">
     <%= link_to root_path do %>
-      <%#= image_tag("logo1.png", alt: "Company Logo", class: "logo") %>
       <div style="font-family: Switzer-Bold; font-size: 150%; color: black;">DNNovation</div>
-      <%# <div class="house"><i class="fa-solid fa-house" style="color: var(--orange);"></i></div> %>
     <% end %>
   </div>
 
   <!-- Right Section of Navbar -->
   <div class="navbar-right">
-    <!-- Add a Hamburger Icon for Mobile -->
+    <!-- Hamburger Icon for Mobile -->
     <div class="hamburger-menu">
       <i class="fa fa-bars"></i>
     </div>
@@ -43,6 +41,7 @@
     </div>
   </div>
 </nav>
+
 
 <!-- Sidebar Menu -->
 <div id="sidebar" class="sidebar">
@@ -81,105 +80,136 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-  var sidebar = document.getElementById("sidebar");
-  var hamburger = document.querySelector(".hamburger-menu i");
-  var closeBtn = document.querySelector(".sidebar .closebtn");
+    var sidebar = document.getElementById("sidebar");
+    var hamburger = document.querySelector(".hamburger-menu i");
+    var closeBtn = document.querySelector(".sidebar .closebtn");
 
-  hamburger.addEventListener("click", function() {
-    sidebar.style.width = "250px";
-  });
+    hamburger.addEventListener("click", function() {
+      sidebar.style.width = "250px";
+    });
 
-  closeBtn.addEventListener("click", function() {
-    sidebar.style.width = "0";
+    closeBtn.addEventListener("click", function() {
+      sidebar.style.width = "0";
+    });
+
+     const navbar = document.querySelector(".navbar");
+    const initialOffsetTop = navbar.offsetTop;
+    let scrolled = false;
+
+    // Initial check
+    updateNavbarOnScroll();
+
+    // Scroll event listener
+    window.addEventListener('scroll', function () {
+        updateNavbarOnScroll();
+    });
+
+    function updateNavbarOnScroll() {
+        const shouldBeScrolled = window.scrollY > initialOffsetTop;
+        if (shouldBeScrolled !== scrolled) {
+            scrolled = shouldBeScrolled;
+            if (scrolled) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+    }
+
+    // Hamburger menu toggle
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const navbarLinks = document.querySelector('.navbar-links');
+    hamburgerMenu.addEventListener('click', function () {
+        navbarLinks.classList.toggle('open');
+    });
   });
-});
 
 </script>
 
 <style>
   /* General Navbar Styling */
-.navbar {
-  background-color: var(--milkey-white);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.navbar-right {
-  display: flex;
-  align-items: center;
-}
-
-.hamburger-menu {
-  display: none;
-  cursor: pointer;
-}
-
-.hamburger-menu i {
-  font-size: 24px;
-}
-
-/* Sidebar Styling */
-.sidebar {
-  height: 100%; /* Full-height */
-  width: 0; /* Initially collapsed */
-  position: absolute; /* Fixed Sidebar (stay in place) */
-  z-index: 1000; /* Sit on top */
-  top: 0;
-  right: 0;
-  background-color: #333; /* Dark background color */
-  overflow-x: hidden; /* Disable horizontal scroll */
-  transition: 0.5s; /* Transition effect */
-  padding-top: 60px; /* Place content 60px from the top */
-}
-
-.sidebar a {
-  padding: 10px 15px;
-  text-decoration: none;
-  font-size: 18px;
-  color: white;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidebar a:hover {
-  background-color: #575757;
-}
-
-.sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 15px;
-  font-size: 36px;
-}
-
-@media screen and (max-width: 767px) {
-  .navbar .navbar-links {
-    display: none; /* Hide navbar links on mobile */
+  .navbar {
+    background-color: var(--milkey-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
   }
 
-  .navbar .extra {
-    display: none;
+  .navbar-right {
+    display: flex;
+    align-items: center;
   }
 
   .hamburger-menu {
-    display: block; /* Show hamburger menu on mobile */
+    display: none;
+    cursor: pointer;
   }
 
-  .house {
-    visibility: visible;
+  .hamburger-menu i {
+    font-size: 24px;
   }
 
-  @media (max-width: 650px) {
-    .categories {
-        width: auto;
+  /* Sidebar Styling */
+  .sidebar {
+    height: 100%; /* Full-height */
+    width: 0; /* Initially collapsed */
+    position: absolute; /* Fixed Sidebar (stay in place) */
+    z-index: 1000; /* Sit on top */
+    top: 0;
+    right: 0;
+    background-color: #333; /* Dark background color */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* Transition effect */
+    padding-top: 60px; /* Place content 60px from the top */
+  }
+
+  .sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidebar a:hover {
+    background-color: #575757;
+  }
+
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 36px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .navbar .navbar-links {
+      display: none; /* Hide navbar links on mobile */
     }
-}
 
-  /* html {
-    overflow-y: hidden;
-  } */
-}
+    .navbar .extra {
+      display: none;
+    }
+
+    .hamburger-menu {
+      display: block; /* Show hamburger menu on mobile */
+    }
+
+    .house {
+      visibility: visible;
+    }
+
+    @media (max-width: 650px) {
+      .categories {
+          width: auto;
+      }
+  }
+
+    /* html {
+      overflow-y: hidden;
+    } */
+  }
 
 </style>
