@@ -6,12 +6,12 @@
 
 
 
-.image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  overflow: hidden;
-}
+// .image-wrapper {
+//   position: relative;
+//   width: 100%;
+//   height: 300px;
+//   overflow: hidden;
+// }
 
 .image-wrapper img {
   object-fit: cover;
@@ -19,13 +19,13 @@
   height: 100%;
 }
 
-.overlay {
-  position: absolute; /* Position the overlay relative to the .image-wrapper */
-  top: 50%; /* Position from the top */
-  left: 30px; /* Adjust left positioning as needed */
-  transform: translateY(-50%); /* Center the overlay vertically */
-  color: white; /* Text color */
-}
+// .overlay {
+//   position: absolute; /* Position the overlay relative to the .image-wrapper */
+//   top: 50%; /* Position from the top */
+//   left: 30px; /* Adjust left positioning as needed */
+//   transform: translateY(-50%); /* Center the overlay vertically */
+//   color: white; /* Text color */
+// }
 
 .image-wrapper::before {
   content: "";

@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar" style="box-sizing: border-box; width: 100%;">
   <!-- Left Section of Navbar -->
   <div class="navbar-left">
     <%= link_to root_path do %>
@@ -23,6 +23,7 @@
     <div class="extra">
       <% if user_signed_in? %>
         <div class="dropdown">
+          <%# style="margin-right: 20px;" %>
           <button class="dropbtn">Profile</button>
           <div class="dropdown-content" role="menu">
             <%= link_to 'Profile', user_path(current_user), class: 'dropdown-item', role: 'menuitem' %>
@@ -133,7 +134,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    /* padding: 0 20px; */
   }
 
   .navbar-right {
@@ -213,3 +214,11 @@
   }
 
 </style>
+
+<%# @media (max-width: 480px) {
+    .about-us-overlay {
+        font-size: 1rem;
+        left: 50%;
+        top: 70%;
+    }
+} %>

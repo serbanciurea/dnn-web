@@ -153,3 +153,16 @@
 .services a:hover {
   background-color: #e0e0e0; /* Change background color on hover */
 }
+
+
+@media (max-width: 480px) {
+  .image-wrapper {
+    height: 50vh; /* Adjust height for smaller screens */
+  }
+
+  .overlay {
+    font-size: 1rem;
+    left: 50%;
+    top: 70%;
+  }
+}
