@@ -4,7 +4,7 @@
   display: flex; /* Use flexbox for the navbar */
   justify-content: space-between; /* Space between left and right sections */
   align-items: center; /* Center align items vertically */
-  padding: 0 20px; /* Optional: Add some padding for better alignment */
+  // padding: 0 20px; /* Optional: Add some padding for better alignment */
 }
 
 .navbar-left {
@@ -119,7 +119,8 @@
     align-items: center;
   }
 
-  .navbar .dropdown a, .logout {
+  // and .logout ??
+  .navbar .dropdown a {
     font-size: 0.7rem !important;
   }
 }
@@ -240,7 +241,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  // padding: 10px 20px;
   position: fixed;
   width: 100%;
   top: 0;
@@ -287,5 +288,12 @@
 
   .navbar-links.open {
     display: flex;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+    /* Add padding when screen is small */
   }
 }
