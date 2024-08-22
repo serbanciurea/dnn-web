@@ -1,0 +1,390 @@
+.head {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+
+.image-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, black, grey);
+  opacity: 0.6;
+  /* Adjust the opacity as needed */
+}
+
+
+
+.page-title {
+
+  font-size: 2em;
+  /* Larger font size for the page title */
+  color: #333;
+  /* Dark grey color for the title */
+  margin-bottom: 20px;
+  /* Space below the title */
+  padding-top: 50px;
+  padding-bottom: 0px;
+  /* Vertical padding for title */
+  text-align: center;
+}
+
+.gradient-button {
+  margin-bottom: 40px;
+  margin-top: 20px;
+
+}
+
+
+.course-grid {
+  display: grid;
+  /* Use CSS Grid for layout */
+  grid-template-columns: repeat(4, 1fr);
+  /* Fixed number of columns (4) */
+  gap: 20px;
+  /* Space between grid items */
+  padding: 16px;
+  /* Padding around the grid */
+}
+
+.course-card {
+  background-color: #ffffff;
+  /* Background color for cards */
+  padding:0px 20px;
+  padding-top: 20px;
+  padding-bottom: 0px;
+  /* Padding inside the card */
+  border-radius: 8px;
+  /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow for depth */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-height: 500px;
+  /* Limit the maximum height of the card */
+  overflow: hidden;
+  /* Hide overflow to handle content */
+  transition: transform 0.3s, box-shadow 0.3s;
+  /* Smooth transition effects */
+}
+
+.course-card:hover {
+  transform: scale(1.03);
+  /* Slightly scale up card on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* Enhance shadow on hover */
+}
+
+.course-title {
+  color: #333;
+  /* Dark grey color for the title */
+  font-size: 18px;
+  /* Font size for the title */
+  margin-bottom: 10px;
+  /* Margin below the title */
+  padding: 10px 0;
+  /* Padding for the title */
+  font-family: 'Arial', sans-serif;
+  /* Font family for the title */
+}
+
+.course-details {
+  display: flex;
+  /* Use flexbox for layout */
+  justify-content: space-between;
+  /* Space between price and location */
+  width: 100%;
+  /* Full width */
+  margin-bottom: 20px;
+  /* Margin below the details */
+}
+
+.course-details .price,
+.course-details .location {
+  font-size: 14px;
+  /* Font size for the details */
+  color: #555;
+  /* Color for the details text */
+  font-family: 'Arial', sans-serif;
+  /* Font family for the details text */
+}
+
+.read-more-button {
+  padding: 10px 20px;
+  /* Padding for the button */
+  background-color: #EA5D30;
+  /* Background color */
+  color: #fff;
+  /* Text color */
+  text-decoration: none;
+  /* Remove underline */
+  border-radius: 5px;
+  /* Rounded corners */
+  transition: background-color 0.3s;
+  /* Smooth transition for hover effect */
+  margin: 5px;
+  /* Space between buttons */
+}
+
+.read-more-button:hover {
+  background-color: #cc4e28;
+  /* Hover background color */
+}
+
+.course-actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  /* Full width for actions */
+}
+
+
+h3 {
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+  line-height: 1.5;
+}
+
+
+.date-range {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 0;
+}
+
+
+
+
+// let's see how this goes
+.course-card {
+  position: relative;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  overflow: hidden;
+  /* Ensure contents don't overflow */
+}
+
+.course-card {
+  position: relative;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  overflow: hidden;
+}
+
+.course-card::before {
+  content: "\f807";
+  /* Font Awesome Helmet Safety icon */
+  font-family: "Font Awesome 6 Free";
+  /* Font Awesome font family */
+  font-weight: 900;
+  /* Font weight for solid icons */
+  font-size: 8em;
+  /* Adjust size as needed */
+  color: #EA5D30;
+  /* Icon color */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.1;
+  /* Adjust opacity for background effect */
+  z-index: 1;
+}
+
+
+
+//  #EA5D30
+.course-card .content {
+  position: relative;
+  z-index: 2;
+}
+
+.course-title {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.date-range {
+  text-align: center;
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+
+.course-details {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.location-and-members {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 90%;
+  margin: 10px;
+}
+
+.location {
+  margin-right: 20px;
+}
+
+.price {
+  margin-top: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-left: 20px;
+
+}
+
+.course-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.course-details .members {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  /* Adjust font size as needed */
+}
+
+.course-details .members i {
+  margin-right: 3px;
+  /* Adjust to reduce space between icon and text */
+  font-size: 16px;
+  /* Adjust icon size if needed */
+}
+
+.course-description {
+  font-size: 14px;
+  color: #666;
+  margin: 15px 0;
+}
+
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Darker background */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  /* Adjust for better centering */
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+  text-align: center;
+}
+
+.modal .close,
+.modal .close-modal {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #333;
+  cursor: pointer;
+}
+
+.modal-actions a {
+  display: block;
+  margin: 20px 0;
+  padding: 15px;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.close-modal {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+
+.interest-registration {
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  /* This applies padding uniformly on all sides */
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.interest-text {
+  margin-bottom: 20px;
+}
+
+.interest-text h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.interest-text p {
+  font-size: 16px;
+  color: #666;
+}
+
+.interest-form input[type="text"],
+.interest-form input[type="email"],
+.interest-form textarea {
+  width: calc(100% - 20px);
+  /* Subtracting padding to ensure it fits inside the container */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  /* Ensures padding is included in the element's total width */
+}
+
+.interest-form textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+
+.divider-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #333;
+}
+
+.divider-text::before,
+.divider-text::after {
+  content: "";
+  flex-grow: 1;
+  height: 2px;
+  background-color: #EA5D30;
+  margin: 0 10px;
+}

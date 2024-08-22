@@ -1,0 +1,79 @@
+
+<div class="course-grid">
+  <% @courses.each do |course| %>
+    <div class="course-card">
+      <h3 class="course-title"><%= course.name %></h3>
+      <p class="date-range">
+        <% if course.start_date && course.end_date %>
+          <%= course.start_date.strftime("%B %d, %Y") %> - <%= course.end_date.strftime("%B %d, %Y") %>
+        <% else %>
+          Date information not available
+        <% end %>
+      </p>
+      <div class="course-details">
+        <p class="location-and-members">
+          <span class="location"><i class="fas fa-map-location-dot"></i> <%= course.location %></span>
+          <span class="members"><i class="fa-solid fa-user-group" style="color: #EA5D30;"></i> <%= course.member_number || 'Not specified' %></span>
+        </p>
+        <p class="price"><%= number_to_currency(course.price, unit: '£') %></p>
+      </div>
+      <p class="course-description">
+        <%= truncate(course.description, length: 100, omission: '...') %>
+      </p>
+      <div class="course-actions">
+        <%= link_to 'READ MORE', course_path(course), class: 'gradient-button' %>
+        <button class="gradient-button book-now-button" data-course="<%= course.name %>" data-modal-id="<%= course.id %>">BOOK NOW</button>
+      </div>
+    </div>
+
+    <div id="bookingModal<%= course.id %>" class="modal" style="display: none;">
+      <div class="modal-content">
+        <span class="close" data-modal-id="<%= course.id %>">&times;</span>
+        <h3>Book Your Spot</h3>
+        <p>You are booking the course "<span class="modal-course-name" id="modal-course-name"><%= course.name %></span>". Choose an option:</p>
+        <div class="modal-actions">
+          <a href="tel:+1234567890" class="gradient-button">Call Us</a>
+          <a href="mailto:info@dnnovation.com?subject=Booking Inquiry for <%= course.name %>" class="gradient-button">Send an Email</a>
+        </div>
+        <button class="gradient-button close-modal" data-modal-id="<%= course.id %>">Cancel</button>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<!-- Full-Screen Modal -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Open modal when "Book Now" button is clicked
+    document.querySelectorAll('.book-now-button').forEach(button => {
+      button.addEventListener('click', function() {
+        const modalId = this.dataset.modalId;
+        const modal = document.getElementById(`bookingModal${modalId}`);
+        const modalCourseName = modal.querySelector(".modal-course-name");
+
+        if (modal) {
+          modalCourseName.textContent = this.dataset.course;
+          modal.style.display = "block";
+        }
+      });
+    });
+
+    // Close modal when "x" is clicked
+    document.querySelectorAll('.modal .close').forEach(closeBtn => {
+      closeBtn.addEventListener('click', function() {
+        const modalId = this.dataset.modalId;
+        const modal = document.getElementById(`bookingModal${modalId}`);
+        if (modal) {
+          modal.style.display = "none";
+        }
+      });
+    });
+
+    // Close modal when clicking outside of it
+    window.addEventListener('click', function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
+      }
+    });
+  });
+</script>

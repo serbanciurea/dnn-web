@@ -1,0 +1,36 @@
+<div class="course-details-wrapper">
+  <h1><%= @course.name %></h1>
+
+   <p><strong>Date:</strong>
+      <% if @course.start_date && @course.end_date %>
+        <%= @course.start_date.strftime("%B %d, %Y") %> - <%= @course.end_date.strftime("%B %d, %Y") %>
+      <% else %>
+        Date information not available
+      <% end %>
+    </p>
+
+  <div class="course-info">
+    <p class="price">
+
+      <strong>Price:</strong> <%= @course.price %>
+    </p>
+    <p class="location">
+      <strong>Location:</strong> <%= @course.location %>
+    </p>
+  </div>
+
+  <div class="course-description">
+    <p><%= @course.description %></p>
+  </div>
+
+
+  <% if current_user.admin == true %>
+  <section class="admin-actions">
+    <h3>ADMIN ACTIONS</h3>
+    <div class="admin-actions-buttons">
+      <%= link_to 'Edit', edit_course_path(@course), class: 'gradient-button' %>
+      <%= link_to 'Destroy', course_path(@course), method: :delete, data: { confirm: 'Are you sure?' }, class: 'gradient-button' %>
+    </div>
+  </section>
+  <% end %>
+</div>
