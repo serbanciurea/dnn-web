@@ -1,12 +1,23 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_course, except: [:index, :show]
+  # before_action :set_course, only: [:show, :edit, :update, :destroy]
+  # before_action :authorize_course, except: [:index, :show, :filter_by_category]
+  # after_action :verify_policy_scoped, only: :index
+
+
+  # skip_before_action :authenticate_user!, only: [:index, :show, :filter_by_department]
+
+  # after_action :verify_authorized, except: [:index, :show, :filter_by_department]
+
+
+    skip_before_action :authenticate_user!, only: [:index, :show, :filter_by_category]
+
+  before_action :set_course, only: %i[ show edit update destroy ]
+
+  # before_action :authenticate_user!
+  before_action :authorize_course, only: [:new, :create, :edit, :update, :destroy]
+
+  after_action :verify_authorized, except: [:index, :show, :filter_by_category]
   after_action :verify_policy_scoped, only: :index
-
-
-  skip_before_action :authenticate_user!, only: [:index, :show, :filter_by_department]
-
-  after_action :verify_authorized, except: [:index, :show, :filter_by_department]
 
   def filter_by_category
     if params[:category] == 'ALL' || params[:category].blank?
