@@ -15,6 +15,7 @@
 
     <div class="navbar-links">
       <div class="dropdown"><%= link_to about_path, class: 'dropbtn' do %>About Us<% end %></div>
+      <div class="dropdown"><%= link_to courses_path, class: 'dropbtn' do %>Training<% end %></div>
       <div class="dropdown"><%= link_to project_ports_path, class: 'dropbtn' do %>Projects<% end %></div>
       <div class="dropdown"><%= link_to services_path, class: 'dropbtn' do %>Services<% end %></div>
       <div class="dropdown"><%= link_to careers_path, class: 'dropbtn' do %>Careers<% end %></div>
@@ -48,6 +49,7 @@
 <div id="sidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn">&times;</a>
   <%= link_to about_path do %>About Us<% end %>
+  <%= link_to courses_path, class: 'dropbtn' do %>Training<% end %>
   <%= link_to project_ports_path do %>Projects<% end %>
   <%= link_to services_path do %>Services<% end %>
   <%= link_to careers_path do %>Careers<% end %>

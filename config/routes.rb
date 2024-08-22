@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  # get 'courses/index'
+  # get 'courses/show'
+  # get 'courses/new'
+  # get 'courses/create'
+  # get 'courses/edit'
+  # get 'courses/update'
+  # get 'courses/destroy'
+
+  resources :courses, only: [:index] do
+    collection do
+      get 'filter_by_category'
+    end
+  end
 
   devise_for :users, controllers: {
     registrations: 'users/registrations'
@@ -24,6 +37,7 @@ Rails.application.routes.draw do
 
   resources :employees
   resources :contracts
+  resources :courses
 
   resources :users do
     patch :approve, on: :member
