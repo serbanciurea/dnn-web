@@ -24,7 +24,7 @@
   </div>
 
 
-  <% if current_user.admin == true %>
+  <% if current_user.nil? == false && current_user.admin == true %>
   <section class="admin-actions">
     <h3>ADMIN ACTIONS</h3>
     <div class="admin-actions-buttons">
