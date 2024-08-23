@@ -91,3 +91,11 @@ main {
 //   margin-left: 45%;
 //   margin-bottom: 40px;
 // }
+
+html,
+body {
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  /* Ensure the body does not extend beyond the viewport */
+}
