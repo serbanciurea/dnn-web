@@ -89,10 +89,12 @@
 
     hamburger.addEventListener("click", function() {
       sidebar.style.width = "250px";
+      // sidebar.style.display = "block";
     });
 
     closeBtn.addEventListener("click", function() {
       sidebar.style.width = "0";
+      // sidebar.style.display = "none";
     });
 
      const navbar = document.querySelector(".navbar");
@@ -163,7 +165,7 @@
     top: 0;
     right: 0;
     background-color: #333; /* Dark background color */
-    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow-x: hidden;
     transition: 0.5s; /* Transition effect */
     padding-top: 60px; /* Place content 60px from the top */
   }
