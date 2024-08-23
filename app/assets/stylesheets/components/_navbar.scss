@@ -1,4 +1,5 @@
 .navbar {
+  position: fixed;
   background-color: var(--milkey-white);
   // overflow: hidden;
   display: flex; /* Use flexbox for the navbar */
@@ -6,6 +7,9 @@
   align-items: center; /* Center align items vertically */
   // padding: 0 20px; /* Optional: Add some padding for better alignment */
   padding-left: 20px;
+
+  box-sizing: border-box;
+  z-index: 999;
 }
 
 .navbar-left {
