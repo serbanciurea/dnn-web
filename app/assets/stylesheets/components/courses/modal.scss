@@ -1,0 +1,91 @@
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Darker background */
+
+
+
+/* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .modal-content {
+      margin: 5% auto;
+      /* Reduce margin for smaller screens */
+      padding: 15px;
+      max-width: 95%;
+      /* Make it slightly smaller for smaller screens */
+    }
+
+    .modal .close,
+    .modal .close-modal {
+      font-size: 24px;
+      /* Smaller close button for smaller screens */
+    }
+
+    .modal-actions a {
+      font-size: 16px;
+      /* Adjust font size for smaller screens */
+      padding: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .modal-content {
+      margin: 0 auto;
+      /* Reduce margin for mobile screens */
+      padding: 10px;
+      max-width: 100%;
+      /* Full width for mobile screens */
+    }
+
+    .modal .close,
+    .modal .close-modal {
+      font-size: 20px;
+      /* Smaller close button for mobile screens */
+    }
+
+    .modal-actions a {
+      font-size: 14px;
+      /* Adjust font size for mobile screens */
+      padding: 10px;
+    }
+  }
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  /* Adjust for better centering */
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+  text-align: center;
+}
+
+.modal .close,
+.modal .close-modal {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #333;
+  cursor: pointer;
+}
+
+.modal-actions a {
+  display: block;
+  margin: 20px 0;
+  padding: 15px;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.close-modal {
+  margin-top: 20px;
+  font-size: 16px;
+}

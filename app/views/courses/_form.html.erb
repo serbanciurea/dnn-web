@@ -1,0 +1,160 @@
+<%= form_with(model: @course, local: true, html: { class: 'course-form' }) do |form| %>
+  <% if @course.errors.any? %>
+    <div id="error_explanation" class="error-explanation">
+      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+      <ul>
+        <% @course.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :start_date, class: 'form-label' %>
+    <%= form.date_select :start_date, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :end_date, class: 'form-label' %>
+    <%= form.date_select :end_date, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :price, class: 'form-label' %>
+    <%= form.number_field :price, step: 0.01, class: 'form-control' %> <span>£</span>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :location, class: 'form-label' %>
+    <%= form.text_field :location, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :member_number, class: 'form-label' %>
+    <%= form.number_field :member_number, class: 'form-control', min: 1 %>
+  </div>
+
+    <link href="https://cdn.quilljs.com/2.0.0/quill.snow.css" rel="stylesheet">
+
+    <!-- Quill JS -->
+    <script src="https://cdn.quilljs.com/2.0.0/quill.js"></script>
+
+
+    <%# <div class="form-group"> %>
+      <%#= form.label :description, "Course Details" %>
+      <%#= form.text_area :description, placeholder: "Include summary, pre-requisites, and results with headers" %>
+    <%# </div> %>
+
+    <div class="field-group" style="display: none;">
+      <%= form.label :description, "Course Details" %>
+      <%= form.text_area :description, id: 'description-3', placeholder: "Include summary, pre-requisites, and results with headers" %>
+    </div>
+
+    <!-- Visible Quill editor -->
+    <div class="field-group">
+      <div id="quill-editor-3" style="height: 300px;"></div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      console.log("DOM content loaded.");
+
+      // Initialize Quill editor
+      var editor = new Quill('#quill-editor-3', {
+        theme: 'snow',
+        placeholder: 'Enter description',
+        modules: {
+          toolbar: [
+            [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            ['bold', 'italic', 'underline'],
+            ['link']
+          ]
+        }
+      });
+
+      console.log("Quill editor initialized.");
+
+      // Select the hidden textarea
+      var description = document.querySelector('#description-3');
+      //////////////////////////////////////////////////////////////////
+      if (description && description.value) {
+        editor.root.innerHTML = description.value;
+      }
+      ///////////////////////////////////////////////////////////////////
+      if (!description) {
+        console.error("Textarea not found!");
+        return;
+      }
+      console.log("Description textarea element:", description);
+
+      // Update hidden textarea on form submit
+      var form = document.querySelector('form');
+      if (!form) {
+        console.error("Form not found!");
+        return;
+      }
+
+      form.addEventListener('submit', function(event) {
+        console.log("Form submit detected.");
+
+        // Populate the hidden textarea with the content from Quill editor
+        var editorContent = editor.root.innerHTML.trim();
+        console.log("Editor content at submit:", editorContent);
+
+        description.value = editorContent;
+        console.log('Textarea updated with editor content:', description.value);
+
+        // Ensure the form submits
+        return true;
+      });
+
+      // Test setting description manually
+      document.querySelector('#submit-button').addEventListener('click', function() {
+        console.log('Submit button clicked.');
+        description.value = editor.root.innerHTML.trim();
+        console.log('Description set manually before form submission:', description.value);
+      });
+    });
+
+    </script>
+
+  <%= form.label :category, "Select Categories" %>
+  <div class="custom-checkbox-container">
+    <%= check_box_tag 'course[category][]', 'CONSTRUCTION', @course.category&.include?('CONSTRUCTION'), id: 'course_category_construction', class: 'custom-checkbox' %>
+    <label for="course_category_construction">
+      <span class="checkmark-prod"></span>
+      CONSTRUCTION
+    </label>
+  </div>
+
+  <div class="custom-checkbox-container">
+    <%= check_box_tag 'course[category][]', 'RAIL', @course.category&.include?('RAIL'), id: 'course_category_rail', class: 'custom-checkbox' %>
+    <label for="course_category_rail">
+      <span class="checkmark-prod"></span>
+      RAIL
+    </label>
+  </div>
+
+  <div class="custom-checkbox-container">
+    <%= check_box_tag 'course[category][]', 'MANAGEMENT', @course.category&.include?('MANAGEMENT'), id: 'course_category_management', class: 'custom-checkbox' %>
+    <label for="course_category_management">
+      <span class="checkmark-prod"></span>
+      MANAGEMENT
+    </label>
+  </div>
+
+  <div class="form-actions">
+    <%= form.submit 'Create Course',id: 'submit-button', class: 'gradient-button' %>
+    <button type="button" class="gradient-button" id="generate-advert-btn">Generate Advert</button>
+  </div>
+
+  <%# <% end %>
+
+<% end %>

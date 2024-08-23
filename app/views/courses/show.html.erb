@@ -11,8 +11,7 @@
 
   <div class="course-info">
     <p class="price">
-
-      <strong>Price:</strong> <%= @course.price %>
+      <strong>Price:</strong> £<%= number_to_currency(@course.price, unit: '') %>
     </p>
     <p class="location">
       <strong>Location:</strong> <%= @course.location %>
@@ -20,7 +19,8 @@
   </div>
 
   <div class="course-description">
-    <p><%= @course.description %></p>
+    <%#= raw @course.description %>
+    <%= format_description(@course.description) %>
   </div>
 
 
