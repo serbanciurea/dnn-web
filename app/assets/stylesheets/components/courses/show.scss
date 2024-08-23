@@ -4,6 +4,8 @@
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-bottom: 40px;
+      /* Restrict the width on large screens */
+      /* Allow some margin on the sides */
 
   h1 {
     font-size: 2rem;
@@ -19,6 +21,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    // flex-wrap: wrap;
 
     .price,
     .location {
@@ -27,10 +30,18 @@
       font-family: 'Arial', sans-serif;
       background: transparent; /* Transparent background */
       padding: 5px;
+      flex: 1;
+        /* Allows the items to take equal space */
+        min-width: 150px;
+        /* Ensures a minimum width for readability */
     }
 
     .location {
       text-align: right;
+      flex: 1;
+        /* Allows the items to take equal space */
+        min-width: 150px;
+        /* Ensures a minimum width for readability */
     }
   }
 
@@ -68,6 +79,8 @@
     display: flex;
     justify-content: space-around;
     flex-direction: row;
+    flex-wrap: wrap;
+        /* Allows the buttons to wrap on smaller screens */
 
     h3 {
       font-size: 1.5rem;
@@ -97,6 +110,79 @@
       //   }
 
     }
+  }
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .course-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .course-info .location {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .admin-actions {
+    flex-direction: column;
+  }
+}
+
+  @media (max-width: 768px) {
+    .course-details-wrapper h1 {
+      font-size: 1.8rem;
+    }
+
+    .course-info {
+      flex-direction: column;
+    }
+
+    .course-info .price,
+    .course-info .location {
+      text-align: center;
+    }
+
+    .course-description {
+      font-size: 0.95rem;
+      padding: 15px;
+    }
+
+    .admin-actions h3 {
+      font-size: 1.4rem;
+    }
+
+    .admin-actions-buttons {
+      gap: 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .course-details-wrapper {
+      padding: 15px;
+    }
+
+    .course-details-wrapper h1 {
+      font-size: 1.5rem;
+    }
+
+    .course-description {
+      font-size: 0.9rem;
+      padding: 15px;
+    }
+
+    .course-map iframe {
+      height: 200px;
+    }
+
+    .admin-actions h3 {
+      font-size: 1.2rem;
+    }
+
+    .admin-actions-buttons {
+      flex-direction: column;
+      gap: 10px;
+    }
+
   }
 }
 

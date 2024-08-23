@@ -16,6 +16,12 @@
   /* Adjust the opacity as needed */
 }
 
+.index-courses {
+  max-width: 100%;
+  /* Ensure it doesn’t exceed viewport width */
+  overflow-x: hidden;
+  /* Hide horizontal overflow */
+}
 
 
 .page-title {
@@ -277,54 +283,10 @@ h3 {
 
 
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8);
-  /* Darker background */
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  /* Adjust for better centering */
-  padding: 30px;
-  border-radius: 10px;
-  max-width: 600px;
-  text-align: center;
-}
-
-.modal .close,
-.modal .close-modal {
-  background: none;
-  border: none;
-  font-size: 28px;
-  color: #333;
-  cursor: pointer;
-}
-
-.modal-actions a {
-  display: block;
-  margin: 20px 0;
-  padding: 15px;
-  font-size: 18px;
-  text-decoration: none;
-}
-
-.close-modal {
-  margin-top: 20px;
-  font-size: 16px;
-}
 
 
 .interest-registration {
-  width: 100%;
+  width: auto;
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
@@ -333,6 +295,64 @@ h3 {
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+
+
+  /* Responsive Adjustments */
+/* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .interest-registration {
+      padding: 20px;
+      /* Ensure adequate padding on smaller screens */
+    }
+
+    .interest-form input[type="text"],
+    .interest-form input[type="email"],
+    .interest-form textarea {
+      width: calc(100% - 20px);
+      /* Adjust width with padding */
+    }
+
+    .interest-form textarea {
+      height: 100px;
+      /* Adjust height for smaller screens */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .interest-registration {
+      padding: 10px;
+      /* Reduce padding for very small screens */
+    }
+
+    .interest-form input[type="text"],
+    .interest-form input[type="email"],
+    .interest-form textarea {
+      width: calc(100% - 20px);
+      /* Ensures form elements fit well */
+    }
+
+    .interest-form textarea {
+      height: 80px;
+      /* Further adjust height for very small screens */
+    }
+
+    .interest-text h2 {
+      font-size: 20px;
+      /* Smaller heading font size for mobile screens */
+    }
+
+    .interest-text p {
+      font-size: 14px;
+      /* Smaller paragraph font size for mobile screens */
+    }
+
+    .interest-form button[type="submit"] {
+      font-size: 14px;
+      /* Smaller button font size for mobile screens */
+      padding: 12px;
+      /* Adjust padding for smaller screens */
+    }
+  }
 }
 
 .interest-text {
@@ -354,19 +374,22 @@ h3 {
 .interest-form input[type="email"],
 .interest-form textarea {
   width: calc(100% - 20px);
-  /* Subtracting padding to ensure it fits inside the container */
+  /* Ensures full width minus padding */
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  /* Spacing between form elements */
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 16px;
   box-sizing: border-box;
-  /* Ensures padding is included in the element's total width */
+  /* Includes padding in width calculation */
 }
 
+/* Adjust text area for better usability */
 .interest-form textarea {
   resize: vertical;
-  height: 100px;
+  height: 120px;
+  /* Default height for better usability */
 }
 
 
@@ -387,4 +410,62 @@ h3 {
   height: 2px;
   background-color: #EA5D30;
   margin: 0 10px;
+}
+
+
+.index-courses {
+
+
+  /* Prevent horizontal scrolling */
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    /* Make sure elements do not exceed their containers */
+    .container,
+    .index-courses,
+    .course-grid,
+    .course-card,
+    .interest-form {
+      box-sizing: border-box;
+      /* Include padding and border in element's total width and height */
+    }
+
+  @media (max-width: 768px) {
+    .course-grid {
+      grid-template-columns: 1fr 1fr;
+      /* Two columns for tablets and small screens */
+    }
+
+    .category-name {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .category-name a {
+      margin: 5px 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .course-grid {
+      grid-template-columns: 1fr;
+      /* Single column for mobile screens */
+    }
+
+    .page-title {
+      font-size: 20px;
+    }
+
+    .interest-form input,
+    .interest-form textarea {
+      font-size: 14px;
+    }
+
+    .interest-form button {
+      font-size: 14px;
+    }
+  }
 }

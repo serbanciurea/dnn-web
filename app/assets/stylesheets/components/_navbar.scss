@@ -5,20 +5,26 @@
   justify-content: space-between; /* Space between left and right sections */
   align-items: center; /* Center align items vertically */
   // padding: 0 20px; /* Optional: Add some padding for better alignment */
+  padding-left: 20px;
 }
 
 .navbar-left {
   display: flex;
   align-items: center; /* Align items vertically */
   flex-shrink: 1; /* Prevents the left section from shrinking */
-
 }
+
 
 .navbar-left a {
   display: flex;
   align-items: center; /* Ensures the image is centered vertically */
   flex-shrink: 1; /* Allow the left section to shrink */
 
+}
+
+.navbar-left a :hover {
+  background-color: transparent;
+  color: #EA5D30;
 }
 
 .navbar-right {
@@ -122,6 +128,18 @@
   // and .logout ??
   .navbar .dropdown a {
     font-size: 0.7rem !important;
+  }
+}
+
+.hover-effect {
+  font-family: 'Switzer-Bold';
+  font-size: 150%;
+  color: black;
+  transition: color 0.3s ease; // Smooth transition for color change on hover
+
+  &:hover {
+    color: orange; // Change color on hover
+    // You can add more hover effects here if needed
   }
 }
 
