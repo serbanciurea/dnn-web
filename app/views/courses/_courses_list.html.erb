@@ -28,7 +28,8 @@
         <%#= format_description(@course.description) %>
       </p>
       <div class="course-actions">
-        <%= link_to 'READ MORE', course_path(course), class: 'gradient-button' %>
+        <%#= link_to 'READ MORE', course_path(course), class: 'gradient-button' %>
+        <%= link_to 'READ MORE', show_by_name_courses_path(course.name), class: 'gradient-button' %>
         <button class="gradient-button book-now-button" data-course="<%= course.name %>" data-modal-id="<%= course.id %>">BOOK NOW</button>
       </div>
     </div>
