@@ -1,85 +1,87 @@
-<h1><%= @course_name %></h1>
-
-  <%= link_to 'Create this course', new_course_path(duplicate: true, id: @course.id) %>
-
-<% if @courses.length > 1 %>
-    <% @courses.each do |course| %>
-      <div class="course-details-wrapper">
-        <h1><%= course.name %> <%= course.certification %></h1>
-
-        <p><strong>Date:</strong>
-            <% if course.start_date && course.end_date %>
-              <%= course.start_date.strftime("%B %d, %Y") %> - <%= course.end_date.strftime("%B %d, %Y") %>
-            <% else %>
-              Date information not available
-            <% end %>
-          </p>
-
-        <div class="course-info">
-          <p class="price">
-            <strong>Price:</strong> £<%= number_to_currency(course.price, unit: '') %>
-          </p>
-          <p class="location">
-            <strong>Location:</strong> <%= course.location %>
-          </p>
-        </div>
-
-        <div class="course-description">
-          <%#= raw course.description %>
-          <%= format_description(course.description) %>
-        </div>
+<div class="individual-course">
 
 
-        <% if current_user.nil? == false && current_user.admin == true %>
-        <section class="admin-actions">
-          <h3>ADMIN ACTIONS</h3>
-          <div class="admin-actions-buttons">
-            <%= link_to 'Edit', edit_course_path(course), class: 'gradient-button' %>
-            <%= form_with(model: course, method: :delete, local: true) do |form| %>
-              <%= form.submit 'Destroy', data: { confirm: 'Are you sure?' }, class: 'gradient-button' %>
-            <% end %>
+    <%= link_to 'Create this course', new_course_path(duplicate: true, id: @course.id) %>
+
+  <% if @courses.length > 1 %>
+      <% @courses.each do |course| %>
+        <div class="course-details-wrapper">
+          <h1><%= course.name %> <%= course.certification %></h1>
+
+          <p><strong>Date:</strong>
+              <% if course.start_date && course.end_date %>
+                <%= course.start_date.strftime("%B %d, %Y") %> - <%= course.end_date.strftime("%B %d, %Y") %>
+              <% else %>
+                Date information not available
+              <% end %>
+            </p>
+
+          <div class="course-info">
+            <p class="price">
+              <strong>Price:</strong> £<%= number_to_currency(course.price, unit: '') %>
+            </p>
+            <p class="location">
+              <strong>Location:</strong> <%= course.location %>
+            </p>
           </div>
-        </section>
-        <% end %>
-      </div>
-    <% end %>
-  <% else %>
-      <div class="course-details-wrapper">
-        <h1><%= @course.name %> <%= @course.certification %></h1>
 
-        <p><strong>Date:</strong>
-            <% if @course.start_date && @course.end_date %>
-              <%= @course.start_date.strftime("%B %d, %Y") %> - <%= @course.end_date.strftime("%B %d, %Y") %>
-            <% else %>
-              Date information not available
-            <% end %>
-          </p>
-
-        <div class="course-info">
-          <p class="price">
-            <strong>Price:</strong> £<%= number_to_currency(@course.price, unit: '') %>
-          </p>
-          <p class="location">
-            <strong>Location:</strong> <%= @course.location %>
-          </p>
-        </div>
-
-        <div class="course-description">
-          <%#= raw @course.description %>
-          <%= format_description(@course.description) %>
-        </div>
-
-
-        <% if current_user.nil? == false && current_user.admin == true %>
-        <section class="admin-actions">
-          <h3>ADMIN ACTIONS</h3>
-          <div class="admin-actions-buttons">
-            <%= link_to 'Edit', edit_course_path(@course), class: 'gradient-button' %>
-            <%= form_with(model: @course, method: :delete, local: true) do |form| %>
-              <%= form.submit 'Destroy', data: { confirm: 'Are you sure?' }, class: 'gradient-button' %>
-            <% end %>
+          <div class="course-description">
+            <%#= raw course.description %>
+            <%= format_description(course.description) %>
           </div>
-        </section>
-        <% end %>
-      </div>
-<% end %>
+
+
+          <% if current_user.nil? == false && current_user.admin == true %>
+          <section class="admin-actions">
+            <h3>ADMIN ACTIONS</h3>
+            <div class="admin-actions-buttons">
+              <%= link_to 'Edit', edit_course_path(course), class: 'gradient-button' %>
+              <%= form_with(model: course, method: :delete, local: true) do |form| %>
+                <%= form.submit 'Destroy', data: { confirm: 'Are you sure?' }, class: 'gradient-button' %>
+              <% end %>
+            </div>
+          </section>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+        <div class="course-details-wrapper">
+          <h1><%= @course.name %> <%= @course.certification %></h1>
+
+          <p><strong>Date:</strong>
+              <% if @course.start_date && @course.end_date %>
+                <%= @course.start_date.strftime("%B %d, %Y") %> - <%= @course.end_date.strftime("%B %d, %Y") %>
+              <% else %>
+                Date information not available
+              <% end %>
+            </p>
+
+          <div class="course-info">
+            <p class="price">
+              <strong>Price:</strong> £<%= number_to_currency(@course.price, unit: '') %>
+            </p>
+            <p class="location">
+              <strong>Location:</strong> <%= @course.location %>
+            </p>
+          </div>
+
+          <div class="course-description">
+            <%#= raw @course.description %>
+            <%= format_description(@course.description) %>
+          </div>
+
+
+          <% if current_user.nil? == false && current_user.admin == true %>
+          <section class="admin-actions">
+            <h3>ADMIN ACTIONS</h3>
+            <div class="admin-actions-buttons">
+              <%= link_to 'Edit', edit_course_path(@course), class: 'gradient-button' %>
+              <%= form_with(model: @course, method: :delete, local: true) do |form| %>
+                <%= form.submit 'Destroy', data: { confirm: 'Are you sure?' }, class: 'gradient-button' %>
+              <% end %>
+            </div>
+          </section>
+          <% end %>
+        </div>
+  <% end %>
+</div>

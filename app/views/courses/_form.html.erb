@@ -43,7 +43,7 @@
         </div>
       </div>
 
-<div style="display: none;">
+<div id = "category-selection" style="display: none;">
   <label for="course_name_select">Select a Course</label>
   <%= form.select :name, options_for_select(Course.pluck(:name, :name), @name), { prompt: 'Select a course' }, id: 'course_name_select' %>
 </div>
@@ -80,9 +80,9 @@
         <option value="">Select a course</option>
       </select> %>
 
-      <div>
+      <div id= "category-selection">
         <label for="course_name_select">Select a Course</label>
-        <%= form.select :name, [], { prompt: 'Select a course' }, id: 'course_name_select' %>
+        <%= form.select :name, [], { prompt: 'Select a course' }, id: 'category-selection' %>
       </div>
 
       <script type="text/javascript">
@@ -117,8 +117,8 @@
               const courses = courseOptions[category] || [];
               courses.forEach(course => {
                 const option = document.createElement('option');
-                option.value = course;
-                option.textContent = course;
+                option.value = course.name;
+                option.textContent = course.name;
                 courseSelect.appendChild(option);
               });
             });

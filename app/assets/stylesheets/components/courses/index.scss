@@ -412,6 +412,8 @@ h3 {
   margin: 0 10px;
 }
 
+/* Common Styles */
+
 
 .index-courses {
 
@@ -467,5 +469,171 @@ h3 {
     .interest-form button {
       font-size: 14px;
     }
+  }
+}
+
+.tree-section {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #333;
+  }
+
+  .category-dropdown,
+  .course-dropdown {
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #555;
+    }
+  }
+
+  .course-dropdown {
+    display: none; // Initially hidden, shown when a category is selected
+
+    select {
+      margin-top: 10px;
+    }
+  }
+
+  // Styling for category and course dropdowns when visible
+  .category-dropdown,
+  .course-dropdown {
+    transition: all 0.3s ease;
+  }
+}
+
+
+#category-selection {
+  padding: 10px;
+  width: 80%;
+  margin: 0 auto;
+
+  .custom-checkbox-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; // Space between label and select box
+  }
+
+
+}
+
+// #course-name-select {
+//   background-color: #f4f4f4
+
+//   ;
+// }
+
+// .custom-checkbox-container {
+// background-color: aqua;
+// }
+.category-select {
+    width: 100vh;
+      font-size: 1em;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+
+      &:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+      }
+}
+
+#course_name_select{
+  width: 100vh;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  &:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+  }
+}
+
+
+
+/* Container for the scrolling courses */
+.live-courses-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  /* Hide overflow for scrolling effect */
+}
+
+/* Styling for the courses section */
+.live-courses {
+  display: flex;
+  overflow-x: auto;
+  /* Enable horizontal scroll */
+  scroll-behavior: smooth;
+  /* Smooth scrolling */
+  gap: 20px;
+      padding: 16px;
+  /* Space between courses */
+}
+
+/* Styling for each course item */
+.course-item {
+  flex: 0 0 auto;
+  /* Prevent items from shrinking or growing */
+  width: calc(100% / 4 - 20px);
+  /* Adjust width based on container size */
+  box-sizing: border-box;
+  /* Include padding and border in width */
+  padding: 20px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Navigation buttons */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 10;
+  transform: translateY(-50%);
+}
+
+.nav-button.left {
+  left: 10px;
+}
+
+.nav-button.right {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .course-item {
+    width: calc(100% / 2 - 20px);
+    /* Adjust for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .course-item {
+    width: calc(100% - 20px);
+    /* Adjust for very small screens */
   }
 }

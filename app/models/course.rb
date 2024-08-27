@@ -1,219 +1,226 @@
 class Course < ApplicationRecord
 
-  validates_presence_of :name, :description, :category
+  validates_presence_of :name, :category
 
 
-  COURSE_OPTIONS = {
+# COURSE_OPTIONS = {
 
-    'RAIL' => [
-      "AOD Handsignaller - Initial",
-      "AOD Handsignaller - Recert",
-      "AOD Level Crossing Attendant - Initial",
-      "AOD Level Crossing Attendant - Recert",
-      "AOD Points Operator - Initial",
-      "AOD Points Operator - Recert",
-      "Basic Signalling One (BS1)",
-      "CAT Scan & Genny",
-      "COSS - OLP & CRP (Inc LLT)",
-      "COSS Initial incl OLP/CRP (Incl PTS & DCCR Recert) - 8 Days",
-      "COSS Recert OLP/CRP (Inc PTS AC / DCCR & PC Recert)",
-      "COSS Recert OLP/CRP (Inc PTS AC / DCCR Recert) Not Inc PC",
-      "Crane Controller Excavator Crane - Tandem Lift Initial",
-      "CRT Management",
-      "DC Electrified Lines - Level B Strapping Initial",
-      "DC Electrified Lines - Level B Switching Initial",
-      "DC Electrified Lines – Level B Strapping Recert",
-      "DC Electrified Lines – Level B Switching Recert",
-      "DCCR Initial",
-      "Engineering Supervisor Initial (ES)",
-      "Engineering Supervisor Recert (ES)",
-      "Industry Common Induction (ICI) with LU Endorsement - Session 1 (09.00am)",
-      "Industry Common Induction (ICI) with LU Endorsement - Session 5 (15.00pm)",
-      "Interim PICOP Assessment (midweek nights)",
-      "IWA Initial (Inc PTS/DCCR Recert)",
-      "IWA Recert (Inc PTS/DCCR Recert)",
-      "Level A (Nominated Person for 25kV AC OLE/ 750V DC OLE / 1500V DC OLE / Auto Transformer)",
-      "Level B (Authorised Person for 25kV AC OLE/ 750V DC OLE/ 1500V DC OLE/ Auto Transformer)",
-      "Level B Switching and/or Strapping Assessment (Midweek Day)",
-      "Lookout Initial (LKT (U)) AM session",
-      "Lookout Initial (LKT (U)) PM session",
-      "Lookout Recert (LKT (U)) AM session",
-      "Lookout Recert (LKT (U)) PM session",
-      "Machine Operator - Self Propelled MEWP (inc. Working at Heights & Harness Training)",
-      "Machine Operator - Self Propelled MEWP (Recert)",
-      "MC - Material Handler",
-      "MC MEWP Controller",
-      "MC/CC 360 Excavator with Attachment Groups 1, 3, 4 and 6 - 8 days",
-      "Monitor Permanent Way Infrastructure (Hot Weather Patrolling) TR 42",
-      "NSCD Ops - Negative Short Circuiting Device (B4 Smart Isolation)",
-      "OLEC 1: Access Overhead Lines Construction Sites - Session 1",
-      "OLEC 2 - Recertification",
-      "OLEC 2: Undertake Basic OLE Construction Activities Under Direction",
-      "OLEC 3 - Element 1 (Install OLE Main Steelwork)",
-      "OLEC 3 - Element 2 (Install Small Part Steelwork)",
-      "OLEC 3 - Recertification (Elements 1-5)",
-      "OLEC 3: Construct, Renew, Enhance, and Modify OLE in Accordance with Design Drawings",
-      "OTP Core",
-      "OTP Core Recertification",
-      "OTP Lift Planning Initial - Single Lift",
-      "OTP Lift Planning Recert - Single Lift",
-      "PC Initial",
-      "PC Initial (Nights)",
-      "PICOP Initial",
-      "PICOP Recert",
-      "Possession Support",
-      "PTS AC Recert (Incl DCCR Recert)",
-      "PTS E-Learning",
-      "PTS Practical Event",
-      "Rail Saw and Impact Wrench",
-      "Raising & Removing Speed Restrictions (TR12 - Track Handback Engineer) - Initial",
-      "Raising & Removing Speed Restrictions (TR12 - Track Handback Engineer) - Recert",
-      "Safe System of Work Planner Initial (SSOWP)",
-      "Safe System of Work Planner Recert (SSOWP)",
-      "Safe use of Trolley Equipment - PTMP 16 (AM)",
-      "Safe use of Trolley Equipment - PTMP 16 (PM)",
-      "Safety Procedures for Working on Electrical Equipment (SPWEE) Session 1 AM",
-      "Safety Procedures for Working on Electrical Equipment (SPWEE) Session 2 PM",
-      "Site Warden Initial (AM)",
-      "Site Warden Initial (PM)",
-      "Site Warden Recert (AM)",
-      "Site Warden Recert (PM)",
-      "Slinger",
-      "Slinger Recert",
-      "SSOWP Assessment",
-      "Stressing Level 1 - Restoration of Stress (CWR) TR08",
-      "Stressing Level 2 - Stressing of Plain Line (CWR) Includes Level 1",
-      "Stressing Level 3 - Recert (incl Level 1 & 2)",
-      "Stressing Level 3 - Stressing of Switch and Crossings (includes levels 1 and 2)",
-      "Supervisors Visual Track Inspection (TR07.03)",
-      "TR04 Track Geometry 1",
-      "TR05 Track Geometry Supervisor",
-      "TR06.01 Track Patrolling (TTF06)",
-      "TR37 - Installation, Inspection & Maintenance of Level Crossing Surface Systems",
-      "TR52 - The installation, maintenance, removal and inspection of Temporary Clamped Rail Joints",
-      "Track Induction - 5 Days",
-      "Track Induction 9 days inc. DCCR"
-    ],
+#   'RAIL' => [
+#     { name: "Industry Common Induction (ICI) with LU Endorsement",
+#       description: "This course is mandatory for anyone working on the London Underground network. It is a one-day course that provides an overview of health and safety in the rail industry."},
+#     { name: "Rail Saw and Impact Wrench",
+#       description: "This course is designed for anyone who needs to use a rail saw or impact wrench. It covers the safe use of these tools and the relevant health and safety regulations."},
+#     { name: "Safe use of Trolley Equipment",
+#       description: "This course is designed for anyone who needs to use trolley equipment on the railway. It covers the safe use of trolley equipment and the relevant health and safety regulations."},
+#     { name: "Catscan training (RD8000,EASYCAT, Cat4)",
+#       description: "This course is designed for anyone who needs to use a catscan on the railway. It covers the safe use of catscan equipment and the relevant health and safety regulations."}
+#   ],
 
-    'CONSTRUCTION' => [
-      "2D AutoCAD",
-      "Abrasive Wheels",
-      "Abrasive Wheels - AM",
-      "Abrasive Wheels - PM",
-      "Basic Hand Tools",
-      "Basic Hydraulics",
-      "Basic Pneumatics",
-      "Basic Welding",
-      "CITB SEATS",
-      "CPCS - A04 Tower Crane (Novice Course)",
-      "CPCS - A09 Forward Tipping Dumper (Novice Course)",
-      "CPCS - A17 Telescopic Handler - EXPERIENCED",
-      "CPCS - A17C Telescopic Handler - (Novice Course)",
-      "CPCS - A21 Wheeled Loading Shovel (Novice Course)",
-      "CPCS - A31 Ride on Roller - (Novice Course)",
-      "CPCS - A40A Slinger Signaller - All Duties (Novice Course)",
-      "CPCS - A40B Slinger/Signaller - Static Duties (Novice Course)",
-      "CPCS - A56B Rear Tipping Articulated Dump Truck (Novice Course)",
-      "CPCS - A58 Excavator 360 below 10 tonnes (Novice Course)",
-      "CPCS - A59A 360 Excavator above 10 tonnes (Novice Course)",
-      "CPCS - A59B 360 Excavator above 10 tonnes (Novice Course)",
-      "CPCS - A61 Appointed Person (Lifting Operations)",
-      "CPCS - A62 Crane Supervisor (Novice Course)",
-      "CSCS Green Card – Including Site Safety Plus (e-learning) and CSCS Operative Touchscreen...",
-      "FLT Novice",
-      "FLT Refresher",
-      "Gas Bottle Safety",
-      "IPAF 3A/3B (MEWP)",
-      "NRSWA Refresher - Supervisors (Units LA, S1 - S5 & S7) & NRSWA Refresher - Operative...",
-      "Oxy Fuel - AM Session",
-      "Oxy Fuel - PM Session",
-      "Plasma Cutting - AM",
-      "Plasma Cutting - PM",
-      "PP&EI",
-      "Preparing & Using Lathes",
-      "Revit MEP Essentials training",
-      "Risk Assessment Level 3",
-      "Site Management Safety Training Scheme (SMSTS)",
-      "Site Management Safety Training Scheme Refresher (SMSTS)",
-      "Site Safety Plus - Health & Safety Awareness",
-      "Site Supervisors Safety Training Scheme (SSSTS)",
-      "Site Supervisors Safety Training Scheme Refresher (SSSTS)"
-    ],
+#   'CONSTRUCTION' => [
+#     { name: "Abrasive Wheels",
+#       description: "This course is designed for anyone who needs to use abrasive wheels. It covers the safe use of abrasive wheels and the relevant health and safety regulations."
+#     },
 
-    'SAFETY' => [
-      "Asbestos - Online Asbestos Awareness Training",
-      "Basic Slinging and Lifting",
-      "CCNSG Safety Passport",
-      "CCNSG Safety Passport Refresher",
-      "City & Guilds 2391-52 Level 3 Award in Initial and Periodic Inspection and Testing of...",
-      "Control of Substances Hazardous to Health (COSHH)",
-      "COSHH Level 2",
-      "DSE Assessors & Ergonomic Principles",
-      "Emergency First Aid",
-      "Emergency Paediatric First Aid",
-      "Fire Awareness - AM",
-      "Fire Awareness - PM",
-      "Fire Extinguisher",
-      "Fire Marshall (AM)",
-      "Fire Marshall (Theory & Practical) - AM",
-      "Fire Marshall (Theory & Practical) - PM",
-      "Fire Warden (Nights)",
-      "Fire Warden AM Session",
-      "Fire Warden PM Session",
-      "First Aid at Work",
-      "First Aid Refresher",
-      "GOTCHA Kit Harness Rescue (MOD 5a)",
-      "Hydrocarbon City & Guilds 6187-21",
-      "ICA International Advanced Certificate in Governance, Risk and Compliance",
-      "IOSH - Managing Safely",
-      "IOSH - Managing Safely (Virtual Classroom)",
-      "IOSH - Working Safely",
-      "IOSH - Working Safely (Virtual Classroom)",
-      "IPAF (Dual) Mobile Vertical (3a) + (3b) Mobile Boom - Operator",
-      "IPAF (Single) Mobile Vertical (3a) - Operator",
-      "IPAF (Single) Static Boom (1b) - Operator",
-      "IPAF Harness Use and Inspection",
-      "Ladder & Stepladder Inspection - Ladder Association",
-      "Ladder & Stepladder User - Ladder Association",
-      "Ladder Safety",
-      "Level 2 Health & Safety In The Workplace (Highfield)",
-      "Level 3 Award in Education and Training - Online",
-      "Manual Handling & Fire Safety Awareness",
-      "Manual Handling - AM",
-      "Manual Handling - Night Shift",
-      "Manual Handling - PM",
-      "NEBOSH Construction",
-      "NEBOSH Health and Safety Management for Construction (UK)",
-      "NEBOSH Health and Safety Management for Construction (UK) (Virtual Classroom)",
-      "NEBOSH National General Certificate in Occupational Health & Safety",
-      "NEBOSH National General Certificate in Occupational Health & Safety (Virtual Classroom)",
-      "PASMA - Mobile Access Tower for Users",
-      "Qualsafe Level 2 Award in Basic Life Support and Safe Use of an Automated External Defibrillator",
-      "Qualsafe Level 2 Award in Understanding Mental Health in the Workplace - 1 day",
-      "Qualsafe Level 3 Award in Emergency First Aid at Work (inc Electrical Incidents Module)",
-      "Qualsafe Level 3 Award in Emergency First Aid at Work (inc Electrical Incidents Module)",
-      "Qualsafe Level 3 Award in First Aid at Work (inc Electrical Incidents module)",
-      "Qualsafe Level 3 Award in First Aid at Work Recertification (inc Electrical Incidents Module)",
-      "Qualsafe Level 3 Award in Mental Health First Aid in the Workplace - 2 days",
-      "Retaining Wall Design to Eurocode 7 - Virtual",
-      "Risk Assessment Level 2",
-      "Safety Harness / Working at Heights",
-      "Time Management",
-      "Unvented Hot Water Storage (UHWS)",
-      "Working at Heights",
-      "Working at Heights & Harness Training",
-      "Working at Heights - Night Shift",
-      "Working in Confined Spaces - HIGH Risk",
-      "Working in Confined Spaces - LOW Risk",
-      "Working in Confined Spaces - MEDIUM Risk"
-    ],
+#     { name: "Risk Assessment Level 3",
+#       description: "This course is designed for anyone who needs to carry out risk assessments. It covers the legal requirements for risk assessments and how to identify hazards and assess risks."
+#     },
 
-    'MANAGEMENT' => [
-      "PFQ Project Management",
-      "PMQ Project Management"
-    ]
+#     { name: "Site Safety Plus - Health & Safety Awareness",
+#       description: "This course is designed for anyone who needs to work on a construction site. It covers the basic health and safety requirements for construction work."
+#     }
+#     ,
+#     { name: "Slinger",
+#       description: "This course is designed for anyone who needs to work as a slinger. It covers the safe use of slinging equipment and the relevant health and safety regulations."
+#     }
+#     ,
+#     { name: "Small Tools - Power Tools",
+#       description: "This course is designed for anyone who needs to use power tools. It covers the safe use of power tools and the relevant health and safety regulations."
+#     }
+#     ,
+#     { name: "Small Tools - De-veg Plant",
+#       description: "This course is designed for anyone who needs to use de-veg plant equipment. It covers the safe use of de-veg plant equipment and the relevant health and safety regulations."
+#     }
+#     ,
+#     { name: "Manual Handling",
+#       description: "This course is designed for anyone who needs to carry out manual handling tasks. It covers the safe lifting and handling of objects and the relevant health and safety regulations."
+#     }
+#     ,
+#     { name: "Asbestos Awareness",
+#       description: "This course is designed for anyone who needs to work in an environment where asbestos is present. It covers the risks associated with asbestos exposure and how to work safely in these environments."
+#     }
+#     ,
+#     { name: "PASMA - Mobile Access Tower for Users",
+#       description: "This course is designed for anyone who needs to work at height using mobile access towers. It covers the safe use of mobile access towers and the relevant health and safety regulations."
+#     }
+#     ,
+#     { name: "IPAF - Mobile Elevating Work Platforms",
+#       description: "This course is designed for anyone who needs to work at height using mobile elevating work platforms. It covers the safe use of mobile elevating work platforms and the relevant health and safety regulations."
+#     }
+#     ,
+#     { name: "Working at Heights",
+#       description: "This course is designed for anyone who needs to work at height. It covers the risks associated with working at height and how to work safely in these environments."
+#     }
+#     ,
+#     { name: "Working in Confined Spaces",
+#       description: "This course is designed for anyone who needs to work in confined spaces. It covers the risks associated with working in confined spaces and how to work safely in these environments."
+#     }
 
-  }
+#   ],
+
+#   'MEDICALS' => [
+#     { name: "Diabeties Emergency",
+#       description: "This course is designed for anyone who needs to provide emergency care for diabetics. It covers the signs and symptoms of diabetic emergencies and how to provide first aid."
+#     }
+#     ,
+#     { name: "NR Medical",
+#       description: "This course is designed for anyone who needs to pass the Network Rail medical assessment. It covers the medical requirements for working on the railway."
+#     }
+#     ,
+#     { name: "NR D&A",
+#       description: "This course is designed for anyone who needs to pass the Network Rail drugs and alcohol test. It covers the legal requirements for drugs and alcohol testing and how to prepare for the test."
+#     }
+#     ,
+#     { name: "NR Medical & D&A",
+#       description: "This course is designed for anyone who needs to pass both the Network Rail medical assessment and drugs and alcohol test. It covers the medical requirements for working on the railway and the legal requirements for drugs and alcohol testing."
+#     }
+#     ,
+#     { name: "Randoms D&A",
+#       description: "This course is designed for anyone who needs to pass random drugs and alcohol testing. It covers the legal requirements for random drugs and alcohol testing and how to prepare for the test."
+#     }
+#     ,
+#     { name: "TFL Medical (LUL)",
+#       description: "This course is designed for anyone who needs to pass the Transport for London medical assessment. It covers the medical requirements for working on the London Underground network."
+#     }
+#     ,
+#     { name: "TFL DAMPS/D&A (LUL)",
+#       description: "This course is designed for anyone who needs to pass the Transport for London drugs and alcohol test. It covers the legal requirements for drugs and alcohol testing and how to prepare for the test."
+#     }
+#     ,
+#     { name: "TFL Medical and D&A (LUL)",
+#       description: "This course is designed for anyone who needs to pass both the Transport for London medical assessment and drugs and alcohol test. It covers the medical requirements for working on the London Underground network and the legal requirements for drugs and alcohol testing."
+#     }
+#     ,
+#     { name: "Safety Critical for Const/Fit for Work Medical Working at Heights Medical",
+#       description: "This course is designed for anyone who needs to pass the safety critical medical assessment and working at heights medical assessment. It covers the medical requirements for working in safety critical roles and at height."
+#     }
+#     ,
+#     { name: "Safety Critical",
+#       description: "This course is designed for anyone who needs to pass the safety critical medical assessment. It covers the medical requirements for working in safety critical roles."
+#     }
+#     ,
+#     { name: "Spirometry (Lung Function test)",
+#       description: "This course is designed for anyone who needs to pass a spirometry test. It covers the procedure for performing a spirometry test and how to interpret the results."
+#     }
+#     ,
+#     { name: "Audiometry (hearing test)",
+#       description: "This course is designed for anyone who needs to pass an audiometry test. It covers the procedure for performing an audiometry test and how to interpret the results."
+#     }
+#     ,
+#     { name: "Health and Wellbeing Workshop (Cholesterol, Blood Pressure, Body Mass Index, Glucose)",
+#       description: "This course is designed for anyone who wants to improve their health and wellbeing. It covers the importance of cholesterol, blood pressure, body mass index, and glucose levels for overall health."
+#     }
+
+#   ]
+
+# }
+
+COURSE_OPTIONS = {
+  'RAIL' => [
+ {
+      name: "Industry Common Induction (ICI) with LU Endorsement",
+      description: "This course is mandatory for anyone working on the London Underground network. It is a one-day course that provides an overview of health and safety in the rail industry.\n\n" \
+                    "Overview\n\n" \
+                    "Introduction\n\n" \
+                    "The Industry Common Induction (ICI) is designed to equip personnel with essential health and safety knowledge for working across various construction sites, rail depots, and station maintenance environments. This induction program, developed by Network Rail in collaboration with the Infrastructure Safety Liaison Group (ISLG) and the Rail Infrastructure Assurance Group (RIAG), addresses the universal safety protocols and risks encountered throughout the rail industry, regardless of the specific role or site type.\n\n" \
+                    "Prior to attending the ICI Assessment, candidates are advised to complete the ICI E-Learning module. It is the sponsor’s responsibility to set up the login credentials for the E-Learning platform and register the candidate for the ICI.\n\n" \
+                    "Assessment Details:\n\n" \
+                    "- **Passing Criteria:** Candidates must achieve a minimum score of 80% to pass.\n" \
+                    "- **Certification:** Successful candidates will be registered in the Sentinel system.\n" \
+                    "- **Session Timing:** 09:00 - 10:00\n\n" \
+                    "Completion of this course also qualifies candidates for the ICI LU competence certification."
+    },
+
+    { name: "Rail Saw and Impact Wrench",
+      description: "This course is designed for anyone who needs to use a rail saw or impact wrench. It covers the safe use of these tools and the relevant health and safety regulations." },
+    { name: "Safe use of Trolley Equipment",
+      description: "This course is designed for anyone who needs to use trolley equipment on the railway. It covers the safe use of trolley equipment and the relevant health and safety regulations." },
+    { name: "Catscan training (RD8000,EASYCAT, Cat4)",
+      description: "This course is designed for anyone who needs to use a catscan on the railway. It covers the safe use of catscan equipment and the relevant health and safety regulations." }
+  ],
+
+  'CONSTRUCTION' => [
+    { name: "Abrasive Wheels",
+      description: " <p><strong>This course is designed for anyone who needs to use abrasive wheels. It covers the safe use of abrasive wheels and the relevant health and safety regulations.</strong></p><p>\r\n
+            <em> Course Requirements for Trainees</em></p><p>\r\n    <strong>    Minimum Age</strong>\r\n
+      Participants must be at least 18 years old.</p><p>\r\n<strong>
+      Health and Safety</strong>\r\n
+      Trainees should be in good health and able to handle the physical demands of the course. If there are specific health concerns, a pre-course medical assessment may be required.</p><p>\r\n
+      <strong>Personal Protective Equipment (PPE)</strong>\r\n
+      Trainees must bring their own PPE, including:\r\n
+      Safety glasses or goggles\r\n
+      Protective gloves\r\n
+                                  Safety boots with steel toe caps\r\n
+      Hearing protection (earplugs or earmuffs)</p><p>\r\n
+      <strong>    Identification</strong>\r\n
+      A valid photo ID (e.g., passport, driving license) must be presented on the day of the course.</p><p>\r\n<strong>
+      Punctuality</strong>\r\n        Trainees should arrive at the course location promptly to ensure a smooth start and to receive the full benefit of the training.</p>"
+  },
+    { name: "Risk Assessment Level 3",
+      description: "This course is designed for anyone who needs to carry out risk assessments. It covers the legal requirements for risk assessments and how to identify hazards and assess risks." },
+    { name: "Site Safety Plus - Health & Safety Awareness",
+      description: "This course is designed for anyone who needs to work on a construction site. It covers the basic health and safety requirements for construction work." },
+    { name: "Slinger",
+      description: "This course is designed for anyone who needs to work as a slinger. It covers the safe use of slinging equipment and the relevant health and safety regulations." },
+    { name: "Small Tools - Power Tools",
+      description: "This course is designed for anyone who needs to use power tools. It covers the safe use of power tools and the relevant health and safety regulations." },
+    { name: "Small Tools - De-veg Plant",
+      description: "This course is designed for anyone who needs to use de-veg plant equipment. It covers the safe use of de-veg plant equipment and the relevant health and safety regulations." },
+    { name: "Manual Handling",
+      description: "This course is designed for anyone who needs to carry out manual handling tasks. It covers the safe lifting and handling of objects and the relevant health and safety regulations." },
+    { name: "Asbestos Awareness",
+      description: "This course is designed for anyone who needs to work in an environment where asbestos is present. It covers the risks associated with asbestos exposure and how to work safely in these environments." },
+    { name: "PASMA - Mobile Access Tower for Users",
+      description: "This course is designed for anyone who needs to work at height using mobile access towers. It covers the safe use of mobile access towers and the relevant health and safety regulations." },
+    { name: "IPAF - Mobile Elevating Work Platforms",
+      description: "This course is designed for anyone who needs to work at height using mobile elevating work platforms. It covers the safe use of mobile elevating work platforms and the relevant health and safety regulations." },
+    { name: "Working at Heights",
+      description: "This course is designed for anyone who needs to work at height. It covers the risks associated with working at height and how to work safely in these environments." },
+    { name: "Working in Confined Spaces",
+      description: "This course is designed for anyone who needs to work in confined spaces. It covers the risks associated with working in confined spaces and how to work safely in these environments." }
+  ],
+
+  'MEDICALS' => [
+    { name: "Diabeties Emergency",
+      description: "This course is designed for anyone who needs to provide emergency care for diabetics. It covers the signs and symptoms of diabetic emergencies and how to provide first aid." },
+    { name: "NR Medical",
+      description: "This course is designed for anyone who needs to pass the Network Rail medical assessment. It covers the medical requirements for working on the railway." },
+    { name: "NR D&A",
+      description: "This course is designed for anyone who needs to pass the Network Rail drugs and alcohol test. It covers the legal requirements for drugs and alcohol testing and how to prepare for the test." },
+    { name: "NR Medical & D&A",
+      description: "This course is designed for anyone who needs to pass both the Network Rail medical assessment and drugs and alcohol test. It covers the medical requirements for working on the railway and the legal requirements for drugs and alcohol testing." },
+    { name: "Randoms D&A",
+      description: "This course is designed for anyone who needs to pass random drugs and alcohol testing. It covers the legal requirements for random drugs and alcohol testing and how to prepare for the test." },
+    { name: "TFL Medical (LUL)",
+      description: "This course is designed for anyone who needs to pass the Transport for London medical assessment. It covers the medical requirements for working on the London Underground network." },
+    { name: "TFL DAMPS/D&A (LUL)",
+      description: "This course is designed for anyone who needs to pass the Transport for London drugs and alcohol test. It covers the legal requirements for drugs and alcohol testing and how to prepare for the test." },
+    { name: "TFL Medical and D&A (LUL)",
+      description: "This course is designed for anyone who needs to pass both the Transport for London medical assessment and drugs and alcohol test. It covers the medical requirements for working on the London Underground network and the legal requirements for drugs and alcohol testing." },
+    { name: "Safety Critical for Const/Fit for Work Medical Working at Heights Medical",
+      description: "This course is designed for anyone who needs to pass the safety critical medical assessment and working at heights medical assessment. It covers the medical requirements for working in safety critical roles and at height." },
+    { name: "Safety Critical",
+      description: "This course is designed for anyone who needs to pass the safety critical medical assessment. It covers the medical requirements for working in safety critical roles." },
+    { name: "Spirometry (Lung Function test)",
+      description: "This course is designed for anyone who needs to pass a spirometry test. It covers the procedure for performing a spirometry test and how to interpret the results." },
+    { name: "Audiometry (hearing test)",
+      description: "This course is designed for anyone who needs to pass an audiometry test. It covers the procedure for performing an audiometry test and how to interpret the results." },
+    { name: "Health and Wellbeing Workshop (Cholesterol, Blood Pressure, Body Mass Index, Glucose)",
+      description: "This course is designed for anyone who wants to improve their health and wellbeing. It covers the importance of cholesterol, blood pressure, body mass index, and glucose levels for overall health." }
+  ]
+}
+
+
+
 
   def self.course_options_as_json
     COURSE_OPTIONS.to_json

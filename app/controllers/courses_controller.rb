@@ -10,29 +10,79 @@ class CoursesController < ApplicationController
   after_action :verify_policy_scoped, only: :index
 
   def filter_by_category
-    if params[:category] == 'ALL' || params[:category].blank?
+
+    @kids = policy_scope(Course)
+    @kids = []
+
+    duplicate_names = Course.group(:name).having("COUNT(*) > 1").pluck(:name)
+
+    # Step 2: Retrieve courses with those duplicate names, excluding the first occurrence for each name
+    @kids = Course.where(name: duplicate_names).where.not(id: Course.select("MIN(id)").group(:name).having("COUNT(*) > 1"))
+
+    name = params[:name]
+    category = params[:category].present? ? params[:category] : 'ALL'
+
+    @categories = ['RAIL', 'CONSTRUCTION', 'MEDICALS']
+
+    if category.blank? || category == 'ALL'
       @courses = Course.all
     else
-      @courses = Course.where("category LIKE ?", "%#{params[:category]}%")
+      @courses = Course.where("category = ?", category)
+    end
+
+    if name.present?
+      p "name: #{name}"
+      @courses = @courses.where("name LIKE ?", "%#{name}%")
     end
 
     respond_to do |format|
-      format.html { render partial: 'courses_list', locals: { courses: @courses } }
+      format.html do
+        if request.xhr?
+          render partial: 'courses_list', locals: { courses: @courses }
+        else
+          if params[:name] != ""
+            redirect_to show_by_name_courses_path(name: params[:name])
+          else
+            render 'index'
+          end
+        end
+      end
       format.json { render json: @courses }
     end
+
+  end
+
+  def index
+    @categories = ['RAIL', 'CONSTRUCTION', 'SAFETY']
+    @courses = policy_scope(Course)
+    @courses = []
+
+    @kids = policy_scope(Course)
+    @kids = []
+
+    duplicate_names = Course.group(:name).having("COUNT(*) > 1").pluck(:name)
+
+    # Step 2: Retrieve courses with those duplicate names, excluding the first occurrence for each name
+    @kids = Course.where(name: duplicate_names).where.not(id: Course.select("MIN(id)").group(:name).having("COUNT(*) > 1"))
+
+
+    authorize Course
+
+    Rails.logger.debug "In index: @kids=#{@kids.inspect}"
   end
 
   def show_by_name
     @course_name = params[:name]
     @courses = Course.where(name: @course_name)
-  Rails.logger.debug "Params in show_by_name action: #{params.inspect}"
-  Rails.logger.debug "Courses found: #{@courses.inspect}"
+    Rails.logger.debug "Params in show_by_name action: #{params.inspect}"
+    Rails.logger.debug "Courses found: #{@courses.inspect}"
     @course = @courses.first
-  end
 
-  def index
-    @courses = policy_scope(Course)
-    authorize Course
+    if params[:name].to_i != 0
+      @course = Course.find(params[:name])
+      @courses = Course.where(name: @course.name)
+    end
+
   end
 
   def show
