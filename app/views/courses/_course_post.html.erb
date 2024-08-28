@@ -1,0 +1,17 @@
+
+<% bgc = "#{course.name.split(" ")[0].downcase}.png" %>
+
+<div class="course-post" style="background-image: url('<%= asset_path(bgc) %>')" >
+  <div class="course-post-details">
+      <p><%= course.hours %></p>
+      <p><%= course.price %></p>
+      <p><%= course.location %></p>
+      <p style="
+    display: flex;
+    width: 50%;
+    position: relative;
+    top: -12%;">
+    <%= course.start_date === course.end_date ? "#{course.start_date}" : "#{course.start_date} - course.end_date}" %>
+    </p>
+  </div>
+</div>

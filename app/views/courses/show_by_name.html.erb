@@ -6,6 +6,7 @@
 
   <% if @courses.length > 1 %>
       <% @courses.each do |course| %>
+
         <div class="course-details-wrapper">
           <h1><%= course.name %> <%= course.certification %></h1>
 
@@ -40,6 +41,12 @@
               <%= form_with(model: course, method: :delete, local: true) do |form| %>
                 <%= form.submit 'Destroy', data: { confirm: 'Are you sure?' }, class: 'gradient-button' %>
               <% end %>
+
+              <button class="generate-post-button gradient-button" data-course-id="<%= course.id %>">Generate Social Media Post</button>
+
+
+              <div id="hidden-post-content" style="display: none;"></div>
+
             </div>
           </section>
           <% end %>
@@ -73,16 +80,63 @@
 
 
           <% if current_user.nil? == false && current_user.admin == true %>
-          <section class="admin-actions">
-            <h3>ADMIN ACTIONS</h3>
-            <div class="admin-actions-buttons">
-              <%= link_to 'Edit', edit_course_path(@course), class: 'gradient-button' %>
-              <%= form_with(model: @course, method: :delete, local: true) do |form| %>
-                <%= form.submit 'Destroy', data: { confirm: 'Are you sure?' }, class: 'gradient-button' %>
-              <% end %>
-            </div>
-          </section>
+            <section class="admin-actions">
+              <h3>ADMIN ACTIONS</h3>
+              <div class="admin-actions-buttons">
+                <%= link_to 'Edit', edit_course_path(@course), class: 'gradient-button' %>
+                <%= form_with(model: @course, method: :delete, local: true) do |form| %>
+                  <%= form.submit 'Destroy', data: { confirm: 'Are you sure?' }, class: 'gradient-button' %>
+                <% end %>
+              </div>
+            </section>
           <% end %>
         </div>
   <% end %>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.generate-post-button').forEach(button => {
+      button.addEventListener('click', async (event) => {
+        const courseId = button.getAttribute('data-course-id');
+
+        try {
+          // Fetch the rendered partial for the specific course
+          const response = await fetch(`/courses/${courseId}/render_post_partial`);
+          const html = await response.text();
+
+          // Create a temporary container to hold the HTML
+          const tempContainer = document.createElement('div');
+          tempContainer.innerHTML = html;
+          document.body.appendChild(tempContainer);
+
+          // Use html2canvas to capture the content of the temporary container
+          const canvas = await html2canvas(tempContainer, {
+            useCORS: true,
+            scrollX: 0,
+            scrollY: -window.scrollY,
+            width: tempContainer.scrollWidth,
+            height: tempContainer.scrollHeight,
+            backgroundColor: null
+          });
+
+          // Convert canvas to image URL
+          const imageUrl = canvas.toDataURL('image/png');
+
+          // Create a link to download the image
+          const link = document.createElement('a');
+          link.href = imageUrl;
+          link.download = `course_${courseId}.png`;
+          link.click();
+
+          // Clean up
+          document.body.removeChild(tempContainer);
+        } catch (error) {
+          console.error('Error generating image:', error);
+        }
+      });
+    });
+  });
+</script>
