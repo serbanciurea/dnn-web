@@ -12,8 +12,8 @@
       </p>
       <div class="course-details">
         <p class="location-and-members">
-          <span class="location"><i class="fas fa-map-location-dot"></i> <%= course.location %></span>
-          <span class="members"><i class="fa-solid fa-user-group" style="color: #EA5D30;"></i> <%= course.member_number || 'Not specified' %></span>
+          <span class="location"><i class="fas fa-map-location-dot"></i> <%= course.location || 'Suite 605, WD6 2BW'%></span>
+          <span class="members"><i class="fa-solid fa-user-group" style="color: #EA5D30;"></i> <%= course.member_number || '12' %></span>
         </p>
         <p class="price"><%= number_to_currency(course.price, unit: '£') %></p>
       </div>
@@ -28,15 +28,17 @@
         <%#= format_description(@course.description) %>
       </p>
       <div class="course-actions">
-        <%= link_to 'READ MORE', course_path(course), class: 'gradient-button' %>
-        <button class="gradient-button book-now-button" data-course="<%= course.name %>" data-modal-id="<%= course.id %>">BOOK NOW</button>
+        <%#= link_to 'READ MORE', course_path(course), class: 'gradient-button' %>
+        <%= link_to 'READ MORE', show_by_name_courses_path(course.name), class: 'gradient-button' %>
+        <% value = Course.where(name: course.name).length > 1 %>
+        <button class="gradient-button book-now-button" data-course="<%= course.name %>" data-modal-id="<%= course.id %>"><%= value === true ? 'BOOK NOW' : 'ENQUIRE' %></button>
       </div>
     </div>
 
     <div id="bookingModal<%= course.id %>" class="modal" style="display: none;">
       <div class="modal-content">
-        <h3>Book Your Spot</h3>
-        <p>You are booking the course "<span class="modal-course-name" id="modal-course-name"><%= course.name %></span>". Choose an option:</p>
+        <h3><%= value === true ? 'Book Your Spot' : 'Enquire This Course' %></h3>
+        <p><%= value === true ? 'You are booking the course' : 'You are enquiring the course' %> "<span class="modal-course-name" id="modal-course-name"><%= course.name %></span>". Choose an option:</p>
         <div class="modal-actions">
           <a href="tel:+0771520381" class="gradient-button">Call Us</a>
           <a href="mailto:info@dnnovation.com?subject=Booking Inquiry for <%= course.name %>" class="gradient-button">Send an Email</a>

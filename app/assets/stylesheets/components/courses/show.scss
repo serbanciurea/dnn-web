@@ -90,27 +90,39 @@
     }
 
     .admin-actions-buttons {
-      display: flex;
+        display: flex;
       justify-content: center;
+      /* Center the buttons horizontally */
       text-align: center;
-      gap: 20px;
-
-      // .gradient-button {
-      //   padding: 12px 25px;
-      //   // background-color: #EA5D30;
-      //   color: #ffffff;
-      //   border-radius: 6px;
-      //   text-decoration: none;
-      //   font-size: 1rem;
-      //   font-family: 'Arial', sans-serif;
-      //   transition: background-color 0.3s ease;
-
-      //   &:hover {
-      //     background-color: #cc4e28;
-      //   }
+      gap: 10px;
+      /* Space between buttons */
+      flex-wrap: nowrap;
+      /* Ensure buttons stay on one line */
+   }
 
     }
+
+        .admin-actions-buttons button {
+          padding: 8px 12px;
+          /* Adjust padding for smaller buttons */
+          font-size: 14px;
+          /* Smaller font size */
+          border-radius: 4px;
+          /* Slightly rounded corners for the buttons */
+          border: none;
+          /* Remove default border */
+          background-color: #007bff;
+          /* Button background color */
+          color: #fff;
+          /* Text color */
+          cursor: pointer;
+          /* Pointer cursor on hover */
+          transition: background-color 0.3s;
+          /* Smooth transition for background color */
+        }
   }
+
+
 /* Responsive Media Queries */
 @media (max-width: 1024px) {
   .course-info {
@@ -184,11 +196,11 @@
     }
 
   }
-}
+
 
 
 .course-details-wrapper {
-  margin: 40px auto;
+  margin: 10px auto;
   height: 100%;
   padding: 20px;
   background-color: transparent;

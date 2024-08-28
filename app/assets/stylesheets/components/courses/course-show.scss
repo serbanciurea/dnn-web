@@ -1,0 +1,111 @@
+.individual-course {
+  padding-top: 0px;
+padding: 20px;
+border-radius: 5px;
+
+
+
+
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Center the content on the page */
+    padding: 20px;
+    /* Add some padding for better spacing */
+
+
+  .course-details-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Two columns layout */
+    gap: 20px;
+    /* Space between the columns */
+    background-color: transparent;
+    /* Light background for contrast */
+    padding: 20px;
+    /* Padding around the course details */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    margin-bottom: 20px;
+    /* Space between course cards */
+  }
+
+  .course-details-wrapper h1 {
+    grid-column: span 2;
+    /* Make the title span across both columns */
+    font-size: 1.8rem;
+    color: #333;
+  }
+
+  .course-details-wrapper .course-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .course-details-wrapper .course-info p {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .course-details-wrapper .course-description {
+    grid-column: span 2;
+    /* Make the description span across both columns */
+    font-size: 1rem;
+    color: #666;
+    margin-top: 15px;
+  }
+
+  .admin-actions {
+    grid-column: span 2;
+    /* Make the admin actions span across both columns */
+    margin-top: 20px;
+  }
+
+  .admin-actions h3 {
+    font-size: 1.2rem;
+    color: #d9534f;
+    /* Red color for emphasis */
+  }
+
+  // .admin-actions-buttons {
+  //   display: flex;
+  //   gap: 10px;
+  //   /* Space between admin action buttons */
+  // }
+
+  // .gradient-button {
+  //   padding: 10px 15px;
+  //   background: linear-gradient(45deg, #f06, #f90);
+  //   color: #fff;
+  //   border: none;
+  //   border-radius: 5px;
+  //   text-transform: uppercase;
+  //   cursor: pointer;
+  //   transition: background 0.3s ease;
+  // }
+
+  // .gradient-button:hover {
+  //   background: linear-gradient(45deg, #f90, #f06);
+  // }
+
+  @media (max-width: 768px) {
+    .course-details-wrapper {
+      grid-template-columns: 1fr;
+      /* Single column layout for small screens */
+    }
+
+    .course-details-wrapper h1,
+    .course-description,
+    .admin-actions {
+      grid-column: span 1;
+      /* Ensure full-width on small screens */
+    }
+  }
+}
+
+
+.create-course-container {
+  margin-top: 5%;
+}

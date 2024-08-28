@@ -7,12 +7,6 @@ Rails.application.routes.draw do
   # get 'courses/update'
   # get 'courses/destroy'
 
-  resources :courses, only: [:index] do
-    collection do
-      get 'filter_by_category'
-    end
-  end
-
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -37,7 +31,20 @@ Rails.application.routes.draw do
 
   resources :employees
   resources :contracts
-  resources :courses
+
+  # resources :courses, only: [:index] do
+  #   collection do
+  #     get 'filter_by_category'
+  #   end
+  # end
+  resources :courses, except: [:index, :show]
+
+  resources :courses, only: [:index] do
+    collection do
+      get 'filter_by_category'
+      get ':name', to: 'courses#show_by_name', as: :show_by_name
+    end
+  end
 
   resources :users do
     patch :approve, on: :member

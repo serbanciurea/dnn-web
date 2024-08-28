@@ -1,160 +1,263 @@
-<%= form_with(model: @course, local: true, html: { class: 'course-form' }) do |form| %>
-  <% if @course.errors.any? %>
-    <div id="error_explanation" class="error-explanation">
-      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
-      <ul>
-        <% @course.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+
+  <%= form_with(model: @course, local: true, html: { class: 'course-form' }) do |form| %>
+    <% if @course.errors.any? %>
+      <div id="error_explanation" class="error-explanation">
+        <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+        <ul>
+          <% @course.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <% if params[:duplicate] %>
+        <div class="form-group">
+          <%= form.label :certification, class: 'form-label' %>
+          <%= form.select :certification, options_for_select([['Initial', 'initial'], ['Recertification', 'recertification']]), { prompt: 'Select certification type' }, class: 'form-control' %>
+        </div>
+
+      <div id="category-selection" style="display: none;">
+        <div class="custom-checkbox-container">
+          <%= check_box_tag 'course[category][]', 'CONSTRUCTION', @course.category&.include?('CONSTRUCTION'), id: 'course_category_construction', class: 'custom-checkbox' %>
+          <label for="course_category_construction">
+            <span class="checkmark-prod"></span>
+            CONSTRUCTION
+          </label>
+        </div>
+
+        <div class="custom-checkbox-container">
+          <%= check_box_tag 'course[category][]', 'RAIL', @course.category&.include?('RAIL'), id: 'course_category_rail', class: 'custom-checkbox' %>
+          <label for="course_category_rail">
+            <span class="checkmark-prod"></span>
+            RAIL
+          </label>
+        </div>
+
+        <div class="custom-checkbox-container">
+          <%= check_box_tag 'course[category][]', 'MANAGEMENT', @course.category&.include?('MANAGEMENT'), id: 'course_category_management', class: 'custom-checkbox' %>
+          <label for="course_category_management">
+            <span class="checkmark-prod"></span>
+            MANAGEMENT
+          </label>
+        </div>
+      </div>
+
+<div id = "category-selection" style="display: none;">
+  <label for="course_name_select">Select a Course</label>
+  <%= form.select :name, options_for_select(Course.pluck(:name, :name), @name), { prompt: 'Select a course' }, id: 'course_name_select' %>
+</div>
+
+    <% else %>
+
+      <div id="category-selection">
+        <div class="custom-checkbox-container">
+          <%= check_box_tag 'course[category][]', 'CONSTRUCTION', @course.category&.include?('CONSTRUCTION'), id: 'course_category_construction', class: 'custom-checkbox' %>
+          <label for="course_category_construction">
+            <span class="checkmark-prod"></span>
+            CONSTRUCTION
+          </label>
+        </div>
+
+        <div class="custom-checkbox-container">
+          <%= check_box_tag 'course[category][]', 'RAIL', @course.category&.include?('RAIL'), id: 'course_category_rail', class: 'custom-checkbox' %>
+          <label for="course_category_rail">
+            <span class="checkmark-prod"></span>
+            RAIL
+          </label>
+        </div>
+
+        <div class="custom-checkbox-container">
+          <%= check_box_tag 'course[category][]', 'MANAGEMENT', @course.category&.include?('MANAGEMENT'), id: 'course_category_management', class: 'custom-checkbox' %>
+          <label for="course_category_management">
+            <span class="checkmark-prod"></span>
+            MANAGEMENT
+          </label>
+        </div>
+      </div>
+
+      <%# <select id="course_name_select">
+        <option value="">Select a course</option>
+      </select> %>
+
+      <div id= "category-selection">
+        <label for="course_name_select">Select a Course</label>
+        <%= form.select :name, [], { prompt: 'Select a course' }, id: 'category-selection' %>
+      </div>
+
+      <script type="text/javascript">
+        const courseOptions = <%= raw Course.course_options_as_json %>;
+      </script>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const categoryCheckboxes = document.querySelectorAll('#category-selection .custom-checkbox-container input[type="checkbox"]');
+          console.log('Category checkboxes:', categoryCheckboxes);
+
+          const courseSelect = document.getElementById('course_name_select');
+          console.log('Course select:', courseSelect);
+
+          function updateCourseOptions() {
+            // Ensure there are checkboxes found
+            if (categoryCheckboxes.length === 0) {
+              console.error('No category checkboxes found.');
+              return;
+            }
+
+            // Get selected categories
+            const selectedCategories = Array.from(categoryCheckboxes)
+              .filter(checkbox => checkbox.checked)
+              .map(checkbox => checkbox.value);
+
+            // Clear current options
+            courseSelect.innerHTML = '<option value="">Select a course</option>';
+
+            // Add new options based on selected categories
+            selectedCategories.forEach(category => {
+              const courses = courseOptions[category] || [];
+              courses.forEach(course => {
+                const option = document.createElement('option');
+                option.value = course.name;
+                option.textContent = course.name;
+                courseSelect.appendChild(option);
+              });
+            });
+          }
+
+          // Bind change event to checkboxes
+          categoryCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateCourseOptions);
+          });
+
+          // Initial load to set courses based on preselected categories
+          updateCourseOptions();
+        });
+
+
+      </script>
+
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :start_date, class: 'form-label' %>
+      <%= form.date_select :start_date, class: 'form-control' %>
     </div>
-  <% end %>
 
-  <div class="form-group">
-    <%= form.label :name, class: 'form-label' %>
-    <%= form.text_field :name, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :start_date, class: 'form-label' %>
-    <%= form.date_select :start_date, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :end_date, class: 'form-label' %>
-    <%= form.date_select :end_date, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :price, class: 'form-label' %>
-    <%= form.number_field :price, step: 0.01, class: 'form-control' %> <span>£</span>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :location, class: 'form-label' %>
-    <%= form.text_field :location, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :member_number, class: 'form-label' %>
-    <%= form.number_field :member_number, class: 'form-control', min: 1 %>
-  </div>
-
-    <link href="https://cdn.quilljs.com/2.0.0/quill.snow.css" rel="stylesheet">
-
-    <!-- Quill JS -->
-    <script src="https://cdn.quilljs.com/2.0.0/quill.js"></script>
-
-
-    <%# <div class="form-group"> %>
-      <%#= form.label :description, "Course Details" %>
-      <%#= form.text_area :description, placeholder: "Include summary, pre-requisites, and results with headers" %>
-    <%# </div> %>
-
-    <div class="field-group" style="display: none;">
-      <%= form.label :description, "Course Details" %>
-      <%= form.text_area :description, id: 'description-3', placeholder: "Include summary, pre-requisites, and results with headers" %>
+    <div class="form-group">
+      <%= form.label :end_date, class: 'form-label' %>
+      <%= form.date_select :end_date, class: 'form-control' %>
     </div>
 
-    <!-- Visible Quill editor -->
     <div class="field-group">
-      <div id="quill-editor-3" style="height: 300px;"></div>
+      <%= form.label :hours %>
+      <%= form.text_area :hours, placeholder: "Include the hours.", style: "color: black;" %>
     </div>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-      console.log("DOM content loaded.");
+    <div class="form-group">
+      <%= form.label :price, class: 'form-label' %>
+      <%= form.number_field :price, step: 0.01, class: 'form-control' %> <span>£</span>
+    </div>
 
-      // Initialize Quill editor
-      var editor = new Quill('#quill-editor-3', {
-        theme: 'snow',
-        placeholder: 'Enter description',
-        modules: {
-          toolbar: [
-            [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
-            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-            ['bold', 'italic', 'underline'],
-            ['link']
-          ]
+    <div class="form-group">
+      <%= form.label :location, class: 'form-label' %>
+      <%= form.text_field :location, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :member_number, class: 'form-label' %>
+      <%= form.number_field :member_number, class: 'form-control', min: 1 %>
+    </div>
+
+      <link href="https://cdn.quilljs.com/2.0.0/quill.snow.css" rel="stylesheet">
+
+      <!-- Quill JS -->
+      <script src="https://cdn.quilljs.com/2.0.0/quill.js"></script>
+
+
+      <%# <div class="form-group"> %>
+        <%#= form.label :description, "Course Details" %>
+        <%#= form.text_area :description, placeholder: "Include summary, pre-requisites, and results with headers" %>
+      <%# </div> %>
+
+      <div class="field-group" style="display: none;">
+        <%= form.label :description, "Course Details" %>
+        <%= form.text_area :description, id: 'description-3', placeholder: "Include summary, pre-requisites, and results with headers" %>
+      </div>
+
+      <!-- Visible Quill editor -->
+      <div class="field-group">
+        <div id="quill-editor-3" style="height: 300px;"></div>
+      </div>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        console.log("DOM content loaded.");
+
+        // Initialize Quill editor
+        var editor = new Quill('#quill-editor-3', {
+          theme: 'snow',
+          placeholder: 'Enter description',
+          modules: {
+            toolbar: [
+              [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
+              [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+              ['bold', 'italic', 'underline'],
+              ['link']
+            ]
+          }
+        });
+
+        console.log("Quill editor initialized.");
+
+        // Select the hidden textarea
+        var description = document.querySelector('#description-3');
+        //////////////////////////////////////////////////////////////////
+        if (description && description.value) {
+          editor.root.innerHTML = description.value;
         }
+        ///////////////////////////////////////////////////////////////////
+        if (!description) {
+          console.error("Textarea not found!");
+          return;
+        }
+        console.log("Description textarea element:", description);
+
+        // Update hidden textarea on form submit
+        var form = document.querySelector('form');
+        if (!form) {
+          console.error("Form not found!");
+          return;
+        }
+
+        form.addEventListener('submit', function(event) {
+          console.log("Form submit detected.");
+
+          // Populate the hidden textarea with the content from Quill editor
+          var editorContent = editor.root.innerHTML.trim();
+          console.log("Editor content at submit:", editorContent);
+
+          description.value = editorContent;
+          console.log('Textarea updated with editor content:', description.value);
+
+          // Ensure the form submits
+          return true;
+        });
+
+        // Test setting description manually
+        document.querySelector('#submit-button').addEventListener('click', function() {
+          console.log('Submit button clicked.');
+          description.value = editor.root.innerHTML.trim();
+          console.log('Description set manually before form submission:', description.value);
+        });
       });
 
-      console.log("Quill editor initialized.");
+      </script>
 
-      // Select the hidden textarea
-      var description = document.querySelector('#description-3');
-      //////////////////////////////////////////////////////////////////
-      if (description && description.value) {
-        editor.root.innerHTML = description.value;
-      }
-      ///////////////////////////////////////////////////////////////////
-      if (!description) {
-        console.error("Textarea not found!");
-        return;
-      }
-      console.log("Description textarea element:", description);
+    <div class="form-actions">
+      <%= form.submit 'Create Course',id: 'submit-button', class: 'gradient-button' %>
+      <button type="button" class="gradient-button" id="generate-advert-btn">Generate Advert</button>
+    </div>
 
-      // Update hidden textarea on form submit
-      var form = document.querySelector('form');
-      if (!form) {
-        console.error("Form not found!");
-        return;
-      }
+    <%# <% end %>
 
-      form.addEventListener('submit', function(event) {
-        console.log("Form submit detected.");
-
-        // Populate the hidden textarea with the content from Quill editor
-        var editorContent = editor.root.innerHTML.trim();
-        console.log("Editor content at submit:", editorContent);
-
-        description.value = editorContent;
-        console.log('Textarea updated with editor content:', description.value);
-
-        // Ensure the form submits
-        return true;
-      });
-
-      // Test setting description manually
-      document.querySelector('#submit-button').addEventListener('click', function() {
-        console.log('Submit button clicked.');
-        description.value = editor.root.innerHTML.trim();
-        console.log('Description set manually before form submission:', description.value);
-      });
-    });
-
-    </script>
-
-  <%= form.label :category, "Select Categories" %>
-  <div class="custom-checkbox-container">
-    <%= check_box_tag 'course[category][]', 'CONSTRUCTION', @course.category&.include?('CONSTRUCTION'), id: 'course_category_construction', class: 'custom-checkbox' %>
-    <label for="course_category_construction">
-      <span class="checkmark-prod"></span>
-      CONSTRUCTION
-    </label>
-  </div>
-
-  <div class="custom-checkbox-container">
-    <%= check_box_tag 'course[category][]', 'RAIL', @course.category&.include?('RAIL'), id: 'course_category_rail', class: 'custom-checkbox' %>
-    <label for="course_category_rail">
-      <span class="checkmark-prod"></span>
-      RAIL
-    </label>
-  </div>
-
-  <div class="custom-checkbox-container">
-    <%= check_box_tag 'course[category][]', 'MANAGEMENT', @course.category&.include?('MANAGEMENT'), id: 'course_category_management', class: 'custom-checkbox' %>
-    <label for="course_category_management">
-      <span class="checkmark-prod"></span>
-      MANAGEMENT
-    </label>
-  </div>
-
-  <div class="form-actions">
-    <%= form.submit 'Create Course',id: 'submit-button', class: 'gradient-button' %>
-    <button type="button" class="gradient-button" id="generate-advert-btn">Generate Advert</button>
-  </div>
-
-  <%# <% end %>
-
-<% end %>
+  <% end %>

@@ -70,3 +70,15 @@ User.create(first_name: "Stefan",
 )
 
 puts "Create User: Stefan"
+
+puts "Delete all courses..."
+
+Course.destroy_all
+
+puts "Create Courses..."
+
+Course::COURSE_OPTIONS.each do |category, courses|
+  courses.each do |course|
+    Course.create(name: course[:name], category: category, description: course[:description])
+  end
+end
