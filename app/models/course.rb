@@ -126,20 +126,6 @@ class Course < ApplicationRecord
 
 COURSE_OPTIONS = {
   'RAIL' => [
- {
-      name: "Industry Common Induction (ICI) with LU Endorsement",
-      description: "This course is mandatory for anyone working on the London Underground network. It is a one-day course that provides an overview of health and safety in the rail industry.\n\n" \
-                    "Overview\n\n" \
-                    "Introduction\n\n" \
-                    "The Industry Common Induction (ICI) is designed to equip personnel with essential health and safety knowledge for working across various construction sites, rail depots, and station maintenance environments. This induction program, developed by Network Rail in collaboration with the Infrastructure Safety Liaison Group (ISLG) and the Rail Infrastructure Assurance Group (RIAG), addresses the universal safety protocols and risks encountered throughout the rail industry, regardless of the specific role or site type.\n\n" \
-                    "Prior to attending the ICI Assessment, candidates are advised to complete the ICI E-Learning module. It is the sponsor’s responsibility to set up the login credentials for the E-Learning platform and register the candidate for the ICI.\n\n" \
-                    "Assessment Details:\n\n" \
-                    "- **Passing Criteria:** Candidates must achieve a minimum score of 80% to pass.\n" \
-                    "- **Certification:** Successful candidates will be registered in the Sentinel system.\n" \
-                    "- **Session Timing:** 09:00 - 10:00\n\n" \
-                    "Completion of this course also qualifies candidates for the ICI LU competence certification."
-    },
-
     { name: "Rail Saw and Impact Wrench",
       description: "This course is designed for anyone who needs to use a rail saw or impact wrench. It covers the safe use of these tools and the relevant health and safety regulations." },
     { name: "Safe use of Trolley Equipment",

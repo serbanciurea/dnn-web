@@ -1,7 +1,8 @@
 <div class="individual-course">
 
-
+<div class= "create-course-container">
     <%= link_to 'Create this course', new_course_path(duplicate: true, id: @course.id) %>
+</div>
 
   <% if @courses.length > 1 %>
       <% @courses.each do |course| %>
