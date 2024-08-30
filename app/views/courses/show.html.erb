@@ -1,178 +1,19 @@
-<div class="course-details-wrapper">
-  <h1><%= @course.name %></h1>
 
-   <p><strong>Date:</strong>
-      <% if @course.start_date && @course.end_date %>
-        <%= @course.start_date.strftime("%B %d, %Y") %> - <%= @course.end_date.strftime("%B %d, %Y") %>
-      <% else %>
-        Date information not available
-      <% end %>
-    </p>
-
-  <div class="course-info">
-    <p class="price">
-      <strong>Price:</strong> £<%= number_to_currency(@course.price, unit: '') %>
-    </p>
-    <p class="location">
-      <strong>Location:</strong> <%= @course.location %>
-    </p>
-  </div>
-
-  <div class="course-description">
-    <%#= raw @course.description %>
-    <%= format_description(@course.description) %>
-  </div>
-
-
-  <% if current_user.nil? == false && current_user.admin == true %>
-  <section class="admin-actions">
-    <h3>ADMIN ACTIONS</h3>
-    <div class="admin-actions-buttons">
-      <%= link_to 'Edit', edit_course_path(@course), class: 'gradient-button' %>
-      <%= link_to 'Destroy', course_path(@course), method: :delete, data: { confirm: 'Are you sure?' }, class: 'gradient-button' %>
-      <%#= link_to 'Create this course', duplicate_course_path(@course), class: 'gradient-button' %>
-      <%= link_to 'Create this course', new_course_path(duplicate: true, id: @course.id) %>
-    </div>
-  </section>
-  <% end %>
 </div>
 
+      <% bgc = "#{@course.name.split(" ")[0].downcase}.png" %>
 
-
-
-
-
-
-
-<div class="index-courses">
-  <div class="head">
-    <div class="image-wrapper">
-      <img src="https://plus.unsplash.com/premium_photo-1661776608612-523ebf5a19d2?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="train photo">
-      <div class="overlay">
-        <h1>Training</h1>
-      </div>
-    </div>
-
+       <div class="course-post" style="background-image: url('<%= asset_path(bgc) %>')" >
+  <div class="course-post-details">
+      <p><%= @course.hours %></p>
+      <p><%= @course.price %></p>
+      <p><%= @course.location %></p>
+      <p style="
+    display: flex;
+    width: 50%;
+    position: relative;
+    top: -12%;">
+    <%= @course.start_date === @course.end_date ? "#{@course.start_date}" : "#{@course.start_date} - #{@course.end_date}" %>
+    </p>
   </div>
-
-    <h1 class="page-title">Find your courses</h1>
-
-  <%= form_with url: filter_by_category_courses_path, method: :get, local: true, id: 'filter-form' do |form| %>
-    <div id="running-form">
-      <div class="custom-checkbox-container">
-        <% @categories.each do |category| %>
-          <label>
-            <%= check_box_tag 'category[]', category, params[:category].present? && params[:category].include?(category), class: 'category-checkbox' %>
-            <%= category %>
-          </label>
-        <% end %>
-      </div>
-    </div>
-
-    <div>
-      <label for="course_name_select">Select a Course:</label>
-      <%= form.select :name, [], { prompt: 'Select a course' }, id: 'course_name_select' %>
-    </div>
-
-    <div>
-      <%= form.submit 'Filter Courses' %>
-    </div>
-  <% end %>
-
-<div id="courses-container">
-  <%= render partial: 'courses_list', locals: { courses: @courses } %>
-</div>
-
-<script type="text/javascript">
-  const courseOptions = <%= raw Course.course_options_as_json %>;
-</script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const categoryCheckboxes = document.querySelectorAll('#category-selection .custom-checkbox-container input[type="checkbox"]');
-    const courseSelect = document.getElementById('course_name_select');
-
-    function updateCourseOptions() {
-      if (categoryCheckboxes.length === 0) {
-        console.error('No category checkboxes found.');
-        return;
-      }
-
-      const selectedCategories = Array.from(categoryCheckboxes)
-        .filter(checkbox => checkbox.checked && checkbox.value !== 'ALL')
-        .map(checkbox => checkbox.value);
-
-      courseSelect.innerHTML = '<option value="">Select a course</option>';
-
-      selectedCategories.forEach(category => {
-        const courses = courseOptions[category] || [];
-        courses.forEach(course => {
-          const option = document.createElement('option');
-          option.value = course.name;
-          option.textContent = course.name;
-          courseSelect.appendChild(option);
-        });
-      });
-
-      // Add a default option for no category selected
-      if (selectedCategories.length === 0) {
-        Object.values(courseOptions).flat().forEach(course => {
-          const option = document.createElement('option');
-          option.value = course.name;
-          option.textContent = course.name;
-          courseSelect.appendChild(option);
-        });
-      }
-    }
-
-    categoryCheckboxes.forEach(checkbox => {
-      checkbox.addEventListener('change', updateCourseOptions);
-    });
-
-    updateCourseOptions();
-  });
-</script>
-
-<div class="interest-registration">
-  <div class="interest-text">
-    <h2>Don't see a course you're looking for?</h2>
-    <p>Let us know, and we'll do our best to organize one as soon as possible!</p>
-  </div>
-  <form class="interest-form">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="course-details" placeholder="What course are you interested in?" required></textarea>
-    <button type="submit" class="gradient-button">Register Interest</button>
-  </form>
-</div>
-
-
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const links = document.querySelectorAll('.category-name a');
-
-      links.forEach(link => {
-        link.addEventListener('click', (event) => {
-          event.preventDefault();
-
-          const category = event.target.dataset.category;
-          console.log(category);
-          fetch(`/courses/filter_by_category?category=${category}`, {
-            headers: {
-              'X-Requested-With': 'XMLHttpRequest'
-            }
-          })
-          .then(response => response.text())
-          .then(html => {
-            console.log(html);
-            document.getElementById('courses-container').innerHTML = html;
-          })
-          .catch(error => console.error('Error fetching courses:', error));
-        });
-      });
-    });
-  </script>
-
-
 </div>

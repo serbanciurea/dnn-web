@@ -38,8 +38,9 @@ Rails.application.routes.draw do
   #   end
   # end
   resources :courses, except: [:index, :show]
-
+  # get 'courses/:id/render_post_partial', to: 'courses#render_post_partial'
   resources :courses, only: [:index] do
+    get 'render_post_partial', on: :member
     collection do
       get 'filter_by_category'
       get ':name', to: 'courses#show_by_name', as: :show_by_name

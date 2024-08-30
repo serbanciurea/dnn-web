@@ -4,10 +4,18 @@ class CoursesController < ApplicationController
 
   before_action :set_course, only: %i[ show edit update destroy duplicate ]
 
-  before_action :authorize_course, only: [:new, :create, :edit, :update, :duplicate, :destroy]
+  before_action :authorize_course, only: [:new, :create, :edit, :update, :duplicate, :destroy, :render_post_partial]
 
   after_action :verify_authorized, except: [:index, :show, :filter_by_category, :show_by_name]
   after_action :verify_policy_scoped, only: :index
+
+  def render_post_partial
+    @course = policy_scope(Course)
+    @course = Course.find(params[:id])
+    # p 'who are you??????'
+    # p @course
+    render partial: 'course_post', locals: { course: @course }
+  end
 
   def filter_by_category
 
@@ -53,7 +61,7 @@ class CoursesController < ApplicationController
   end
 
   def index
-    @categories = ['RAIL', 'CONSTRUCTION', 'SAFETY']
+    @categories = ['RAIL', 'CONSTRUCTION', 'MEDICALS']
     @courses = policy_scope(Course)
     @courses = []
 
@@ -73,14 +81,20 @@ class CoursesController < ApplicationController
 
   def show_by_name
     @course_name = params[:name]
-    @courses = Course.where(name: @course_name)
-    Rails.logger.debug "Params in show_by_name action: #{params.inspect}"
-    Rails.logger.debug "Courses found: #{@courses.inspect}"
-    @course = @courses.first
+    all_courses = Course.where(name: @course_name)
+    @course = all_courses.first
+    @courses = all_courses[1..]
+    # Rails.logger.debug "Params in show_by_name action: #{params.inspect}"
+    # Rails.logger.debug "Courses found: #{@courses.inspect}"
 
     if params[:name].to_i != 0
       @course = Course.find(params[:name])
       @courses = Course.where(name: @course.name)
+    end
+
+    respond_to do |format|
+      format.html # This will render the default view (e.g., app/views/courses/show.html.erb)
+      format.json { render json: @courses }
     end
 
   end
@@ -114,19 +128,6 @@ class CoursesController < ApplicationController
 
   def edit
   end
-
-  # def duplicate
-  #   # Find the existing course
-  #   original_course = Course.find(params[:id])
-
-  #   # Build a new course with the same attributes as the original
-  #   @course = original_course.dup
-  #   @course.name = original_course.name
-
-  #   # Redirect to the new course form, passing along the duplicated course
-  #   # render :new
-  #   render :new
-  # end
 
   def update
     if @course.update(course_params)

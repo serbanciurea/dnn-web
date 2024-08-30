@@ -38,6 +38,10 @@ class CoursePolicy < ApplicationPolicy
   #   true
   # end
 
+  def render_post_partial?
+    true
+  end
+
   class Scope < Scope
     def resolve
         scope.all

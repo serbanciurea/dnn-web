@@ -3,29 +3,107 @@
   margin-bottom: 30px;
 }
 
+.careers-image-1 {
+  position: relative;
+  height: 100%;
+  /* Adjust height as needed */
+  width: 100%;
+  /* Adjust width as needed */
+  overflow: hidden;
+  /* Hide overflow to ensure no content spills out */
+}
+
+.background-image-1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  /* Ensure the image covers the container's width */
+  height: 100%;
+  /* Ensure the image covers the container's height */
+  object-fit: cover;
+  /* Scale image to cover the container */
+}
+
+
+.container-careers-description {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin: 40px 160px;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.description-careers {
+  box-sizing: border-box;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+}
+
+.description-careers-text {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: end;
+  gap: 0px;
+
+  h4 {
+    text-align: end;
+    font-size: 1.3em;
+    color: gray;
+  }
+}
 
 
 
-// .image-wrapper {
-//   position: relative;
-//   width: 100%;
-//   height: 300px;
-//   overflow: hidden;
-// }
+.vision-mission {
+  display: grid;
+  gap: 0px;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  i {
+      color: #EA5D30;
+    }
+}
+
+.vision {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  align-items: baseline;
+  width: 100%;
+  height: 100%;
+}
+
+.t-a {
+  text-align: left;
+
+  p {
+    padding: 5px;
+  }
+}
+
+.fa-lightbulb:before {
+  content: "\f0eb";
+  font-size: 2rem;
+}
+
+.fa-globe:before {
+  content: "\f0ac";
+  font-size: 2rem;
+}
 
 .image-wrapper img {
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
-
-// .overlay {
-//   position: absolute; /* Position the overlay relative to the .image-wrapper */
-//   top: 50%; /* Position from the top */
-//   left: 30px; /* Adjust left positioning as needed */
-//   transform: translateY(-50%); /* Center the overlay vertically */
-//   color: white; /* Text color */
-// }
 
 .image-wrapper::before {
   content: "";
@@ -38,344 +116,185 @@
   opacity: 0.6; /* Adjust the opacity as needed */
 }
 
-
-
-// First div
-
-.north,
-.emr {
-  display: flex;
-  align-items: center;
-  height: 400px;
-  padding-right: 20px;
-  padding-left: 20px;
+.divider-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+}
+.divider-image {
+  position: relative;
+  height: 50vh;
+  /* 30% of viewport height */
+  width: 100%;
+  /* Full width */
+  overflow: hidden;
+  /* Hide overflow to ensure no content spills out */
+  // background-image: url("https://images.unsplash.com/photo-1485083269755-a7b559a4fe5e?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-image: url("https://images.unsplash.com/photo-1498631906572-66c58d46ecf7?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGNvbnN0cnVjdGlvbiUyMHRlYW18ZW58MHwwfDB8fHww");
+  background-size: 100%;
+  background-position: 0% 80%;
+  // background-color: var(--grey);
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+}
+.background-image {
+  position: absolute;
+  /* Position it absolutely within the container */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Center the image */
+  min-width: 100%;
+  /* Ensure the image width covers the container */
+  min-height: 100%;
+  /* Ensure the image height covers the container */
+  object-fit: contain;
+  /* Scale image to fit within the container */
 }
 
-.north-text, .emr-text {
-  flex: 2;
+.divider-image-text {
+  position: relative;
+  color: white;
+  text-align: center;
+  z-index: 1;
+  padding: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.north-image, .emr-image {
-  flex: 1;
-  overflow: hidden;
+.divider-image-text h2 {
+  margin: 0;
+  font-size: 2em;
+  /* Larger font size for main heading */
 }
 
-
-
-// crazy stuff happening
-.container {
-  flex-wrap: wrap; /* Allows wrapping of child elements */
+.divider-image-text h4 {
+  margin: 5px 0 0;
+  font-size: 1em;
+  /* Smaller font size for subheading */
+  font-weight: normal;
 }
 
-.services {
-  flex: 0 0 200px; /* Set fixed width for the services bar */
-  padding: 20px; /* Add padding for spacing */
-  margin-bottom: 20px; /* Add margin for spacing on smaller screens */
-
-}
-
-
-
-.content-right{
-  flex: 1; /* Allow the content on the right to fill available space */
-  display: flex; /* Use flexbox to arrange content on the right */
-  justify-content: space-between; /* Space out the content evenly */
-  flex-direction: column;
-}
-
-.north,
-.emr {
-  flex: 0 0 calc(50% - 20px); /* Set width for each div on the right (50% - spacing) */
-  display: flex; /* Use flexbox to arrange text and image vertically */
-  margin-left: 20px; /* Add margin between the divs */
-}
-
-.north-image,
-.emr-image {
-  flex: 1; /* Allow the image to fill available space */
-  overflow: hidden; /* Hide overflow to prevent distortion */
-  height: 70%;
-}
-
-.north-image img,
-.emr-image img {
-  width: 100%; /* Ensure the image fills its container */
-  height: 100%; /* Ensure the image fills its container */
-}
-
-.north-text,
-.emr-text {
-  flex: 1; /* Allow text to fill available space */
-  padding: 20px; /* Add padding for spacing */
-}
-// end of dodgy code w my slave chatgbt
-
-
-.services {
-  width: 200px; /* Set a fixed width for the services bar */
-  background-color: #f8f8f8; /* Light background color */
-  padding: 20px; /* Add padding for spacing */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
-
-.services h1 {
-  font-size: 1.5em; /* Increase font size */
-  margin-top: 0; /* Remove default margin */
-  margin-bottom: 10px; /* Add margin below heading */
-  color: #333; /* Darker text color */
-  text-align: center; /* Center the heading text */
-  text-transform: uppercase; /* Capitalize the heading text */
-}
-
-.services ul {
-  list-style-type: none; /* Remove default list styling */
-  padding: 0; /* Remove default padding */
-  margin: 0; /* Remove default margin */
-}
-
-.services li {
-  margin-bottom: 10px; /* Add space between list items */
-}
-
-.services a {
-  text-decoration: none; /* Remove underline from links */
-  color: black; /* Link color */
-  font-size: 1em; /* Font size for links */
-  display: block; /* Make links block elements */
-  padding: 10px; /* Add padding for spacing */
-  border-radius: 4px; /* Rounded corners for links */
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-  text-align: left; /* Ensure text is left-aligned */
-  text-transform: uppercase; /* Capitalize the link text */
-}
-
-.services a:hover {
-  background-color: #e0e0e0; /* Change background color on hover */
-}
-
-
-//search bar set up:
-.search-bar {
-  display: flex; /* Use flexbox for the search bar layout */
-  justify-content: center; /* Center the search bar */
-  margin-bottom: 20px; /* Add space below the search bar */
-}
-
-.search-bar input[type="text"] {
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 5px 0 0 5px;
-  width: 100%; /* Make input full width */
-  max-width: 300px; /* Set max-width for larger screens */
+transparent-icons-text-1,
+.transparent-icons-text {
+  width: 200px;
+  height: 210px;
+  border: 1px solid #16202d;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
   box-sizing: border-box;
-}
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #fefefed9;
 
-.search-bar button[type="submit"] {
-  padding: 8px 16px; /* Adjust padding inside the button */
-  font-size: 10px; /* Adjust font size */
-  border: 1px solid #ccc; /* Add a border */
-  border-left: none; /* Remove the left border */
-  background-color: #1D2327 ; /* Set background color */
-  color: white; /* Set text color */
-  border-radius: 0 5px 5px 0; /* Rounded corners for the right side */
-  cursor: pointer; /* Change cursor to pointer */
-  transition: background-color 0.3s; /* Smooth transition for hover effect */
-}
-
-.search-bar button[type="submit"]:hover {
-  background-color: #cc4e28 ; /* Change background color on hover */
-}
-
-
-.content-right {
-  padding: 20px; /* Add padding around the content-right section */
-}
-
-.job-grid {
-  display: grid; /* Use CSS Grid for layout */
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
-  gap: 20px; /* Space between grid items */
-}
-
-.job-card {
-  background-color: #f9f9f9; /* Background color for cards */
-  padding: 20px; /* Padding inside the card */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.job-card h3 {
-  color: #333; /* Dark grey color for the heading */
-  font-size: 18px; /* Font size for the heading */
-  margin-bottom: 10px; /* Margin below the heading */
-  font-family: 'Arial', sans-serif; /* Font family for the heading */
-}
-
-.job-card p {
-  color: #555; /* Medium grey color for the paragraph */
-  font-size: 14px; /* Font size for the paragraph */
-  line-height: 1.6; /* Line height for better readability */
-  font-family: 'Arial', sans-serif; /* Font family for the paragraph */
-  margin-bottom: 20px; /* Margin below the paragraph */
-}
-
-.read-more-button {
-  padding: 10px 20px; /* Padding for the button */
-  background-color: #EA5D30 ; /* Background color */
-  color: #1D2327; /* Text color */
-  // text-decoration: none; /* Remove underline */
-  border-radius: 5px; /* Rounded corners */
-  transition: background-color 0.3s; /* Smooth transition for hover effect */
-}
-
-.read-more-button:hover {
-  background-color: #cc4e28;
-  color: #1D2327;
-}
-
-.location {
-  display: flex; /* Use flexbox for layout */
-  align-items: center; /* Center align the items */
-  margin-bottom: 10px; /* Add space below the location */
-}
-
-.location i {
-  color: #EA5D30 ; /* Color for the location icon */
-  margin-right: 5px; /* Space between the icon and text */
-}
-
-.location span {
-  font-size: 14px; /* Font size for the location text */
-  color: #555; /* Color for the location text */
-  font-family: 'Arial', sans-serif; /* Font family for the location text */
-}
-
-.content-right{
-.message {
-  margin: 40px;
-  text-align: center;
-   .h3{
-    color: red;
-    background-color: black;
-   }
-
+  i {
+    font-size: 2rem;
   }
 
-  .a{
-    color: black;
-    background-color: black;
+  p:nth-of-type(1) {
+    font-family: 'Switzer-Bold';
   }
-  .whatsapp-join {
-    text-align: center;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    max-width: 500px;
-    background-color: #f9f9f9;
+}
+
+.icon {
+  font-size: 24px;
+  /* Adjust icon size */
+  margin-bottom: 5px;
+}
+
+.transparent-icons-text-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: baseline;
+  justify-content: center;
+  justify-items: center;
+  margin: 10px 20%;;
+}
+
+.up {
+  align-self: center;
+}
+
+
+.interest-form input,
+.interest-form textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.interest-form input[type="file"] {
+  padding: 0;
+}
+
+@media (max-width: 1322px) {
+  .container-careers-description {
+    margin: 40px 5%;
+  }
+}
+
+@media (max-width: 1280px) {
+  .transparent-icons-text-container {
+        // margin: 10px 100px;
   }
 
-  .qr-code-wrapper {
-    height: 100%;
-    width: 100%;
-    margin-top:20px;
+}
+
+@media (max-width: 971px) {
+  .transparent-icons-text-container {
+    // margin: 0px;;
   }
 
-  .qr-code {
-    width: 100%;
-    max-width: 500px; /* Set max-width for larger screens */
+  .container-careers-description {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 920px) {
+
+  .divider-image {
     height: auto;
+    padding-bottom: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 80%;
   }
-
-  .registration {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    padding-bottom: 50px;
-    color: black;
+  .transparent-icons-text-container {
+    grid-template-columns: 1fr 1fr;
   }
+}
 
-  .title{
-    h1{
-
-
-    text-align: center;
-    margin-top: 70px;
-    margin-bottom: 70px;
-    }
+@media (max-width: 700px) {
+  .divider-image {
+    background-repeat: no-repeat;
+    background-size: cover;
   }
-  .content-divider {
-    position: relative;
-    width: 100%;
-    max-width: 900px; /* Adjust as per your layout */
-    margin: 0 auto;
-    padding: 20px;
+}
+
+@media (max-width: 682px) {
+  .transparent-icons-text-container {
+    margin: 0px;
   }
+}
 
-  .divider-line {
-    position: relative;
-    margin-top: 10px;
-    width: 90%;
-    max-width: 100%;
-    border-top: 1px solid #ccc; /* Adjust color as needed */
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-
-  @media (max-width: 767px) {
-    .services {
-      flex: 0 0 100%;
-      margin-bottom: 10px; /* Add margin for spacing */
+@media (max-width: 550px) {
+  .vision-mission {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
     }
 
-    .search-bar {
-      flex-direction: column;
-    }
-
-    .search-bar input[type="text"] {
-      width: 100%;
-      margin-bottom: 10px; /* Add space between input and button */
-    }
-
-    .search-bar button[type="submit"] {
-      width: 100%;
-    }
-
-    .container {
-      flex-direction: column;
-    }
-
-    .content-right {
-      padding: 10px; /* Reduce padding for smaller screens */
-    }
-  }
-
-  @media (max-width: 991px) {
-    .container {
-      flex-direction: column;
-    }
-
-    .services {
-      margin-bottom: 20px;
-    }
-  }
-
-  @media (max-width: 1199px) {
-    .services {
-      flex: 0 0 250px; /* Adjust width for medium screens */
-    }
-  }
-
-
+        .description-careers {
+          gap: 30px;
+          grid-template-rows: auto auto;
+        }
 }
