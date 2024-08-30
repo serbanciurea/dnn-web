@@ -293,8 +293,16 @@ transparent-icons-text-1,
       grid-template-rows: 1fr 1fr;
     }
 
-        .description-careers {
-          gap: 30px;
-          grid-template-rows: auto auto;
+    .description-careers {
+      gap: 30px;
+      grid-template-rows: auto auto;
+    }
+
+        .divider-image-text h4 {
+          margin: 0;
         }
+
+                .transparent-icons-text {
+                  width: auto;
+                }
 }
