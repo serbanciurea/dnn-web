@@ -28,10 +28,9 @@
         <%#= format_description(@course.description) %>
       </p>
       <div class="course-actions">
-        <%#= link_to 'READ MORE', course_path(course), class: 'gradient-button' %>
-        <%= link_to 'READ MORE', show_by_name_courses_path(course.name), class: 'gradient-button' %>
+        <%= link_to 'MORE', show_by_name_courses_path(course.name), class: 'gradient-button' %>
         <% value = Course.where(name: course.name).length > 1 %>
-        <button class="gradient-button book-now-button" data-course="<%= course.name %>" data-modal-id="<%= course.id %>"><%= value === true ? 'BOOK NOW' : 'ENQUIRE' %></button>
+        <button class="gradient-button book-now-button" data-course="<%= course.name %>" data-modal-id="<%= course.id %>"><%= value === true ? 'BOOK' : 'ENQUIRE' %></button>
       </div>
     </div>
 

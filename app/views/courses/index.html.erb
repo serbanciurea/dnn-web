@@ -3,7 +3,7 @@
     <div class="image-wrapper">
       <img src="https://plus.unsplash.com/premium_photo-1661776608612-523ebf5a19d2?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="train photo">
       <div class="overlay">
-        <h1>Training</h1>
+        <h1 class="title-training">TRAINING</h1>
       </div>
     </div>
 
@@ -12,9 +12,10 @@
     <h1 class="page-title">Find your courses</h1>
 
   <%= form_with url: filter_by_category_courses_path, method: :get, local: true, id: 'filter-form' do |form| %>
+  <div class = "fix">
 
-    <div id="category-selection">
-      <label for="category-select" class="category-label"></label>
+    <div class="category-selection" style="width: 100vw;">
+      <label for="category-select" class="category-label" style="width: 100%;"></label>
       <%= select_tag 'category', options_for_select(@categories, params[:category]), { include_blank: 'Select a category', id: 'category-select', class: 'category-select' } %>
     </div>
 
@@ -28,6 +29,7 @@
       <%= form.submit 'Filter Courses', class: "gradient-button" %>
     </div>
   <% end %>
+  </div>
 
 <div id="courses-container">
   <%= render partial: 'courses_list', locals: { courses: @courses } %>
@@ -126,9 +128,8 @@
                 <%#= format_description(@course.description) %>
               </p>
               <div class="course-actions">
-                <%#= link_to 'READ MORE', course_path(course), class: 'gradient-button' %>
-                <%= link_to 'READ MORE', show_by_name_courses_path(course.name), class: 'gradient-button' %>
-                <button class="gradient-button book-now-button" data-course="<%= course.name %>" data-modal-id="<%= course.id %>">BOOK NOW</button>
+                <%= link_to 'MORE', show_by_name_courses_path(course.name), class: 'gradient-button' %>
+                <button class="gradient-button book-now-button" data-course="<%= course.name %>" data-modal-id="<%= course.id %>">BOOK</button>
               </div>
             </div>
 

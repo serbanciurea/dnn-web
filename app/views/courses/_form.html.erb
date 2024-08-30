@@ -50,7 +50,7 @@
 
     <% else %>
 
-      <div id="category-selection">
+      <div id="category-selection" >
         <div class="custom-checkbox-container">
           <%= check_box_tag 'course[category][]', 'CONSTRUCTION', @course.category&.include?('CONSTRUCTION'), id: 'course_category_construction', class: 'custom-checkbox' %>
           <label for="course_category_construction">
@@ -75,10 +75,6 @@
           </label>
         </div>
       </div>
-
-      <%# <select id="course_name_select">
-        <option value="">Select a course</option>
-      </select> %>
 
       <div id= "category-selection">
         <label for="course_name_select">Select a Course</label>

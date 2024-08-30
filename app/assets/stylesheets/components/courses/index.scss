@@ -16,6 +16,8 @@
   /* Adjust the opacity as needed */
 }
 
+
+
 .index-courses {
   max-width: 100%;
   /* Ensure it doesn’t exceed viewport width */
@@ -95,7 +97,6 @@
   /* Margin below the title */
   padding: 10px 0;
   /* Padding for the title */
-  font-family: 'Arial', sans-serif;
   /* Font family for the title */
 }
 
@@ -116,7 +117,6 @@
   /* Font size for the details */
   color: #555;
   /* Color for the details text */
-  font-family: 'Arial', sans-serif;
   /* Font family for the details text */
 }
 
@@ -513,10 +513,8 @@ h3 {
 }
 
 
-#category-selection {
+#category-selection, .category-selection {
   padding: 10px;
-  width: 80%;
-  margin: 0 auto;
 
   .custom-checkbox-container {
     display: flex;
@@ -527,21 +525,14 @@ h3 {
 
 }
 
-// #course-name-select {
-//   background-color: #f4f4f4
-
-//   ;
-// }
-
-// .custom-checkbox-container {
-// background-color: aqua;
-// }
 .category-select {
-    width: 100vh;
+      width: 40vh;
+      min-width: 20vh;
       font-size: 1em;
-      border: 1px solid #ddd;
+      border: 1px solid #EA5D30 ;
       border-radius: 4px;
       box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+      padding-right: 10px;
 
       &:focus {
         border-color: #007bff;
@@ -551,11 +542,12 @@ h3 {
 }
 
 #course_name_select{
-  width: 100vh;
+  min-width: 20vh;
   font-size: 1em;
-  border: 1px solid #ddd;
+  border: 1px solid #EA5D30;
   border-radius: 4px;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 40vh;
 
   &:focus {
     border-color: #007bff;
@@ -566,40 +558,127 @@ h3 {
 
 
 
+.fix {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 50px;
+}
+
+
+
+
 /* Container for the scrolling courses */
 .live-courses-container {
   position: relative;
   width: 100%;
   overflow: hidden;
-  /* Hide overflow for scrolling effect */
 }
 
 /* Styling for the courses section */
 .live-courses {
   display: flex;
   overflow-x: auto;
-  /* Enable horizontal scroll */
   scroll-behavior: smooth;
-  /* Smooth scrolling */
   gap: 20px;
-      padding: 16px;
-  /* Space between courses */
+  padding: 16px;
 }
 
 /* Styling for each course item */
 .course-item {
   flex: 0 0 auto;
-  /* Prevent items from shrinking or growing */
-  width: calc(100% / 4 - 20px);
-  /* Adjust width based on container size */
+  width: 550px;
+  /* Consistent width */
+  max-width: 100%;
   box-sizing: border-box;
-  /* Include padding and border in width */
   padding: 20px;
   background-color: #f4f4f4;
   border: 1px solid #ddd;
   border-radius: 8px;
   text-align: center;
 }
+
+/* Styling for course titles */
+.course-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  height: 3.6em;
+  /* Fixed height for 3 lines of text */
+  line-height: 1.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* Limit to 3 lines */
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  /* Allow wrapping */
+}
+
+/* Navigation buttons */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 10;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-button.left {
+  left: 15px;
+}
+
+.nav-button.right {
+  right: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .course-item {
+    width: 200px;
+    /* Smaller width on mobile */
+  }
+
+  .course-title {
+    font-size: 1em;
+    /* Adjusted font size for smaller screens */
+    height: 3.6em;
+    /* Adjusted height for 3 lines of text on mobile */
+  }
+
+  .nav-button {
+    width: 20px;
+    height: 20px;
+  }
+
+  .nav-button.left {
+    left: 10px;
+  }
+
+  .nav-button.right {
+    right: 10px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* Navigation buttons */
 .nav-button {
@@ -623,11 +702,33 @@ h3 {
 .nav-button.right {
   right: 10px;
 }
-
 @media (max-width: 768px) {
-  .course-item {
-    width: calc(100% / 2 - 20px);
-    /* Adjust for smaller screens */
+  .course-card {
+    width: 100%; /* Full width on smaller screens */
+  }
+
+  .course-title {
+    font-size: 1em; /* Adjusted font size for smaller screens */
+    height: 3.6em; /* Adjusted height for 3 lines of text on mobile */
+  }
+
+  h1{
+    font-size: 1.5em;
+    text-align: left;
+
+  }
+
+  .nav-button {
+    width: 20px;
+    height: 20px;
+  }
+
+  .nav-button.left {
+    left: 10px;
+  }
+
+  .nav-button.right {
+    right: 10px;
   }
 }
 

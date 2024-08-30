@@ -81,10 +81,11 @@ class CoursesController < ApplicationController
 
   def show_by_name
     @course_name = params[:name]
-    @courses = Course.where(name: @course_name)
-    Rails.logger.debug "Params in show_by_name action: #{params.inspect}"
-    Rails.logger.debug "Courses found: #{@courses.inspect}"
-    @course = @courses.first
+    all_courses = Course.where(name: @course_name)
+    @course = all_courses.first
+    @courses = all_courses[1..]
+    # Rails.logger.debug "Params in show_by_name action: #{params.inspect}"
+    # Rails.logger.debug "Courses found: #{@courses.inspect}"
 
     if params[:name].to_i != 0
       @course = Course.find(params[:name])

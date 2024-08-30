@@ -1,98 +1,129 @@
 <div class="individual-course">
 
-<div class= "create-course-container">
-    <%= link_to 'Create this course', new_course_path(duplicate: true, id: @course.id) %>
-</div>
-
-  <% if @courses.length > 1 %>
-      <% @courses.each do |course| %>
-
-        <div class="course-details-wrapper">
-          <h1><%= course.name %> <%= course.certification %></h1>
-
-          <p><strong>Date:</strong>
-              <% if course.start_date && course.end_date %>
-                <%= course.start_date.strftime("%B %d, %Y") %> - <%= course.end_date.strftime("%B %d, %Y") %>
-              <% else %>
-                Date information not available
-              <% end %>
-            </p>
-
-          <div class="course-info">
-            <p class="price">
-              <strong>Price:</strong> £<%= number_to_currency(course.price, unit: '') %>
-            </p>
-            <p class="location">
-              <strong>Location:</strong> <%= course.location %>
-            </p>
-          </div>
-
-          <div class="course-description">
-            <%#= raw course.description %>
-            <%= format_description(course.description) %>
-          </div>
-
-
-          <% if current_user.nil? == false && current_user.admin == true %>
-          <section class="admin-actions">
-            <h3>ADMIN ACTIONS</h3>
-            <div class="admin-actions-buttons">
-              <%= link_to 'Edit', edit_course_path(course), class: 'gradient-button' %>
-              <%= form_with(model: course, method: :delete, local: true) do |form| %>
-                <%= form.submit 'Destroy', data: { confirm: 'Are you sure?' }, class: 'gradient-button' %>
-              <% end %>
-
-              <button class="generate-post-button gradient-button" data-course-id="<%= course.id %>">Generate Social Media Post</button>
-
-
-              <div id="hidden-post-content" style="display: none;"></div>
-
-            </div>
-          </section>
-          <% end %>
-        </div>
-      <% end %>
-    <% else %>
-        <div class="course-details-wrapper">
-          <h1><%= @course.name %> <%= @course.certification %></h1>
-
-          <p><strong>Date:</strong>
-              <% if @course.start_date && @course.end_date %>
-                <%= @course.start_date.strftime("%B %d, %Y") %> - <%= @course.end_date.strftime("%B %d, %Y") %>
-              <% else %>
-                Date information not available
-              <% end %>
-            </p>
-
-          <div class="course-info">
-            <p class="price">
-              <strong>Price:</strong> £<%= number_to_currency(@course.price, unit: '') %>
-            </p>
-            <p class="location">
-              <strong>Location:</strong> <%= @course.location %>
-            </p>
-          </div>
-
-          <div class="course-description">
-            <%#= raw @course.description %>
-            <%= format_description(@course.description) %>
-          </div>
-
-
-          <% if current_user.nil? == false && current_user.admin == true %>
-            <section class="admin-actions">
-              <h3>ADMIN ACTIONS</h3>
-              <div class="admin-actions-buttons">
-                <%= link_to 'Edit', edit_course_path(@course), class: 'gradient-button' %>
-                <%= form_with(model: @course, method: :delete, local: true) do |form| %>
-                  <%= form.submit 'Destroy', data: { confirm: 'Are you sure?' }, class: 'gradient-button' %>
-                <% end %>
-              </div>
-            </section>
-          <% end %>
-        </div>
+  <% if current_user.nil? == false && current_user.admin == true %>
+    <div class= "create-course-container">
+        <%= link_to 'Create this course', new_course_path(duplicate: true, id: @course.id) %>
+    </div>
   <% end %>
+
+
+<%# PARENT DISPLAY %>
+<div class="course-details-wrapper">
+
+  <%# NAME %>
+  <h1>
+    <%= @course.name %> <%= @course.certification %>
+  </h1>
+
+  <%# DATE %>
+  <p>
+    <strong>Date:</strong>
+      <% if @course.start_date && @course.end_date %>
+          <%= @course.start_date.strftime("%B %d, %Y") %> - <%= @course.end_date.strftime("%B %d, %Y") %>
+        <% else %>
+          Date information not available
+      <% end %>
+  </p>
+
+  <%# PRICE AND LOCATION %>
+  <div class="course-info">
+    <p class="price" style="width: 100%;text-align: justify;">
+      <strong>Price:</strong> £<%= number_to_currency(@course.price, unit: '') %>
+    </p>
+    <p class="location" style="display: flex;align-items: baseline;">
+      <strong>Location:</strong> &nbsp;<%= @course.location ||  "Suite 605, Second Floor, Borehamwood
+WD6 2BW" %>
+    </p>
+  </div>
+
+  <%# DESCRIPTION %>
+  <div class="course-description">
+    <%= format_description(@course.description) %>
+  </div>
+
+  <%# ADMIN ACTIONS %>
+  <% if current_user.nil? == false && current_user.admin == true %>
+    <section class="admin-actions">
+      <h3>ADMIN ACTIONS</h3>
+        <div class="admin-actions-buttons">
+          <%= link_to 'Edit', edit_course_path(@course), class: 'gradient-button' %>
+          <%= form_with(model: @course, method: :delete, local: true) do |form| %>
+            <%= form.submit 'Destroy', data: { confirm: 'Are you sure?' }, class: 'gradient-button' %>
+          <% end %>
+
+        </div>
+    </section>
+  <% end %>
+
 </div>
+
+
+<%# COURSES (KIDS) %>
+<% if @courses.length > 0 %>
+  <% @courses.each do |course| %>
+    <div class="course-details-wrapper child-course">
+
+      <%# NAME %>
+      <h1>
+        <%= course.name %> <%= course.certification %>
+      </h1>
+
+      <%# DATE %>
+      <p>
+        <strong>Date:</strong>
+          <% if course.start_date && course.end_date %>
+              <%= course.start_date.strftime("%B %d, %Y") %> - <%= course.end_date.strftime("%B %d, %Y") %>
+            <% else %>
+              Date information not available
+          <% end %>
+      </p>
+
+      <div class="course-info">
+        <p class="price">
+          <strong>Price:</strong> £<%= number_to_currency(course.price, unit: '') %>
+        </p>
+        <p class="location">
+          <strong>Location:</strong> <%= course.location %>
+        </p>
+      </div>
+      <div class=" book-now-container">
+        <button class="gradient-button book-now-button" data-course="<%= course.name %>" data-modal-id="<%= course.id %>">BOOK</button>
+      </div>
+
+        <div id="bookingModal<%= course.id %>" class="modal" style="display: none;">
+          <div class="modal-content">
+            <h3>Book Your Spot</h3>
+            <p>You are booking the course "<span class="modal-course-name" id="modal-course-name"><%= course.name %></span>". Choose an option:</p>
+            <div class="modal-actions">
+              <a href="tel:+0771520381" class="gradient-button">Call Us</a>
+              <a href="mailto:info@dnnovation.com?subject=Booking Inquiry for <%= course.name %>" class="gradient-button">Send an Email</a>
+            </div>
+            <button class="gradient-button close-modal" data-modal-id="<%= course.id %>">Cancel</button>
+          </div>
+        </div>
+
+      <% if current_user.nil? == false && current_user.admin == true %>
+        <section class="admin-actions">
+          <h3>ADMIN ACTIONS</h3>
+          <div class="admin-actions-buttons">
+            <%= link_to 'Edit', edit_course_path(course), class: 'gradient-button' %>
+            <%= form_with(model: course, method: :delete, local: true) do |form| %>
+              <%= form.submit 'Destroy', data: { confirm: 'Are you sure?' }, class: 'gradient-button' %>
+            <% end %>
+
+            <button class="generate-post-button gradient-button" data-course-id="<%= course.id %>">PDF</button>
+
+            <div id="hidden-post-content" style="display: none;"></div>
+          </div>
+        </section>
+      <% end %>
+
+    </div>
+  <% end %>
+<% end %>
+
+</div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
@@ -136,6 +167,24 @@
         } catch (error) {
           console.error('Error generating image:', error);
         }
+      });
+    });
+  });
+</script>
+<script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.book-now-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const modalId = button.getAttribute('data-modal-id');
+        document.getElementById(`bookingModal${modalId}`).style.display = 'block';
+      });
+    });
+
+    document.querySelectorAll('.close-modal').forEach(button => {
+      button.addEventListener('click', () => {
+        const modalId = button.getAttribute('data-modal-id');
+        document.getElementById(`bookingModal${modalId}`).style.display = 'none';
       });
     });
   });

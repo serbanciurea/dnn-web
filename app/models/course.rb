@@ -8,7 +8,7 @@ COURSE_OPTIONS = {
       description: "This course is designed for anyone who needs to use a rail saw or impact wrench. It covers the safe use of these tools and the relevant health and safety regulations." },
     { name: "Track Trolley",
       description: "This course is designed for anyone who needs to use trolley equipment on the railway. It covers the safe use of trolley equipment and the relevant health and safety regulations." },
-    { name: "Cat Scan training (RD8000,EASYCAT, Cat4)",
+    { name: "Cat Scan (RD8000,EASYCAT, Cat4)",
       description: "This course is designed for anyone who needs to use a catscan on the railway. It covers the safe use of catscan equipment and the relevant health and safety regulations." }
   ],
 
