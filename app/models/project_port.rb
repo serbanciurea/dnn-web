@@ -4,7 +4,7 @@ class ProjectPort < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :collaborations, presence: true
+  # validates :collaborations, presence: true
   validates :department, presence: true
   validates :client, presence: true
   validates :sector, presence: true

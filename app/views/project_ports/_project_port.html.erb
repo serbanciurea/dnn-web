@@ -1,6 +1,6 @@
 <div id="<%= dom_id project_port %>">
 
-  <section class="show-project-hero-section" style="background-image: url('<%= cl_image_path(@project_port.photos.first.key) %>'); display: list-item; width: 100vw; height: 80vh; background-size: cover; background-position: center; margin-top: 10px;">
+  <section class="show-project-hero-section" style="background-image: url('<%= @project_port.photos ? cl_image_path(@project_port.photos.first.key) : 'careers.jpeg' %>'); display: list-item; width: 100vw; height: 80vh; background-size: cover; background-position: center; margin-top: 10px;">
   </section>
 
   <section class="project-detail">
@@ -62,13 +62,15 @@
     </div>
   </section>
 
-  <section class="admin-actions">
-    <h3>ADMIN ACTIONS</h3>
-    <div class="admin-actions-buttons">
-      <%= link_to 'EDIT THIS PROJECT', edit_project_port_path(project_port), class: 'gradient-button' %>
-      <%= button_to "DELETE THIS PROJECT", project_port, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: 'gradient-button' %>
-    </div>
-  </section>
+  <% if !current_user.nil? && current_user.admin == true %>
+    <section class="admin-actions">
+      <h3>ADMIN ACTIONS</h3>
+      <div class="admin-actions-buttons">
+        <%= link_to 'EDIT THIS PROJECT', edit_project_port_path(project_port), class: 'gradient-button' %>
+        <%= button_to "DELETE THIS PROJECT", project_port, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: 'gradient-button' %>
+      </div>
+    </section>
+  <% end %>
 
   <%# project_port.photos.each do |photo| %>
   <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
