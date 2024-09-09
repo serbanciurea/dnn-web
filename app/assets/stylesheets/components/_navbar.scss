@@ -49,7 +49,8 @@
   border: none;
   outline: none;
 
-  color: #1D2327;
+  // color: #1D2327;
+  color: var(--milky-white);
 
   background-color: inherit;
   margin: 0;
@@ -65,6 +66,7 @@
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  color: var(--milky-white);
 }
 
 .dropdown-content a {
@@ -86,6 +88,7 @@
 
 .dropdown:hover .dropbtn {
   background-color: #f9f9f9;
+  color: var(--orange);
 }
 
 .logo {
@@ -106,7 +109,12 @@
 //   color: var(--grey);
 // }
 
+.logout {
+  color: var(--milky-white);
+}
+
 .logout:hover {
+  color: var(--orange);
   background-color: var(--milky-white);
 }
 
@@ -138,7 +146,8 @@
 .hover-effect {
   font-family: 'Switzer-Bold';
   font-size: 150%;
-  color: black;
+  // color: black;
+  color: var(--milky-white);
   transition: color 0.3s ease; // Smooth transition for color change on hover
 
   &:hover {
@@ -153,7 +162,7 @@
  /* Style The Dropdown Button */
   .dropbtn {
     float: none;
-    color: black; /* Change text color to white */
+    // color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -178,14 +187,18 @@
 
   /* Links inside the dropdown */
   .dropdown-content a {
-    color: black;
+    // color: black;
+    color: var(--milky-white);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
   }
 
   /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #f1f1f1}
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: black;
+  }
 
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {
@@ -211,7 +224,8 @@
   border: none;
   outline: none;
 
-  color: #1D2327;
+  // color: #1D2327;
+  color: var(--milky-white);
 
   background-color: inherit;
   margin: 0;
@@ -270,12 +284,34 @@
   left: 0;
   z-index: 1000;
   transition: background-color 0.3s;
+  color: var(--milky-white);
+
 }
 
 .navbar.scrolled {
   background-color: #fff;
+  color: black;
   /* Change to the desired color */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .hover-effect {
+    color: black;
+  }
+
+  .hover-effect:hover {
+    color: var(--orange);
+  }
+
+    .dropdown:hover .dropbtn {
+      background-color: #f9f9f9;
+      color: var(--orange);
+    }
+
+
+.dropdown .dropbtn, .extra .dropbtn {
+  color: black
+  // color: var(--milky-white);
+}
 }
 
 .hamburger-menu {
