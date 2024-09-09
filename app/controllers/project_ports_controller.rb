@@ -34,6 +34,28 @@ class ProjectPortsController < ApplicationController
 
   def show
     @project_port
+
+    def file_size(photo)
+      photo.download.size
+    end
+
+    # Initialize variables
+    smallest_photo = nil
+    smallest_size = 0
+
+    @project_port.photos.each do |photo|
+      # Get file size
+      size = file_size(photo)
+
+      # Compare and find the smallest
+      if size > smallest_size
+        smallest_size = size
+        smallest_photo = photo
+      end
+    end
+
+    @smallest_photo = smallest_photo
+
   end
 
   def new
