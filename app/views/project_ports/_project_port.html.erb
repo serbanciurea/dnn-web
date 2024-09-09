@@ -1,6 +1,6 @@
 <div id="<%= dom_id project_port %>">
 
-  <section class="show-project-hero-section" style="background-image: url('<%= @project_port.photos ? cl_image_path(@project_port.photos.first.key) : 'careers.jpeg' %>'); display: list-item; width: 100vw; height: 80vh; background-size: cover; background-position: center; margin-top: 10px;">
+  <section class="show-project-hero-section" style="background-image: url('<%= @project_port.photos ? cl_image_path(@project_port.photos.first.key) : 'careers.jpeg' %>'); display: list-item; width: 100vw; height: 80vh; background-size: cover; background-position: center;">
   </section>
 
   <section class="project-detail">
@@ -58,7 +58,7 @@
       <%# project_port.photos.each do |photo| %>
         <%#= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
       <%# end %>
-      <%= cl_image_tag project_port.photos[1].key, id: 'project-photo' %>
+      <%= cl_image_tag @smallest_photo.key, id: 'project-photo' %>
     </div>
   </section>
 
@@ -72,8 +72,13 @@
     </section>
   <% end %>
 
-  <%# project_port.photos.each do |photo| %>
-  <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<%# <% end %>
+  <div class="cards1">
+    <% project_port.photos.each do |photo| %>
+      <div class="card-category1 full-image"
+        style="background-image: url('<%= url_for(photo) %>'); background-position: top;">
+      </div>
+    <% end %>
+  </div>
+
 
 </div>
