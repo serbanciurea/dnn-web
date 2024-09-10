@@ -27,8 +27,9 @@ puts "Destroy all users..."
 User.destroy_all
 puts "Destroy all jobs..."
 Job.destroy_all
-puts "Destroy all projects..."
-ProjectPort.destroy_all
+
+# puts "Destroy all projects..."
+# ProjectPort.destroy_all
 
 
 User.create(first_name: "Serban",
