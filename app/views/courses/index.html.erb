@@ -102,7 +102,7 @@
           <% @kids.each do |course| %>
             <div class="course-card" style="overflow: visible;">
               <%# style="min-width: 250px;" %>
-              <h3 class="course-title"><%= course.name %> <%= course.certification %></h3>
+              <h3 class="course-title"><%= course.name %> <%= course.certification.nil? %></h3>
               <p class="date-range">
                 <% if course.start_date && course.end_date %>
                   <%= course.start_date.strftime("%B %d, %Y") %> - <%= course.end_date.strftime("%B %d, %Y") %>

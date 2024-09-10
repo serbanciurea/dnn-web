@@ -54,12 +54,19 @@
       <%= format_description(project_port.description) %>
     </div>
 
-    <div class="photos">
-      <%# project_port.photos.each do |photo| %>
-        <%#= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-      <%# end %>
-      <%= cl_image_tag @smallest_photo.key, id: 'project-photo' %>
-    </div>
+    <%# <div class="photos"> %>
+      <%#= cl_image_tag @smallest_photo.key, id: 'project-photo' %>
+    <%# </div> %>
+
+      <div class="cards1">
+    <% project_port.photos.each do |photo| %>
+      <div class="card-category1 full-image"
+        style="background-image: url('<%= url_for(photo) %>'); background-position: top;">
+      </div>
+    <% end %>
+  </div>
+
+
   </section>
 
   <% if !current_user.nil? && current_user.admin == true %>
@@ -71,14 +78,6 @@
       </div>
     </section>
   <% end %>
-
-  <div class="cards1">
-    <% project_port.photos.each do |photo| %>
-      <div class="card-category1 full-image"
-        style="background-image: url('<%= url_for(photo) %>'); background-position: top;">
-      </div>
-    <% end %>
-  </div>
 
 
 </div>
