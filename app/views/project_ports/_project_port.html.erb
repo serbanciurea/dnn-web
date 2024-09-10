@@ -58,7 +58,7 @@
       <%#= cl_image_tag @smallest_photo.key, id: 'project-photo' %>
     <%# </div> %>
 
-      <div class="cards1">
+      <div class="cards1 cards-project-show" style="grid-template-columns: repeat(2, 1fr); width: 100%;">
     <% project_port.photos.each do |photo| %>
       <div class="card-category1 full-image"
         style="background-image: url('<%= url_for(photo) %>'); background-position: top;">

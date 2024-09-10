@@ -3,49 +3,11 @@
   margin-bottom: 30px;
 }
 
-
-
-// .image-wrapper {
-//   position: relative;
-//   width: 100%;
-//   height: 300px;
-//   overflow: hidden;
-
-//   // @media (max-width: 575px) {
-//   //   height: 200px; /* Adjust image height for smaller screens */
-//   // }
-
-//   // @media (min-width: 576px) and (max-width: 767px) {
-//   //   height: 250px; /* Adjust image height for small devices */
-//   // }
-// }
-
 .image-wrapper img {
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
-
-// .overlay {
-//   position: absolute; /* Position the overlay relative to the .image-wrapper */
-//   top: 50%; /* Position from the top */
-//   left: 30px; /* Adjust left positioning as needed */
-//   transform: translateY(-50%); /* Center the overlay vertically */
-//   color: white; /* Text color */
-
-//   // @media (max-width: 575px) {
-//   //   left: 15px; /* Adjust positioning for smaller screens */
-//   // }
-
-//   // @media (min-width: 576px) and (max-width: 767px) {
-//   //   left: 20px; /* Adjust positioning for small devices */
-//   // }
-// }
-
-
-
-
-/* styles.css */
 
 .box {
   // padding: 20px;            /* Padding inside the box */
@@ -169,3 +131,15 @@
 }
 
 // Smallest device
+
+
+@media (max-width: 800px) {
+
+  // .card-project-show {
+
+  // }
+
+  .project-desc {
+    grid-template-columns: 1fr !important;
+  }
+}
