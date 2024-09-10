@@ -60,3 +60,11 @@
     align-items: center;
   }
 }
+
+@media (max-width: 400px) {
+      // grid-template-columns: 2fr 3fr;
+      .f-section {
+          display: grid;
+          grid-template-columns: 2fr 3fr;
+        }
+}

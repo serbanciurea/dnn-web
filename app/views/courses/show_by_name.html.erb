@@ -1,12 +1,5 @@
 <div class="individual-course">
 
-  <% if current_user.nil? == false && current_user.admin == true %>
-    <div class= "create-course-container">
-        <%= link_to 'Create this course', new_course_path(duplicate: true, id: @course.id) %>
-    </div>
-  <% end %>
-
-
 <%# PARENT DISPLAY %>
 <div class="course-details-wrapper">
 
@@ -21,7 +14,7 @@
       <% if @course.start_date && @course.end_date %>
           <%= @course.start_date.strftime("%B %d, %Y") %> - <%= @course.end_date.strftime("%B %d, %Y") %>
         <% else %>
-          read
+          Date information not available
       <% end %>
   </p>
 
@@ -50,6 +43,8 @@ WD6 2BW" %>
           <%= form_with(model: @course, method: :delete, local: true) do |form| %>
             <%= form.submit 'Destroy', data: { confirm: 'Are you sure?' }, class: 'gradient-button' %>
           <% end %>
+
+          <%= link_to 'Create this course', new_course_path(duplicate: true, id: @course.id), class: 'gradient-button' %>
 
         </div>
     </section>
@@ -120,6 +115,11 @@ WD6 2BW" %>
 
     </div>
   <% end %>
+  <% else %>
+    <div class="course-details-wrapper">
+      <p class="course-description" style="border-left: 5px solid red; background-color: rgba(255, 0, 0, 0.1);">  We do not have a set date for this course at the moment. However, if you are interested, please contact us to enquire about setting up a course.
+</p>
+    </div>
 <% end %>
 
 </div>
