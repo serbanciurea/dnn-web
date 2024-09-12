@@ -76,7 +76,7 @@ puts "Create User: Stefan"
 
 puts "Delete all courses..."
 
-Course.destroy_all oh my God
+Course.destroy_all
 
 puts "Create Courses..."
 
