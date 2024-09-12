@@ -11,6 +11,13 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  resources :project_ports, only: [:show] do
+    member do
+      post 'add_photo'
+      delete 'remove_photo/:photo_id', to: 'project_ports#remove_photo', as: 'remove_photo'
+    end
+  end
+
   # Root path of the application
   root 'pages#home'
 

@@ -1,15 +1,33 @@
 class ProjectPortsController < ApplicationController
+skip_before_action :authenticate_user!, only: [:index, :show, :filter_by_department]
 
-  skip_before_action :authenticate_user!, only: [:index, :show, :filter_by_department]
+  before_action :set_project_port, only: %i[ show edit update destroy add_photo remove_photo]
 
-  before_action :set_project_port, only: %i[ show edit update destroy ]
-
-  # before_action :authenticate_user!
-  before_action :authorize_project_port, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authorize_project_port, only: [:new, :create, :edit, :update, :destroy, :add_photo, :remove_photo]
   before_action :set_show_footer, only: [:new, :edit]
 
   after_action :verify_authorized, except: [:index, :show, :filter_by_department]
   after_action :verify_policy_scoped, only: :index
+
+  def add_photo
+    if params[:photo].present?
+      @project_port.photos.attach(params[:photo])  # Assuming you're using ActiveStorage
+      flash[:notice] = 'Photo added successfully.'
+    else
+      flash[:alert] = 'Please select a photo.'
+    end
+
+    redirect_to project_port_path(@project_port)
+  end
+
+  def remove_photo
+    photo = @project_port.photos.find(params[:photo_id])  # Fetch the specific photo to delete
+
+    photo.purge  # Delete the photo
+    flash[:notice] = 'Photo removed successfully.'
+
+    redirect_to project_port_path(@project_port)
+  end
 
   def filter_by_department
     if params[:department] == 'all' || params[:department].blank?

@@ -45,20 +45,9 @@ User.create(first_name: "Serban",
   approved: true
 )
 
-User.create(first_name: "Dorin",
-  last_name: "Ciurea",
-  email: "dorin@dnnovationconstruction.co.uk",
-  password: "Dnnovation1234!",
-  address: "London",
-  driver: "true",
-  phone: "12345678909",
-  pts_number: "1234567",
-  sponsor: "primary",
-  admin: true,
-  approved: true
-)
 
-puts "Create Admin: Serban"
+
+puts "Create Admin: Dorin"
 
 User.create(
   first_name: "Adrian",
