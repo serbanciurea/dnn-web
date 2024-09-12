@@ -46,33 +46,19 @@ User.create(first_name: "Serban",
 )
 
 
-
-puts "Create Admin: Dorin"
-
-User.create(
-  first_name: "Adrian",
-  last_name: "Nica",
-  email: "miriamciurea777@icloud.com",
-  password: "123456",
-  address: "HA8 5EF",
-  phone: "12345673421",
-  pts_number: "1234568",
-  sponsor: "primary"
+User.create(first_name: "Dorin",
+  last_name: "Tudoreanu",
+  email: "dorin@dnnovationconstruction.co.uk",
+  password: "",
+  address: "HA8 5ED",
+  driver: "true",
+  phone: "12345678909",
+  pts_number: "1234567",
+  sponsor: "primary",
+  admin: true,
+  approved: true
 )
 
-puts "Create User: Adrian"
-
-User.create(first_name: "Stefan",
-  last_name: "Stancu",
-  email: "miriamciurea@gmail.com",
-  password: "123456",
-  address: "HB8 5ED",
-  phone: "12341233421",
-  pts_number: "3434568",
-  sponsor: "secondary"
-)
-
-puts "Create User: Stefan"
 
 puts "Delete all courses..."
 
