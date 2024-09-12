@@ -69,34 +69,32 @@
 
   </section>
 
-
-  <% if !current_user.nil? && current_user.admin == true %>
-    <section class="admin-actions">
-      <h3>ADMIN ACTIONS</h3>
-      <div class="admin-actions-buttons">
-        <%= link_to 'EDIT THIS PROJECT', edit_project_port_path(project_port), class: 'gradient-button' %>
-        <%= button_to "DELETE THIS PROJECT", project_port, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: 'gradient-button' %>
-
-
-
-      </div>
-    </section>
-    <div class="select-photo">
+  <div class="container">
+    <% if !current_user.nil? && current_user.admin == true %>
+      <section class="admin-actions">
+        <h3>ADMIN ACTIONS</h3>
+        <div class="admin-actions-buttons">
+          <%= link_to 'EDIT THIS PROJECT', edit_project_port_path(project_port), class: 'gradient-button' %>
+          <%= button_to "DELETE THIS PROJECT", project_port, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: 'gradient-button' %>
+        </div>
+      </section>
+      <div class="select-photo">
         <h3>Add Photo</h3>
-          <%= form_with url: add_photo_project_port_path(@project_port), local: true, method: :post, multipart: true do |f| %>
-            <%= f.file_field :photo %>
-            <%= f.submit "Upload" %>
-          <% end %>
-
+        <%= form_with url: add_photo_project_port_path(@project_port), local: true, method: :post, multipart: true do |f| %>
+          <%= f.file_field :photo %>
+          <%= f.submit "Upload", class: 'gradient-button' %>
+        <% end %>
 
         <h3>Uploaded Photos</h3>
+        <div class="uploaded-photos">
           <% @project_port.photos.each do |photo| %>
-           <div class="card-category1 full-image"
-            style="background-image: url('<%= url_for(photo) %>'); background-position: top;">
-          </div>
-            <%= button_to 'Delete', remove_photo_project_port_path(@project_port, photo.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <div class="photo-card"
+                style="background-image: url('<%= url_for(photo) %>');">
+              <%= button_to 'Delete', remove_photo_project_port_path(@project_port, photo.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'gradient-button delete-button' %>
+            </div>
           <% end %>
-    </div>
-  <% end %>
-
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

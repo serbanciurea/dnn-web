@@ -88,3 +88,65 @@
 .btn:hover {
   opacity: 0.9;
 }
+
+
+
+
+.select-photo {
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.select-photo h3 {
+  margin: 0 0 10px;
+}
+
+.select-photo form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.select-photo form input[type="file"] {
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Uploaded Photos Section */
+.uploaded-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.uploaded-photos .photo-card {
+  flex: 1 1 calc(33.333% - 10px);
+  /* Adjust percentage for different column counts */
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  position: relative;
+  padding-top: 56.25%;
+  /* 16:9 aspect ratio */
+}
+
+.uploaded-photos .delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 0, 0, 0.8);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.uploaded-photos .delete-button:hover {
+  background: rgba(255, 0, 0, 1);
+}
