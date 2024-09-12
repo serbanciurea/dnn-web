@@ -1,13 +1,14 @@
 .about-section {
-  height: auto;
+  height: 50vh;
+  /* Make sure the section takes up the full viewport height */
   box-sizing: border-box;
-background-image:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
- url('https://images.unsplash.com/photo-1540103711724-ebf833bde8d1?q=80&w=2952&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') ;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1540103711724-ebf833bde8d1?q=80&w=2952&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
   color: var(--milky-white);
   background-size: cover;
+  background-attachment: fixed;
+  /* This will create the parallax effect */
   background-position: center;
   padding: 20px;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,15 +23,15 @@ background-image:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
   flex-direction: column;
   font-size: 1rem;
   box-sizing: border-box;
+}
 
-  button {
-    color: var(--milky-white);
-    font-size: 1rem;
-  }
+.about-content button {
+  color: var(--milky-white);
+  font-size: 1rem;
+}
 
-  .abt-txt {
-    text-align: left;
-  }
+.about-content .abt-txt {
+  text-align: left;
 }
 
 @media (max-width: 768px) {
