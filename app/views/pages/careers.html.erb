@@ -10,7 +10,7 @@
 <div class="container-careers-description">
 
   <div class="careers-image-1">
-    <%= image_tag 'j5.jpeg', class: 'background-image-1', alt: 'Background Image' %>
+    <img src="https://images.unsplash.com/photo-1676496235265-c7aaa94ce039?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
   </div>
 
 
@@ -27,9 +27,11 @@
 
       <h1 style="margin: 0px;">Engineering Your Dreams with Us</h1>
 
-      <h4 style="font-weight: 100">Join a team that’s passionate about innovation and excellence. At DNNOVATION, we offer an environment where your ideas can thrive and make a real impact.
-        Our collaborative culture, continuous learning opportunities, and commitment to work-life balance make us an ideal place to advance your career and achieve your goals.
+      <h4 style="font-weight: 100">
+        Join a team dedicated to innovation and excellence. At DNNovation, we provide an environment where your ideas can flourish and create a tangible impact.
+        Our collaborative culture, commitment to continuous learning, and focus on work-life balance make us an ideal setting for advancing your career and achieving your professional goals.
       </h4>
+
 
     </div>
 
@@ -41,7 +43,7 @@
           <i class="fas fa-lightbulb"></i>
         <div class="t-a">
           <h2>Vision</h2>
-          <p>Join a dynamic, growing team that values and nurtures its talented staff.</p>
+          <p>Become part of a dynamic, expanding team that values and invests in its talented members.</p>
         </div>
       </div>
 
@@ -49,7 +51,7 @@
           <i class="fas fa-globe"></i>
         <div class="t-a">
           <h2>Mission</h2>
-          <p>Develop a skilled workforce, support employees'career goals and foster their proffesional growth.</p>
+          <p>Cultivate a highly skilled workforce by supporting employees’ career aspirations and fostering their professional growth.</p>
         </div>
       </div>
     </div>
@@ -157,3 +159,20 @@
     <button type="submit" class="gradient-button">Register Interest</button>
   </form>
 </div>
+
+
+<script>
+  window.addEventListener('scroll', function() {
+    const dividerImage = document.querySelector('.divider-image');
+    const scrollPosition = window.scrollY;
+
+    // Adjust the multiplier to make the parallax effect more subtle
+    let newPosition = 70 - scrollPosition * 0.1;
+
+    // Limit the movement within a range (e.g., between 60% and 80%)
+    newPosition = Math.max(60, Math.min(newPosition, 80));
+
+    dividerImage.style.backgroundPositionY = `${newPosition}%`;
+  });
+
+</script>
