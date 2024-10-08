@@ -250,6 +250,15 @@ transparent-icons-text-1,
   border-radius: 5px;
 }
 
+.interest-registration h2,
+.interest-registration p,
+.interest-registration input,
+.interest-registration textarea,
+.interest-registration button {
+  color: black;
+  /* Make text black */
+}
+
 .interest-form input[type="file"] {
   padding: 0;
 }
@@ -260,12 +269,7 @@ transparent-icons-text-1,
   }
 }
 
-@media (max-width: 1280px) {
-  .transparent-icons-text-container {
-        // margin: 10px 100px;
-  }
-
-}
+/* Removed empty media query block for max-width: 1280px */
 
 @media (max-width: 971px) {
   .transparent-icons-text-container {
