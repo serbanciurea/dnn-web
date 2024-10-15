@@ -77,14 +77,14 @@ Rails.application.configure do
 
   config.active_job.queue_adapter = :async
 
-config.action_mailer.smtp_settings = {
-  address:              'smtp-relay.sendinblue.com',
-  port:                 587,
-  user_name:            'miriamciurea@gmail.com',
-  password:             ENV['BREVO'],
-  authentication:       'plain',
-  enable_starttls_auto: true
-}
+  config.action_mailer.smtp_settings = {
+    address:              'smtp-relay.sendinblue.com',
+    port:                 587,
+    user_name:            'dorin@dnnovationconstruction.co.uk',
+    password:             ENV['BREVO'],
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
