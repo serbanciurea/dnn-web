@@ -21,6 +21,7 @@ class ContactMailer < ApplicationMailer
     send_email_via_brevo(
       sender: { name: 'DNNovation', email: 'dorin@dnnovationconstruction.co.uk' },
       to: 'nabil@dnnovationconstruction.co.uk',
+      # to: "miriamciurea777@icloud.com",
       subject: 'New Contact Form Submission',
       html_content: html_content,
       text_content: text_content

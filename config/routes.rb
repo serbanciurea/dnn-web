@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   # end
   resources :courses, except: [:index, :show]
   # get 'courses/:id/render_post_partial', to: 'courses#render_post_partial'
+  post '/courses/register_interest', to: 'courses#register_interest', as: 'register_course_interest'
   resources :courses, only: [:index] do
     get 'render_post_partial', on: :member
     collection do
