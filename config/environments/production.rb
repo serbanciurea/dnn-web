@@ -206,7 +206,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Enable DNS rebinding protection and other host header attacks.
-  # config.hosts = ["example.com"]  # Update with your domain
+  config.hosts = ["www.dnnovationconstruction.co.uk"]
+
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
   config.active_storage.service = :cloudinary
