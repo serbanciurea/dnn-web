@@ -9,7 +9,11 @@
 class SendNewUserEmailJob < ApplicationJob
   queue_as :default
 
-  def perform(user, admin_emails)
+  def perform(user_id, admin_emails)
+
+
+    user = User.find(user_id)
+
     admin_emails.each do |admin_email|
       UserMailer.new_user_email(user, admin_email).deliver_now
     end

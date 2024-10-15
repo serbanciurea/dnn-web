@@ -175,16 +175,26 @@ Rails.application.configure do
   # Email configuration.
   config.action_mailer.perform_caching = false
   config.action_mailer.raise_delivery_errors = true  # Set to true to raise errors in production
+  # config.action_mailer.smtp_settings = {
+  #   address: 'smtp.gmail.com',
+  #   port: 587,
+  #   domain: 'yourdomain.com',  # Update to your domain
+  #   user_name: ENV['GMAIL_USERNAME'],
+  #   password: ENV['GMAIL_PASSWORD'],
+  #   authentication: 'plain',
+  #   enable_starttls_auto: true
+  # }
+
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: 'yourdomain.com',  # Update to your domain
-    user_name: ENV['GMAIL_USERNAME'],
-    password: ENV['GMAIL_PASSWORD'],
-    authentication: 'plain',
-    enable_starttls_auto: true
-  }
-  config.action_mailer.default_url_options = { host: 'yourdomain.com' }
+  address:              'smtp-relay.sendinblue.com',
+  port:                 587,
+  user_name:            'miriamciurea@gmail.com',
+  password:             ENV['BREVO'],
+  authentication:       'plain',
+  enable_starttls_auto: true
+}
+
+  config.action_mailer.default_url_options = { host: 'www.dnnovationconstruction.co.uk' }
 
   # Enable locale fallbacks for I18n.
   config.i18n.fallbacks = true

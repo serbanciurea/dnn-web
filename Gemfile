@@ -1,5 +1,12 @@
 source "https://rubygems.org"
 
+gem 'httparty'
+
+
+gem 'sib-api-v3-sdk'
+
+gem 'brevo'
+
 ruby "3.1.2"
 
 gem 'tinymce-rails'
