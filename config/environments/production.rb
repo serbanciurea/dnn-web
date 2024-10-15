@@ -188,7 +188,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
   address:              'smtp-relay.sendinblue.com',
   port:                 587,
-  user_name:            'miriamciurea@gmail.com',
+  user_name:            'dorin@dnnovationconstruction.co.uk',
   password:             ENV['BREVO'],
   authentication:       'plain',
   enable_starttls_auto: true

@@ -47,7 +47,7 @@ class UserMailer < ApplicationMailer
     text_content = render_template('user_mailer/new_user_email.text.erb')
 
     send_email_via_brevo(
-      sender: { name: 'DNN', email: 'miriamciurea@gmail.com' },
+      sender: { name: 'DNNovation', email: 'dorin@dnnovationconstruction.co.uk' },
       to: admin_email,
       subject: 'New User Created',
       html_content: html_content,
@@ -64,7 +64,7 @@ class UserMailer < ApplicationMailer
     text_content = render_template('user_mailer/competency_expiration_email.text.erb')
 
     send_email_via_brevo(
-      sender: { name: 'DNN', email: 'miriamciurea@gmail.com' },
+      sender: { name: 'DNNovation', email: 'dorin@dnnovationconstruction.co.uk' },
       to: @user.email,
       subject: "#{competency.name.capitalize} Competency Expiration Notice",
       html_content: html_content,
@@ -81,7 +81,7 @@ class UserMailer < ApplicationMailer
     text_content = render_template('user_mailer/send_job_email.text.erb')
 
     send_email_via_brevo(
-      sender: { name: 'DNN', email: 'miriamciurea@gmail.com' },
+      sender: { name: 'DNNovation', email: 'dorin@dnnovationconstruction.co.uk' },
       to: @user.email,
       subject: "Job Opportunity: #{@job.title}",
       html_content: html_content,
@@ -97,7 +97,7 @@ class UserMailer < ApplicationMailer
     text_content = render_template('user_mailer/approval_email.text.erb')
 
     send_email_via_brevo(
-      sender: { name: 'DNN', email: 'miriamciurea@gmail.com' },
+      sender: { name: 'DNNovation', email: 'dorin@dnnovationconstruction.co.uk' },
       to: @user.email,
       subject: 'Your account has been approved',
       html_content: html_content,
@@ -113,7 +113,7 @@ class UserMailer < ApplicationMailer
     text_content = render_template('user_mailer/rejection_email.text.erb')
 
     send_email_via_brevo(
-      sender: { name: 'DNN', email: 'miriamciurea@gmail.com' },
+      sender: { name: 'DNNovation', email: 'dorin@dnnovationconstruction.co.uk' },
       to: @user.email,
       subject: 'Your account has been rejected',
       html_content: html_content,
