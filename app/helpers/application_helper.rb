@@ -15,7 +15,7 @@ module ApplicationHelper
     formatted_description.html_safe
   end
 
-    def truncate_html(html, length: 100, omission: '...')
+  def truncate_html(html, length: 100, omission: '...')
     return '' if html.nil? || length <= 0
 
     # Simple HTML tag handler
