@@ -1,19 +1,32 @@
 class CoursesController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [:index, :show, :filter_by_category, :show_by_name]
+  skip_before_action :authenticate_user!, only: [:index, :show, :filter_by_category, :show_by_name, :register_interest]
 
   before_action :set_course, only: %i[ show edit update destroy duplicate ]
 
   before_action :authorize_course, only: [:new, :create, :edit, :update, :duplicate, :destroy, :render_post_partial]
 
-  after_action :verify_authorized, except: [:index, :show, :filter_by_category, :show_by_name]
+  after_action :verify_authorized, except: [:index, :show, :filter_by_category, :show_by_name, :register_interest]
   after_action :verify_policy_scoped, only: :index
+
+  def register_interest
+    @contact = Contact.new(contact_params)
+
+    if @contact.save
+      # Trigger the email notification to the admin
+      ContactMailer.contact_email(@contact).deliver_now
+      Rails.logger.info "Contact email sent successfully."
+      redirect_to courses_path, notice: 'Thank you for your interest! We will get back to you soon.'
+    else
+      # If saving fails, re-render the index page with an error message
+      @courses = Course.all  # Ensure you reload the courses for the index view
+      redirect_to root_path, alert: 'There was an error submitting your form.'
+    end
+  end
 
   def render_post_partial
     @course = policy_scope(Course)
     @course = Course.find(params[:id])
-    # p 'who are you??????'
-    # p @course
     render partial: 'course_post', locals: { course: @course }
   end
 
@@ -103,8 +116,6 @@ class CoursesController < ApplicationController
   end
 
   def new
-    p "here come the params #{params}"
-    # if params[:duplicate]
     if params[:duplicate] == 'true' && params[:id].present?
       original_course = Course.find(params[:id])
       @course = original_course.dup
@@ -119,7 +130,6 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     if @course.save
-      # redirect_to show_by_name, notice: 'Course was successfully created.'
       redirect_to show_by_name_courses_path(name: @course.name), notice: 'Course was successfully created.'
     else
       render :new
@@ -162,6 +172,10 @@ class CoursesController < ApplicationController
       :certification,
       category: []
     )
+  end
+
+  def contact_params
+    params.require(:contact).permit(:name, :email, :message)
   end
 
   def authorize_course

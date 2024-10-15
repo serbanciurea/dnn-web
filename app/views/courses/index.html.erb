@@ -180,19 +180,29 @@
   <span class="divider-text">Something you'd like to see ?</span>
 </div>
 
-
-
 <div class="interest-registration">
   <div class="interest-text">
     <h2>Don't see a course you're looking for?</h2>
     <p>Let us know, and we'll do our best to organize one as soon as possible!</p>
   </div>
-  <form class="interest-form">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="course-details" placeholder="What course are you interested in?" required></textarea>
-    <button type="submit" class="gradient-button">Register Interest</button>
-  </form>
+  <%= form_with(model: @contact, local: true, url: register_course_interest_path, html: { class: "interest-form" }) do |form| %>
+    <div class="pair">
+      <%= form.text_field :name, placeholder: "Your Name", name: "contact[name]", required: true, class: "input" %>
+    </div>
+    <div class="pair">
+      <%= form.email_field :email, placeholder: "Your Email", name: "contact[email]", required: true, class: "input" %>
+    </div>
+    <div class="pair">
+      <%= form.text_area :message, placeholder: "What course are you interested in?", name: "contact[message]", required: true, class: "input" %>
+    </div>
+    <div class="pair">
+      <%= form.submit "Register Interest", class: "gradient-button" %>
+    </div>
+  <% end %>
 </div>
+
+
+
+
 
 </div>
