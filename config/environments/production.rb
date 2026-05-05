@@ -124,8 +124,8 @@ Rails.application.configure do
   config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
-  # Ensure that a master key is made available to decrypt credentials.
-  config.require_master_key = true
+  # Runtime still requires RAILS_MASTER_KEY, but Docker asset precompile uses SECRET_KEY_BASE_DUMMY.
+  config.require_master_key = ENV["SECRET_KEY_BASE_DUMMY"].blank?
 
   # Disable serving static files from `public/`, relying on NGINX/Apache to do so.
   config.public_file_server.enabled = true
@@ -153,6 +153,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Accel-Redirect" # for NGINX
 
   # Force all access to the app over SSL.
+  config.assume_ssl = true
   config.force_ssl = true
 
   # Log to STDOUT by default.
@@ -169,8 +170,8 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job.
   config.active_job.queue_adapter = :inline  # or :resque, :delayed_job, etc.
 
-  # Use a different cache store in production if needed.
-  config.cache_store = :mem_cache_store
+  # Keep production deploy simple on Render without requiring Memcached.
+  config.cache_store = :memory_store
 
   # Email configuration.
   config.action_mailer.perform_caching = false
@@ -194,7 +195,8 @@ Rails.application.configure do
   enable_starttls_auto: true
 }
 
-  config.action_mailer.default_url_options = { host: 'www.dnnovationconstruction.co.uk' }
+  app_host = ENV.fetch("APP_HOST") { ENV.fetch("RENDER_EXTERNAL_HOSTNAME", "www.dnnovationconstruction.co.uk") }
+  config.action_mailer.default_url_options = { host: app_host, protocol: "https" }
 
   # Enable locale fallbacks for I18n.
   config.i18n.fallbacks = true
@@ -205,8 +207,13 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Enable DNS rebinding protection and other host header attacks.
-  config.hosts = ["www.dnnovationconstruction.co.uk"]
+  # Enable DNS rebinding protection and allow both Render and custom domains.
+  config.hosts = [
+    "www.dnnovationconstruction.co.uk",
+    "dnnovationconstruction.co.uk",
+    ENV["APP_HOST"],
+    ENV["RENDER_EXTERNAL_HOSTNAME"]
+  ].compact
 
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
