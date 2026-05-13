@@ -207,6 +207,7 @@ Rails.application.configure do
 
   # Enable DNS rebinding protection and other host header attacks.
   config.hosts = ["www.dnnovationconstruction.co.uk"]
+  config.hosts << "dnn-web.onrender.com"
 
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
